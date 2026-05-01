@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>如何看懂 GIA 鑑定書 — 5 分鐘完整解析 | BrillianceLab</title>
+<meta name="description" content="從零開始看懂 GIA 鑽石鑑定書:4Cs、比例圖、Polish/Symmetry/Fluorescence 全解析。學會辨識「真 Excellent」與「邊緣 Excellent」的差距,用 BrillianceLab 工具評估你的鑽石。" />
+<meta name="theme-color" content="#faf8f3" />
+<link rel="canonical" href="https://brilliancelab.vercel.app/blog/gia-guide" />
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brilliancelab.vercel.app/blog/gia-guide" />
+<meta property="og:title" content="如何看懂 GIA 鑑定書 — 5 分鐘完整解析 | BrillianceLab" />
+<meta property="og:description" content="GIA 報告書全解析:4Cs、比例圖、Polish/Symmetry/Fluorescence,以及如何用 BrillianceLab 客觀評估鑽石。" />
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "wk7c4j2r47");
+</script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8223268344248663" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8223268344248663" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ivory: { 50:'#fffdf7', 100:'#faf8f3', 200:'#f3ede0' },
+          ink:   { 950:'#0e0f1a', 900:'#1a1d2e', 800:'#2c2f40', 700:'#4a4d5e', 500:'#7e8194', 400:'#a4a6b6', 300:'#c5c6d2' },
+          gold:  { 50:'#fbf3df', 100:'#f5e9d0', 200:'#ecd9a9', 300:'#d4b87a', 400:'#c9a45c', 500:'#b89146', 600:'#8a6e30', 700:'#5e4a1f' }
+        },
+        fontFamily: {
+          display: ['"Noto Serif TC"', '"Microsoft JhengHei"', '"PingFang TC"', 'Georgia', 'serif'],
+          sans: ['Inter', '"Microsoft JhengHei"', '"PingFang TC"', '"Noto Sans TC"', '-apple-system', 'system-ui', 'sans-serif']
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  :root{
+    --bg:#faf8f3; --surface:#ffffff;
+    --ink:#1a1d2e; --ink-2:#4a4d5e; --muted:#7e8194;
+    --gold:#c9a45c; --gold-deep:#8a6e30; --gold-soft:#fbf3df;
+    --border:#ebe6dc; --line:#f1ede3;
+  }
+  html,body{background:var(--bg);color:var(--ink)}
+  body::before{
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:-1;
+    background:
+      radial-gradient(800px 500px at 12% -8%, rgba(201,164,92,.16), transparent 60%),
+      radial-gradient(700px 480px at 100% 0%, rgba(201,164,92,.10), transparent 60%),
+      linear-gradient(180deg,#faf8f3 0%, #fffdf7 40%, #faf8f3 100%);
+  }
+  .gold-text{ background:linear-gradient(180deg,#c9a45c 0%, #8a6e30 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .card{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow: 0 1px 2px rgba(31,29,44,.04), 0 14px 30px -18px rgba(138,110,48,.18); }
+  .chip{ display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border-radius:9999px; font-size:11px; letter-spacing:.04em; font-weight:600; line-height:1.4; border:1px solid var(--border); background:#fff; color:var(--ink-2); }
+  .chip.ideal{ background:var(--gold-soft); color:var(--gold-deep); border-color:rgba(201,164,92,.4); }
+  .lang-toggle{ display:inline-flex; border:1px solid var(--border); border-radius:9999px; overflow:hidden; background:#fff; }
+  .lang-toggle button{ padding:6px 12px; font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.04em; line-height:1; }
+  .lang-toggle button.active{ background:linear-gradient(180deg,#d4b87a,#8a6e30); color:#fff; }
+
+  .ad-slot{ border:1px dashed var(--border); border-radius:14px; background:#fff; color:var(--muted); font-size:11px; letter-spacing:.18em; text-transform:uppercase; display:flex; align-items:center; justify-content:center; }
+
+  /* Article typography */
+  .prose-zh, .prose-en {
+    line-height: 1.85; font-size: 16px;
+  }
+  .prose-zh { font-family: 'Noto Serif TC', 'Microsoft JhengHei', Georgia, serif; }
+  .prose-zh h2, .prose-en h2 {
+    font-family: 'Noto Serif TC','Microsoft JhengHei',Georgia,serif;
+    font-weight: 700; font-size: 26px; margin: 48px 0 14px;
+    color: var(--ink); letter-spacing: -.005em;
+    border-left: 3px solid var(--gold); padding-left: 14px;
+  }
+  .prose-zh h3, .prose-en h3 {
+    font-family: 'Noto Serif TC','Microsoft JhengHei',Georgia,serif;
+    font-weight: 700; font-size: 18.5px; margin: 28px 0 10px; color: var(--ink-2);
+  }
+  .prose-zh p, .prose-en p { margin: 14px 0; color: var(--ink-2); }
+  .prose-zh ul, .prose-en ul { margin: 14px 0 14px 22px; list-style: disc; color: var(--ink-2); }
+  .prose-zh li, .prose-en li { margin: 6px 0; }
+  .prose-zh strong, .prose-en strong { color: var(--ink); font-weight: 700; }
+  .prose-zh em, .prose-en em { font-style: normal; color: var(--gold-deep); font-weight: 600; }
+  .prose-zh blockquote, .prose-en blockquote {
+    margin: 22px 0; padding: 16px 20px;
+    background: var(--gold-soft); border-left: 3px solid var(--gold);
+    border-radius: 0 12px 12px 0; color: var(--ink); font-style: normal;
+  }
+  .prose-zh blockquote p, .prose-en blockquote p { margin: 0; color: var(--ink); }
+  .prose-zh a, .prose-en a { color: var(--gold-deep); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .prose-zh a:hover, .prose-en a:hover { color: var(--gold); }
+  .prose-zh code, .prose-en code {
+    background: #f3ede0; color: var(--ink); border-radius: 6px;
+    padding: 2px 7px; font-size: 14px; font-family: ui-monospace, Menlo, Consolas, monospace;
+  }
+  .toc a { display: block; padding: 6px 0; color: var(--ink-2); border-bottom: 1px dashed transparent; transition: color .15s, border-color .15s; }
+  .toc a:hover { color: var(--gold-deep); border-bottom-color: rgba(201,164,92,.4); }
+  .toc-num { display:inline-block; width:22px; color: var(--gold); font-family: 'Noto Serif TC', serif; font-weight:700; }
+
+  @media (max-width: 640px){
+    .hide-sm { display:none; }
+    .prose-zh, .prose-en { font-size: 15.5px; }
+    .prose-zh h2, .prose-en h2 { font-size: 22px; margin-top: 36px; }
+    .prose-zh h3, .prose-en h3 { font-size: 17px; }
+  }
+</style>
+
+<!-- Article schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"如何看懂 GIA 鑑定書 — 5 分鐘完整解析",
+  "alternativeHeadline":"How to Read a GIA Diamond Report in 5 Minutes",
+  "description":"從零開始看懂 GIA 鑽石鑑定書:4Cs、比例圖、Polish/Symmetry/Fluorescence 全解析。",
+  "image":"https://brilliancelab.vercel.app/og-gia-guide.png",
+  "datePublished":"2026-05-01",
+  "dateModified":"2026-05-01",
+  "author":{ "@type":"Organization", "name":"BrillianceLab" },
+  "publisher":{
+    "@type":"Organization",
+    "name":"BrillianceLab",
+    "logo":{ "@type":"ImageObject", "url":"https://brilliancelab.vercel.app/logo.png" }
+  },
+  "mainEntityOfPage":{ "@type":"WebPage", "@id":"https://brilliancelab.vercel.app/blog/gia-guide" },
+  "inLanguage":["zh-TW","en"]
+}
+</script>
+</head>
+
+<body class="font-sans antialiased text-ink-900">
+
+<!-- ============== NAV ============== -->
+<header class="sticky top-0 z-40 backdrop-blur bg-ivory-100/85 border-b border-[var(--border)]">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3">
+      <span class="relative inline-flex w-9 h-9 items-center justify-center">
+        <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none">
+          <path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#gN)" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M3.5 9h17M8 9l4-6 4 6M8 9l4 12 4-12" stroke="url(#gN)" stroke-width="1" stroke-linejoin="round"/>
+          <defs><linearGradient id="gN" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs>
+        </svg>
+      </span>
+      <span class="leading-none">
+        <span class="block font-display font-semibold text-[18px] gold-text tracking-wide">BrillianceLab</span>
+        <span class="block mt-1 text-[10px] uppercase tracking-[0.22em] text-ink-500 hide-sm">璀璨實驗室 · Diamond Cut Filter</span>
+      </span>
+    </a>
+    <div class="flex items-center gap-4">
+      <a href="/" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="← 回主頁工具" data-en="← Back to tool">← 回主頁工具</a>
+      <div class="lang-toggle" id="langToggle">
+        <button data-lang="zh" class="active">中文</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============== HERO ============== -->
+<section class="relative pt-12 sm:pt-16 pb-8">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8">
+    <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3">
+      <span data-zh="部落格 · 鑽石購買指南" data-en="Blog · Diamond Buyer's Guide">部落格 · 鑽石購買指南</span>
+    </div>
+    <h1 class="font-display font-bold leading-[1.15] text-[34px] sm:text-[48px] tracking-tight">
+      <span data-zh="如何看懂 GIA 鑑定書" data-en="How to Read a GIA Diamond Report">如何看懂 GIA 鑑定書</span><br/>
+      <span class="gold-text" data-zh="5 分鐘完整解析" data-en="A 5-minute Complete Guide">5 分鐘完整解析</span>
+    </h1>
+    <div class="mt-6 flex flex-wrap items-center gap-4 text-[12px] text-ink-500 uppercase tracking-[.12em]">
+      <span>2026.05.01</span>
+      <span>·</span>
+      <span data-zh="閱讀時間 5 分鐘" data-en="5 min read">閱讀時間 5 分鐘</span>
+      <span>·</span>
+      <span data-zh="作者 BrillianceLab" data-en="By BrillianceLab">作者 BrillianceLab</span>
+    </div>
+    <p class="mt-7 text-[15.5px] sm:text-[17px] text-ink-700 leading-[1.85]"
+       data-zh="買鑽石看不懂鑑定書,等於買名牌包不看吊牌。本篇從零開始,帶你看懂 GIA 報告書上每一個欄位,並抓出 4 個能用 BrillianceLab 評估「真實閃亮度」的關鍵數字。"
+       data-en="Buying a diamond without reading the report is like buying a luxury bag without checking the tag. This guide walks through every field on a GIA report and pinpoints the four numbers you'll need to score real-world brilliance with BrillianceLab.">
+       買鑽石看不懂鑑定書,等於買名牌包不看吊牌。本篇從零開始,帶你看懂 GIA 報告書上每一個欄位,並抓出 4 個能用 BrillianceLab 評估「真實閃亮度」的關鍵數字。
+    </p>
+  </div>
+</section>
+
+<!-- ============== TOC + AD ============== -->
+<section class="max-w-3xl mx-auto px-5 sm:px-8 my-8">
+  <div class="card p-5 sm:p-6 toc">
+    <div class="text-[11px] uppercase tracking-[.22em] text-gold-600 font-semibold mb-3">
+      <span data-zh="目錄" data-en="Contents">目錄</span>
+    </div>
+    <div class="text-[14px] sm:text-[14.5px]" data-zh-text data-en-text>
+      <a href="#why-gia"><span class="toc-num">01</span><span data-zh="為什麼買鑽石一定要看 GIA?" data-en="Why GIA matters">為什麼買鑽石一定要看 GIA?</span></a>
+      <a href="#verify"><span class="toc-num">02</span><span data-zh="線上驗證鑑定書真偽" data-en="Verify the report online">線上驗證鑑定書真偽</span></a>
+      <a href="#4cs"><span class="toc-num">03</span><span data-zh="4Cs:鑽石價格的四大支柱" data-en="The 4Cs explained">4Cs:鑽石價格的四大支柱</span></a>
+      <a href="#proportions"><span class="toc-num">04</span><span data-zh="比例圖:BrillianceLab 評分的核心" data-en="The Proportions diagram (the BrillianceLab inputs)">比例圖:BrillianceLab 評分的核心</span></a>
+      <a href="#advanced"><span class="toc-num">05</span><span data-zh="進階:Polish、Symmetry、Fluorescence" data-en="Advanced: Polish, Symmetry, Fluorescence">進階:Polish、Symmetry、Fluorescence</span></a>
+      <a href="#use"><span class="toc-num">06</span><span data-zh="用 BrillianceLab 計分" data-en="Run the numbers in BrillianceLab">用 BrillianceLab 計分</span></a>
+      <a href="#faq"><span class="toc-num">07</span><span data-zh="常見問題" data-en="FAQ">常見問題</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-3xl mx-auto px-5 sm:px-8 my-6">
+  <div class="ad-slot h-[90px]" data-zh="廣告位 · ADVERTISEMENT" data-en="Advertisement">廣告位 · ADVERTISEMENT</div>
+  <!-- AdSense slot — blog top -->
+</section>
+
+<!-- ============== ARTICLE BODY ============== -->
+<article class="max-w-3xl mx-auto px-5 sm:px-8 pb-16">
+
+  <!-- Chinese version -->
+  <div id="proseZh" class="prose-zh">
+
+    <h2 id="why-gia">01 · 為什麼買鑽石一定要看 GIA?</h2>
+    <p>GIA(Gemological Institute of America,美國寶石學院)是全球最權威的鑽石鑑定機構,以「公正第三方」身份對每顆鑽石的 4Cs(克拉、淨度、顏色、車工)逐一檢驗。市面上其他鑑定機構(IGI、HRD、AGS)各有特色,但 <strong>GIA 仍是國際公認最嚴格、最一致的標準</strong> — 同一顆鑽石送 GIA 比送其他機構,結果常會「等級降一階」。</p>
+    <blockquote>
+      <p>一個簡單原則:有 GIA 就優先看 GIA;只有 IGI/HRD,要打個小折扣考慮。</p>
+    </blockquote>
+
+    <h2 id="verify">02 · 線上驗證鑑定書真偽</h2>
+    <p>拿到實體鑑定書後,<strong>永遠先驗證再相信</strong>:</p>
+    <ul>
+      <li>找到報告右上角的 <code>Report Number</code>(10 位數字)</li>
+      <li>連線至 <a href="https://www.gia.edu/report-check" target="_blank" rel="noopener">GIA Report Check</a></li>
+      <li>輸入 Report Number 與克拉數,系統會即時顯示這份鑑定書的所有數據</li>
+      <li>把線上資料與紙本一一比對 — 不一致 100% 是偽造</li>
+    </ul>
+
+    <h2 id="4cs">03 · 4Cs:鑽石價格的四大支柱</h2>
+    <p>每份 GIA 鑑定書的核心是 4Cs。記住 4 個 C,你就掌握了鑽石價格 95% 的決定因素。</p>
+
+    <h3>Carat(克拉)</h3>
+    <p>鑽石重量,1 克拉 = 0.2 公克。價格與克拉呈非線性 — 0.99 克拉與 1.00 克拉差價可達 20%,因為「1 克拉」是心理門檻。<em>買 0.95–0.99 克拉,實際視覺差異極小但價格便宜不少。</em></p>
+
+    <h3>Color(顏色)</h3>
+    <p>從 D(無色,最稀有)到 Z(黃)。</p>
+    <ul>
+      <li><strong>D–F</strong>:無色等級,最頂級</li>
+      <li><strong>G–J</strong>:接近無色,肉眼幾乎看不出</li>
+      <li><strong>K 以下</strong>:開始看得到黃色</li>
+    </ul>
+    <blockquote><p><em>CP 值最佳區間是 G–H</em> — 視覺上接近 D-F,但價格便宜 30–50%。</p></blockquote>
+
+    <h3>Clarity(淨度)</h3>
+    <p>從完美無瑕到肉眼可見內含物:FL → IF → VVS1 → VVS2 → VS1 → VS2 → SI1 → SI2 → I1 → I2 → I3。</p>
+    <blockquote><p><em>VS1–SI1 是 CP 值甜蜜點</em> — 肉眼看不到瑕疵,但價格比 VVS1 便宜很多。</p></blockquote>
+
+    <h3>Cut(車工)</h3>
+    <p>GIA 把車工分為 <strong>Excellent / Very Good / Good / Fair / Poor</strong>。這是 4Cs 中<strong>唯一直接決定「閃亮度」</strong>的因素,也是 BrillianceLab 重點分析的部分。</p>
+    <p>但 — <em>GIA 的 Excellent 範圍其實很廣</em>。同樣標 Excellent 的兩顆鑽石,實際閃亮度可能差 15%。這就是為什麼必須進一步看「比例圖」的數字。</p>
+
+    <h2 id="proportions">04 · 比例圖:BrillianceLab 評分的核心</h2>
+    <p>GIA 鑑定書通常有兩頁,<strong>第二頁的比例圖(Proportions)</strong>是 BrillianceLab 評分的核心資料來源。比例圖會以剖面圖標示這顆鑽石的所有測量數據。以下四個是必看:</p>
+
+    <h3>Table % — 桌面百分比</h3>
+    <ul>
+      <li>定義:鑽石頂部最大平面相對於腰圍直徑的比例</li>
+      <li>GIA 標示:<code>Table</code></li>
+      <li>理想範圍:<strong>55–56%</strong></li>
+      <li>太大:鑽石看起來「平」,缺少立體感</li>
+      <li>太小:減少正面反射光量</li>
+    </ul>
+
+    <h3>Depth % — 深度百分比</h3>
+    <ul>
+      <li>定義:鑽石總高度相對於腰圍直徑的比例</li>
+      <li>GIA 標示:<code>Depth</code> 或 <code>Total Depth</code></li>
+      <li>理想範圍:<strong>61–62.5%</strong></li>
+      <li>太深:中央會看起來黑黑的(光從亭部漏出)</li>
+      <li>太淺:出現「魚眼」效應,中間像玻璃透明</li>
+    </ul>
+
+    <h3>Crown Angle — 冠部角度</h3>
+    <ul>
+      <li>定義:鑽石上半部與腰圍的傾斜角度</li>
+      <li>GIA 標示:<code>Crown Angle</code></li>
+      <li>理想範圍:<strong>34–35°</strong></li>
+      <li>主導「火彩 (Fire)」 — 鑽石折射出彩虹光譜的能力</li>
+      <li><em>偏離 0.5° 就會明顯影響火彩強度</em></li>
+    </ul>
+
+    <h3>Pavilion Angle — 亭部角度(最關鍵!)</h3>
+    <ul>
+      <li>定義:鑽石下半部與腰圍的傾斜角度</li>
+      <li>GIA 標示:<code>Pavilion Angle</code></li>
+      <li>理想範圍:<strong>40.6–41°</strong></li>
+      <li>主導「亮度 (Brilliance)」</li>
+      <li><em>偏離 0.1° 就足以讓鑽石失去 5–10% 亮度</em></li>
+    </ul>
+    <blockquote><p>這四個數字就是 BrillianceLab 需要的全部 — 把它們輸入<a href="/">主頁的篩選器</a>,就能看到這顆鑽石的客觀光學評分。</p></blockquote>
+
+    <h2 id="advanced">05 · 進階:Polish、Symmetry、Fluorescence</h2>
+
+    <h3>Polish(拋光)</h3>
+    <p>鑽石表面打磨的精細程度。理想為 <code>Excellent (EX)</code>;<code>Very Good (VG)</code> 仍然極優,<code>Good</code> 以下會明顯影響光澤。</p>
+
+    <h3>Symmetry(對稱性)</h3>
+    <p>所有刻面是否精準對稱。<strong>這是「八心八箭」是否完美的關鍵</strong> — 只有 Symmetry = Excellent 的鑽石,在觀察鏡下才會看到完美的八心八箭圖樣。</p>
+
+    <h3>Fluorescence(螢光)</h3>
+    <p>鑽石在紫外光下發藍光的強度,從 None / Faint / Medium / Strong / Very Strong:</p>
+    <ul>
+      <li><strong>None / Faint</strong>:沒影響,放心</li>
+      <li><strong>Medium 以上</strong>:對 D–H 顏色等級的鑽石可能讓鑽石看起來「霧霧的」;但對 I–K 顏色等級反而能修飾微黃,效果更好</li>
+    </ul>
+
+    <h2 id="use">06 · 把數字放進 BrillianceLab — 5 分鐘看出真價值</h2>
+    <ol style="margin: 14px 0 14px 22px; list-style: decimal; color: var(--ink-2); line-height:1.85">
+      <li>翻開鑑定書比例圖頁</li>
+      <li>抄下 Table、Depth、Crown Angle、Pavilion Angle 四項數字</li>
+      <li>開啟 <a href="/">BrillianceLab 主頁</a> → 輸入或拖滑桿</li>
+      <li>即時看到綜合分數、各項偏差、扣分明細與一句話總結</li>
+      <li>加入比較,輸入下一顆候選鑽石,讓系統幫你排名</li>
+    </ol>
+    <blockquote><p>填上價格與克拉,系統會幫你算 <strong>CP 值評等(S+ / S / A+ / A / B / C)</strong>,直接告訴你這顆鑽石「貴不貴」。</p></blockquote>
+
+    <h2 id="faq">07 · 常見問題</h2>
+
+    <h3>Q1:沒有 GIA 鑑定書,IGI 或 HRD 可以嗎?</h3>
+    <p>可以,但要記得 IGI 與 HRD 的標準比 GIA 稍寬鬆,<strong>等級可能要降一階看待</strong>。</p>
+
+    <h3>Q2:鑽石商說「兩顆都是 Excellent」,但價差很大,為什麼?</h3>
+    <p>因為 Excellent 範圍很廣。一定要看比例圖數字,用 BrillianceLab 計算實際分數,<strong>價差通常就是「真 Excellent」與「邊緣 Excellent」的差距</strong>。</p>
+
+    <h3>Q3:亭角偏離理想 0.3°,差很多嗎?</h3>
+    <p>亭角是最敏感的參數。0.3° 偏離大約等於減損 15–25% 亮度。在實體店面用 10× 放大鏡比較,真的會看出差異。</p>
+
+    <h3>Q4:該選 D-VVS1 還是 G-VS1?</h3>
+    <p>若預算有限,<strong>G-VS1 是更聰明的選擇</strong> — 視覺上幾乎一致,但便宜 40–50%。把省下的錢拿去確保「車工」買到頂級,閃亮度提升遠比顏色淨度提升一階更有感。</p>
+  </div>
+
+  <!-- English version -->
+  <div id="proseEn" class="prose-en" style="display:none">
+
+    <h2 id="why-gia-en">01 · Why GIA matters</h2>
+    <p>GIA (the Gemological Institute of America) is the world's most authoritative diamond grading lab. As a neutral third party, it grades every diamond on the 4Cs (Carat, Clarity, Color, Cut). Other labs exist (IGI, HRD, AGS) — but <strong>GIA remains the gold standard</strong>: send the same stone elsewhere and it often comes back "one grade higher."</p>
+    <blockquote><p>Rule of thumb: trust GIA first. With IGI/HRD only, mentally discount the grade by one notch.</p></blockquote>
+
+    <h2 id="verify-en">02 · Verify the report online</h2>
+    <p>Always verify before you trust:</p>
+    <ul>
+      <li>Find the <code>Report Number</code> in the top-right corner (10 digits)</li>
+      <li>Visit <a href="https://www.gia.edu/report-check" target="_blank" rel="noopener">GIA Report Check</a></li>
+      <li>Enter the Report Number and carat — every field appears live</li>
+      <li>Match online vs. paper field-by-field. Mismatch = forgery, no exceptions.</li>
+    </ul>
+
+    <h2 id="4cs-en">03 · The 4Cs explained</h2>
+    <p>The 4Cs control 95% of a diamond's price. Master them and you've mastered the market.</p>
+
+    <h3>Carat</h3>
+    <p>Weight. 1 carat = 0.2 grams. The price–carat curve is non-linear: 0.99 ct vs 1.00 ct can differ by 20% because "1.00" is a psychological threshold. <em>Buying 0.95–0.99 ct gives near-identical visual size at a real discount.</em></p>
+
+    <h3>Color</h3>
+    <p>Graded D (colorless) to Z (yellow).</p>
+    <ul>
+      <li><strong>D–F</strong>: colorless, top tier</li>
+      <li><strong>G–J</strong>: near-colorless, virtually indistinguishable face-up</li>
+      <li><strong>K and below</strong>: yellow tint visible</li>
+    </ul>
+    <blockquote><p><em>The value sweet spot sits at G–H</em> — looks like D–F, costs 30–50% less.</p></blockquote>
+
+    <h3>Clarity</h3>
+    <p>Flawless to eye-visible: FL → IF → VVS1 → VVS2 → VS1 → VS2 → SI1 → SI2 → I1 → I2 → I3.</p>
+    <blockquote><p><em>VS1–SI1 is the value sweet spot</em> — eye-clean, far cheaper than VVS1.</p></blockquote>
+
+    <h3>Cut</h3>
+    <p>GIA grades cut as <strong>Excellent / Very Good / Good / Fair / Poor</strong>. Cut is the only C that <strong>directly determines brilliance</strong>, and it's what BrillianceLab focuses on.</p>
+    <p>But — <em>GIA's "Excellent" is a wide bucket</em>. Two stones both labeled Excellent can differ by 15% in real-world brilliance. That's why we have to read the proportions diagram.</p>
+
+    <h2 id="proportions-en">04 · The Proportions diagram (BrillianceLab inputs)</h2>
+    <p>A GIA report has two pages. <strong>The proportions diagram on page 2</strong> is the data source for BrillianceLab. The diagram shows a cross-section of the stone with all key measurements. Four numbers matter most:</p>
+
+    <h3>Table %</h3>
+    <ul>
+      <li>What it is: top flat facet expressed as a % of girdle diameter</li>
+      <li>GIA label: <code>Table</code></li>
+      <li>Ideal: <strong>55–56%</strong></li>
+      <li>Too large: looks "flat", lacks depth</li>
+      <li>Too small: less face-up brightness</li>
+    </ul>
+
+    <h3>Depth %</h3>
+    <ul>
+      <li>What it is: total height as a % of girdle diameter</li>
+      <li>GIA label: <code>Depth</code> or <code>Total Depth</code></li>
+      <li>Ideal: <strong>61–62.5%</strong></li>
+      <li>Too deep: dark center (light leaks through pavilion)</li>
+      <li>Too shallow: "fish-eye" transparency</li>
+    </ul>
+
+    <h3>Crown Angle</h3>
+    <ul>
+      <li>What it is: angle of the upper crown to the girdle</li>
+      <li>GIA label: <code>Crown Angle</code></li>
+      <li>Ideal: <strong>34–35°</strong></li>
+      <li>Drives Fire — rainbow flashes</li>
+      <li><em>0.5° off and Fire visibly weakens</em></li>
+    </ul>
+
+    <h3>Pavilion Angle (the critical one)</h3>
+    <ul>
+      <li>What it is: angle of the lower pavilion to the girdle</li>
+      <li>GIA label: <code>Pavilion Angle</code></li>
+      <li>Ideal: <strong>40.6–41°</strong></li>
+      <li>Drives Brilliance</li>
+      <li><em>Just 0.1° off can shave 5–10% off brilliance</em></li>
+    </ul>
+    <blockquote><p>These four numbers are everything BrillianceLab needs. Plug them into the <a href="/">scorer on the home page</a> for an objective optical rating.</p></blockquote>
+
+    <h2 id="advanced-en">05 · Advanced: Polish, Symmetry, Fluorescence</h2>
+
+    <h3>Polish</h3>
+    <p>Surface finish. Ideal is <code>Excellent (EX)</code>. <code>Very Good (VG)</code> still excellent. Anything below <code>Good</code> visibly dulls the surface.</p>
+
+    <h3>Symmetry</h3>
+    <p>How precisely facets align. <strong>This is what makes Hearts &amp; Arrows possible</strong> — only Symmetry = Excellent stones show clean H&amp;A patterns under a viewer.</p>
+
+    <h3>Fluorescence</h3>
+    <p>Blue glow under UV. None / Faint / Medium / Strong / Very Strong.</p>
+    <ul>
+      <li><strong>None / Faint</strong>: no impact, safe</li>
+      <li><strong>Medium and above</strong>: on D–H stones, can cause a "milky" look. On I–K stones, often <em>improves</em> appearance by masking yellow tint.</li>
+    </ul>
+
+    <h2 id="use-en">06 · Run the numbers in BrillianceLab — 5 minutes to ground truth</h2>
+    <ol style="margin: 14px 0 14px 22px; list-style: decimal; color: var(--ink-2); line-height:1.85">
+      <li>Open the proportions page of the report</li>
+      <li>Note Table, Depth, Crown Angle, Pavilion Angle</li>
+      <li>Open <a href="/">BrillianceLab</a> → type or drag</li>
+      <li>See the live composite score, per-axis deviations, deductions and one-line summary</li>
+      <li>Add to comparison and repeat for every candidate — let the system rank them</li>
+    </ol>
+    <blockquote><p>Add price and carat too — the tool returns a <strong>Value Grade (S+ / S / A+ / A / B / C)</strong> telling you whether you're paying fair money.</p></blockquote>
+
+    <h2 id="faq-en">07 · FAQ</h2>
+
+    <h3>Q1. No GIA report — IGI or HRD ok?</h3>
+    <p>Yes, but mentally <strong>discount the grade by one notch</strong>. IGI and HRD run slightly looser than GIA.</p>
+
+    <h3>Q2. The seller says both stones are "Excellent" but prices differ widely. Why?</h3>
+    <p>Because "Excellent" is a wide bucket. Read the proportions, run BrillianceLab — <strong>that price gap usually mirrors the gap between "true Excellent" and "borderline Excellent."</strong></p>
+
+    <h3>Q3. Pavilion is 0.3° off ideal — how bad is that?</h3>
+    <p>Pavilion is the most sensitive parameter. 0.3° off ≈ a 15–25% drop in brilliance. Side-by-side under a 10× loupe, the difference is real.</p>
+
+    <h3>Q4. D-VVS1 vs G-VS1?</h3>
+    <p>On a budget, <strong>G-VS1 is the smarter pick</strong> — visually nearly identical, 40–50% cheaper. Spend the savings on guaranteed top-tier <em>cut</em>; brilliance gains beat color/clarity gains every time.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="card p-7 sm:p-9 mt-12 text-center">
+    <div class="text-[11px] uppercase tracking-[.22em] text-gold-600 font-semibold mb-3">
+      <span data-zh="開始評分" data-en="Start scoring">開始評分</span>
+    </div>
+    <h3 class="font-display text-[24px] sm:text-[28px] leading-tight">
+      <span class="gold-text" data-zh="你的鑑定書,值幾分?" data-en="What does your report score?">你的鑑定書,值幾分?</span>
+    </h3>
+    <p class="text-[14.5px] text-ink-700 mt-4 leading-[1.8] max-w-xl mx-auto"
+       data-zh="把比例圖上的四個數字輸入 BrillianceLab,30 秒看到你這顆鑽石的客觀光學潛力評分,並與其他候選鑽石一鍵比較排名。"
+       data-en="Type the four proportion numbers into BrillianceLab and get an objective optical score in 30 seconds — then rank candidates side-by-side.">
+       把比例圖上的四個數字輸入 BrillianceLab,30 秒看到你這顆鑽石的客觀光學潛力評分,並與其他候選鑽石一鍵比較排名。
+    </p>
+    <a href="/" class="inline-flex mt-7 items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold text-white"
+       style="background:linear-gradient(180deg,#d4b87a 0%,#c9a45c 50%,#8a6e30 100%); border:1px solid rgba(138,110,48,.5); box-shadow:inset 0 1px 0 rgba(255,255,255,.45), 0 8px 18px -8px rgba(138,110,48,.5)">
+      <span data-zh="開啟 BrillianceLab →" data-en="Open BrillianceLab →">開啟 BrillianceLab →</span>
+    </a>
+  </div>
+
+</article>
+
+<!-- ============== FOOTER ============== -->
+<footer class="border-t border-[var(--border)] bg-ivory-100/60">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 py-10 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" aria-hidden="true">
+        <path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#gF)" stroke-width="1.2" stroke-linejoin="round"/>
+        <defs><linearGradient id="gF" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs>
+      </svg>
+      <div class="text-[13px]">
+        <span class="font-display gold-text font-semibold">BrillianceLab</span>
+        <span class="text-ink-500"> · 璀璨實驗室</span>
+      </div>
+    </div>
+    <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500">
+      © <span id="yr"></span> · <span data-zh="本工具僅供參考" data-en="For reference only">本工具僅供參考</span>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+const lang = (() => {
+  const stored = localStorage.getItem('bl_lang');
+  if (stored === 'zh' || stored === 'en') return stored;
+  return (navigator.language || 'zh').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+})();
+
+let curLang = lang;
+
+function applyLang() {
+  document.documentElement.lang = curLang === 'zh' ? 'zh-TW' : 'en';
+  document.querySelectorAll('[data-zh]').forEach(el => {
+    const txt = el.dataset[curLang];
+    if (txt != null) el.textContent = txt;
+  });
+  document.getElementById('proseZh').style.display = curLang === 'zh' ? '' : 'none';
+  document.getElementById('proseEn').style.display = curLang === 'en' ? '' : 'none';
+  document.querySelectorAll('#langToggle button').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === curLang);
+  });
+}
+
+document.querySelectorAll('#langToggle button').forEach(b => {
+  b.addEventListener('click', () => {
+    curLang = b.dataset.lang;
+    localStorage.setItem('bl_lang', curLang);
+    applyLang();
+  });
+});
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+applyLang();
+</script>
+
+</body>
+</html>

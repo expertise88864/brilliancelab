@@ -262,6 +262,7 @@
       <a href="#how" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="使用方式" data-en="How it works"></a>
       <a href="#scorer" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="開始評分" data-en="Score"></a>
       <a href="#about" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="演算法" data-en="Algorithm"></a>
+      <a href="/blog/gia-guide" class="text-xs uppercase tracking-[.18em] text-gold-600 hover:text-gold-700 font-semibold hide-sm" data-zh="GIA 指南" data-en="GIA Guide"></a>
       <div class="lang-toggle" id="langToggle" role="tablist" aria-label="Language">
         <button data-lang="zh" class="active" aria-pressed="true">中文</button>
         <button data-lang="en" aria-pressed="false">EN</button>
@@ -674,6 +675,36 @@
   </div>
 </section>
 
+<!-- ============== SCORE BREAKDOWN ============== -->
+<section id="breakdown" class="relative pt-10 sm:pt-14 pb-2">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="card p-5 sm:p-7">
+      <div class="flex items-end justify-between flex-wrap gap-4 mb-6">
+        <div class="min-w-0">
+          <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-2" data-zh="計算結果詳解" data-en="Score breakdown"></div>
+          <h3 class="font-display text-[22px] sm:text-[28px] leading-tight">
+            <span class="gold-text" data-zh="你的分數從哪裡來?" data-en="Where your score comes from"></span>
+          </h3>
+          <p class="text-[13px] sm:text-[14px] text-ink-700 mt-2 leading-[1.7] max-w-2xl"
+             data-zh="逐項拆解每個參數對總分的貢獻、偏離程度,以及這在實際光學上代表什麼。"
+             data-en="A per-axis breakdown of how each parameter contributed, how far it deviates from ideal, and what it means optically."></p>
+        </div>
+        <div class="text-right shrink-0">
+          <div class="text-[10px] uppercase tracking-[.22em] text-ink-500" data-zh="總扣分" data-en="Total deduction"></div>
+          <div class="font-display text-[28px] sm:text-[32px] gold-text num leading-none mt-1" id="totalDeduct">−0.00</div>
+        </div>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4" id="breakdownGrid"></div>
+
+      <!-- Plain-language summary -->
+      <div class="mt-6 sm:mt-7 pt-5 sm:pt-6 border-t border-[var(--line)]">
+        <div class="text-[11px] uppercase tracking-[.22em] text-ink-500 mb-3" data-zh="一句話總結" data-en="In one sentence"></div>
+        <p id="summaryText" class="text-[14px] sm:text-[15px] text-ink-900 leading-[1.8]"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============== COMPARISON ============== -->
 <section id="compare" class="relative pt-16 pb-10">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
@@ -767,6 +798,8 @@
       <p class="text-[13px] text-ink-700 leading-[1.75]"
          data-zh="GIA、IGI、HRD 等鑑定書上的「Proportions / 比例圖」頁皆會標示 Table %、Depth %、Crown Angle、Pavilion Angle 四項數值。"
          data-en="GIA / IGI / HRD certificates list Table %, Depth %, Crown Angle and Pavilion Angle on the Proportions diagram."></p>
+      <a href="/blog/gia-guide" class="inline-block mt-3 text-[12.5px] text-gold-600 font-semibold hover:text-gold-700"
+         data-zh="完整教學:如何看懂 GIA 鑑定書 →" data-en="Read the full guide: How to read a GIA report →"></a>
     </div>
     <div class="card p-6">
       <div class="text-[14px] font-semibold mb-2" data-zh="本評分能取代鑑定書嗎?" data-en="Does this replace a lab report?"></div>
@@ -822,6 +855,29 @@ const IDEAL_RANGES = {
   depth:    { zh: '61–62.5%',   en: '61–62.5%' },
   crown:    { zh: '34–35°',     en: '34–35°' },
   pavilion: { zh: '40.6–41°',   en: '40.6–41°' }
+};
+
+const PARAM_EXPLAIN = {
+  table: {
+    ideal: { zh: '桌面位於甜蜜點 — 光線進出鑽石的入口尺寸最佳,能最大化反射回觀察者的亮光。', en: 'Table sits in the sweet spot — the optimal opening for light to enter and return to the viewer.' },
+    good:  { zh: '桌面接近理想,光學表現良好,但細微差距可能讓火彩略弱於頂級。', en: 'Close to ideal — performance is solid, with subtle distance from the very top.' },
+    off:   { zh: '桌面已偏離理想 — 太大會讓鑽石看起來平板、太小會減少正面反射回的光量。', en: 'Off ideal — too large reads "flat", too small reduces face-up light return.' }
+  },
+  depth: {
+    ideal: { zh: '深度比例完美 — 光線能在鑽石內部完整反射兩次後從正面射出,幾乎沒有漏光。', en: 'Perfect proportion — light reflects internally twice and exits the top with virtually no leakage.' },
+    good:  { zh: '比例落在理想範圍內 — 大部分光線都能正確反射,只有極微量漏光。', en: 'Within the ideal range — most light returns correctly with minimal leakage.' },
+    off:   { zh: '比例已偏離 — 太深會讓鑽石「黑底」(光從亭部漏出),太淺會出現「魚眼」效應(中間像玻璃)。', en: 'Off ideal — too deep causes a dark center; too shallow produces a "fish-eye" transparency.' }
+  },
+  crown: {
+    ideal: { zh: '冠角絕佳 — 折射出最強烈的彩虹光譜,「火彩 (Fire)」表現一流。', en: 'Excellent crown angle — drives strong rainbow flashes, top-tier Fire.' },
+    good:  { zh: '冠角接近理想 — 火彩良好,但與頂級鑽石相比仍有可辨識的差距。', en: 'Near-ideal — Fire is good but distinguishable from top diamonds.' },
+    off:   { zh: '冠角偏離 — 太陡會讓鑽石看起來厚重,太淺會減弱火彩強度。', en: 'Off ideal — too steep looks heavy, too shallow weakens Fire.' }
+  },
+  pavilion: {
+    ideal: { zh: '亭角完美 — 鑽石最關鍵的角度,確保光線從正面 100% 反射回來,亮度 (Brilliance) 達到頂峰。', en: 'Perfect pavilion — the most critical angle. Light returns face-up at maximum brilliance.' },
+    good:  { zh: '亭角接近理想 — 亮度良好,但即使偏離 0.1° 都足以讓鑽石失去 5–10% 亮度。', en: 'Near-ideal — even 0.1° off can shave 5–10% off brilliance.' },
+    off:   { zh: '亭角顯著偏離 — 這是影響鑽石閃亮度最關鍵的單一因素,建議重新評估這顆鑽石。', en: 'Off ideal — pavilion deviation is the single biggest brilliance killer. Reconsider.' }
+  }
 };
 
 const ADV_DEFAULTS = {
@@ -1336,8 +1392,90 @@ function updateAffiliate() {
   if (bn) bn.href = bnURL + utm;
   if (ja) ja.href = jaURL + utm;
 }
+/* ---------- Score breakdown (per-axis cards + summary) ---------- */
+function renderBreakdown() {
+  const grid = document.getElementById('breakdownGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  const result = evaluate(state.values);
+  let totalDeduct = 0;
+  const offAxes = [];
+  const goodAxes = [];
+
+  Object.keys(SWEET_SPOTS).forEach(key => {
+    const conf = SWEET_SPOTS[key];
+    const d = result.detail[key];
+    const deduct = d.deviation * conf.multiplier;
+    totalDeduct += deduct;
+    const lbl = LABELS[key];
+    const tier = d.tier;
+    const tierLbl = TIER_LABEL[tier];
+    const explain = PARAM_EXPLAIN[key][tier];
+    const tierColor = tier==='ideal' ? '#c9a45c' : tier==='good' ? '#5a86c5' : '#c75555';
+    const closeness = Math.max(0, 1 - d.deviation / (conf.tiers[1] * 2));
+
+    if (tier === 'off') offAxes.push(key);
+    if (tier === 'good') goodAxes.push(key);
+
+    const card = document.createElement('div');
+    card.className = 'p-4 sm:p-5 rounded-xl border border-[var(--border)] bg-white';
+    card.innerHTML = `
+      <div class="flex items-center justify-between gap-2 flex-wrap">
+        <div class="text-[12.5px] font-semibold text-ink-900">${state.lang==='zh'?lbl.zh:lbl.en}</div>
+        <span class="chip ${tier==='ideal'?'ideal':tier==='good'?'good':'off'}" style="font-size:10.5px">${state.lang==='zh'?tierLbl.zh:tierLbl.en}</span>
+      </div>
+      <div class="mt-3 flex items-baseline gap-1">
+        <span class="font-display text-[28px] sm:text-[30px] gold-text leading-none num">${d.value.toFixed(1)}</span>
+        <span class="text-[13px] text-ink-500 num">${conf.unit}</span>
+      </div>
+      <div class="text-[11px] text-ink-500 mt-1.5 num">
+        ${state.lang==='zh'?'理想':'Ideal'} ${IDEAL_RANGES[key][state.lang]} · Δ ${d.deviation.toFixed(2)}
+      </div>
+      <div class="meter mt-3"><i style="width:${(closeness*100).toFixed(0)}%;background:linear-gradient(90deg,${tierColor}aa,${tierColor})"></i></div>
+      <p class="text-[11.5px] sm:text-[12px] text-ink-700 mt-3 leading-[1.7]">${explain[state.lang]}</p>
+      <div class="text-[11px] text-ink-500 mt-3 pt-3 border-t border-[var(--line)] num flex items-center justify-between">
+        <span>${state.lang==='zh'?'此項扣分':'Deduction'}</span>
+        <span class="font-semibold ${deduct < 0.05 ? 'text-gold-600' : 'text-ink-900'}">−${deduct.toFixed(2)}</span>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  document.getElementById('totalDeduct').textContent = '−' + totalDeduct.toFixed(2);
+
+  // Plain-language summary
+  const score = result.score;
+  const tier = overallTier(score);
+  const labelMap = (k) => state.lang==='zh' ? LABELS[k].zh : LABELS[k].en;
+  let summary = '';
+  if (state.lang === 'zh') {
+    if (tier === 'ideal' || tier === 'excellent') {
+      summary = `這顆鑽石綜合評分為 ${score.toFixed(2)} 分,四項核心參數${offAxes.length===0&&goodAxes.length===0?'全部':'幾乎全部'}落在業界公認的甜蜜點區間,光學表現可預期極為出色,放心入手。`;
+    } else if (tier === 'good') {
+      const offText = offAxes.length ? `<strong>${offAxes.map(labelMap).join('、')}</strong>已偏離理想,` : '';
+      const goodText = goodAxes.length ? `<strong>${goodAxes.map(labelMap).join('、')}</strong>接近但非頂級,` : '';
+      summary = `這顆鑽石綜合 ${score.toFixed(2)} 分,${goodText}${offText}建議與其他候選鑽石一起加入比較,挑出價格相近但分數更高的選項。`;
+    } else {
+      const offText = offAxes.length ? `特別是 <strong>${offAxes.map(labelMap).join('、')}</strong>` : '';
+      summary = `這顆鑽石綜合僅 ${score.toFixed(2)} 分,多項參數已偏離理想${offText ? '(' + offText + ')' : ''}。光學表現可能明顯不如同價位的更佳車工鑽石,建議重新議價或尋找替代品。`;
+    }
+  } else {
+    if (tier === 'ideal' || tier === 'excellent') {
+      summary = `This diamond scores ${score.toFixed(2)} / 100. ${offAxes.length===0&&goodAxes.length===0?'All four':'Nearly all'} parameters sit inside the industry sweet spot — exceptional optical performance can be expected.`;
+    } else if (tier === 'good') {
+      const offText = offAxes.length ? `<strong>${offAxes.map(labelMap).join(', ')}</strong> are off ideal; ` : '';
+      const goodText = goodAxes.length ? `<strong>${goodAxes.map(labelMap).join(', ')}</strong> sit near (but not at) the top tier; ` : '';
+      summary = `Score: ${score.toFixed(2)} / 100. ${goodText}${offText}we suggest comparing this stone alongside others to find a similarly-priced, higher-scoring alternative.`;
+    } else {
+      const offText = offAxes.length ? ` — especially <strong>${offAxes.map(labelMap).join(', ')}</strong>` : '';
+      summary = `Score: ${score.toFixed(2)} / 100. Multiple parameters are off ideal${offText}. Optical performance will likely fall short of better-cut stones at the same price — consider negotiating or finding alternatives.`;
+    }
+  }
+  const sumEl = document.getElementById('summaryText');
+  if (sumEl) sumEl.innerHTML = summary;
+}
+
 const _origCompute = computeAndRender;
-computeAndRender = function() { _origCompute(); updateAffiliate(); updateCP(); };
+computeAndRender = function() { _origCompute(); updateAffiliate(); updateCP(); renderBreakdown(); };
 
 /* ---------- Share via URL (cloud-like save) ---------- */
 function encodeShare() {
