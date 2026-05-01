@@ -1,0 +1,10 @@
+{
+  "name": "brilliancelab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BrillianceLab — proprietary diamond optical scoring (server-side algorithm)",
+  "engines": {
+    "node": ">=18"
+  }
+}

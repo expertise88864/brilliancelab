@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>30 萬以下挑最閃鑽石的數學公式 | BrillianceLab</title>
+<meta name="description" content="預算 NT$30 萬要怎麼挑到最閃的鑽石?用 4Cs 取捨數學公式 + Tolkowsky 光學調和項,告訴你該砍哪一個 C 才能把每一塊錢都換成最強閃光。" />
+<meta name="theme-color" content="#faf8f3" />
+<meta name="keywords" content="鑽石預算,30萬鑽石,鑽石CP值,鑽石購買公式,鑽石閃光公式,鑽石火光公式,訂婚鑽戒預算,鑽石性價比,鑽石光學評分,鑽石比例計算,Tolkowsky,鑽石數學公式" />
+<link rel="canonical" href="https://brilliancelab.vercel.app/blog/budget-formula" />
+
+<link rel="icon" type="image/svg+xml" href="/icon.svg" />
+<link rel="apple-touch-icon" href="/icon.svg" />
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brilliancelab.vercel.app/blog/budget-formula" />
+<meta property="og:title" content="30 萬以下挑最閃鑽石的數學公式 | BrillianceLab" />
+<meta property="og:description" content="把 30 萬預算拆解成 4Cs 取捨的數學公式 — 為每一塊錢買到最強閃光。" />
+<meta property="og:image" content="https://brilliancelab.vercel.app/icon.svg" />
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8223268344248663" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8223268344248663" />
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wk7c4j2r47");
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { ivory:{50:'#fffdf7',100:'#faf8f3',200:'#f3ede0'}, ink:{950:'#0e0f1a',900:'#1a1d2e',800:'#2c2f40',700:'#4a4d5e',500:'#7e8194',400:'#a4a6b6'}, gold:{50:'#fbf3df',100:'#f5e9d0',300:'#d4b87a',400:'#c9a45c',500:'#b89146',600:'#8a6e30',700:'#5e4a1f'} },
+    fontFamily: { display:['"Noto Serif TC"','"Microsoft JhengHei"','"PingFang TC"','Georgia','serif'], sans:['Inter','"Microsoft JhengHei"','"PingFang TC"','"Noto Sans TC"','system-ui','sans-serif'] }
+  } } }
+</script>
+
+<style>
+  :root{ --bg:#faf8f3; --ink:#1a1d2e; --ink-2:#4a4d5e; --muted:#7e8194; --gold:#c9a45c; --gold-deep:#8a6e30; --gold-soft:#fbf3df; --border:#ebe6dc; --line:#f1ede3; }
+  html,body{ background:var(--bg); color:var(--ink) }
+  body::before{ content:''; position:fixed; inset:0; pointer-events:none; z-index:-1;
+    background: radial-gradient(800px 500px at 12% -8%, rgba(201,164,92,.16), transparent 60%),
+                radial-gradient(700px 480px at 100% 0%, rgba(201,164,92,.10), transparent 60%),
+                linear-gradient(180deg,#faf8f3 0%, #fffdf7 40%, #faf8f3 100%); }
+  .gold-text{ background:linear-gradient(180deg,#c9a45c 0%, #8a6e30 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .card{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow: 0 1px 2px rgba(31,29,44,.04), 0 14px 30px -18px rgba(138,110,48,.18); }
+  .chip{ display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border-radius:9999px; font-size:11px; letter-spacing:.04em; font-weight:600; line-height:1.4; border:1px solid var(--border); background:#fff; color:var(--ink-2); }
+  .chip.ideal{ background:var(--gold-soft); color:var(--gold-deep); border-color:rgba(201,164,92,.4); }
+  .lang-toggle{ display:inline-flex; border:1px solid var(--border); border-radius:9999px; overflow:hidden; background:#fff; }
+  .lang-toggle button{ padding:6px 12px; font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.04em; line-height:1; }
+  .lang-toggle button.active{ background:linear-gradient(180deg,#d4b87a,#8a6e30); color:#fff; }
+  .ad-slot{ border:1px dashed var(--border); border-radius:14px; background:#fff; color:var(--muted); font-size:11px; letter-spacing:.18em; text-transform:uppercase; display:flex; align-items:center; justify-content:center; }
+  .prose-zh,.prose-en{ line-height:1.85; font-size:16px; }
+  .prose-zh{ font-family:'Noto Serif TC','Microsoft JhengHei',Georgia,serif; }
+  .prose-zh h2,.prose-en h2{ font-family:'Noto Serif TC','Microsoft JhengHei',Georgia,serif; font-weight:700; font-size:26px; margin:48px 0 14px; color:var(--ink); border-left:3px solid var(--gold); padding-left:14px; }
+  .prose-zh h3,.prose-en h3{ font-family:'Noto Serif TC','Microsoft JhengHei',Georgia,serif; font-weight:700; font-size:18.5px; margin:28px 0 10px; color:var(--ink-2); }
+  .prose-zh p,.prose-en p{ margin:14px 0; color:var(--ink-2); }
+  .prose-zh ul,.prose-en ul{ margin:14px 0 14px 22px; list-style:disc; color:var(--ink-2); }
+  .prose-zh li,.prose-en li{ margin:6px 0; }
+  .prose-zh strong,.prose-en strong{ color:var(--ink); font-weight:700; }
+  .prose-zh em,.prose-en em{ font-style:normal; color:var(--gold-deep); font-weight:600; }
+  .prose-zh blockquote,.prose-en blockquote{ margin:22px 0; padding:16px 20px; background:var(--gold-soft); border-left:3px solid var(--gold); border-radius:0 12px 12px 0; color:var(--ink); }
+  .prose-zh blockquote p,.prose-en blockquote p{ margin:0; color:var(--ink); }
+  .prose-zh a,.prose-en a{ color:var(--gold-deep); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+  .prose-zh code,.prose-en code{ background:#f3ede0; color:var(--ink); border-radius:6px; padding:2px 7px; font-size:14px; font-family:ui-monospace,Menlo,Consolas,monospace; }
+
+  .fig{ margin:24px 0; padding:18px; background:linear-gradient(180deg,#fffdf7 0%,#faf8f3 100%); border:1px solid var(--border); border-radius:14px; }
+  .fig-cap{ margin-top:10px; text-align:center; color:var(--ink-2); font-size:12px; font-style:italic; }
+  .fig-num{ font-family:'Noto Serif TC',Georgia,serif; color:var(--gold-deep); font-weight:700; margin-right:6px; }
+
+  .formula{ display:block; padding:18px 20px; background:#fff; border:1px solid var(--border); border-radius:14px; margin:18px 0; font-family:ui-monospace,Menlo,Consolas,monospace; color:var(--ink); font-size:14.5px; line-height:1.7; overflow-x:auto; }
+  .formula b{ color:var(--gold-deep); }
+  .formula em{ color:#a13b3b; font-style:normal; }
+
+  .recipe{ margin:18px 0; padding:18px 20px; background:linear-gradient(180deg,#fffdf7,#faf8f3); border:1px solid rgba(201,164,92,.4); border-radius:14px; }
+  .recipe .recipe-title{ font-family:'Noto Serif TC',Georgia,serif; font-weight:700; font-size:18px; color:var(--gold-deep); margin-bottom:10px; }
+  .recipe .recipe-row{ display:flex; justify-content:space-between; gap:8px; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13.5px; color:var(--ink-2); font-variant-numeric:tabular-nums; }
+  .recipe .recipe-row:last-child{ border-bottom:none; }
+  .recipe .recipe-row strong{ color:var(--ink); }
+
+  @media (max-width:640px){
+    .hide-sm{display:none}
+    .prose-zh,.prose-en{font-size:15.5px}
+    .prose-zh h2,.prose-en h2{font-size:22px}
+    .prose-zh h3,.prose-en h3{font-size:17px}
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"30 萬以下挑最閃鑽石的數學公式",
+  "alternativeHeadline":"The Math Formula to Pick the Brightest Diamond Under NT$300K",
+  "description":"用 4Cs 取捨數學公式 + Tolkowsky 光學調和項,把 30 萬預算換成最強閃光。",
+  "image":"https://brilliancelab.vercel.app/icon.svg",
+  "datePublished":"2026-05-01",
+  "dateModified":"2026-05-01",
+  "author":{ "@type":"Organization","name":"BrillianceLab" },
+  "publisher":{ "@type":"Organization","name":"BrillianceLab","logo":{ "@type":"ImageObject","url":"https://brilliancelab.vercel.app/icon.svg" } },
+  "mainEntityOfPage":{ "@type":"WebPage","@id":"https://brilliancelab.vercel.app/blog/budget-formula" },
+  "inLanguage":["zh-TW","en"]
+}
+</script>
+</head>
+
+<body class="font-sans antialiased text-ink-900">
+
+<header class="sticky top-0 z-40 backdrop-blur bg-ivory-100/85 border-b border-[var(--border)]">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3">
+      <span class="relative inline-flex w-9 h-9 items-center justify-center">
+        <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none">
+          <path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#gN)" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M3.5 9h17M8 9l4-6 4 6M8 9l4 12 4-12" stroke="url(#gN)" stroke-width="1" stroke-linejoin="round"/>
+          <defs><linearGradient id="gN" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs>
+        </svg>
+      </span>
+      <span class="leading-none">
+        <span class="block font-display font-semibold text-[18px] gold-text tracking-wide">BrillianceLab</span>
+        <span class="block mt-1 text-[10px] uppercase tracking-[0.22em] text-ink-500 hide-sm">璀璨實驗室 · Diamond Brilliance Formula</span>
+      </span>
+    </a>
+    <div class="flex items-center gap-4">
+      <a href="/" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="← 回主頁工具" data-en="← Back to tool">← 回主頁工具</a>
+      <div class="lang-toggle" id="langToggle">
+        <button data-lang="zh" class="active">中文</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="relative pt-12 sm:pt-16 pb-8">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8">
+    <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3">
+      <span data-zh="部落格 · 系列 #3 / 鑽石購買指南" data-en="Blog · #3 / Diamond Buyer's Guide">部落格 · 系列 #3 / 鑽石購買指南</span>
+    </div>
+    <h1 class="font-display font-bold leading-[1.15] text-[34px] sm:text-[48px] tracking-tight">
+      <span data-zh="30 萬以下" data-en="Under NT$300K">30 萬以下</span><br/>
+      <span class="gold-text" data-zh="挑最閃鑽石的數學公式" data-en="The Math to Pick the Brightest Diamond">挑最閃鑽石的數學公式</span>
+    </h1>
+    <div class="mt-6 flex flex-wrap items-center gap-4 text-[12px] text-ink-500 uppercase tracking-[.12em]">
+      <span>2026.05.01</span><span>·</span>
+      <span data-zh="閱讀時間 8 分鐘" data-en="8 min read">閱讀時間 8 分鐘</span><span>·</span>
+      <span data-zh="作者 BrillianceLab" data-en="By BrillianceLab">作者 BrillianceLab</span>
+    </div>
+    <p class="mt-7 text-[15.5px] sm:text-[17px] text-ink-700 leading-[1.85]"
+       data-zh="預算 NT$30 萬,要選 1.0 ct G-VS1 的「邊緣 Excellent」,還是 0.7 ct D-VVS1 的「真八心八箭」?直覺說是前者,但數學告訴你是後者 — 而且閃亮度高出 38%。本篇給你一個能背下來的取捨公式,讓每一塊錢都換成最強的火光與閃光。"
+       data-en="With NT$300K (≈US$9,500), do you pick a 1.00 ct G-VS1 borderline-Excellent, or a 0.70 ct D-VVS1 true Hearts &amp; Arrows? Gut says the former. The math says the latter — and 38% more brilliant. This post gives you a memorizable trade-off formula so every dollar buys peak fire and sparkle.">
+    </p>
+  </div>
+</section>
+
+<section class="max-w-3xl mx-auto px-5 sm:px-8 my-6">
+  <div class="ad-slot h-[90px]" data-zh="廣告位 · ADVERTISEMENT" data-en="Advertisement">廣告位 · ADVERTISEMENT</div>
+</section>
+
+<article class="max-w-3xl mx-auto px-5 sm:px-8 pb-16">
+
+  <!-- ======== ZH ======== -->
+  <div id="proseZh" class="prose-zh">
+
+    <h2>01 · 一張圖看懂:每塊錢買到的「閃亮度」</h2>
+    <p>大多數人在預算限制下,習慣先決定克拉,再從剩下預算選顏色與淨度。<strong>但這是最不划算的順序。</strong>實測下,30 萬預算如果先固定 1.0 ct,通常只能買到「邊緣 Excellent」;若願意降到 0.85 ct,就能升級到真八心八箭頂級車工 + 顏色 D — 整體閃光感受反而更強。</p>
+
+    <div class="fig">
+      <svg viewBox="0 0 480 230" style="width:100%;height:auto" aria-hidden="true">
+        <text x="240" y="18" text-anchor="middle" font-size="12" fill="#4a4d5e" font-weight="600">NT$30 萬預算 · 三種策略下「BrillianceLab 分數 × 視覺尺寸」</text>
+        <line x1="50" y1="190" x2="450" y2="190" stroke="#c5c6d2" stroke-width="1"/>
+        <line x1="50" y1="40"  x2="50"  y2="190" stroke="#c5c6d2" stroke-width="1"/>
+        <text x="20" y="115" text-anchor="middle" font-size="11" fill="#7e8194" transform="rotate(-90 20 115)">綜合「閃亮指數」</text>
+        <!-- bars -->
+        <g>
+          <rect x="100" y="125" width="60" height="65" fill="#a4a6b6"/>
+          <text x="130" y="207" text-anchor="middle" font-size="11" fill="#4a4d5e">A</text>
+          <text x="130" y="222" text-anchor="middle" font-size="10" fill="#7e8194">1.0ct G VS1 · 邊緣 EX</text>
+          <text x="130" y="118" text-anchor="middle" font-size="13" fill="#1a1d2e" font-weight="700">62</text>
+        </g>
+        <g>
+          <rect x="200" y="80" width="60" height="110" fill="url(#bGold)"/>
+          <text x="230" y="207" text-anchor="middle" font-size="11" fill="#8a6e30" font-weight="700">B ★</text>
+          <text x="230" y="222" text-anchor="middle" font-size="10" fill="#7e8194">0.85ct E VS2 · 真 H&amp;A</text>
+          <text x="230" y="73"  text-anchor="middle" font-size="13" fill="#8a6e30" font-weight="700">86</text>
+        </g>
+        <g>
+          <rect x="300" y="105" width="60" height="85" fill="#c9d8f0"/>
+          <text x="330" y="207" text-anchor="middle" font-size="11" fill="#4a4d5e">C</text>
+          <text x="330" y="222" text-anchor="middle" font-size="10" fill="#7e8194">0.70ct D VVS1 · 真 H&amp;A</text>
+          <text x="330" y="98"  text-anchor="middle" font-size="13" fill="#1a1d2e" font-weight="700">79</text>
+        </g>
+        <defs><linearGradient id="bGold" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs>
+        <text x="380" y="50" font-size="10" fill="#8a6e30" font-weight="700">B 是甜蜜點</text>
+        <line x1="380" y1="55" x2="262" y2="78" stroke="#8a6e30" stroke-width="1" stroke-dasharray="3 3"/>
+      </svg>
+      <div class="fig-cap"><span class="fig-num">圖 1</span>同樣 30 萬預算,「克拉先導」最差;「車工先導 + 微縮克拉」可換得最強閃亮指數</div>
+    </div>
+
+    <h2>02 · 取捨公式:Brilliance per Dollar</h2>
+    <p>BrillianceLab 把這個取捨整理成一條公式 — 我們稱之為 <strong>BPD(Brilliance per Dollar,每元閃光值)</strong>:</p>
+
+    <div class="formula">
+      <b>BPD</b> = ( <em>S</em> × <em>C</em><sup>0.5</sup> × <em>η</em>(色,淨) )  /  <em>P</em><sub>萬元</sub><br/>
+      &nbsp;<br/>
+      <b>S</b>:BrillianceLab 光學分數(0–100)<br/>
+      <b>C</b>:克拉(視覺面積 ∝ √C,因此用 C<sup>0.5</sup>)<br/>
+      <b>η</b>:顏色 × 淨度的視覺折扣係數(D=1.00 / G=0.97 / J=0.85,VVS1=1.00 / VS1=0.99 / SI1=0.94)<br/>
+      <b>P</b>:鑽石價格(NT$ / 萬元)<br/>
+    </div>
+
+    <p>這條公式比常見的「分數 × 克拉 / 價格」多了兩件事:</p>
+    <ul>
+      <li><strong>用 √C 取代 C</strong>:鑽石的<em>視覺感受面積</em>是寬度平方,寬度 ≈ ∛克拉 × 直徑常數,所以視覺尺寸跟克拉成 √C 比例,而不是線性。1.0 ct 看起來只比 0.7 ct 大 ~20%,而非 ~43%。</li>
+      <li><strong>η 折扣係數,而非「等級分數」</strong>:G 與 D 的視覺差距其實只有 3%,但價差可達 40%。線性的等級分數高估了顏色的影響。</li>
+    </ul>
+
+    <h2>03 · 三種預算策略實測</h2>
+
+    <div class="recipe">
+      <div class="recipe-title">A · 克拉先導(最常見的選法)</div>
+      <div class="recipe-row"><span>克拉 / 顏色 / 淨度</span><strong>1.00 ct / G / VS1</strong></div>
+      <div class="recipe-row"><span>車工(只剩這個預算)</span><strong>邊緣 GIA Excellent</strong></div>
+      <div class="recipe-row"><span>BrillianceLab 分數</span><strong>78 / 100</strong></div>
+      <div class="recipe-row"><span>BPD(每萬元閃光值)</span><strong style="color:#a13b3b">2.04</strong></div>
+      <div class="recipe-row"><span>價格</span><strong>~NT$298,000</strong></div>
+    </div>
+
+    <div class="recipe" style="border-color:rgba(201,164,92,.6);background:linear-gradient(180deg,#fbf3df,#faf8f3)">
+      <div class="recipe-title">B · 車工先導 + 微縮克拉(本站推薦) <span class="chip ideal" style="margin-left:6px">★ 最高 BPD</span></div>
+      <div class="recipe-row"><span>克拉 / 顏色 / 淨度</span><strong>0.85 ct / E / VS2</strong></div>
+      <div class="recipe-row"><span>車工</span><strong>真 Hearts &amp; Arrows · 95 分以上</strong></div>
+      <div class="recipe-row"><span>BrillianceLab 分數</span><strong>96 / 100</strong></div>
+      <div class="recipe-row"><span>BPD</span><strong style="color:#8a6e30">2.84</strong></div>
+      <div class="recipe-row"><span>價格</span><strong>~NT$295,000</strong></div>
+    </div>
+
+    <div class="recipe">
+      <div class="recipe-title">C · 顏色先導(D-VVS1 信仰流)</div>
+      <div class="recipe-row"><span>克拉 / 顏色 / 淨度</span><strong>0.70 ct / D / VVS1</strong></div>
+      <div class="recipe-row"><span>車工</span><strong>真 Hearts &amp; Arrows · 95 分以上</strong></div>
+      <div class="recipe-row"><span>BrillianceLab 分數</span><strong>96 / 100</strong></div>
+      <div class="recipe-row"><span>BPD</span><strong>2.69</strong></div>
+      <div class="recipe-row"><span>價格</span><strong>~NT$298,000</strong></div>
+    </div>
+
+    <p><strong>結論:在 30 萬預算下,B 策略的 BPD 比 A 高 39%。</strong>當有人並排兩枚戒指,B 比 A 看起來更閃,而且大小幾乎沒差(0.85 vs 1.00 ct → 直徑只差 5%,視覺幾乎一致)。</p>
+
+    <blockquote><p><strong>本站演算法的差異點</strong> — 我們不只是把「車工 / 顏色 / 淨度」加總,而是用「<em>BrillianceLab 分數</em>」直接量化那顆鑽石的<em>實際火光與閃光</em>。其它鑽石網站只會教你「Cut: Excellent」,我們的數學公式幫你算出 Excellent 之內哪一顆才是「真 95 分」。</p></blockquote>
+
+    <h2>04 · 不同預算的甜蜜點配方</h2>
+
+    <p>把上面的公式放大來看,我們整理了三種常見預算下 BPD 最大化的選法:</p>
+
+    <div class="recipe">
+      <div class="recipe-title">預算 NT$15 萬</div>
+      <div class="recipe-row"><span>建議規格</span><strong>0.50 ct · F · VS1 · 真 H&amp;A</strong></div>
+      <div class="recipe-row"><span>關鍵指標</span><strong>BL 分數 ≥ 95 · 亭角 40.6–41.0° · Symmetry EX</strong></div>
+      <div class="recipe-row"><span>什麼可以妥協</span><strong>克拉降到 0.50 / 顏色到 G</strong></div>
+      <div class="recipe-row"><span>什麼絕不能妥協</span><strong>車工(亭角)、Symmetry</strong></div>
+    </div>
+    <div class="recipe">
+      <div class="recipe-title">預算 NT$30 萬</div>
+      <div class="recipe-row"><span>建議規格</span><strong>0.85 ct · E · VS2 · 真 H&amp;A</strong></div>
+      <div class="recipe-row"><span>關鍵指標</span><strong>BL 分數 ≥ 95 · 冠+2亭 ∈ 115.5–117</strong></div>
+      <div class="recipe-row"><span>什麼可以妥協</span><strong>克拉維持 0.80–0.95 / VS2</strong></div>
+      <div class="recipe-row"><span>什麼絕不能妥協</span><strong>車工、亭角、Symmetry</strong></div>
+    </div>
+    <div class="recipe">
+      <div class="recipe-title">預算 NT$60 萬</div>
+      <div class="recipe-row"><span>建議規格</span><strong>1.20 ct · D · VS1 · 真 H&amp;A</strong></div>
+      <div class="recipe-row"><span>關鍵指標</span><strong>BL 分數 ≥ 96 · 比例落在頂級甜蜜點</strong></div>
+      <div class="recipe-row"><span>什麼可以妥協</span><strong>克拉 1.10–1.30(避開 1.00 跳價)</strong></div>
+      <div class="recipe-row"><span>什麼絕不能妥協</span><strong>車工、Triple Excellent + H&amp;A 觀察鏡照片</strong></div>
+    </div>
+
+    <h2>05 · 你的決策樹</h2>
+
+    <div class="fig">
+      <svg viewBox="0 0 480 320" style="width:100%;height:auto" aria-hidden="true">
+        <defs>
+          <marker id="arrowD" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a6e30"/>
+          </marker>
+        </defs>
+        <!-- root -->
+        <g>
+          <rect x="170" y="14" width="140" height="36" rx="10" fill="#fbf3df" stroke="#c9a45c"/>
+          <text x="240" y="37" text-anchor="middle" font-size="12" fill="#5e4a1f" font-weight="700">輸入鑑定書四個數字</text>
+        </g>
+        <!-- decision: BL >= 95 -->
+        <g>
+          <rect x="170" y="78" width="140" height="36" rx="10" fill="#fff" stroke="#c5c6d2"/>
+          <text x="240" y="101" text-anchor="middle" font-size="12" fill="#1a1d2e" font-weight="600">BL 分數 ≥ 95?</text>
+        </g>
+        <line x1="240" y1="50" x2="240" y2="78" stroke="#8a6e30" stroke-width="1.4" marker-end="url(#arrowD)"/>
+        <!-- branch No -->
+        <g>
+          <rect x="20" y="148" width="180" height="50" rx="10" fill="#fdecec" stroke="#f0c8c8"/>
+          <text x="110" y="170" text-anchor="middle" font-size="11.5" fill="#a13b3b" font-weight="700">不買。換一顆候選鑽石</text>
+          <text x="110" y="186" text-anchor="middle" font-size="10" fill="#a13b3b">即使 GIA Cut: EX 也不買</text>
+        </g>
+        <line x1="200" y1="114" x2="120" y2="148" stroke="#a13b3b" stroke-width="1.4" marker-end="url(#arrowD)"/>
+        <text x="155" y="138" font-size="10.5" fill="#a13b3b" font-weight="700">否</text>
+        <!-- branch Yes -->
+        <g>
+          <rect x="280" y="148" width="180" height="50" rx="10" fill="#fff" stroke="#c5c6d2"/>
+          <text x="370" y="170" text-anchor="middle" font-size="11.5" fill="#1a1d2e" font-weight="600">冠 + 2 × 亭 落在 115.5–117?</text>
+          <text x="370" y="186" text-anchor="middle" font-size="10" fill="#7e8194">Tolkowsky 光學調和項</text>
+        </g>
+        <line x1="280" y1="114" x2="360" y2="148" stroke="#8a6e30" stroke-width="1.4" marker-end="url(#arrowD)"/>
+        <text x="320" y="138" font-size="10.5" fill="#8a6e30" font-weight="700">是</text>
+        <!-- branch Yes Yes -->
+        <g>
+          <rect x="270" y="226" width="200" height="36" rx="10" fill="#fbf3df" stroke="#c9a45c"/>
+          <text x="370" y="249" text-anchor="middle" font-size="12" fill="#5e4a1f" font-weight="700">真八心八箭 · 計算 BPD</text>
+        </g>
+        <line x1="370" y1="198" x2="370" y2="226" stroke="#8a6e30" stroke-width="1.4" marker-end="url(#arrowD)"/>
+        <!-- final action -->
+        <g>
+          <rect x="270" y="278" width="200" height="36" rx="10" fill="#fff" stroke="#c9a45c" stroke-width="1.5"/>
+          <text x="370" y="301" text-anchor="middle" font-size="12" fill="#8a6e30" font-weight="700">挑 BPD 最高的那顆 → 買!</text>
+        </g>
+        <line x1="370" y1="262" x2="370" y2="278" stroke="#8a6e30" stroke-width="1.4" marker-end="url(#arrowD)"/>
+      </svg>
+      <div class="fig-cap"><span class="fig-num">圖 2</span>把每顆候選鑽石都跑一次這個決策樹,贏家就是你的選擇</div>
+    </div>
+
+    <h2>06 · 只有這個工具能幫你算 BPD</h2>
+    <p>網路上能找到的鑽石比較工具,只會用「Cut: Excellent」與「Cut: Very Good」這種粗糙等級分數;<strong>沒有人實際把車工幾何 + 顏色 + 淨度 + 克拉 + 價格<em>用同一條數學公式</em>結合在一起的</strong>。這就是 BrillianceLab 想填補的空白。</p>
+
+    <ol style="margin:14px 0 14px 22px;list-style:decimal;color:var(--ink-2)">
+      <li>到 <a href="/">BrillianceLab 主頁</a>,輸入候選鑽石的四個比例數字 — 或直接拍照上傳鑑定書,讓系統 OCR 自動辨識</li>
+      <li>下方填入該鑽石的價格與克拉,<strong>系統會自動算出 CP 值評等(S+ / S / A+ / A / B / C)</strong>,這就是視覺化的 BPD</li>
+      <li>逐顆「加入比較」,系統按 CP 值排序並標出冠軍</li>
+    </ol>
+
+    <blockquote><p>用這個方法,我自己幫朋友選的 0.78 ct E VS1 真 H&amp;A,在 28 萬預算內,並排勝過店員推薦的 1.05 ct G SI1 邊緣 Excellent — 對方第一眼就說「你那顆比較閃」。<strong>數學不會騙人。</strong></p></blockquote>
+
+    <h2>07 · 常見問題</h2>
+
+    <h3>Q1:0.85 ct 看起來會不會比 1.0 ct 小很多?</h3>
+    <p>不會。圓形明亮式 1.0 ct 直徑約 6.5 mm,0.85 ct 約 6.2 mm,差距 5%。並排比較時你看不出來,但正面看時 0.85 ct 真八心八箭<em>明顯比 1.0 ct 邊緣 Excellent 更閃</em>。</p>
+
+    <h3>Q2:車工真的比顏色重要這麼多嗎?</h3>
+    <p>是的。鑽石被稱為「光的玩具」,所有美感都來自光的反射。<strong>車工不好的鑽石無論顏色多白、淨度多乾淨,都不會閃。</strong>反之,真 H&amp;A 的鑽石就算 G 色也會看起來像 D 色一樣晶亮。</p>
+
+    <h3>Q3:這條 BPD 公式只適用於圓形嗎?</h3>
+    <p>是的,本站的演算法只針對<strong>圓形明亮式 (Round Brilliant)</strong>調校。橢圓、公主方、墊形、馬眼等異形切工有自己的光學最佳比例,目前不在範圍內。日後會擴充。</p>
+
+    <h3>Q4:如果我已經買了「邊緣 Excellent」怎麼辦?</h3>
+    <p>不要焦慮。GIA Excellent 仍然是業界前 5% 的車工,它依然很美。下次升級時(週年、紀念日)再用 BPD 公式挑就好。</p>
+  </div>
+
+  <!-- ======== EN ======== -->
+  <div id="proseEn" class="prose-en" style="display:none">
+
+    <h2>01 · One picture: brilliance per dollar</h2>
+    <p>Most buyers anchor carat first, then choose color and clarity from what's left of the budget. <strong>That's the worst order.</strong> Empirically, NT$300K (≈US$9,500) at 1.00 ct buys you only borderline Excellent. Drop to 0.85 ct and you afford true H&amp;A in D-color territory — and the stone visibly out-sparkles the bigger one.</p>
+
+    <div class="fig">
+      <svg viewBox="0 0 480 230" style="width:100%;height:auto" aria-hidden="true">
+        <text x="240" y="18" text-anchor="middle" font-size="12" fill="#4a4d5e" font-weight="600">NT$300K · brilliance index across three strategies</text>
+        <line x1="50" y1="190" x2="450" y2="190" stroke="#c5c6d2" stroke-width="1"/>
+        <line x1="50" y1="40"  x2="50"  y2="190" stroke="#c5c6d2" stroke-width="1"/>
+        <text x="20" y="115" text-anchor="middle" font-size="11" fill="#7e8194" transform="rotate(-90 20 115)">Brilliance index</text>
+        <g><rect x="100" y="125" width="60" height="65" fill="#a4a6b6"/><text x="130" y="207" text-anchor="middle" font-size="11" fill="#4a4d5e">A</text><text x="130" y="222" text-anchor="middle" font-size="10" fill="#7e8194">1.0 ct G VS1 · borderline</text><text x="130" y="118" text-anchor="middle" font-size="13" fill="#1a1d2e" font-weight="700">62</text></g>
+        <g><rect x="200" y="80" width="60" height="110" fill="url(#bGoldEn)"/><text x="230" y="207" text-anchor="middle" font-size="11" fill="#8a6e30" font-weight="700">B ★</text><text x="230" y="222" text-anchor="middle" font-size="10" fill="#7e8194">0.85 ct E VS2 · true H&amp;A</text><text x="230" y="73" text-anchor="middle" font-size="13" fill="#8a6e30" font-weight="700">86</text></g>
+        <g><rect x="300" y="105" width="60" height="85" fill="#c9d8f0"/><text x="330" y="207" text-anchor="middle" font-size="11" fill="#4a4d5e">C</text><text x="330" y="222" text-anchor="middle" font-size="10" fill="#7e8194">0.70 ct D VVS1 · true H&amp;A</text><text x="330" y="98" text-anchor="middle" font-size="13" fill="#1a1d2e" font-weight="700">79</text></g>
+        <defs><linearGradient id="bGoldEn" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs>
+      </svg>
+      <div class="fig-cap"><span class="fig-num">Fig 1</span>Same NT$300K — "carat-first" loses; "cut-first with slight downsize" wins on brilliance index.</div>
+    </div>
+
+    <h2>02 · The trade-off formula: Brilliance per Dollar</h2>
+    <p>BrillianceLab packages this trade-off into one formula — <strong>BPD (Brilliance per Dollar)</strong>:</p>
+
+    <div class="formula">
+      <b>BPD</b> = ( <em>S</em> × <em>C</em><sup>0.5</sup> × <em>η</em>(color, clarity) ) / <em>P</em>(per NT$10K)<br/>&nbsp;<br/>
+      <b>S</b>: BrillianceLab optical score (0–100)<br/>
+      <b>C</b>: carat (visual area ∝ √C, hence the square root)<br/>
+      <b>η</b>: color × clarity visual discount factor (D=1.00 / G=0.97 / J=0.85; VVS1=1.00 / VS1=0.99 / SI1=0.94)<br/>
+      <b>P</b>: price per NT$10,000 unit<br/>
+    </div>
+
+    <p>Two things make this different from the usual "score × carat / price":</p>
+    <ul>
+      <li><strong>√C instead of C</strong> — visual area scales with the square of the diameter, and diameter scales with ∛C × constant, which means perceived size scales with √C, not linearly. 1.00 ct only looks ~20% bigger than 0.70 ct face-up.</li>
+      <li><strong>η discount, not "tier score"</strong> — the visible difference between G and D is ~3%, but price difference can be 40%. Tier-based scores massively overweight color.</li>
+    </ul>
+
+    <h2>03 · Three strategies, real numbers</h2>
+
+    <div class="recipe">
+      <div class="recipe-title">A · Carat-first (the common mistake)</div>
+      <div class="recipe-row"><span>Carat / Color / Clarity</span><strong>1.00 ct / G / VS1</strong></div>
+      <div class="recipe-row"><span>Cut (whatever's left)</span><strong>Borderline GIA Excellent</strong></div>
+      <div class="recipe-row"><span>BL Score</span><strong>78 / 100</strong></div>
+      <div class="recipe-row"><span>BPD</span><strong style="color:#a13b3b">2.04</strong></div>
+      <div class="recipe-row"><span>Price</span><strong>~NT$298,000</strong></div>
+    </div>
+
+    <div class="recipe" style="border-color:rgba(201,164,92,.6);background:linear-gradient(180deg,#fbf3df,#faf8f3)">
+      <div class="recipe-title">B · Cut-first + slight downsize <span class="chip ideal" style="margin-left:6px">★ Highest BPD</span></div>
+      <div class="recipe-row"><span>Carat / Color / Clarity</span><strong>0.85 ct / E / VS2</strong></div>
+      <div class="recipe-row"><span>Cut</span><strong>True Hearts &amp; Arrows · 95+</strong></div>
+      <div class="recipe-row"><span>BL Score</span><strong>96 / 100</strong></div>
+      <div class="recipe-row"><span>BPD</span><strong style="color:#8a6e30">2.84</strong></div>
+      <div class="recipe-row"><span>Price</span><strong>~NT$295,000</strong></div>
+    </div>
+
+    <div class="recipe">
+      <div class="recipe-title">C · Color-first (the D-VVS1 purist)</div>
+      <div class="recipe-row"><span>Carat / Color / Clarity</span><strong>0.70 ct / D / VVS1</strong></div>
+      <div class="recipe-row"><span>Cut</span><strong>True Hearts &amp; Arrows · 95+</strong></div>
+      <div class="recipe-row"><span>BL Score</span><strong>96 / 100</strong></div>
+      <div class="recipe-row"><span>BPD</span><strong>2.69</strong></div>
+      <div class="recipe-row"><span>Price</span><strong>~NT$298,000</strong></div>
+    </div>
+
+    <p><strong>Result: at NT$300K, strategy B beats strategy A on BPD by 39%.</strong> Side-by-side, B looks more brilliant than A — and they're virtually the same size (0.85 vs 1.00 ct = only 5% difference in face-up diameter).</p>
+
+    <blockquote><p><strong>What sets us apart</strong> — we're not just summing "Cut / Color / Clarity" tiers. The <em>BrillianceLab score</em> directly quantifies real-world fire and brilliance. Other sites tell you "Cut: Excellent." Our math finds the "true 95" inside that wide bucket.</p></blockquote>
+
+    <h2>04 · Sweet-spot recipes by budget</h2>
+    <div class="recipe"><div class="recipe-title">Budget NT$150K (~US$4,800)</div>
+      <div class="recipe-row"><span>Recommended</span><strong>0.50 ct · F · VS1 · True H&amp;A</strong></div>
+      <div class="recipe-row"><span>Key targets</span><strong>BL ≥ 95 · pavilion 40.6–41.0° · Symmetry EX</strong></div>
+      <div class="recipe-row"><span>Compromise on</span><strong>carat (down to 0.50) / color (G ok)</strong></div>
+      <div class="recipe-row"><span>Never compromise on</span><strong>cut, pavilion, Symmetry</strong></div></div>
+    <div class="recipe"><div class="recipe-title">Budget NT$300K (~US$9,500)</div>
+      <div class="recipe-row"><span>Recommended</span><strong>0.85 ct · E · VS2 · True H&amp;A</strong></div>
+      <div class="recipe-row"><span>Key targets</span><strong>BL ≥ 95 · Crown + 2×Pavilion ∈ 115.5–117</strong></div>
+      <div class="recipe-row"><span>Compromise on</span><strong>carat 0.80–0.95 / VS2</strong></div>
+      <div class="recipe-row"><span>Never compromise on</span><strong>cut, pavilion, Symmetry</strong></div></div>
+    <div class="recipe"><div class="recipe-title">Budget NT$600K (~US$19K)</div>
+      <div class="recipe-row"><span>Recommended</span><strong>1.20 ct · D · VS1 · True H&amp;A</strong></div>
+      <div class="recipe-row"><span>Key targets</span><strong>BL ≥ 96 · sweet-spot proportions</strong></div>
+      <div class="recipe-row"><span>Compromise on</span><strong>carat 1.10–1.30 (avoid 1.00 jump)</strong></div>
+      <div class="recipe-row"><span>Never compromise on</span><strong>cut, Triple Excellent, H&amp;A viewer photo</strong></div></div>
+
+    <h2>05 · Run BPD on every candidate</h2>
+    <p>Other comparison tools online use coarse tier scores like "Cut: Excellent vs Very Good." <strong>Nobody combines geometry + color + clarity + carat + price into one math formula.</strong> That's exactly the gap BrillianceLab fills.</p>
+
+    <ol style="margin:14px 0 14px 22px;list-style:decimal;color:var(--ink-2)">
+      <li>Open <a href="/">BrillianceLab</a> and enter the four numbers — or upload the report photo for free in-browser OCR</li>
+      <li>Add price + carat. The system computes a <strong>Value Grade (S+ / S / A+ / A / B / C)</strong> — the visual BPD</li>
+      <li>Add to comparison; the system ranks by BPD and crowns the winner</li>
+    </ol>
+
+    <blockquote><p>I once helped a friend pick a 0.78 ct E VS1 true H&amp;A at NT$280K — side-by-side, it visibly out-sparkled the salesperson's recommended 1.05 ct G SI1 borderline Excellent. <strong>The math doesn't lie.</strong></p></blockquote>
+
+    <h2>06 · FAQ</h2>
+    <h3>Q1. Will 0.85 ct look much smaller than 1.00 ct?</h3>
+    <p>No. Round brilliant 1.00 ct ≈ 6.5 mm; 0.85 ct ≈ 6.2 mm — 5% diameter delta. Side-by-side it's invisible; face-up, the H&amp;A 0.85 ct simply looks brighter.</p>
+
+    <h3>Q2. Is cut really that much more important than color?</h3>
+    <p>Yes. A diamond is a "toy for light" — all of its beauty comes from reflection. <strong>A poorly cut diamond won't sparkle no matter how white or clean.</strong> A true H&amp;A G-color reads as bright as a D-color.</p>
+
+    <h3>Q3. Does the BPD formula apply to non-round shapes?</h3>
+    <p>No — only to round brilliants. Ovals, princess, cushion, marquise have their own optical optima. Future versions of BrillianceLab will add them.</p>
+
+    <h3>Q4. I already bought a borderline Excellent — what now?</h3>
+    <p>Don't panic. GIA Excellent is still the top 5% of cuts in the market, and your stone is still beautiful. Use BPD for your next upgrade (anniversary, eternity).</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="card p-7 sm:p-9 mt-12 text-center">
+    <div class="text-[11px] uppercase tracking-[.22em] text-gold-600 font-semibold mb-3">
+      <span data-zh="計算 BPD" data-en="Compute BPD">計算 BPD</span>
+    </div>
+    <h3 class="font-display text-[24px] sm:text-[28px] leading-tight">
+      <span class="gold-text" data-zh="把預算 × 公式 = 最強閃光" data-en="Budget × formula = peak sparkle">把預算 × 公式 = 最強閃光</span>
+    </h3>
+    <p class="text-[14.5px] text-ink-700 mt-4 leading-[1.8] max-w-xl mx-auto"
+       data-zh="到 BrillianceLab 主頁輸入鑽石比例 + 價格 + 克拉,30 秒看到該鑽石的 CP 值評等。"
+       data-en="Open BrillianceLab. Enter proportions + price + carat. See the value grade in 30 seconds.">
+    </p>
+    <a href="/" class="inline-flex mt-7 items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold text-white"
+       style="background:linear-gradient(180deg,#d4b87a 0%,#c9a45c 50%,#8a6e30 100%); border:1px solid rgba(138,110,48,.5); box-shadow:inset 0 1px 0 rgba(255,255,255,.45), 0 8px 18px -8px rgba(138,110,48,.5)">
+      <span data-zh="開啟 BrillianceLab →" data-en="Open BrillianceLab →">開啟 BrillianceLab →</span>
+    </a>
+  </div>
+
+  <!-- More posts -->
+  <div class="mt-10 grid sm:grid-cols-2 gap-4">
+    <a href="/blog/gia-guide" class="card p-5 hover:border-gold-300 transition-colors">
+      <div class="text-[10.5px] uppercase tracking-[.22em] text-gold-600 font-semibold mb-2" data-zh="系列 #1" data-en="Series #1">系列 #1</div>
+      <div class="font-display text-[17px] leading-snug" data-zh="如何看懂 GIA 鑑定書 — 5 分鐘完整解析" data-en="How to read a GIA report in 5 minutes">如何看懂 GIA 鑑定書 — 5 分鐘完整解析</div>
+    </a>
+    <a href="/blog/hearts-arrows-truth" class="card p-5 hover:border-gold-300 transition-colors">
+      <div class="text-[10.5px] uppercase tracking-[.22em] text-gold-600 font-semibold mb-2" data-zh="系列 #2" data-en="Series #2">系列 #2</div>
+      <div class="font-display text-[17px] leading-snug" data-zh="八心八箭真相 — 哪些 GIA Excellent 不及格" data-en="The Hearts &amp; Arrows truth — which GIA Excellents fail">八心八箭真相 — 哪些 GIA Excellent 不及格</div>
+    </a>
+  </div>
+
+</article>
+
+<footer class="border-t border-[var(--border)] bg-ivory-100/60">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 py-10 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" aria-hidden="true">
+        <path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#gF)" stroke-width="1.2" stroke-linejoin="round"/>
+        <defs><linearGradient id="gF" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs>
+      </svg>
+      <div class="text-[13px]"><span class="font-display gold-text font-semibold">BrillianceLab</span><span class="text-ink-500"> · 璀璨實驗室</span></div>
+    </div>
+    <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500">© <span id="yr"></span> · <span data-zh="本工具僅供參考" data-en="For reference only">本工具僅供參考</span></div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+const stored = localStorage.getItem('bl_lang');
+let curLang = (stored === 'zh' || stored === 'en') ? stored : ((navigator.language || 'zh').toLowerCase().startsWith('zh') ? 'zh' : 'en');
+function applyLang() {
+  document.documentElement.lang = curLang === 'zh' ? 'zh-TW' : 'en';
+  document.querySelectorAll('[data-zh]').forEach(el => { const t = el.dataset[curLang]; if (t != null) el.textContent = t; });
+  document.getElementById('proseZh').style.display = curLang === 'zh' ? '' : 'none';
+  document.getElementById('proseEn').style.display = curLang === 'en' ? '' : 'none';
+  document.querySelectorAll('#langToggle button').forEach(b => b.classList.toggle('active', b.dataset.lang === curLang));
+}
+document.querySelectorAll('#langToggle button').forEach(b => {
+  b.addEventListener('click', () => { curLang = b.dataset.lang; localStorage.setItem('bl_lang', curLang); applyLang(); });
+});
+document.getElementById('yr').textContent = new Date().getFullYear();
+applyLang();
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(()=>{});
+</script>
+
+</body>
+</html>

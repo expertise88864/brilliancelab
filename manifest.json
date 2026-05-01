@@ -1,0 +1,44 @@
+{
+  "name": "BrillianceLab · 璀璨實驗室",
+  "short_name": "BrillianceLab",
+  "description": "鑽石火光閃光數學公式計算機 · 八心八箭光學評分 — Premium Diamond Brilliance & Fire Formula",
+  "lang": "zh-TW",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#faf8f3",
+  "theme_color": "#c9a45c",
+  "categories": ["lifestyle", "shopping", "utilities"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "開始評分 / Start scoring",
+      "short_name": "Score",
+      "url": "/#scorer",
+      "description": "立即輸入鑽石數據並評分"
+    },
+    {
+      "name": "GIA 鑑定書教學",
+      "short_name": "GIA Guide",
+      "url": "/blog/gia-guide"
+    },
+    {
+      "name": "八心八箭真相",
+      "short_name": "H&A Truth",
+      "url": "/blog/hearts-arrows-truth"
+    },
+    {
+      "name": "30 萬以下挑最閃鑽石的數學公式",
+      "short_name": "Budget Formula",
+      "url": "/blog/budget-formula"
+    }
+  ]
+}

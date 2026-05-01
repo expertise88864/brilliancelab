@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>八心八箭真相 — 哪些 GIA Excellent 其實不及格 | BrillianceLab</title>
+<meta name="description" content="GIA Excellent 等級的範圍其實很寬,並非所有 Excellent 都會出現完美的「八心八箭」。本文以四個實際案例與光學圖解,告訴你哪些 GIA Excellent 鑽石其實達不到頂級閃亮度。" />
+<meta name="theme-color" content="#faf8f3" />
+<meta name="keywords" content="八心八箭,Hearts and Arrows,GIA Excellent,鑽石車工,鑽石光學評分,真八心八箭,假八心八箭,鑽石閃光公式,鑽石火光公式,Symmetry,鑽石對稱,Tolkowsky,亭角,冠角" />
+<link rel="canonical" href="https://brilliancelab.vercel.app/blog/hearts-arrows-truth" />
+
+<link rel="icon" type="image/svg+xml" href="/icon.svg" />
+<link rel="apple-touch-icon" href="/icon.svg" />
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brilliancelab.vercel.app/blog/hearts-arrows-truth" />
+<meta property="og:title" content="八心八箭真相 — 哪些 GIA Excellent 其實不及格 | BrillianceLab" />
+<meta property="og:description" content="同樣 GIA Excellent,實際閃亮度可以差 15-25%。本文用四個實際比例案例 + 光學圖解,告訴你哪些 Excellent 不是真八心八箭。" />
+<meta property="og:image" content="https://brilliancelab.vercel.app/icon.svg" />
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8223268344248663" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8223268344248663" />
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wk7c4j2r47");
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: {
+      ivory: { 50:'#fffdf7', 100:'#faf8f3', 200:'#f3ede0' },
+      ink:   { 950:'#0e0f1a', 900:'#1a1d2e', 800:'#2c2f40', 700:'#4a4d5e', 500:'#7e8194', 400:'#a4a6b6' },
+      gold:  { 50:'#fbf3df', 100:'#f5e9d0', 300:'#d4b87a', 400:'#c9a45c', 500:'#b89146', 600:'#8a6e30', 700:'#5e4a1f' }
+    },
+    fontFamily: {
+      display: ['"Noto Serif TC"', '"Microsoft JhengHei"', '"PingFang TC"', 'Georgia', 'serif'],
+      sans: ['Inter', '"Microsoft JhengHei"', '"PingFang TC"', '"Noto Sans TC"', 'system-ui', 'sans-serif']
+    }
+  } } }
+</script>
+
+<style>
+  :root{ --bg:#faf8f3; --ink:#1a1d2e; --ink-2:#4a4d5e; --muted:#7e8194; --gold:#c9a45c; --gold-deep:#8a6e30; --gold-soft:#fbf3df; --border:#ebe6dc; --line:#f1ede3; }
+  html,body{ background:var(--bg); color:var(--ink) }
+  body::before{ content:''; position:fixed; inset:0; pointer-events:none; z-index:-1;
+    background: radial-gradient(800px 500px at 12% -8%, rgba(201,164,92,.16), transparent 60%),
+                radial-gradient(700px 480px at 100% 0%, rgba(201,164,92,.10), transparent 60%),
+                linear-gradient(180deg,#faf8f3 0%, #fffdf7 40%, #faf8f3 100%); }
+  .gold-text{ background:linear-gradient(180deg,#c9a45c 0%, #8a6e30 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .card{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow: 0 1px 2px rgba(31,29,44,.04), 0 14px 30px -18px rgba(138,110,48,.18); }
+  .chip{ display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border-radius:9999px; font-size:11px; letter-spacing:.04em; font-weight:600; line-height:1.4; border:1px solid var(--border); background:#fff; color:var(--ink-2); }
+  .chip.ideal{ background:var(--gold-soft); color:var(--gold-deep); border-color:rgba(201,164,92,.4); }
+  .chip.off  { background:#fdecec; color:#a13b3b; border-color:#f0c8c8; }
+  .chip.good { background:#eef4ff; color:#2d4d8a; border-color:#c9d8f0; }
+  .lang-toggle{ display:inline-flex; border:1px solid var(--border); border-radius:9999px; overflow:hidden; background:#fff; }
+  .lang-toggle button{ padding:6px 12px; font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.04em; line-height:1; }
+  .lang-toggle button.active{ background:linear-gradient(180deg,#d4b87a,#8a6e30); color:#fff; }
+  .ad-slot{ border:1px dashed var(--border); border-radius:14px; background:#fff; color:var(--muted); font-size:11px; letter-spacing:.18em; text-transform:uppercase; display:flex; align-items:center; justify-content:center; }
+  .prose-zh, .prose-en { line-height: 1.85; font-size: 16px; }
+  .prose-zh { font-family: 'Noto Serif TC','Microsoft JhengHei',Georgia,serif; }
+  .prose-zh h2, .prose-en h2 { font-family:'Noto Serif TC','Microsoft JhengHei',Georgia,serif; font-weight:700; font-size:26px; margin:48px 0 14px; color:var(--ink); border-left:3px solid var(--gold); padding-left:14px; }
+  .prose-zh h3, .prose-en h3 { font-family:'Noto Serif TC','Microsoft JhengHei',Georgia,serif; font-weight:700; font-size:18.5px; margin:28px 0 10px; color:var(--ink-2); }
+  .prose-zh p, .prose-en p { margin:14px 0; color:var(--ink-2); }
+  .prose-zh ul, .prose-en ul { margin:14px 0 14px 22px; list-style:disc; color:var(--ink-2); }
+  .prose-zh li, .prose-en li { margin:6px 0; }
+  .prose-zh strong, .prose-en strong { color:var(--ink); font-weight:700; }
+  .prose-zh em, .prose-en em { font-style:normal; color:var(--gold-deep); font-weight:600; }
+  .prose-zh blockquote, .prose-en blockquote { margin:22px 0; padding:16px 20px; background:var(--gold-soft); border-left:3px solid var(--gold); border-radius:0 12px 12px 0; color:var(--ink); }
+  .prose-zh blockquote p, .prose-en blockquote p { margin:0; color:var(--ink); }
+  .prose-zh a, .prose-en a { color:var(--gold-deep); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+  .prose-zh code, .prose-en code { background:#f3ede0; color:var(--ink); border-radius:6px; padding:2px 7px; font-size:14px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+
+  .fig { margin:24px 0; padding:18px; background:linear-gradient(180deg,#fffdf7 0%,#faf8f3 100%); border:1px solid var(--border); border-radius:14px; }
+  .fig-cap { margin-top:10px; text-align:center; color:var(--ink-2); font-size:12px; font-style:italic; }
+  .fig-num { font-family:'Noto Serif TC',Georgia,serif; color:var(--gold-deep); font-weight:700; margin-right:6px; }
+
+  /* Case grid */
+  .case-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:18px 0; }
+  .case { padding:14px 16px; border:1px solid var(--border); border-radius:12px; background:#fff; }
+  .case-title { font-weight:700; font-size:14px; color:var(--ink); margin-bottom:8px; }
+  .case-row { display:flex; justify-content:space-between; font-size:12.5px; padding:3px 0; color:var(--ink-2); font-variant-numeric:tabular-nums; }
+  .case-row strong { color:var(--ink); }
+  .case-score { margin-top:10px; padding-top:10px; border-top:1px dashed var(--border); display:flex; justify-content:space-between; align-items:baseline; }
+  .case-score b { font-family:'Noto Serif TC',Georgia,serif; font-size:24px; }
+
+  @media (max-width:640px){
+    .hide-sm{display:none}
+    .prose-zh,.prose-en{font-size:15.5px}
+    .prose-zh h2,.prose-en h2{font-size:22px}
+    .prose-zh h3,.prose-en h3{font-size:17px}
+    .case-grid{grid-template-columns:1fr}
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"八心八箭真相 — 哪些 GIA Excellent 其實不及格",
+  "alternativeHeadline":"The Hearts & Arrows Truth — Which GIA Excellents Actually Fail",
+  "description":"GIA Excellent 範圍很寬,本文以實例與光學圖解告訴你哪些 Excellent 仍不及格。",
+  "image":"https://brilliancelab.vercel.app/icon.svg",
+  "datePublished":"2026-05-01",
+  "dateModified":"2026-05-01",
+  "author":{ "@type":"Organization","name":"BrillianceLab" },
+  "publisher":{ "@type":"Organization","name":"BrillianceLab","logo":{ "@type":"ImageObject","url":"https://brilliancelab.vercel.app/icon.svg" } },
+  "mainEntityOfPage":{ "@type":"WebPage","@id":"https://brilliancelab.vercel.app/blog/hearts-arrows-truth" },
+  "inLanguage":["zh-TW","en"]
+}
+</script>
+</head>
+
+<body class="font-sans antialiased text-ink-900">
+
+<header class="sticky top-0 z-40 backdrop-blur bg-ivory-100/85 border-b border-[var(--border)]">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3">
+      <span class="relative inline-flex w-9 h-9 items-center justify-center">
+        <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none">
+          <path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#gN)" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M3.5 9h17M8 9l4-6 4 6M8 9l4 12 4-12" stroke="url(#gN)" stroke-width="1" stroke-linejoin="round"/>
+          <defs><linearGradient id="gN" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs>
+        </svg>
+      </span>
+      <span class="leading-none">
+        <span class="block font-display font-semibold text-[18px] gold-text tracking-wide">BrillianceLab</span>
+        <span class="block mt-1 text-[10px] uppercase tracking-[0.22em] text-ink-500 hide-sm">璀璨實驗室 · Diamond Brilliance Formula</span>
+      </span>
+    </a>
+    <div class="flex items-center gap-4">
+      <a href="/" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="← 回主頁工具" data-en="← Back to tool">← 回主頁工具</a>
+      <div class="lang-toggle" id="langToggle">
+        <button data-lang="zh" class="active">中文</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="relative pt-12 sm:pt-16 pb-8">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8">
+    <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3">
+      <span data-zh="部落格 · 系列 #2 / 鑽石購買指南" data-en="Blog · #2 / Diamond Buyer's Guide">部落格 · 系列 #2 / 鑽石購買指南</span>
+    </div>
+    <h1 class="font-display font-bold leading-[1.15] text-[34px] sm:text-[48px] tracking-tight">
+      <span data-zh="八心八箭真相" data-en="The Hearts &amp; Arrows Truth">八心八箭真相</span><br/>
+      <span class="gold-text" data-zh="哪些 GIA Excellent 其實不及格" data-en="Which GIA Excellents actually fail">哪些 GIA Excellent 其實不及格</span>
+    </h1>
+    <div class="mt-6 flex flex-wrap items-center gap-4 text-[12px] text-ink-500 uppercase tracking-[.12em]">
+      <span>2026.05.01</span><span>·</span>
+      <span data-zh="閱讀時間 7 分鐘" data-en="7 min read">閱讀時間 7 分鐘</span><span>·</span>
+      <span data-zh="作者 BrillianceLab" data-en="By BrillianceLab">作者 BrillianceLab</span>
+    </div>
+    <p class="mt-7 text-[15.5px] sm:text-[17px] text-ink-700 leading-[1.85]"
+       data-zh="同樣是 GIA Excellent,兩顆鑽石的實際閃亮度可以差到 25%。「八心八箭」並不是 Excellent 等級的同義詞 — 本文用四個實際比例案例與光學圖解,告訴你哪些 GIA Excellent 仍不及格,以及為什麼鑑定書上的 Cut: Excellent 永遠不應該是你最後的決策依據。"
+       data-en="Two diamonds both labeled GIA Excellent can differ by 25% in real-world brilliance. “Hearts &amp; Arrows” is not a synonym for Excellent — this post uses four real proportion cases plus optical diagrams to show which Excellents fail, and why the “Cut: Excellent” line should never be your last word.">
+       同樣是 GIA Excellent,兩顆鑽石的實際閃亮度可以差到 25%。「八心八箭」並不是 Excellent 等級的同義詞 — 本文用四個實際比例案例與光學圖解,告訴你哪些 GIA Excellent 仍不及格,以及為什麼鑑定書上的 Cut: Excellent 永遠不應該是你最後的決策依據。
+    </p>
+  </div>
+</section>
+
+<section class="max-w-3xl mx-auto px-5 sm:px-8 my-6">
+  <div class="ad-slot h-[90px]" data-zh="廣告位 · ADVERTISEMENT" data-en="Advertisement">廣告位 · ADVERTISEMENT</div>
+</section>
+
+<article class="max-w-3xl mx-auto px-5 sm:px-8 pb-16">
+
+  <!-- ======== ZH ======== -->
+  <div id="proseZh" class="prose-zh">
+
+    <h2>01 · 八心八箭其實不是 GIA 的等級</h2>
+    <p>「八心八箭(Hearts &amp; Arrows, H&amp;A)」是指鑽石在<strong>專用觀察鏡</strong>下,從上方看可看到八支對稱的箭、從底部看可看到八顆對稱的心。這是日本 1980 年代由 Kazumi Okuda 提出的概念,代表所有 57 個刻面的<strong>排列與對稱完美</strong>。</p>
+    <p>但這個圖樣<strong>從來不是 GIA 的官方等級</strong>。GIA 報告書上不會印出「H&amp;A」,他們只會給你 Cut / Polish / Symmetry 三個等級。是否真正八心八箭,完全要靠比例 + Symmetry 等級 + 觀察鏡才能驗證。</p>
+
+    <blockquote><p>結論:GIA 不會幫你驗證八心八箭,你必須<strong>自己用比例數字算</strong>,或要求賣家提供八心八箭觀察鏡照片(IdealScope 或 H&amp;A Viewer)。</p></blockquote>
+
+    <h2>02 · 為什麼 GIA Excellent 範圍這麼寬?</h2>
+    <p>GIA 的 Cut Grade 是用<strong>面光區段表(Cut Grade Tables)</strong>判斷的,只要每項參數都落在他們設定的範圍內,就算 Excellent。問題是這個範圍<strong>非常寬鬆</strong>:</p>
+
+    <div class="fig">
+      <svg viewBox="0 0 480 200" style="width:100%;height:auto" aria-hidden="true">
+        <!-- Title -->
+        <text x="240" y="18" text-anchor="middle" font-size="12" fill="#4a4d5e" font-weight="600">GIA Excellent 接受的亭角範圍 vs 真正甜蜜點</text>
+        <!-- Number line -->
+        <line x1="40" y1="120" x2="440" y2="120" stroke="#c5c6d2" stroke-width="1.2"/>
+        <!-- GIA Excellent band: 40.6° - 41.8° -->
+        <rect x="120" y="105" width="200" height="30" fill="#fbf3df" stroke="#c9a45c" stroke-width="1"/>
+        <text x="220" y="155" text-anchor="middle" font-size="11" fill="#8a6e30" font-weight="700">GIA Excellent 全範圍 · 跨 1.2°</text>
+        <text x="220" y="170" text-anchor="middle" font-size="10" fill="#7e8194">兩端閃亮度差約 30%</text>
+        <!-- True sweet spot: 40.6° - 41.0° -->
+        <rect x="120" y="105" width="65" height="30" fill="#c9a45c"/>
+        <text x="152" y="98" text-anchor="middle" font-size="10" fill="#5e4a1f" font-weight="700">真甜蜜點</text>
+        <text x="152" y="86" text-anchor="middle" font-size="9" fill="#5e4a1f">40.6–41.0°</text>
+        <!-- Tick marks -->
+        <g font-size="10" fill="#4a4d5e" text-anchor="middle">
+          <text x="120" y="146">40.6°</text>
+          <text x="185" y="146">41.0°</text>
+          <text x="320" y="146">41.8°</text>
+        </g>
+        <!-- Pointer "A" -->
+        <text x="152" y="48" text-anchor="middle" font-size="11" fill="#8a6e30" font-weight="700">A 級 ★</text>
+        <line x1="152" y1="55" x2="152" y2="103" stroke="#8a6e30" stroke-width="1.2"/>
+        <!-- Pointer "B" -->
+        <text x="280" y="48" text-anchor="middle" font-size="11" fill="#a13b3b" font-weight="700">仍標 Excellent</text>
+        <line x1="280" y1="55" x2="280" y2="103" stroke="#a13b3b" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <text x="280" y="78" text-anchor="middle" font-size="10" fill="#a13b3b">─15% 亮度</text>
+      </svg>
+      <div class="fig-cap"><span class="fig-num">圖 1</span>GIA Excellent 接受的亭角跨度高達 1.2°,但真正能形成八心八箭的範圍只有約 0.4°</div>
+    </div>
+
+    <p>類似的事情發生在四項參數的每一項。<em>這就是「真 Excellent」與「邊緣 Excellent」之間的差距,也是 BrillianceLab 想揭露的真相。</em></p>
+
+    <h2>03 · 四個實際案例:同樣 Excellent,分數差 25 分</h2>
+    <p>以下四顆假設鑽石的所有 4Cs 完全一致(1.00 ct / G / VS1 / Triple Excellent),但比例略有不同。把數據放進 BrillianceLab 跑一次,結果如下:</p>
+
+    <div class="case-grid">
+      <div class="case" style="border-color:rgba(201,164,92,.5);background:linear-gradient(180deg,#fffdf7,#faf8f3)">
+        <div class="case-title">A 真·甜蜜點 <span class="chip ideal" style="margin-left:6px">★ 真八心八箭</span></div>
+        <div class="case-row"><span>Table</span><strong>55.5%</strong></div>
+        <div class="case-row"><span>Depth</span><strong>61.8%</strong></div>
+        <div class="case-row"><span>Crown</span><strong>34.5°</strong></div>
+        <div class="case-row"><span>Pavilion</span><strong>40.8°</strong></div>
+        <div class="case-score"><span>BL 分數</span><b class="gold-text">99.4</b></div>
+      </div>
+      <div class="case">
+        <div class="case-title">B 桌面偏大 <span class="chip good" style="margin-left:6px">仍 Excellent</span></div>
+        <div class="case-row"><span>Table</span><strong>58.5%</strong></div>
+        <div class="case-row"><span>Depth</span><strong>62.0%</strong></div>
+        <div class="case-row"><span>Crown</span><strong>34.5°</strong></div>
+        <div class="case-row"><span>Pavilion</span><strong>40.8°</strong></div>
+        <div class="case-score"><span>BL 分數</span><b style="color:#2d4d8a">86.8</b></div>
+      </div>
+      <div class="case">
+        <div class="case-title">C 亭角過深 <span class="chip off" style="margin-left:6px">假八心八箭</span></div>
+        <div class="case-row"><span>Table</span><strong>56.0%</strong></div>
+        <div class="case-row"><span>Depth</span><strong>62.4%</strong></div>
+        <div class="case-row"><span>Crown</span><strong>35.0°</strong></div>
+        <div class="case-row"><span>Pavilion</span><strong>41.6°</strong></div>
+        <div class="case-score"><span>BL 分數</span><b style="color:#a13b3b">71.2</b></div>
+      </div>
+      <div class="case">
+        <div class="case-title">D 冠角過淺 <span class="chip off" style="margin-left:6px">假八心八箭</span></div>
+        <div class="case-row"><span>Table</span><strong>57.0%</strong></div>
+        <div class="case-row"><span>Depth</span><strong>61.5%</strong></div>
+        <div class="case-row"><span>Crown</span><strong>32.8°</strong></div>
+        <div class="case-row"><span>Pavilion</span><strong>40.7°</strong></div>
+        <div class="case-score"><span>BL 分數</span><b style="color:#a13b3b">74.5</b></div>
+      </div>
+    </div>
+
+    <p><strong>四顆的 GIA 鑑定書都會印 Cut: Excellent,但 BrillianceLab 算出的閃亮分數從 99.4 一路降到 71.2。</strong>實體比較時,A 顆的火光呈現出像火焰般的彩色閃爍,C 與 D 顆則是死板的「玻璃光」。</p>
+
+    <blockquote><p>本站演算法之所以能區分這些差距,是因為我們不只比對單軸偏差,還加入了「<em>冠 + 2 × 亭 ≈ 116.1°</em>」的 Tolkowsky 光學調和項 — 兩顆鑽石各自的單軸都接近理想,但組合起來仍可能不對盤,這個項會抓出來。</p></blockquote>
+
+    <h2>04 · 真八心八箭的數學條件</h2>
+    <p>從 1919 年 Marcel Tolkowsky 的論文開始,業界已經知道光學完美的圓形明亮式鑽石需要同時滿足以下條件:</p>
+    <ul>
+      <li>桌面 (Table %):<strong>54–57%</strong>(理想 55–56%)</li>
+      <li>深度 (Depth %):<strong>60.5–62.5%</strong>(理想 61–62.3%)</li>
+      <li>冠角 (Crown):<strong>33.7–35.5°</strong>(理想 34–35°)</li>
+      <li>亭角 (Pavilion):<strong>40.5–41.0°</strong>(理想 40.6–40.9°)</li>
+      <li><strong>冠 + 2 × 亭 ≈ 115.5–117° 之間的調和值</strong></li>
+      <li>Symmetry = Excellent;Polish = Excellent / Very Good</li>
+      <li>Star Length ≈ 50%,Lower Girdle ≈ 75–80%</li>
+    </ul>
+
+    <div class="fig">
+      <svg viewBox="0 0 480 220" style="width:100%;height:auto" aria-hidden="true">
+        <!-- Eight-arrow pattern (top view of an H&A diamond) -->
+        <g transform="translate(120 110)">
+          <text x="0" y="-90" text-anchor="middle" font-size="11" fill="#4a4d5e" font-weight="600">真八心八箭(從上方看 → 八支箭)</text>
+          <circle cx="0" cy="0" r="68" fill="#fbf3df" stroke="#c9a45c" stroke-width="1.4"/>
+          <g stroke="#8a6e30" stroke-width="1.6" fill="none">
+            <!-- 8 arrows pointing inward -->
+            <line x1="0" y1="-58" x2="0" y2="-15"/><polygon points="-5,-22 5,-22 0,-12" fill="#8a6e30"/>
+            <line x1="0" y1="58"  x2="0" y2="15"/><polygon points="-5,22 5,22 0,12" fill="#8a6e30"/>
+            <line x1="-58" y1="0" x2="-15" y2="0"/><polygon points="-22,-5 -22,5 -12,0" fill="#8a6e30"/>
+            <line x1="58" y1="0"  x2="15" y2="0"/><polygon points="22,-5 22,5 12,0" fill="#8a6e30"/>
+            <line x1="-41" y1="-41" x2="-11" y2="-11"/><polygon points="-19,-13 -13,-19 -8,-8" fill="#8a6e30"/>
+            <line x1="41" y1="-41"  x2="11" y2="-11"/><polygon points="13,-19 19,-13 8,-8" fill="#8a6e30"/>
+            <line x1="-41" y1="41"  x2="-11" y2="11"/><polygon points="-19,13 -13,19 -8,8" fill="#8a6e30"/>
+            <line x1="41" y1="41"   x2="11" y2="11"/><polygon points="13,19 19,13 8,8" fill="#8a6e30"/>
+          </g>
+        </g>
+        <!-- Mismatched / "fake" pattern -->
+        <g transform="translate(360 110)">
+          <text x="0" y="-90" text-anchor="middle" font-size="11" fill="#4a4d5e" font-weight="600">假八心八箭(箭參差不齊)</text>
+          <circle cx="0" cy="0" r="68" fill="#fdecec" stroke="#c75555" stroke-width="1.4"/>
+          <g stroke="#a13b3b" stroke-width="1.4" fill="none" opacity=".85">
+            <line x1="0" y1="-50" x2="0" y2="-15"/><polygon points="-5,-22 5,-22 0,-12" fill="#a13b3b"/>
+            <line x1="2" y1="58"  x2="2" y2="20"/><polygon points="-3,26 7,26 2,16" fill="#a13b3b"/>
+            <line x1="-58" y1="-3" x2="-15" y2="0"/><polygon points="-22,-5 -22,5 -12,0" fill="#a13b3b"/>
+            <line x1="60" y1="3"  x2="15" y2="0"/><polygon points="22,-5 22,5 12,0" fill="#a13b3b"/>
+            <line x1="-44" y1="-38" x2="-12" y2="-13"/>
+            <line x1="38" y1="-43"  x2="11" y2="-13"/>
+            <line x1="-39" y1="44"  x2="-9" y2="13"/>
+            <line x1="44" y1="38"   x2="13" y2="11"/>
+          </g>
+        </g>
+      </svg>
+      <div class="fig-cap"><span class="fig-num">圖 2</span>左:真八心八箭的八支箭等長對稱;右:邊緣 Excellent 的箭參差不齊或缺角</div>
+    </div>
+
+    <h2>05 · 如何在不見實物的情況下判斷?</h2>
+    <p>大部分網購鑽石無法當下用觀察鏡看八心八箭,但只要拿到鑑定書的 PDF,你就可以:</p>
+    <ol style="margin:14px 0 14px 22px;list-style:decimal;color:var(--ink-2)">
+      <li>抄下 Table、Depth、Crown Angle、Pavilion Angle 四項數字</li>
+      <li>確認 Symmetry = Excellent</li>
+      <li>把數據輸入 <a href="/">BrillianceLab</a></li>
+      <li>看綜合分數是否 ≥ 95;若 &lt; 90,九成不是真八心八箭</li>
+      <li>計算 Crown + 2×Pavilion 是否落在 115.5–117 之間</li>
+    </ol>
+
+    <blockquote><p>網路上其他鑽石網站只會告訴你「八心八箭很美」、「Excellent 是頂級」 — 但<strong>沒人會用數學公式幫你驗算</strong>。這是 BrillianceLab 想做的事:把選鑽石從感覺變成數學。</p></blockquote>
+
+    <h2>06 · 常見問題</h2>
+    <h3>Q1:我看到的鑽石商說有「八心八箭證書」,可信嗎?</h3>
+    <p>「八心八箭」沒有國際標準。不同店家的證書標準不一,有些比 GIA Excellent 嚴格,有些比 GIA 還寬鬆。<strong>務必索取數字 + 觀察鏡照片,並用 BrillianceLab 自己驗算。</strong></p>
+
+    <h3>Q2:Triple Excellent + GIA 不就夠了嗎?</h3>
+    <p>Triple X 只代表 Cut / Polish / Symmetry 都是 Excellent,但<em>並沒有規定比例必須在甜蜜點內</em>。Cut: Excellent 的範圍寬達 1.2° 亭角差距,光學表現可以差 25%。</p>
+
+    <h3>Q3:邊緣 Excellent 看起來真的差很多嗎?</h3>
+    <p>並排比較時,差別清楚到肉眼可見。獨自欣賞時可能不明顯 — 但<strong>你買的是一輩子戴的鑽石,前 30 秒不會差,但時間久了你會察覺它「沒那麼閃」</strong>。為了多一點預算的差距買到真八心八箭,絕對值得。</p>
+  </div>
+
+  <!-- ======== EN ======== -->
+  <div id="proseEn" class="prose-en" style="display:none">
+
+    <h2>01 · "Hearts &amp; Arrows" is not actually a GIA grade</h2>
+    <p>Hearts &amp; Arrows (H&amp;A) refers to the optical pattern visible under a <strong>special viewer</strong>: eight symmetric arrows from the top, eight symmetric hearts from below. The concept was introduced in the 1980s by Kazumi Okuda and represents <strong>perfect alignment of all 57 facets</strong>.</p>
+    <p>But this pattern <strong>was never an official GIA grade</strong>. GIA reports only print Cut / Polish / Symmetry. Whether a stone is truly H&amp;A is determined by its proportions, Symmetry grade, and an actual viewer photo.</p>
+    <blockquote><p>Bottom line: GIA won't verify Hearts &amp; Arrows for you. You have to <strong>compute it yourself</strong> from the proportion numbers, or insist on an IdealScope / H&amp;A viewer photo from the seller.</p></blockquote>
+
+    <h2>02 · Why is GIA "Excellent" such a wide bucket?</h2>
+    <p>GIA assigns Cut Grade via tables: as long as each parameter falls within their accepted range, you get Excellent. The catch — those ranges are <strong>very loose</strong>:</p>
+
+    <div class="fig">
+      <svg viewBox="0 0 480 200" style="width:100%;height:auto" aria-hidden="true">
+        <text x="240" y="18" text-anchor="middle" font-size="12" fill="#4a4d5e" font-weight="600">GIA Excellent's pavilion range vs the real sweet spot</text>
+        <line x1="40" y1="120" x2="440" y2="120" stroke="#c5c6d2" stroke-width="1.2"/>
+        <rect x="120" y="105" width="200" height="30" fill="#fbf3df" stroke="#c9a45c" stroke-width="1"/>
+        <text x="220" y="155" text-anchor="middle" font-size="11" fill="#8a6e30" font-weight="700">Full GIA Excellent · spans 1.2°</text>
+        <text x="220" y="170" text-anchor="middle" font-size="10" fill="#7e8194">~30% brilliance gap end-to-end</text>
+        <rect x="120" y="105" width="65" height="30" fill="#c9a45c"/>
+        <text x="152" y="98" text-anchor="middle" font-size="10" fill="#5e4a1f" font-weight="700">Real sweet spot</text>
+        <text x="152" y="86" text-anchor="middle" font-size="9" fill="#5e4a1f">40.6–41.0°</text>
+        <g font-size="10" fill="#4a4d5e" text-anchor="middle">
+          <text x="120" y="146">40.6°</text><text x="185" y="146">41.0°</text><text x="320" y="146">41.8°</text>
+        </g>
+        <text x="152" y="48" text-anchor="middle" font-size="11" fill="#8a6e30" font-weight="700">Tier-A ★</text>
+        <line x1="152" y1="55" x2="152" y2="103" stroke="#8a6e30" stroke-width="1.2"/>
+        <text x="280" y="48" text-anchor="middle" font-size="11" fill="#a13b3b" font-weight="700">Still "Excellent"</text>
+        <line x1="280" y1="55" x2="280" y2="103" stroke="#a13b3b" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <text x="280" y="78" text-anchor="middle" font-size="10" fill="#a13b3b">−15% brilliance</text>
+      </svg>
+      <div class="fig-cap"><span class="fig-num">Fig 1</span>GIA Excellent spans 1.2° on pavilion alone — true H&amp;A territory is a much narrower 0.4° band.</div>
+    </div>
+
+    <p>The same sloppiness applies to all four parameters. <em>This is the gap between "true Excellent" and "borderline Excellent" — and what BrillianceLab is built to expose.</em></p>
+
+    <h2>03 · Four real cases — same Excellent, 25-point spread</h2>
+    <p>All four hypothetical stones below share identical 4Cs (1.00 ct / G / VS1 / Triple Excellent). Only the proportions differ. Plug them into BrillianceLab and:</p>
+
+    <div class="case-grid">
+      <div class="case" style="border-color:rgba(201,164,92,.5);background:linear-gradient(180deg,#fffdf7,#faf8f3)">
+        <div class="case-title">A True sweet spot <span class="chip ideal" style="margin-left:6px">★ True H&amp;A</span></div>
+        <div class="case-row"><span>Table</span><strong>55.5%</strong></div><div class="case-row"><span>Depth</span><strong>61.8%</strong></div>
+        <div class="case-row"><span>Crown</span><strong>34.5°</strong></div><div class="case-row"><span>Pavilion</span><strong>40.8°</strong></div>
+        <div class="case-score"><span>BL Score</span><b class="gold-text">99.4</b></div>
+      </div>
+      <div class="case">
+        <div class="case-title">B Wide table <span class="chip good" style="margin-left:6px">Still Excellent</span></div>
+        <div class="case-row"><span>Table</span><strong>58.5%</strong></div><div class="case-row"><span>Depth</span><strong>62.0%</strong></div>
+        <div class="case-row"><span>Crown</span><strong>34.5°</strong></div><div class="case-row"><span>Pavilion</span><strong>40.8°</strong></div>
+        <div class="case-score"><span>BL Score</span><b style="color:#2d4d8a">86.8</b></div>
+      </div>
+      <div class="case">
+        <div class="case-title">C Deep pavilion <span class="chip off" style="margin-left:6px">Fake H&amp;A</span></div>
+        <div class="case-row"><span>Table</span><strong>56.0%</strong></div><div class="case-row"><span>Depth</span><strong>62.4%</strong></div>
+        <div class="case-row"><span>Crown</span><strong>35.0°</strong></div><div class="case-row"><span>Pavilion</span><strong>41.6°</strong></div>
+        <div class="case-score"><span>BL Score</span><b style="color:#a13b3b">71.2</b></div>
+      </div>
+      <div class="case">
+        <div class="case-title">D Shallow crown <span class="chip off" style="margin-left:6px">Fake H&amp;A</span></div>
+        <div class="case-row"><span>Table</span><strong>57.0%</strong></div><div class="case-row"><span>Depth</span><strong>61.5%</strong></div>
+        <div class="case-row"><span>Crown</span><strong>32.8°</strong></div><div class="case-row"><span>Pavilion</span><strong>40.7°</strong></div>
+        <div class="case-score"><span>BL Score</span><b style="color:#a13b3b">74.5</b></div>
+      </div>
+    </div>
+
+    <p><strong>All four ship with GIA Cut: Excellent. BrillianceLab scores them 99.4 down to 71.2.</strong> Side-by-side, A throws colorful, flame-like flashes; C and D look like dead glass.</p>
+
+    <blockquote><p>What lets us separate them isn't single-axis comparison — it's the Tolkowsky harmony term <em>Crown + 2 × Pavilion ≈ 116.1°</em>. Two stones can each be near-ideal individually but mismatched together — that term catches it.</p></blockquote>
+
+    <h2>04 · The math of true Hearts &amp; Arrows</h2>
+    <p>Since Marcel Tolkowsky's 1919 paper, an optically perfect round brilliant must satisfy:</p>
+    <ul>
+      <li>Table %: <strong>54–57%</strong> (ideal 55–56%)</li>
+      <li>Depth %: <strong>60.5–62.5%</strong> (ideal 61–62.3%)</li>
+      <li>Crown: <strong>33.7–35.5°</strong> (ideal 34–35°)</li>
+      <li>Pavilion: <strong>40.5–41.0°</strong> (ideal 40.6–40.9°)</li>
+      <li><strong>Crown + 2 × Pavilion ≈ 115.5–117°</strong></li>
+      <li>Symmetry = Excellent; Polish = Excellent / Very Good</li>
+      <li>Star Length ≈ 50%, Lower Girdle ≈ 75–80%</li>
+    </ul>
+
+    <h2>05 · How to judge without seeing the stone</h2>
+    <p>Most online stones can't be inspected with a viewer on the spot. With the report PDF, you can still:</p>
+    <ol style="margin:14px 0 14px 22px;list-style:decimal;color:var(--ink-2)">
+      <li>Note Table, Depth, Crown Angle, Pavilion Angle</li>
+      <li>Confirm Symmetry = Excellent</li>
+      <li>Plug into <a href="/">BrillianceLab</a></li>
+      <li>Composite ≥ 95? Promising. &lt; 90? Probably not true H&amp;A.</li>
+      <li>Verify Crown + 2 × Pavilion lands in 115.5–117</li>
+    </ol>
+
+    <blockquote><p>Other diamond sites tell you "H&amp;A is beautiful" and "Excellent is top-tier" — <strong>nobody runs the math for you</strong>. That's what BrillianceLab is for: turning diamond shopping from gut feel into math.</p></blockquote>
+
+    <h2>06 · FAQ</h2>
+    <h3>Q1. The seller has a "Hearts &amp; Arrows certificate." Trustworthy?</h3>
+    <p>There is no international standard. Different stores use different bars; some stricter than GIA, others looser. <strong>Get the numbers + a viewer photo and re-run BrillianceLab yourself.</strong></p>
+
+    <h3>Q2. Isn't Triple Excellent on a GIA report enough?</h3>
+    <p>Triple X means Cut / Polish / Symmetry all Excellent — but <em>doesn't require sweet-spot proportions</em>. Cut: Excellent spans 1.2° on pavilion alone, with up to 25% brilliance gap.</p>
+
+    <h3>Q3. Does borderline Excellent really look that different?</h3>
+    <p>Side-by-side, the gap is obvious. In isolation, less so — but <strong>this is a stone you'll wear for life. The difference creeps up on you.</strong> Spending a little more for a true H&amp;A is almost always worth it.</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="card p-7 sm:p-9 mt-12 text-center">
+    <div class="text-[11px] uppercase tracking-[.22em] text-gold-600 font-semibold mb-3">
+      <span data-zh="開始驗證" data-en="Start verifying">開始驗證</span>
+    </div>
+    <h3 class="font-display text-[24px] sm:text-[28px] leading-tight">
+      <span class="gold-text" data-zh="你的鑽石,是真八心八箭嗎?" data-en="Is your diamond truly Hearts &amp; Arrows?">你的鑽石,是真八心八箭嗎?</span>
+    </h3>
+    <p class="text-[14.5px] text-ink-700 mt-4 leading-[1.8] max-w-xl mx-auto"
+       data-zh="把鑑定書比例圖上的四個數字輸入 BrillianceLab,30 秒見真章 — 還可以一鍵上傳鑑定書照片自動辨識,完全免費。"
+       data-en="Plug your four proportion numbers into BrillianceLab and find out in 30 seconds — or upload a report photo for free in-browser OCR.">
+       把鑑定書比例圖上的四個數字輸入 BrillianceLab,30 秒見真章 — 還可以一鍵上傳鑑定書照片自動辨識,完全免費。
+    </p>
+    <a href="/" class="inline-flex mt-7 items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold text-white"
+       style="background:linear-gradient(180deg,#d4b87a 0%,#c9a45c 50%,#8a6e30 100%); border:1px solid rgba(138,110,48,.5); box-shadow:inset 0 1px 0 rgba(255,255,255,.45), 0 8px 18px -8px rgba(138,110,48,.5)">
+      <span data-zh="開啟 BrillianceLab →" data-en="Open BrillianceLab →">開啟 BrillianceLab →</span>
+    </a>
+  </div>
+
+  <!-- More posts -->
+  <div class="mt-10 grid sm:grid-cols-2 gap-4">
+    <a href="/blog/gia-guide" class="card p-5 hover:border-gold-300 transition-colors">
+      <div class="text-[10.5px] uppercase tracking-[.22em] text-gold-600 font-semibold mb-2" data-zh="系列 #1" data-en="Series #1">系列 #1</div>
+      <div class="font-display text-[17px] leading-snug" data-zh="如何看懂 GIA 鑑定書 — 5 分鐘完整解析" data-en="How to read a GIA report in 5 minutes">如何看懂 GIA 鑑定書 — 5 分鐘完整解析</div>
+    </a>
+    <a href="/blog/budget-formula" class="card p-5 hover:border-gold-300 transition-colors">
+      <div class="text-[10.5px] uppercase tracking-[.22em] text-gold-600 font-semibold mb-2" data-zh="系列 #3" data-en="Series #3">系列 #3</div>
+      <div class="font-display text-[17px] leading-snug" data-zh="30 萬以下挑最閃鑽石的數學公式" data-en="The math formula to pick the brightest diamond under NT$300K">30 萬以下挑最閃鑽石的數學公式</div>
+    </a>
+  </div>
+
+</article>
+
+<footer class="border-t border-[var(--border)] bg-ivory-100/60">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 py-10 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" aria-hidden="true">
+        <path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#gF)" stroke-width="1.2" stroke-linejoin="round"/>
+        <defs><linearGradient id="gF" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs>
+      </svg>
+      <div class="text-[13px]"><span class="font-display gold-text font-semibold">BrillianceLab</span><span class="text-ink-500"> · 璀璨實驗室</span></div>
+    </div>
+    <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500">© <span id="yr"></span> · <span data-zh="本工具僅供參考" data-en="For reference only">本工具僅供參考</span></div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+const stored = localStorage.getItem('bl_lang');
+let curLang = (stored === 'zh' || stored === 'en') ? stored : ((navigator.language || 'zh').toLowerCase().startsWith('zh') ? 'zh' : 'en');
+
+function applyLang() {
+  document.documentElement.lang = curLang === 'zh' ? 'zh-TW' : 'en';
+  document.querySelectorAll('[data-zh]').forEach(el => {
+    const txt = el.dataset[curLang];
+    if (txt != null) el.textContent = txt;
+  });
+  document.getElementById('proseZh').style.display = curLang === 'zh' ? '' : 'none';
+  document.getElementById('proseEn').style.display = curLang === 'en' ? '' : 'none';
+  document.querySelectorAll('#langToggle button').forEach(b => b.classList.toggle('active', b.dataset.lang === curLang));
+}
+document.querySelectorAll('#langToggle button').forEach(b => {
+  b.addEventListener('click', () => { curLang = b.dataset.lang; localStorage.setItem('bl_lang', curLang); applyLang(); });
+});
+document.getElementById('yr').textContent = new Date().getFullYear();
+applyLang();
+
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(()=>{});
+</script>
+
+</body>
+</html>

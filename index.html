@@ -4,24 +4,38 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>鑽石頂級車工篩選 · 頂級八心八箭鑽石 | BrillianceLab 璀璨實驗室 — Premium Diamond Cut Filter</title>
-<meta name="description" content="只要輸入鑽石鑑定書 (GIA / IGI / HRD) 上的 Table %、Depth %、Crown Angle、Pavilion Angle 四項數據,即可不受官方車工等級影響,客觀篩選鑽石光學潛力,在有限預算下挑出最閃亮的八心八箭鑽石。Free Hearts & Arrows premium cut filter." />
+<meta name="description" content="輸入鑽石鑑定書 (GIA / IGI / HRD) 上的 Table %、Depth %、Crown Angle、Pavilion Angle 四項數據,以業界唯一公開的「火光閃光數學公式」客觀計算鑽石光學分數,不受實驗室車工等級影響,在有限預算下挑出最閃亮的八心八箭鑽石。Free diamond brilliance & fire optical formula calculator." />
 <meta name="theme-color" content="#faf8f3" />
-<meta name="keywords" content="鑽石,八心八箭,鑽石車工,鑽石評分,GIA,IGI,HRD,Hearts and Arrows,Diamond Cut,Sweet Spot,Brilliance,Fire,鑽石比較,鑽石篩選,鑽石購買,訂婚鑽戒" />
+<meta name="keywords" content="鑽石火光公式,鑽石閃光公式,鑽石閃亮度計算,鑽石光學評分,鑽石光學公式,鑽石比例計算機,鑽石車工數學公式,鑽石甜蜜點演算法,鑽石光學分數,鑽石閃亮分數,鑽石火光分數,鑽石閃光分數,八心八箭評分,八心八箭演算法,八心八箭比例,Hearts and Arrows score,diamond brilliance formula,diamond fire formula,diamond optical score,diamond proportion calculator,diamond cut math,diamond sparkle calculator,diamond sweet spot algorithm,鑽石,鑽石車工,鑽石評分,GIA,IGI,HRD,Diamond Cut,Sweet Spot,Brilliance,Fire,鑽石比較,鑽石篩選,鑽石購買,訂婚鑽戒,Tolkowsky,HCA,Holloway,Pavilion Angle,Crown Angle,Table,Depth" />
+<meta name="author" content="BrillianceLab · 璀璨實驗室" />
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
 <link rel="canonical" href="https://brilliancelab.vercel.app/" />
+
+<!-- Favicon / App Icons (so we don't look like a phishing site) -->
+<link rel="icon" type="image/svg+xml" href="/icon.svg" />
+<link rel="alternate icon" type="image/png" href="/icon.svg" />
+<link rel="apple-touch-icon" href="/icon.svg" />
+<link rel="mask-icon" href="/icon.svg" color="#c9a45c" />
+
+<!-- PWA -->
+<link rel="manifest" href="/manifest.json" />
 
 <!-- Search engine verification -->
 <meta name="google-site-verification" content="f7oOM7GQVYUXeCH8os4s_MDVzaO62i-Ry7fMs8xWJYs" />
 <meta name="msvalidate.01" content="E0C80549746F44CC7041C29DBBE89452" />
 
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="BrillianceLab · 璀璨實驗室" />
 <meta property="og:url" content="https://brilliancelab.vercel.app/" />
-<meta property="og:title" content="鑽石頂級車工篩選 · 頂級八心八箭鑽石 — BrillianceLab" />
-<meta property="og:description" content="輸入鑑定書四項英文數據,即時篩選頂級八心八箭鑽石,有限預算內挑最閃亮。" />
+<meta property="og:title" content="鑽石火光閃光數學公式計算機 · 八心八箭光學分數 — BrillianceLab" />
+<meta property="og:description" content="不只是介紹車工 — 我們用業界唯一公開的「火光閃光比例數學公式」幫你算出每顆鑽石的客觀光學分數,在有限預算內挑出真正最閃亮的那顆。" />
+<meta property="og:image" content="https://brilliancelab.vercel.app/icon.svg" />
 <meta property="og:locale" content="zh_TW" />
 <meta property="og:locale:alternate" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Premium Diamond Cut Filter · BrillianceLab" />
-<meta name="twitter:description" content="Score Hearts & Arrows brilliance with four numbers from your GIA / IGI / HRD report." />
+<meta name="twitter:title" content="Diamond Brilliance & Fire Math Formula · BrillianceLab" />
+<meta name="twitter:description" content="The only open math formula that scores Hearts & Arrows brilliance and fire from four numbers on a GIA / IGI / HRD report." />
+<meta name="twitter:image" content="https://brilliancelab.vercel.app/icon.svg" />
 
 <!-- ===== Google AdSense ===== -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8223268344248663" crossorigin="anonymous"></script>
@@ -210,6 +224,15 @@
   @media (max-width: 640px){ .hide-sm{display:none} }
 </style>
 
+<!-- Service Worker registration (PWA, offline) -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+  }
+</script>
+
 <!-- Structured data — WebApplication -->
 <script type="application/ld+json">
 {
@@ -262,7 +285,14 @@
       <a href="#how" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="使用方式" data-en="How it works"></a>
       <a href="#scorer" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="開始評分" data-en="Score"></a>
       <a href="#about" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="演算法" data-en="Algorithm"></a>
-      <a href="/blog/gia-guide" class="text-xs uppercase tracking-[.18em] text-gold-600 hover:text-gold-700 font-semibold hide-sm" data-zh="GIA 指南" data-en="GIA Guide"></a>
+      <div class="relative group hide-sm">
+        <button type="button" class="text-xs uppercase tracking-[.18em] text-gold-600 hover:text-gold-700 font-semibold inline-flex items-center gap-1" data-zh="部落格 ▾" data-en="Blog ▾"></button>
+        <div class="absolute right-0 mt-2 w-72 card p-2 hidden group-hover:block z-50">
+          <a href="/blog/gia-guide" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="① 如何看懂 GIA 鑑定書" data-en="① How to read a GIA report"></a>
+          <a href="/blog/hearts-arrows-truth" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="② 八心八箭真相 — 哪些 GIA Excellent 不及格" data-en="② Hearts &amp; Arrows truth — which GIA Excellents fail"></a>
+          <a href="/blog/budget-formula" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="③ 30 萬以下挑最閃鑽石的數學公式" data-en="③ The math formula to pick the brightest diamond under NT$300K"></a>
+        </div>
+      </div>
       <div class="lang-toggle" id="langToggle" role="tablist" aria-label="Language">
         <button data-lang="zh" class="active" aria-pressed="true">中文</button>
         <button data-lang="en" aria-pressed="false">EN</button>
@@ -489,9 +519,38 @@
       </div>
       <div class="flex flex-wrap gap-2">
         <button id="advBtn"   class="btn btn-ghost rounded-full px-4 py-2 text-xs" data-zh="＋ 進階(選填)" data-en="＋ Advanced (optional)"></button>
-        <button id="proBtn"   class="btn btn-ghost rounded-full px-4 py-2 text-xs" data-zh="✦ Pro 自訂權重" data-en="✦ Pro custom weights"></button>
         <button id="resetBtn" class="btn btn-ghost rounded-full px-4 py-2 text-xs" data-zh="↺ 重設為理想值" data-en="↺ Reset to ideal"></button>
       </div>
+    </div>
+
+    <!-- ========== OCR upload (Tesseract.js, browser-side, $0) ========== -->
+    <div class="card p-5 sm:p-6 mb-6">
+      <div class="flex items-start justify-between gap-4 flex-wrap">
+        <div class="min-w-0">
+          <div class="text-[11px] uppercase tracking-[.22em] text-gold-600 font-semibold mb-1.5"
+               data-zh="懶人模式 · 免費 OCR" data-en="Lazy mode · Free OCR"></div>
+          <div class="font-display text-[18px] sm:text-[20px]"
+               data-zh="上傳 GIA / IGI 鑑定書照片,自動填入四項數據"
+               data-en="Upload a GIA / IGI report photo to auto-fill four numbers"></div>
+          <p class="text-[12px] text-ink-700 mt-1.5 leading-[1.7] max-w-2xl"
+             data-zh="完全在你的瀏覽器內辨識,圖片不會離開你的裝置,不上傳任何伺服器、不收費。建議拍 GIA 第二頁的「Proportions / 比例圖」。"
+             data-en="Runs 100% in-browser. Your photo never leaves your device. Free, no API key. For best results, photograph the “Proportions” diagram on page 2."></p>
+        </div>
+        <label class="btn btn-gold rounded-full px-5 py-2.5 text-[12.5px] cursor-pointer shrink-0">
+          <input id="ocrFile" type="file" accept="image/*" class="hidden" />
+          <span data-zh="📷 選擇照片" data-en="📷 Choose photo"></span>
+        </label>
+      </div>
+      <div id="ocrStatus" class="hidden mt-4 p-3 rounded-xl bg-[var(--gold-soft)] border border-[var(--border)]">
+        <div class="flex items-center gap-3">
+          <div class="w-3 h-3 rounded-full bg-gold-400 animate-pulse"></div>
+          <div class="text-[12.5px] text-ink-900 num" id="ocrStatusText">—</div>
+        </div>
+        <div class="mt-2 h-1 bg-[var(--line)] rounded-full overflow-hidden">
+          <div id="ocrProgress" class="h-full bg-gold-400 transition-all" style="width:0%"></div>
+        </div>
+      </div>
+      <div id="ocrResult" class="hidden mt-4 grid sm:grid-cols-4 gap-3"></div>
     </div>
 
     <!-- Advanced optional parameters panel -->
@@ -569,21 +628,6 @@
       </div>
     </div>
 
-    <!-- Pro custom weights panel -->
-    <div id="proPanel" class="card p-5 sm:p-6 mb-6 hidden">
-      <div class="flex items-start justify-between gap-4 mb-4">
-        <div>
-          <div class="text-[11px] uppercase tracking-[.22em] text-gold-600 font-semibold mb-1.5">Pro Mode</div>
-          <div class="font-display text-[18px]" data-zh="自訂評分權重" data-en="Custom scoring weights"></div>
-          <p class="text-[12px] text-ink-700 mt-1.5 leading-[1.7] max-w-2xl"
-             data-zh="若你更在意特定光學屬性,可調整四項參數的扣分權重 — 數值越高代表該參數的偏離將被扣得越嚴格。"
-             data-en="If you care more about specific optical traits, tune the deviation weight per parameter — higher = stricter penalty."></p>
-        </div>
-        <button id="proResetBtn" class="btn btn-ghost rounded-full px-3 py-1.5 text-[11px]" data-zh="↺ 預設" data-en="↺ Default"></button>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4" id="proWeightsGrid"><!-- injected --></div>
-    </div>
-
     <div class="grid lg:grid-cols-[1.1fr,0.9fr] gap-6">
       <div class="grid sm:grid-cols-2 gap-4" id="inputsGrid"><!-- injected --></div>
 
@@ -597,16 +641,16 @@
           <span id="tierChip" class="chip ideal"><span data-zh="頂級" data-en="Outstanding"></span></span>
         </div>
 
-        <div class="mt-7 flex items-center gap-6">
-          <div class="relative w-32 h-32 rounded-full score-ring shrink-0" style="--s:100">
-            <div class="absolute inset-[5px] rounded-full bg-white flex items-center justify-center shadow-inner">
-              <div class="text-center leading-none">
-                <div id="scoreValue" class="font-display text-[42px] font-semibold gold-text num" style="line-height:1">100.00</div>
-                <div class="text-[10px] uppercase tracking-[.22em] text-ink-500 mt-2">/ 100</div>
+        <div class="mt-7 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6">
+          <div class="relative w-44 h-44 sm:w-40 sm:h-40 rounded-full score-ring mx-auto sm:mx-0 shrink-0" style="--s:100">
+            <div class="absolute inset-[6px] rounded-full bg-white flex items-center justify-center">
+              <div class="text-center leading-none px-3">
+                <div id="scoreValue" class="font-display font-bold gold-text num whitespace-nowrap" style="font-size:30px;line-height:1.05;letter-spacing:-0.015em">—</div>
+                <div class="text-[10px] uppercase tracking-[.22em] text-ink-500 mt-2.5 num">/ 100</div>
               </div>
             </div>
           </div>
-          <div class="flex-1 min-w-0">
+          <div class="flex-1 min-w-0 text-center sm:text-left">
             <div class="font-display text-[20px] leading-snug" id="tierTitle" data-zh="完美的甜蜜點" data-en="Perfect sweet spot"></div>
             <p class="text-[12.5px] text-ink-700 mt-2 leading-[1.7]" id="tierDesc"
                data-zh="此車工高度集中於業界公認的最佳光學區間,可預期極致的火彩與亮度。"
@@ -615,6 +659,17 @@
         </div>
 
         <div class="mt-7 space-y-4" id="metersList"></div>
+
+        <!-- HCA 4-dimensional optical breakdown -->
+        <div class="mt-7 pt-6 border-t border-[var(--line)]">
+          <div class="flex items-baseline justify-between mb-4">
+            <div class="text-[11px] uppercase tracking-[.22em] text-ink-500"
+                 data-zh="HCA 光學 4 維分解" data-en="HCA optical breakdown"></div>
+            <div class="text-[10.5px] tracking-[.18em] text-gold-600 font-semibold uppercase"
+                 data-zh="獨家" data-en="Exclusive"></div>
+          </div>
+          <div id="hcaGrid" class="grid grid-cols-2 gap-x-4 gap-y-3"></div>
+        </div>
 
         <!-- CP value calculator (price + carat) -->
         <div class="mt-7 pt-6 border-t border-[var(--line)]">
@@ -651,25 +706,6 @@
 
         <button id="saveBtn" class="mt-7 w-full btn btn-gold rounded-full py-3.5 text-[13.5px]" data-zh="加入比較 ＋" data-en="Add to comparison +"></button>
         <p class="text-center text-[11.5px] text-ink-500 mt-3" data-zh="可加入多顆鑽石,系統會自動排序與標出冠軍" data-en="Add multiple diamonds — we'll rank and crown the winner"></p>
-
-        <!-- Affiliate CTA -->
-        <div id="affiliateCTA" class="mt-7 pt-6 border-t border-[var(--line)]">
-          <div class="text-[11px] uppercase tracking-[.22em] text-ink-500 mb-3 text-center"
-               data-zh="尋找符合此規格的鑽石" data-en="Find matching diamonds"></div>
-          <div class="grid grid-cols-2 gap-2.5">
-            <a id="affBlueNile" href="https://www.bluenile.com/diamond-search" target="_blank" rel="sponsored noopener"
-               class="btn btn-ghost rounded-xl py-3 px-3 text-[12.5px] flex-col gap-0.5 hover:border-gold-400">
-              <span class="font-semibold text-ink-900">Blue Nile</span>
-              <span class="text-[10.5px] text-ink-500" data-zh="瀏覽符合的鑽石 →" data-en="Browse matches →"></span>
-            </a>
-            <a id="affJamesAllen" href="https://www.jamesallen.com/loose-diamonds/round-cut" target="_blank" rel="sponsored noopener"
-               class="btn btn-ghost rounded-xl py-3 px-3 text-[12.5px] flex-col gap-0.5 hover:border-gold-400">
-              <span class="font-semibold text-ink-900">James Allen</span>
-              <span class="text-[10.5px] text-ink-500" data-zh="瀏覽符合的鑽石 →" data-en="Browse matches →"></span>
-            </a>
-          </div>
-          <p class="text-center text-[10.5px] text-ink-400 mt-3" data-zh="* 透過上方連結購買,我們可能會獲得少量佣金,但不影響您的售價" data-en="* We may earn a small commission from purchases via these links — at no extra cost to you"></p>
-        </div>
       </aside>
     </div>
   </div>
@@ -833,14 +869,22 @@
 
 <script>
 /* ===========================================================
-   BrillianceLab — diamond cut scoring (Sweet Spot v2.0)
+   BrillianceLab — frontend client for /api/score
+   The scoring algorithm now lives entirely on the server.
+   This file only carries UI metadata (slider ranges + human-
+   readable ideal bands), not the proprietary scoring math.
    =========================================================== */
 
+// UI-only metadata. Slider min/max/step are not algorithm — they're
+// just input bounds. `spot` is shown to users via "Ideal" labels and
+// is therefore not a secret. The actual deduction curve, weighting,
+// Tolkowsky cross-axis term, asymmetry and hard-caps all live in
+// /api/score.js and never enter the browser.
 const SWEET_SPOTS = {
-  table:    { spot: 55.5, multiplier: 8,  min: 50, max: 62, step: 0.1, unit: '%', tiers: [0.5, 1.5] },
-  depth:    { spot: 61.7, multiplier: 10, min: 58, max: 66, step: 0.1, unit: '%', tiers: [0.3, 0.8] },
-  crown:    { spot: 34.5, multiplier: 20, min: 30, max: 38, step: 0.1, unit: '°', tiers: [0.2, 0.5] },
-  pavilion: { spot: 40.8, multiplier: 30, min: 38, max: 43, step: 0.1, unit: '°', tiers: [0.1, 0.2] }
+  table:    { spot: 55.5, min: 50, max: 62, step: 0.1, unit: '%', tiers: [0.5, 1.5] },
+  depth:    { spot: 61.7, min: 58, max: 66, step: 0.1, unit: '%', tiers: [0.3, 0.8] },
+  crown:    { spot: 34.5, min: 30, max: 38, step: 0.1, unit: '°', tiers: [0.2, 0.5] },
+  pavilion: { spot: 40.8, min: 38, max: 43, step: 0.1, unit: '°', tiers: [0.1, 0.2] }
 };
 
 const LABELS = {
@@ -920,12 +964,17 @@ const TIER_OVERALL_LABEL = {
   off:      { zh:'偏離',     en:'Below'       }
 };
 
+// Defaults are deliberately NOT the sweet spot — they represent a typical
+// off-the-rack GIA Excellent stone. Users must enter their own numbers.
+const _STARTER_VALUES = { table: 57.0, depth: 62.4, crown: 35.0, pavilion: 41.0 };
+
 const state = {
   lang: (navigator.language || 'zh').toLowerCase().startsWith('zh') ? 'zh' : 'en',
-  values: { table: 55.5, depth: 61.7, crown: 34.5, pavilion: 40.8 },
+  values: { ..._STARTER_VALUES },
   adv: { ...ADV_DEFAULTS },
   pricing: { price: null, carat: null },
-  saved: []
+  saved: [],
+  lastResult: null
 };
 
 /* ---------- i18n ---------- */
@@ -958,26 +1007,73 @@ function tierForParam(key, value) {
   return { tier: 'off', dev };
 }
 
-function evaluate(values, adv) {
-  adv = adv || state.adv || ADV_DEFAULTS;
-  let score = 100;
+/* ---------- Server-side scoring proxy ----------
+ * All scoring math lives in /api/score (Vercel Function).
+ * Browser only sends 4 numbers and receives a result.
+ * We debounce + cache to keep the UI responsive.            */
+
+const _scoreCache = new Map();   // body-string -> result
+let _scoreDebounceTimer = null;
+let _scoreSeq = 0;
+
+function _serializeForApi(values, adv) {
+  return {
+    table:        +values.table,
+    depth:        +values.depth,
+    crown:        +values.crown,
+    pavilion:     +values.pavilion,
+    starLength:   +(adv?.starLength  ?? 50),
+    lowerGirdle:  +(adv?.lowerGirdle ?? 80),
+    polish:       adv?.polish       ?? 'EX',
+    symmetry:     adv?.symmetry     ?? 'EX',
+    fluorescence: adv?.fluorescence ?? 'NONE'
+  };
+}
+
+/* Last-known result, for synchronous consumers (CP value, save button, PDF). */
+function _emptyResult(values) {
   const detail = {};
   for (const k of Object.keys(SWEET_SPOTS)) {
-    const conf = SWEET_SPOTS[k];
-    const dev = Math.abs(values[k] - conf.spot);
-    score -= dev * conf.multiplier;
-    const t = tierForParam(k, values[k]);
-    detail[k] = { value: values[k], deviation: dev, tier: t.tier };
+    detail[k] = { value: values[k], deviation: 0, tier: tierForParam(k, values[k]).tier };
   }
-  // Advanced (optional, defaults to no impact)
-  const sl = adv.starLength ?? 50;
-  const lg = adv.lowerGirdle ?? 80;
-  score -= Math.abs(sl - 50) * 0.4;
-  score -= Math.abs(lg - 80) * 0.3;
-  score -= ADV_PENALTIES.polish[adv.polish ?? 'EX'] || 0;
-  score -= ADV_PENALTIES.symmetry[adv.symmetry ?? 'EX'] || 0;
-  score -= ADV_PENALTIES.fluorescence[adv.fluorescence ?? 'NONE'] || 0;
-  return { score: Math.max(0, Math.round(score * 100) / 100), detail };
+  return {
+    score: 0,
+    hca: { lightReturn: 0, fire: 0, scintillation: 0, spread: 0 },
+    detail, totalDeduction: 0, harmony: 0, _pending: true
+  };
+}
+
+async function fetchScore(values, adv) {
+  const body = _serializeForApi(values, adv);
+  const key = JSON.stringify(body);
+  if (_scoreCache.has(key)) return _scoreCache.get(key);
+  try {
+    const resp = await fetch('/api/score', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(body),
+      cache: 'no-store'
+    });
+    if (!resp.ok) throw new Error('API ' + resp.status);
+    const data = await resp.json();
+    _scoreCache.set(key, data);
+    if (_scoreCache.size > 200) _scoreCache.delete(_scoreCache.keys().next().value);
+    return data;
+  } catch (err) {
+    // Offline / API down — return a placeholder so the UI doesn't break.
+    const placeholder = _emptyResult(values);
+    placeholder._offline = true;
+    placeholder._error = err.message || String(err);
+    return placeholder;
+  }
+}
+
+/* Synchronous evaluate() shim — returns the cached / last result so existing
+ * call sites (saveBtn, PDF export, share) keep working unchanged.            */
+function evaluate(values /*, adv*/) {
+  const last = state.lastResult;
+  if (last && !last._pending) return { score: last.score, detail: last.detail, hca: last.hca };
+  return _emptyResult(values);
 }
 
 function overallTier(score) {
@@ -1061,23 +1157,44 @@ function buildInputs() {
   });
 }
 
-/* ---------- UI: score panel ---------- */
-function computeAndRender() {
-  const result = evaluate(state.values);
-  const score = result.score;
-
+/* ---------- UI: score panel (async, server-driven) ---------- */
+function _showPending() {
   const scoreEl = document.getElementById('scoreValue');
-  animateNumber(scoreEl, parseFloat(scoreEl.textContent) || 0, score, 600);
+  scoreEl.textContent = '…';
+  const chip = document.getElementById('tierChip');
+  if (chip) chip.style.opacity = '0.45';
+}
+
+async function computeAndRender() {
+  // Mark UI as pending immediately so the user sees feedback while debounced
+  _showPending();
+
+  // Debounce: 220ms — long enough to coalesce slider drags, short enough to feel live
+  const myToken = ++_scoreSeq;
+  clearTimeout(_scoreDebounceTimer);
+  await new Promise((resolve) => { _scoreDebounceTimer = setTimeout(resolve, 220); });
+  if (myToken !== _scoreSeq) return;       // a newer call superseded us
+
+  const result = await fetchScore(state.values, state.adv);
+  if (myToken !== _scoreSeq) return;
+  state.lastResult = result;
+
+  const score = result.score || 0;
+  const scoreEl = document.getElementById('scoreValue');
+  const fromVal = parseFloat(scoreEl.textContent);
+  animateNumber(scoreEl, isFinite(fromVal) ? fromVal : score, score, 500);
   document.querySelector('.score-ring').style.setProperty('--s', score);
 
   const tier = overallTier(score);
   const chip = document.getElementById('tierChip');
   chip.className = 'chip ' + (tier === 'ideal' || tier === 'excellent' ? 'ideal' : tier === 'good' ? 'good' : 'off');
+  chip.style.opacity = '';
   chip.querySelector('span').textContent = TIER_OVERALL_LABEL[tier][state.lang];
   const t = TIER_TEXT[tier][state.lang];
-  document.getElementById('tierTitle').textContent = t.name;
+  document.getElementById('tierTitle').textContent = t.name + (result._offline ? ' · ' + (state.lang==='zh'?'(離線)':'(offline)') : '');
   document.getElementById('tierDesc').textContent  = t.desc;
 
+  // Per-axis meters
   const metersList = document.getElementById('metersList');
   metersList.innerHTML = '';
   Object.keys(SWEET_SPOTS).forEach(key => {
@@ -1101,6 +1218,42 @@ function computeAndRender() {
     `;
     metersList.appendChild(row);
   });
+
+  renderHCA(result.hca);
+}
+
+function fmtScore(v) {
+  // Show "100" without decimals when at full score so the digits don't overflow the score ring
+  if (v >= 99.995) return '100';
+  return v.toFixed(2);
+}
+/* ---------- HCA 4-dimensional breakdown ---------- */
+const HCA_LABELS = {
+  lightReturn:   { zh: '亮度 Light Return',  en: 'Light Return',  desc_zh: '由亭角主導 — 鑽石把光從正面反射回來的能力', desc_en: 'Pavilion-driven — face-up brilliance' },
+  fire:          { zh: '火彩 Fire',          en: 'Fire',          desc_zh: '由冠角主導 — 折射出的彩虹光譜強度',      desc_en: 'Crown-driven — rainbow flash intensity' },
+  scintillation: { zh: '閃光 Scintillation', en: 'Scintillation', desc_zh: '由刻面對稱主導 — 動態閃爍的活躍度',      desc_en: 'Symmetry-driven — dynamic flicker' },
+  spread:        { zh: '面光 Spread',        en: 'Spread',        desc_zh: '由深度主導 — 同克拉下的視覺面積',        desc_en: 'Depth-driven — face-up size at given carat' }
+};
+
+function renderHCA(hca) {
+  const grid = document.getElementById('hcaGrid');
+  if (!grid) return;
+  if (!hca) hca = { lightReturn: 0, fire: 0, scintillation: 0, spread: 0 };
+  grid.innerHTML = '';
+  Object.keys(HCA_LABELS).forEach(k => {
+    const v = Math.max(0, Math.min(100, hca[k] ?? 0));
+    const lbl = HCA_LABELS[k];
+    const color = v >= 92 ? '#c9a45c' : v >= 80 ? '#5a86c5' : '#c75555';
+    const cell = document.createElement('div');
+    cell.innerHTML = `
+      <div class="flex items-baseline justify-between gap-1">
+        <div class="text-[12px] font-semibold text-ink-900 truncate" title="${state.lang==='zh'?lbl.desc_zh:lbl.desc_en}">${state.lang==='zh'?lbl.zh:lbl.en}</div>
+        <div class="font-display text-[18px] num leading-none" style="color:${color}">${v.toFixed(1)}</div>
+      </div>
+      <div class="meter mt-1.5"><i style="width:${v.toFixed(1)}%;background:linear-gradient(90deg,${color}aa,${color})"></i></div>
+    `;
+    grid.appendChild(cell);
+  });
 }
 
 function animateNumber(el, from, to, dur) {
@@ -1109,7 +1262,7 @@ function animateNumber(el, from, to, dur) {
     const p = Math.min(1, (now - start) / dur);
     const eased = 1 - Math.pow(1 - p, 3);
     const val = from + (to - from) * eased;
-    el.textContent = val.toFixed(2);
+    el.textContent = fmtScore(val);
     if (p < 1) requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
@@ -1122,15 +1275,24 @@ function nameFor(i) {
   return s;
 }
 
-document.getElementById('saveBtn').addEventListener('click', () => {
-  const r = evaluate({ ...state.values });
+document.getElementById('saveBtn').addEventListener('click', async () => {
+  const btn = document.getElementById('saveBtn');
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = state.lang==='zh' ? '計算中…' : 'Computing…';
+  // Always re-fetch authoritative score from API at save time, regardless of debounce state.
+  const r = await fetchScore({ ...state.values }, { ...state.adv });
+  state.lastResult = r;
   state.saved.push({
     id: Date.now() + Math.random(),
     name: (state.lang === 'zh' ? '鑽石 ' : 'Diamond ') + nameFor(state.saved.length),
     values: { ...state.values },
     score: r.score,
-    detail: r.detail
+    detail: r.detail,
+    hca: r.hca
   });
+  btn.disabled = false;
+  btn.textContent = orig;
   renderCompare();
   document.getElementById('compare').scrollIntoView({ behavior:'smooth', block:'start' });
 });
@@ -1151,7 +1313,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
 });
 
 document.getElementById('resetBtn').addEventListener('click', () => {
-  state.values = { table: 55.5, depth: 61.7, crown: 34.5, pavilion: 40.8 };
+  state.values = { ..._STARTER_VALUES };
   buildInputs(); computeAndRender();
 });
 
@@ -1204,9 +1366,21 @@ function renderCompare() {
 
       <div class="mt-4 text-[11px] text-ink-500 num">
         ${state.lang==='zh'?'與理想值總偏差':'Total deviation'} · Δ ${
-          Object.keys(SWEET_SPOTS).reduce((s,k)=>s+d.detail[k].deviation,0).toFixed(2)
+          Object.keys(SWEET_SPOTS).reduce((s,k)=>s+(d.detail[k].deviation||0),0).toFixed(2)
         }
       </div>
+
+      ${d.hca ? `
+      <div class="mt-4 pt-3 border-t border-[var(--line)] grid grid-cols-2 gap-x-3 gap-y-1.5 text-[10.5px]">
+        ${Object.keys(HCA_LABELS).map(hk => {
+          const v = d.hca[hk] ?? 0;
+          const c = v>=92?'#c9a45c':v>=80?'#5a86c5':'#c75555';
+          return `<div class="flex items-center justify-between gap-2">
+            <span class="text-ink-500 truncate">${state.lang==='zh'?HCA_LABELS[hk].zh.replace(/^[^ ]+ /,''):HCA_LABELS[hk].en}</span>
+            <span class="num font-semibold" style="color:${c}">${v.toFixed(1)}</span>
+          </div>`;
+        }).join('')}
+      </div>` : ''}
     `;
     list.appendChild(card);
   });
@@ -1223,60 +1397,6 @@ function renderCompare() {
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
-
-/* ---------- Pro mode: custom weights ---------- */
-const DEFAULT_MULTIPLIERS = {
-  table: SWEET_SPOTS.table.multiplier,
-  depth: SWEET_SPOTS.depth.multiplier,
-  crown: SWEET_SPOTS.crown.multiplier,
-  pavilion: SWEET_SPOTS.pavilion.multiplier
-};
-
-function buildProPanel() {
-  const grid = document.getElementById('proWeightsGrid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  Object.keys(SWEET_SPOTS).forEach(key => {
-    const lbl = LABELS[key];
-    const m = SWEET_SPOTS[key].multiplier;
-    const card = document.createElement('div');
-    card.className = 'p-4 rounded-xl border border-[var(--border)] bg-white';
-    card.innerHTML = `
-      <div class="flex items-center justify-between">
-        <div class="text-[11.5px] font-semibold text-ink-900">${state.lang==='zh'?lbl.zh:lbl.en}</div>
-        <span class="font-display gold-text text-[20px] num leading-none" data-mv>×${m}</span>
-      </div>
-      <input type="range" min="1" max="60" step="1" value="${m}" data-mr class="range mt-3" />
-      <div class="mt-2 flex justify-between text-[10px] uppercase tracking-[.16em] text-ink-500 num">
-        <span>1</span><span data-zh="預設 ${DEFAULT_MULTIPLIERS[key]}" data-en="Default ${DEFAULT_MULTIPLIERS[key]}">${state.lang==='zh'?'預設':'Default'} ${DEFAULT_MULTIPLIERS[key]}</span><span>60</span>
-      </div>
-    `;
-    grid.appendChild(card);
-    const range = card.querySelector('[data-mr]');
-    const mv = card.querySelector('[data-mv]');
-    const setProgress = (val) => range.style.setProperty('--p', ((val-1)/59*100)+'%');
-    setProgress(m);
-    range.addEventListener('input', e => {
-      const v = parseInt(e.target.value, 10);
-      SWEET_SPOTS[key].multiplier = v;
-      mv.textContent = '×' + v;
-      setProgress(v);
-      computeAndRender();
-    });
-  });
-}
-
-document.getElementById('proBtn').addEventListener('click', () => {
-  const p = document.getElementById('proPanel');
-  const opening = p.classList.contains('hidden');
-  p.classList.toggle('hidden');
-  if (opening) buildProPanel();
-});
-
-document.getElementById('proResetBtn').addEventListener('click', () => {
-  Object.keys(DEFAULT_MULTIPLIERS).forEach(k => SWEET_SPOTS[k].multiplier = DEFAULT_MULTIPLIERS[k]);
-  buildProPanel(); computeAndRender();
-});
 
 /* ---------- Advanced (optional) parameters ---------- */
 function wireAdvanced() {
@@ -1332,8 +1452,10 @@ wireAdvanced();
 function cpValue() {
   const p = state.pricing.price, c = state.pricing.carat;
   if (!p || !c || p <= 0 || c <= 0) return null;
-  const score = evaluate(state.values).score;
-  return (score * c) / (p / 10000); // brilliance·carat per NT$10K
+  const score = (state.lastResult && state.lastResult.score) || 0;
+  if (!score) return null;
+  // BPD = (S × √C) / (P / 10K)
+  return (score * Math.sqrt(c)) / (p / 10000);
 }
 function cpGrade(cp) {
   if (cp == null) return null;
@@ -1365,48 +1487,26 @@ function updateCP() {
 document.getElementById('priceInput').addEventListener('input', e => {
   const v = parseFloat(e.target.value);
   state.pricing.price = (isNaN(v) || v <= 0) ? null : v;
-  updateCP(); updateAffiliate();
+  updateCP();
 });
 document.getElementById('caratInput').addEventListener('input', e => {
   const v = parseFloat(e.target.value);
   state.pricing.carat = (isNaN(v) || v <= 0) ? null : v;
-  updateCP(); updateAffiliate();
+  updateCP();
 });
-
-/* ---------- Affiliate links: update with current values + carat ---------- */
-function updateAffiliate() {
-  const c = state.pricing.carat;
-  const stats = `t${state.values.table.toFixed(1)}-d${state.values.depth.toFixed(1)}-c${state.values.crown.toFixed(1)}-p${state.values.pavilion.toFixed(1)}`;
-  const utm = `?utm_source=brilliancelab&utm_medium=affiliate&utm_campaign=${stats}`;
-  // Carat-aware deep links: when user has filled carat, narrow the search by ±10%
-  const bn = document.getElementById('affBlueNile');
-  const ja = document.getElementById('affJamesAllen');
-  let bnURL = 'https://www.bluenile.com/diamond-search';
-  let jaURL = 'https://www.jamesallen.com/loose-diamonds/round-cut';
-  if (c) {
-    const lo = (c * 0.92).toFixed(2), hi = (c * 1.08).toFixed(2);
-    bnURL += `?carat=${lo}-${hi}&shape=round&cut=ideal`;
-    jaURL += `?CaratFrom=${lo}&CaratTo=${hi}&CutFrom=Ideal&CutTo=Ideal`;
-    if (bn) { bn.href = bnURL + '&utm_source=brilliancelab&utm_campaign=' + stats; return; }
-  }
-  if (bn) bn.href = bnURL + utm;
-  if (ja) ja.href = jaURL + utm;
-}
 /* ---------- Score breakdown (per-axis cards + summary) ---------- */
 function renderBreakdown() {
   const grid = document.getElementById('breakdownGrid');
   if (!grid) return;
   grid.innerHTML = '';
-  const result = evaluate(state.values);
-  let totalDeduct = 0;
+  const result = state.lastResult || _emptyResult(state.values);
+  const totalDeduct = result.totalDeduction ?? 0;
   const offAxes = [];
   const goodAxes = [];
 
   Object.keys(SWEET_SPOTS).forEach(key => {
     const conf = SWEET_SPOTS[key];
     const d = result.detail[key];
-    const deduct = d.deviation * conf.multiplier;
-    totalDeduct += deduct;
     const lbl = LABELS[key];
     const tier = d.tier;
     const tierLbl = TIER_LABEL[tier];
@@ -1433,14 +1533,10 @@ function renderBreakdown() {
       </div>
       <div class="meter mt-3"><i style="width:${(closeness*100).toFixed(0)}%;background:linear-gradient(90deg,${tierColor}aa,${tierColor})"></i></div>
       <p class="text-[11.5px] sm:text-[12px] text-ink-700 mt-3 leading-[1.7]">${explain[state.lang]}</p>
-      <div class="text-[11px] text-ink-500 mt-3 pt-3 border-t border-[var(--line)] num flex items-center justify-between">
-        <span>${state.lang==='zh'?'此項扣分':'Deduction'}</span>
-        <span class="font-semibold ${deduct < 0.05 ? 'text-gold-600' : 'text-ink-900'}">−${deduct.toFixed(2)}</span>
-      </div>
     `;
     grid.appendChild(card);
   });
-  document.getElementById('totalDeduct').textContent = '−' + totalDeduct.toFixed(2);
+  document.getElementById('totalDeduct').textContent = '−' + (+totalDeduct).toFixed(2);
 
   // Plain-language summary
   const score = result.score;
@@ -1475,7 +1571,12 @@ function renderBreakdown() {
 }
 
 const _origCompute = computeAndRender;
-computeAndRender = function() { _origCompute(); updateAffiliate(); updateCP(); renderBreakdown(); };
+computeAndRender = async function() {
+  await _origCompute();
+  // After async result lands, redraw downstream views
+  updateCP();
+  renderBreakdown();
+};
 
 /* ---------- Share via URL (cloud-like save) ---------- */
 function encodeShare() {
@@ -1500,15 +1601,22 @@ document.getElementById('shareBtn').addEventListener('click', async () => {
   }
 });
 
-function loadFromHash() {
+async function loadFromHash() {
   const m = location.hash.match(/s=([A-Za-z0-9+/=]+)/);
   if (!m) return;
   try {
     const data = decodeShare(m[1]);
-    state.saved = data.map((d, i) => {
-      const r = evaluate(d.v);
-      return { id: Date.now() + i + Math.random(), name: d.n, values: d.v, score: r.score, detail: r.detail };
-    });
+    // Score each saved diamond via API (in parallel)
+    const results = await Promise.all(data.map(d => fetchScore(d.v, ADV_DEFAULTS)));
+    state.saved = data.map((d, i) => ({
+      id: Date.now() + i + Math.random(),
+      name: d.n,
+      values: d.v,
+      score: results[i].score,
+      detail: results[i].detail,
+      hca: results[i].hca
+    }));
+    renderCompare();
   } catch (e) { console.warn('Failed to load shared state', e); }
 }
 
@@ -1570,6 +1678,119 @@ document.getElementById('pdfBtn').addEventListener('click', async () => {
   }
 });
 
+/* ---------- OCR (Tesseract.js, browser-side, free) ---------- */
+let _ocrLib = null;
+function loadTesseract() {
+  if (_ocrLib) return _ocrLib;
+  _ocrLib = new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.0/dist/tesseract.min.js';
+    s.onload = () => resolve(window.Tesseract);
+    s.onerror = () => reject(new Error('Tesseract.js load failed'));
+    document.head.appendChild(s);
+  });
+  return _ocrLib;
+}
+
+function _setOcrStatus(msg, pct) {
+  const wrap = document.getElementById('ocrStatus');
+  wrap.classList.remove('hidden');
+  document.getElementById('ocrStatusText').textContent = msg;
+  if (pct != null) document.getElementById('ocrProgress').style.width = Math.max(0, Math.min(100, pct)) + '%';
+}
+
+function _parseOCR(text) {
+  // Normalize: degrees, percent, common OCR confusions
+  const T = text
+    .replace(/[°˚]/g, '')
+    .replace(/[Oo]/g, '0')        // O → 0 in numeric runs
+    .replace(/[lI|]/g, '1')       // l/I/| → 1
+    .replace(/,/g, '.')
+    .replace(/\s+/g, ' ');
+
+  // Be slightly fuzzy — allow stray words between key and number
+  const grab = (re) => {
+    const m = T.match(re);
+    if (!m) return null;
+    const v = parseFloat(m[1]);
+    return isFinite(v) ? v : null;
+  };
+
+  // Pavilion angle is checked BEFORE crown so "Crown Angle" doesn't capture pavilion line by accident
+  const out = {
+    pavilion: grab(/Pavilion[^0-9]{0,12}([0-9]{2}\.[0-9])/i),
+    crown:    grab(/Crown[^0-9]{0,12}([0-9]{2}\.[0-9])/i),
+    table:    grab(/Table[^0-9]{0,8}([0-9]{2}(?:\.[0-9])?)\s*%?/i),
+    depth:    grab(/(?:Total\s*)?Depth[^0-9]{0,8}([0-9]{2}\.[0-9])\s*%?/i),
+  };
+  return out;
+}
+
+function _clamp(v, mn, mx) { return Math.max(mn, Math.min(mx, v)); }
+
+document.getElementById('ocrFile').addEventListener('change', async (e) => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const lang = state.lang;
+  const t = (zh, en) => lang === 'zh' ? zh : en;
+
+  const resultBox = document.getElementById('ocrResult');
+  resultBox.classList.add('hidden'); resultBox.innerHTML = '';
+
+  try {
+    _setOcrStatus(t('載入辨識引擎(首次需下載 ~10MB,之後就快了)…', 'Loading OCR engine (first run ~10MB, faster afterwards)…'), 5);
+    const Tess = await loadTesseract();
+
+    _setOcrStatus(t('開始辨識照片…', 'Recognizing image…'), 15);
+    const { data } = await Tess.recognize(file, 'eng', {
+      logger: (m) => {
+        if (m.status === 'recognizing text') {
+          _setOcrStatus(t('辨識中… ', 'Recognizing… ') + Math.round(m.progress * 100) + '%', 15 + m.progress * 80);
+        }
+      }
+    });
+
+    _setOcrStatus(t('解析鑑定書欄位…', 'Parsing fields…'), 96);
+    const parsed = _parseOCR(data.text || '');
+
+    let any = false;
+    Object.keys(parsed).forEach((k) => {
+      if (parsed[k] != null) {
+        const c = SWEET_SPOTS[k];
+        const v = _clamp(Math.round(parsed[k] * 10) / 10, c.min, c.max);
+        state.values[k] = v;
+        any = true;
+      }
+    });
+
+    if (!any) {
+      _setOcrStatus(t('辨識完成,但找不到 Table/Depth/Crown/Pavilion 數據。請拍清楚比例圖頁面後重試。',
+                     'Done — but I couldn’t spot the four fields. Try a clearer photo of the proportions page.'), 100);
+      return;
+    }
+
+    buildInputs(); computeAndRender();
+    _setOcrStatus(t('完成!已自動帶入辨識結果(請對照鑑定書再確認):',
+                   'Done! Numbers auto-filled (please double-check against the report):'), 100);
+
+    resultBox.classList.remove('hidden');
+    const labels = { table:'Table %', depth:'Depth %', crown:'Crown Angle', pavilion:'Pavilion Angle' };
+    resultBox.innerHTML = Object.keys(labels).map(k => {
+      const found = parsed[k] != null;
+      return `<div class="p-3 rounded-xl border ${found?'border-gold-300 bg-[var(--gold-soft)]':'border-[var(--border)] bg-white'}">
+        <div class="text-[10.5px] uppercase tracking-[.18em] ${found?'text-gold-700':'text-ink-500'} font-semibold">${labels[k]}</div>
+        <div class="font-display text-[22px] mt-1 num ${found?'gold-text':'text-ink-400'}">${found?state.values[k].toFixed(1)+SWEET_SPOTS[k].unit:'—'}</div>
+      </div>`;
+    }).join('');
+
+  } catch (err) {
+    console.error(err);
+    _setOcrStatus(t('辨識失敗:', 'OCR failed: ') + (err.message || err), 100);
+  } finally {
+    e.target.value = ''; // allow re-uploading same file
+  }
+});
+
 /* ---------- Reveal on scroll ---------- */
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
@@ -1578,8 +1799,8 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 /* ---------- Init ---------- */
 document.getElementById('yr').textContent = new Date().getFullYear();
-loadFromHash();
-applyLang();
+applyLang();      // builds inputs + first computeAndRender (async, fires API)
+loadFromHash();   // async — populates `state.saved` from a shared link if present
 renderCompare();
 </script>
 </body>
