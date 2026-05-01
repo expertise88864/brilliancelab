@@ -800,7 +800,9 @@ function applyLang() {
   document.documentElement.lang = curLang === 'zh' ? 'zh-TW' : 'en';
   document.querySelectorAll('[data-zh]').forEach(el => {
     const txt = el.dataset[curLang];
-    if (txt != null) el.textContent = txt;
+    if (txt == null) return;
+    if (/[<&]/.test(txt) && /<\/?[a-z]/i.test(txt)) el.innerHTML = txt;
+    else el.textContent = txt;
   });
   document.getElementById('proseZh').style.display = curLang === 'zh' ? '' : 'none';
   document.getElementById('proseEn').style.display = curLang === 'en' ? '' : 'none';

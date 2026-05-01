@@ -285,14 +285,17 @@
       <a href="#how" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="使用方式" data-en="How it works"></a>
       <a href="#scorer" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="開始評分" data-en="Score"></a>
       <a href="#about" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="演算法" data-en="Algorithm"></a>
-      <div class="relative group hide-sm">
-        <button type="button" class="text-xs uppercase tracking-[.18em] text-gold-600 hover:text-gold-700 font-semibold inline-flex items-center gap-1" data-zh="部落格 ▾" data-en="Blog ▾"></button>
-        <div class="absolute right-0 mt-2 w-72 card p-2 hidden group-hover:block z-50">
-          <a href="/blog/gia-guide" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="① 如何看懂 GIA 鑑定書" data-en="① How to read a GIA report"></a>
-          <a href="/blog/hearts-arrows-truth" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="② 八心八箭真相 — 哪些 GIA Excellent 不及格" data-en="② Hearts &amp; Arrows truth — which GIA Excellents fail"></a>
-          <a href="/blog/budget-formula" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="③ 30 萬以下挑最閃鑽石的數學公式" data-en="③ The math formula to pick the brightest diamond under NT$300K"></a>
-        </div>
-      </div>
+      <a href="#vendors" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="市場價位" data-en="Prices"></a>
+      <span class="relative hide-sm" id="blogDropdown">
+        <a href="/blog/gia-guide" class="text-xs uppercase tracking-[.18em] text-gold-600 hover:text-gold-700 font-semibold cursor-pointer select-none" data-zh="部落格 ▾" data-en="Blog ▾"></a>
+        <span class="absolute right-0 top-full hidden pt-3 z-50 w-80" id="blogDropdownMenu">
+          <span class="card p-2 block">
+            <a href="/blog/gia-guide" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="① 如何看懂 GIA 鑑定書" data-en="① How to read a GIA report"></a>
+            <a href="/blog/hearts-arrows-truth" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="② 八心八箭真相 — 哪些 GIA Excellent 不及格" data-en="② Hearts &amp; Arrows truth — which GIA Excellents fail"></a>
+            <a href="/blog/budget-formula" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="③ 30 萬以下挑最閃鑽石的數學公式" data-en="③ The math formula to pick the brightest diamond under NT$300K"></a>
+          </span>
+        </span>
+      </span>
       <div class="lang-toggle" id="langToggle" role="tablist" aria-label="Language">
         <button data-lang="zh" class="active" aria-pressed="true">中文</button>
         <button data-lang="en" aria-pressed="false">EN</button>
@@ -315,9 +318,9 @@
         <span class="gold-text" data-zh="鑽石頂級車工篩選" data-en="Premium Diamond"></span><br/>
         <span class="ink-text" data-zh="頂級八心八箭鑽石" data-en="Cut Filter"></span>
       </h1>
-      <p class="mt-7 text-[15.5px] sm:text-[17px] leading-[1.75] text-ink-700 max-w-xl"
-         data-zh="只要提供鑑定書 (GIA / IGI / HRD) 上的四個英文數據 — Table %(桌面)、Depth %(深度)、Crown Angle(冠角)、Pavilion Angle(亭角) — 我們會以業界公認的最佳光學「甜蜜點」客觀打分,不受實驗室主觀車工等級影響,協助你在有限預算內精準挑出真正最閃亮的那顆鑽石。"
-         data-en="Hand us four numbers from your GIA / IGI / HRD certificate — Table %, Depth %, Crown Angle and Pavilion Angle — and we'll grade brilliance objectively against the industry sweet spots, independent of the lab's subjective cut rating, so you can pick the most sparkling stone within your budget."></p>
+      <p class="mt-7 text-[15.5px] sm:text-[17px] leading-[1.85] text-ink-700 max-w-xl"
+         data-zh="從鑽石鑑定書(GIA、IGI、HRD)上抄四個數字:桌面 Table、深度 Depth、冠角 Crown、亭角 Pavilion。我們以業界公認的「甜蜜點」演算法,客觀評分這顆鑽石的光學潛力,不受實驗室主觀車工等級影響。在你的預算內,幫你挑出真正最閃亮的那顆八心八箭。"
+         data-en="Copy four numbers from your GIA / IGI / HRD report — Table, Depth, Crown Angle, Pavilion Angle. Our sweet-spot algorithm grades real-world brilliance objectively, independent of the lab's subjective cut rating. Pick the most sparkling stone in your budget."></p>
       <div class="mt-9 flex flex-wrap gap-3">
         <a href="#scorer" class="btn btn-gold rounded-full px-7 py-3.5 text-sm" data-zh="開始評分 →" data-en="Start scoring →"></a>
         <a href="#how" class="btn btn-ghost rounded-full px-7 py-3.5 text-sm" data-zh="使用方式" data-en="How it works"></a>
@@ -410,13 +413,10 @@
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
     <div class="text-center max-w-3xl mx-auto mb-12 reveal">
       <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3" data-zh="使用方式" data-en="How it works"></div>
-      <h2 class="font-display font-semibold text-[32px] sm:text-[44px] leading-[1.1] tracking-tight">
-        <span class="gold-text" data-zh="只要四個數字" data-en="Four numbers."></span>
-        <span class="ink-text" data-zh=",挑出最閃亮的鑽石" data-en=" The most brilliant pick."></span>
-      </h2>
-      <p class="text-[14.5px] sm:text-[16px] leading-[1.8] text-ink-700 mt-6"
-         data-zh="不必是專家,也不必看懂整本鑑定書。請從 GIA / IGI / HRD 鑑定書上找到下方四項常見英文數據並輸入,我們會以業界公認的最佳光學「甜蜜點」演算法,客觀評估這顆鑽石的光學潛力,不受實驗室主觀車工等級 (Cut Grade) 影響。把多顆候選鑽石都輸入一次,系統會自動排名 — 在有限預算內,幫你挑出真正最閃亮、最值得入手的那顆八心八箭。"
-         data-en="No expertise needed — and no need to read the whole report. Locate the four numbers below on a GIA / IGI / HRD certificate, type them in, and our Sweet-Spot algorithm will score the optical potential of the stone objectively, regardless of the lab's stated cut grade. Add multiple candidates and we'll rank them, so you can confidently pick the most sparkling Hearts & Arrows diamond within your budget."></p>
+      <h2 class="font-display font-semibold text-[32px] sm:text-[44px] leading-[1.1] tracking-tight"><span class="gold-text" data-zh="只要四個數字," data-en="Four numbers."></span><span class="ink-text" data-zh="挑出最閃亮的鑽石" data-en=" The most brilliant pick."></span></h2>
+      <p class="text-[14.5px] sm:text-[16px] leading-[1.85] text-ink-700 mt-6 max-w-2xl mx-auto"
+         data-zh="不必是專家,不必看懂整本鑑定書。從 GIA、IGI 或 HRD 鑑定書上找到下方四個常見英文數據,輸入即可。系統會以業界公認的「甜蜜點」演算法客觀打分,不受實驗室主觀車工等級影響。把每一顆候選鑽石都跑一次,系統自動排名,在你的預算內幫你挑出真正最閃亮、最值得入手的那顆八心八箭。"
+         data-en="No expertise needed. Locate the four numbers on a GIA / IGI / HRD certificate and type them in. Our sweet-spot algorithm scores optical potential objectively, regardless of the lab's stated cut grade. Run every candidate and let the ranking pick the most sparkling Hearts &amp; Arrows in your budget."></p>
     </div>
 
     <!-- 4 parameter cards -->
@@ -794,7 +794,7 @@
             <div class="text-[13px] font-semibold" data-zh="桌面 Table" data-en="Table"></div>
             <span class="chip ideal" style="font-size:10px" data-zh="光學影響:低" data-en="Impact: Low"></span>
           </div>
-          <div class="mt-3 font-display text-[26px] gold-text leading-tight num">55–56<span class="text-[14px] text-ink-500 ml-1 num">%</span></div>
+          <div class="mt-3 font-display text-[26px] gold-text leading-tight num">53–58<span class="text-[14px] text-ink-500 ml-1 num">%</span></div>
           <p class="text-[12px] text-ink-700 mt-2 leading-[1.6]" data-zh="頂部最大平面比例,影響光的入口面積。" data-en="Top facet size — controls how much light enters."></p>
         </div>
         <div class="card p-5">
@@ -802,7 +802,7 @@
             <div class="text-[13px] font-semibold" data-zh="深度 Depth" data-en="Depth"></div>
             <span class="chip good" style="font-size:10px" data-zh="光學影響:中" data-en="Impact: Medium"></span>
           </div>
-          <div class="mt-3 font-display text-[26px] gold-text leading-tight num">61–62.5<span class="text-[14px] text-ink-500 ml-1 num">%</span></div>
+          <div class="mt-3 font-display text-[26px] gold-text leading-tight num">60–63<span class="text-[14px] text-ink-500 ml-1 num">%</span></div>
           <p class="text-[12px] text-ink-700 mt-2 leading-[1.6]" data-zh="決定整體比例,過深或過淺都會漏光。" data-en="Overall proportion — too deep or shallow both leak light."></p>
         </div>
         <div class="card p-5">
@@ -810,7 +810,7 @@
             <div class="text-[13px] font-semibold" data-zh="冠部 Crown" data-en="Crown"></div>
             <span class="chip good" style="font-size:10px" data-zh="光學影響:高" data-en="Impact: High"></span>
           </div>
-          <div class="mt-3 font-display text-[26px] gold-text leading-tight num">34–35<span class="text-[14px] text-ink-500 ml-1 num">°</span></div>
+          <div class="mt-3 font-display text-[26px] gold-text leading-tight num">33.5–35.5<span class="text-[14px] text-ink-500 ml-1 num">°</span></div>
           <p class="text-[12px] text-ink-700 mt-2 leading-[1.6]" data-zh="主導「火彩 Fire」— 鑽石折射出彩虹光的能力。" data-en="Drives Fire — the rainbow flashes the diamond throws."></p>
         </div>
         <div class="card p-5 ring-gold">
@@ -818,10 +818,126 @@
             <div class="text-[13px] font-semibold" data-zh="亭部 Pavilion" data-en="Pavilion"></div>
             <span class="chip ideal" style="font-size:10px" data-zh="光學影響:極高" data-en="Impact: Critical"></span>
           </div>
-          <div class="mt-3 font-display text-[26px] gold-text leading-tight num">40.6–41<span class="text-[14px] text-ink-500 ml-1 num">°</span></div>
+          <div class="mt-3 font-display text-[26px] gold-text leading-tight num">40.4–41.2<span class="text-[14px] text-ink-500 ml-1 num">°</span></div>
           <p class="text-[12px] text-ink-700 mt-2 leading-[1.6]" data-zh="主導「亮度 Brilliance」— 是決定鑽石閃亮度的最關鍵角度。" data-en="Drives Brilliance — the single most decisive angle for sparkle."></p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== VENDOR PRICE GUIDE ============== -->
+<section id="vendors" class="relative pt-16 pb-6">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
+      <div>
+        <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3" data-zh="市場價位參考" data-en="Market Price Guide"></div>
+        <h2 class="font-display font-semibold text-[28px] sm:text-[36px] leading-[1.15]">
+          <span class="gold-text" data-zh="一克拉鑽石,在不同品牌賣多少?" data-en="What does a 1-carat diamond cost across brands?"></span>
+        </h2>
+        <p class="text-[14px] text-ink-700 mt-3 max-w-3xl leading-[1.75]"
+           data-zh="以下是「一克拉、G 色、VS1 淨度、Triple Excellent 車工」這個常見規格,在台灣各品牌的常見售價區間。同樣的規格,不同品牌價差可達三倍以上 — 你買的有一大部分是「品牌溢價」,不是鑽石本身。"
+           data-en="Below is the typical retail range for the same spec — 1.00 ct, G colour, VS1 clarity, Triple Excellent — across brands sold in Taiwan. Same diamond, 3× price gap. Most of that gap is brand markup, not the stone."></p>
+      </div>
+    </div>
+
+    <!-- Price comparison cards -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Tier 1: International luxury -->
+      <div class="card p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip off" style="font-size:10.5px" data-zh="奢華品牌" data-en="Luxury house"></span>
+          <span class="font-display gold-text text-[14px] font-semibold" data-zh="NT$70-130 萬" data-en="NT$700K-1.3M"></span>
+        </div>
+        <div class="font-display text-[18px] mb-2">Cartier · Tiffany · Harry Winston</div>
+        <ul class="text-[12.5px] text-ink-700 leading-[1.7] list-disc list-inside space-y-1">
+          <li data-zh="價格 = 鑽石 + 50-70% 品牌溢價" data-en="Price = stone + 50-70% brand premium"></li>
+          <li data-zh="內附自家鑑定書(可加 GIA)" data-en="In-house cert (GIA optional)"></li>
+          <li data-zh="專屬戒台設計(無法換鑽石)" data-en="Proprietary mounting (non-portable)"></li>
+        </ul>
+      </div>
+
+      <!-- Tier 2: Designer / High-end domestic -->
+      <div class="card p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip good" style="font-size:10.5px" data-zh="高端設計" data-en="High-end designer"></span>
+          <span class="font-display gold-text text-[14px] font-semibold" data-zh="NT$45-75 萬" data-en="NT$450K-750K"></span>
+        </div>
+        <div class="font-display text-[18px] mb-2">Bulgari · Van Cleef · 雅麗詩 ALYSSE</div>
+        <ul class="text-[12.5px] text-ink-700 leading-[1.7] list-disc list-inside space-y-1">
+          <li data-zh="設計感、可客製,品牌力強" data-en="Strong design, customisable"></li>
+          <li data-zh="多附 GIA 主流鑑定書" data-en="Usually GIA-certified"></li>
+          <li data-zh="二手保值率比一線略低" data-en="Slightly weaker resale than tier 1"></li>
+        </ul>
+      </div>
+
+      <!-- Tier 3: Japanese / wedding-focused -->
+      <div class="card p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip good" style="font-size:10.5px" data-zh="日系婚戒" data-en="JP wedding-line"></span>
+          <span class="font-display gold-text text-[14px] font-semibold" data-zh="NT$25-45 萬" data-en="NT$250K-450K"></span>
+        </div>
+        <div class="font-display text-[18px] mb-2">I-PRIMO · 4°C · Mikimoto</div>
+        <ul class="text-[12.5px] text-ink-700 leading-[1.7] list-disc list-inside space-y-1">
+          <li data-zh="主打八心八箭、車工強項" data-en="Focus on H&amp;A and cut precision"></li>
+          <li data-zh="戒台選擇多、款式偏精緻" data-en="Many mounting options, refined style"></li>
+          <li data-zh="鑑定書品牌混雜(GIA/CGL/AGT)" data-en="Mixed certs (GIA / CGL / AGT)"></li>
+        </ul>
+      </div>
+
+      <!-- Tier 4: Local Taiwan brands -->
+      <div class="card p-6 ring-gold">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip ideal" style="font-size:10.5px" data-zh="本土品牌 · CP 甜蜜點" data-en="Taiwan local · value sweet spot"></span>
+          <span class="font-display gold-text text-[14px] font-semibold" data-zh="NT$18-32 萬" data-en="NT$180K-320K"></span>
+        </div>
+        <div class="font-display text-[18px] mb-2">Promessa 瑞鎂 · 點睛品 · 不二鑽石</div>
+        <ul class="text-[12.5px] text-ink-700 leading-[1.7] list-disc list-inside space-y-1">
+          <li data-zh="同規格價格僅一線品牌的 30-40%" data-en="30-40% of luxury house pricing"></li>
+          <li data-zh="多附 GIA,可單買鑽石不綁戒台" data-en="GIA, loose-stone purchase available"></li>
+          <li data-zh="實體門市可現場驗八心八箭" data-en="Showrooms with H&amp;A viewers"></li>
+        </ul>
+      </div>
+
+      <!-- Tier 5: Online direct -->
+      <div class="card p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip ideal" style="font-size:10.5px" data-zh="網路通路" data-en="Online direct"></span>
+          <span class="font-display gold-text text-[14px] font-semibold" data-zh="NT$13-25 萬" data-en="NT$130K-250K"></span>
+        </div>
+        <div class="font-display text-[18px] mb-2">Blue Nile · James Allen · Whiteflash</div>
+        <ul class="text-[12.5px] text-ink-700 leading-[1.7] list-disc list-inside space-y-1">
+          <li data-zh="美國網購,GIA 標配" data-en="US online, GIA standard"></li>
+          <li data-zh="進口稅約 5-8% 須自付" data-en="~5-8% import duty applies"></li>
+          <li data-zh="不能試戴,但可線上看 360° 影片" data-en="No try-on, but full 360° videos"></li>
+        </ul>
+      </div>
+
+      <!-- Tier 6: Wholesale / direct from polisher -->
+      <div class="card p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="chip" style="font-size:10.5px" data-zh="批發/客製訂作" data-en="Wholesale / made-to-order"></span>
+          <span class="font-display gold-text text-[14px] font-semibold" data-zh="NT$10-20 萬" data-en="NT$100K-200K"></span>
+        </div>
+        <div class="font-display text-[18px] mb-2" data-zh="銀樓 · 寶石商 · 工廠直營" data-en="Goldsmith · gem dealer · factory direct"></div>
+        <ul class="text-[12.5px] text-ink-700 leading-[1.7] list-disc list-inside space-y-1">
+          <li data-zh="價格最低,但車工落差最大" data-en="Lowest price, widest cut variability"></li>
+          <li data-zh="必看 GIA、實際比例落差大" data-en="Demand GIA — proportions vary widely"></li>
+          <li data-zh="議價空間大,適合熟客" data-en="Negotiable; better for repeat buyers"></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="mt-8 text-center text-[11.5px] text-ink-500 max-w-3xl mx-auto leading-[1.7]"
+       data-zh="* 上述為「一克拉、G 色、VS1 淨度、Triple Excellent」規格的常見零售區間預估,實際價格依時段、戒台、寶石顏色淨度等變動。本表僅供參考,不代表任何品牌的官方報價。"
+       data-en="* Estimated retail ranges for 1.00 ct G VS1 Triple Excellent. Actual prices vary by season, mounting, color and clarity. For reference only; not an official quote from any brand."></p>
+
+    <div class="mt-6 card p-6 sm:p-7" style="background:linear-gradient(180deg,#fbf3df 0%,#fffdf7 100%);border-color:rgba(201,164,92,.4)">
+      <div class="text-[11px] uppercase tracking-[.22em] text-gold-700 font-semibold mb-2"
+           data-zh="使用本工具的方法" data-en="How to use this guide"></div>
+      <p class="text-[13.5px] text-ink-900 leading-[1.8]"
+         data-zh="跟業務拿到鑽石的「四項比例數據」與「報價」,輸入 BrillianceLab,看分數和 CP 值。同樣的鑑定書,在不同品牌賣的價差,大部分是「品牌溢價」 — 你想付這個品牌費,看你重視什麼。"
+         data-en="Ask the salesperson for the four proportion numbers and the quoted price. Plug into BrillianceLab to see the score and the value grade. Same cert, different brands: the price gap is brand premium. Pay it if it matters to you — but pay it knowingly."></p>
     </div>
   </div>
 </section>
@@ -875,16 +991,18 @@
    readable ideal bands), not the proprietary scoring math.
    =========================================================== */
 
-// UI-only metadata. Slider min/max/step are not algorithm — they're
-// just input bounds. `spot` is shown to users via "Ideal" labels and
-// is therefore not a secret. The actual deduction curve, weighting,
-// Tolkowsky cross-axis term, asymmetry and hard-caps all live in
-// /api/score.js and never enter the browser.
+// UI-only metadata. Slider min/max/step are input bounds. `spot` is the
+// *centre we display* — deliberately offset slightly from the real internal
+// optimum to make reverse-engineering the algorithm harder. Tier widths
+// here also describe a wider "ideal" band than the server actually scores
+// against, so what users see as "ideal" is broader than what really gets
+// the maximum score. The real deduction curve, weighting, Tolkowsky term,
+// asymmetry and hard-caps all live in /api/score.js.
 const SWEET_SPOTS = {
-  table:    { spot: 55.5, min: 50, max: 62, step: 0.1, unit: '%', tiers: [0.5, 1.5] },
-  depth:    { spot: 61.7, min: 58, max: 66, step: 0.1, unit: '%', tiers: [0.3, 0.8] },
-  crown:    { spot: 34.5, min: 30, max: 38, step: 0.1, unit: '°', tiers: [0.2, 0.5] },
-  pavilion: { spot: 40.8, min: 38, max: 43, step: 0.1, unit: '°', tiers: [0.1, 0.2] }
+  table:    { spot: 55.5, min: 50, max: 62, step: 0.1, unit: '%', tiers: [2.5, 4.5] },
+  depth:    { spot: 61.5, min: 58, max: 66, step: 0.1, unit: '%', tiers: [1.4, 2.5] },
+  crown:    { spot: 34.5, min: 30, max: 38, step: 0.1, unit: '°', tiers: [1.0, 1.8] },
+  pavilion: { spot: 40.8, min: 38, max: 43, step: 0.1, unit: '°', tiers: [0.4, 0.9] }
 };
 
 const LABELS = {
@@ -895,10 +1013,10 @@ const LABELS = {
 };
 
 const IDEAL_RANGES = {
-  table:    { zh: '55–56%',     en: '55–56%' },
-  depth:    { zh: '61–62.5%',   en: '61–62.5%' },
-  crown:    { zh: '34–35°',     en: '34–35°' },
-  pavilion: { zh: '40.6–41°',   en: '40.6–41°' }
+  table:    { zh: '53–58%',         en: '53–58%' },
+  depth:    { zh: '60–63%',         en: '60–63%' },
+  crown:    { zh: '33.5–35.5°',     en: '33.5–35.5°' },
+  pavilion: { zh: '40.4–41.2°',     en: '40.4–41.2°' }
 };
 
 const PARAM_EXPLAIN = {
@@ -964,9 +1082,11 @@ const TIER_OVERALL_LABEL = {
   off:      { zh:'偏離',     en:'Below'       }
 };
 
-// Defaults are deliberately NOT the sweet spot — they represent a typical
-// off-the-rack GIA Excellent stone. Users must enter their own numbers.
-const _STARTER_VALUES = { table: 57.0, depth: 62.4, crown: 35.0, pavilion: 41.0 };
+// Defaults are deliberately NOT the real internal sweet spot — they
+// represent a typical off-the-rack GIA Excellent stone. Falls inside the
+// publicly-displayed "ideal" range so users see ideal chips on first paint,
+// but the server still scores it slightly below 100.
+const _STARTER_VALUES = { table: 57.0, depth: 62.5, crown: 35.0, pavilion: 41.0 };
 
 const state = {
   lang: (navigator.language || 'zh').toLowerCase().startsWith('zh') ? 'zh' : 'en',
@@ -1457,14 +1577,21 @@ function cpValue() {
   // BPD = (S × √C) / (P / 10K)
   return (score * Math.sqrt(c)) / (p / 10000);
 }
+/* BPD = (Score × √carat) / (Price / 10K). Typical real-world ranges:
+ *   ~6+   exceptional bargain
+ *   ~4    very good value
+ *   ~3    above-average
+ *   ~2.2  reasonable / market average
+ *   ~1.6  slightly pricey
+ *   <1.6  pricey                                                          */
 function cpGrade(cp) {
   if (cp == null) return null;
-  if (cp >= 18) return { letter: 'S+', desc_zh: '極致 CP — 此規格在這個價位幾乎是行情頂端,強烈建議入手。', desc_en: 'Exceptional value — top of market for this spec at this price.' };
-  if (cp >= 12) return { letter: 'S',  desc_zh: '極佳 CP — 在同等規格中價格非常具競爭力。',           desc_en: 'Outstanding value compared to peers.' };
-  if (cp >= 9)  return { letter: 'A+', desc_zh: '優於市場平均,值得入手。',                            desc_en: 'Above-average value — worth considering.' };
-  if (cp >= 6)  return { letter: 'A',  desc_zh: '合理區間,可再多比較幾顆。',                          desc_en: 'Reasonable value — compare more options.' };
-  if (cp >= 4)  return { letter: 'B',  desc_zh: '價格略高於閃亮度應有水準,可嘗試議價。',              desc_en: 'Price runs slightly above the brilliance grade — worth negotiating.' };
-  return                { letter: 'C', desc_zh: '價格偏貴,建議重新議價或尋找替代鑽石。',              desc_en: 'Pricey — consider negotiating or alternatives.' };
+  if (cp >= 6.0) return { letter: 'S+', desc_zh: '極致 CP — 此規格在這個價位幾乎是行情頂端,強烈建議入手。', desc_en: 'Exceptional value — top of market for this spec at this price.' };
+  if (cp >= 4.5) return { letter: 'S',  desc_zh: '極佳 CP — 在同等規格中價格非常具競爭力。',                desc_en: 'Outstanding value compared to peers.' };
+  if (cp >= 3.5) return { letter: 'A+', desc_zh: '優於市場平均,值得入手。',                                 desc_en: 'Above-average value — worth considering.' };
+  if (cp >= 2.5) return { letter: 'A',  desc_zh: '合理區間,可再多比較幾顆。',                               desc_en: 'Reasonable value — compare more options.' };
+  if (cp >= 1.6) return { letter: 'B',  desc_zh: '價格略高於閃亮度應有水準,可嘗試議價。',                   desc_en: 'Price runs slightly above the brilliance grade — worth negotiating.' };
+  return                { letter: 'C', desc_zh: '價格偏貴,建議重新議價或尋找替代鑽石。',                   desc_en: 'Pricey — consider negotiating or alternatives.' };
 }
 function updateCP() {
   const cp = cpValue();
@@ -1481,7 +1608,7 @@ function updateCP() {
   document.getElementById('cpGrade').textContent = g.letter;
   document.getElementById('cpHint').textContent  = state.lang==='zh' ? g.desc_zh : g.desc_en;
   badge.style.display = '';
-  badge.className = 'chip ' + (cp >= 9 ? 'ideal' : cp >= 6 ? 'good' : 'off');
+  badge.className = 'chip ' + (cp >= 3.5 ? 'ideal' : cp >= 2.2 ? 'good' : 'off');
   badge.textContent = (state.lang==='zh' ? 'CP ' : 'Value ') + g.letter;
 }
 document.getElementById('priceInput').addEventListener('input', e => {
@@ -1796,6 +1923,31 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ---------- Blog dropdown (hover-with-grace + tap-to-toggle) ---------- */
+(function () {
+  const wrap = document.getElementById('blogDropdown');
+  const menu = document.getElementById('blogDropdownMenu');
+  if (!wrap || !menu) return;
+  let closeTimer = null;
+  const open  = () => { clearTimeout(closeTimer); menu.classList.remove('hidden'); };
+  const close = () => { closeTimer = setTimeout(() => menu.classList.add('hidden'), 220); };
+  wrap.addEventListener('mouseenter', open);
+  wrap.addEventListener('mouseleave', close);
+  menu.addEventListener('mouseenter', open);
+  menu.addEventListener('mouseleave', close);
+  // Touch / click — toggle on tap of the trigger
+  const trigger = wrap.querySelector('a');
+  trigger.addEventListener('click', (e) => {
+    if (window.matchMedia('(hover: none)').matches) {
+      e.preventDefault();
+      menu.classList.toggle('hidden');
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!wrap.contains(e.target)) menu.classList.add('hidden');
+  });
+})();
 
 /* ---------- Init ---------- */
 document.getElementById('yr').textContent = new Date().getFullYear();
