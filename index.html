@@ -4,18 +4,34 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>鑽石頂級車工篩選 · 頂級八心八箭鑽石 | BrillianceLab 璀璨實驗室 — Premium Diamond Cut Filter</title>
-<meta name="description" content="只要輸入鑽石鑑定書 (GIA / IGI / HRD) 上的桌面 Table %、深度 Depth %、冠角 Crown Angle、亭角 Pavilion Angle 四項數據,即可不受官方車工等級影響,客觀篩選鑽石光學潛力,在有限預算下挑出最閃亮的八心八箭鑽石。Free Hearts & Arrows premium cut filter." />
-<meta name="theme-color" content="#0a0a14" />
-<meta property="og:title" content="鑽石頂級車工篩選 · 頂級八心八箭鑽石 — BrillianceLab" />
-<meta property="og:description" content="輸入鑑定書四項數據,即時為你篩選頂級八心八箭鑽石。Premium Hearts & Arrows diamond cut filter." />
-<meta property="og:type" content="website" />
+<meta name="description" content="只要輸入鑽石鑑定書 (GIA / IGI / HRD) 上的 Table %、Depth %、Crown Angle、Pavilion Angle 四項數據,即可不受官方車工等級影響,客觀篩選鑽石光學潛力,在有限預算下挑出最閃亮的八心八箭鑽石。Free Hearts & Arrows premium cut filter." />
+<meta name="theme-color" content="#faf8f3" />
+<meta name="keywords" content="鑽石,八心八箭,鑽石車工,鑽石評分,GIA,IGI,HRD,Hearts and Arrows,Diamond Cut,Sweet Spot,Brilliance,Fire,鑽石比較,鑽石篩選,鑽石購買,訂婚鑽戒" />
+<link rel="canonical" href="https://brilliancelab.vercel.app/" />
 
-<!-- Google AdSense (申請通過後將下方註解打開,並把 ca-pub-XXXX 換成你的 client ID) -->
-<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://brilliancelab.vercel.app/" />
+<meta property="og:title" content="鑽石頂級車工篩選 · 頂級八心八箭鑽石 — BrillianceLab" />
+<meta property="og:description" content="輸入鑑定書四項英文數據,即時篩選頂級八心八箭鑽石,有限預算內挑最閃亮。" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Premium Diamond Cut Filter · BrillianceLab" />
+<meta name="twitter:description" content="Score Hearts & Arrows brilliance with four numbers from your GIA / IGI / HRD report." />
+
+<!-- ===== Google AdSense ===== -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8223268344248663" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8223268344248663">
+
+<!-- ===== Google Analytics (GA4) — 申請後填入 G-XXXXXXX ===== -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -23,17 +39,13 @@
     theme: {
       extend: {
         colors: {
-          ink: { 950: '#06060d', 900: '#0a0a14', 800: '#10111e', 700: '#171a2c' },
-          gold: { 300: '#ffe6a8', 400: '#f5d27d', 500: '#e6b958', 600: '#c39e4d', 700: '#8a6e30' },
-          ice:  { 300: '#cfe0ff', 400: '#9ec3ff', 500: '#6f9cff' }
+          ivory: { 50:'#fffdf7', 100:'#faf8f3', 200:'#f3ede0' },
+          ink:   { 950:'#0e0f1a', 900:'#1a1d2e', 800:'#2c2f40', 700:'#4a4d5e', 500:'#7e8194', 400:'#a4a6b6', 300:'#c5c6d2' },
+          gold:  { 50:'#fbf3df', 100:'#f5e9d0', 200:'#ecd9a9', 300:'#d4b87a', 400:'#c9a45c', 500:'#b89146', 600:'#8a6e30', 700:'#5e4a1f' }
         },
         fontFamily: {
-          display: ['Cormorant Garamond', 'Noto Sans TC', 'serif'],
-          sans: ['Inter', 'Noto Sans TC', 'system-ui', 'sans-serif']
-        },
-        boxShadow: {
-          glow: '0 0 60px -10px rgba(245,210,125,0.45)',
-          card: '0 30px 60px -30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05)'
+          display: ['"Cormorant Garamond"', '"Noto Serif TC"', 'serif'],
+          sans: ['Inter', '"Noto Sans TC"', 'system-ui', 'sans-serif']
         }
       }
     }
@@ -41,159 +53,200 @@
 </script>
 
 <style>
-  :root {
-    --bg-0:#06060d; --bg-1:#0a0a14; --line:rgba(255,255,255,.08);
-    --gold:#f5d27d; --gold-2:#c39e4d; --ice:#9ec3ff;
+  :root{
+    --bg:#faf8f3; --surface:#ffffff;
+    --ink:#1a1d2e; --ink-2:#4a4d5e; --muted:#7e8194;
+    --gold:#c9a45c; --gold-deep:#8a6e30; --gold-soft:#fbf3df;
+    --border:#ebe6dc; --line:#f1ede3;
   }
-  html,body{background:var(--bg-0);color:#e9eaf3}
-  body{font-feature-settings:"ss01","cv11"}
-  .gold-text{
-    background:linear-gradient(180deg,#fff3d2 0%,#f5d27d 45%,#c39e4d 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
+  html,body{background:var(--bg);color:var(--ink)}
+  body{
+    font-feature-settings:"ss01","cv11";
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
   }
-  .ice-text{
-    background:linear-gradient(180deg,#ffffff 0%,#cfe0ff 50%,#6f9cff 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .glass{
-    background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border:1px solid var(--line);
-  }
-  .hairline{border:1px solid var(--line)}
-  .ring-gold{box-shadow:0 0 0 1px rgba(245,210,125,.45),0 0 60px -10px rgba(245,210,125,.45)}
-  .orb{position:absolute;border-radius:9999px;filter:blur(90px);opacity:.55;pointer-events:none}
-  .grain{
-    background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);
-    background-size:3px 3px;mix-blend-mode:overlay;opacity:.25;
-  }
-  .stars{
+  .num{ font-variant-numeric: tabular-nums; font-feature-settings: 'tnum' 1; }
+
+  /* page background */
+  body::before{
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:-1;
     background:
-      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.55), transparent 60%),
-      radial-gradient(1px 1px at 70% 60%, rgba(255,255,255,.4), transparent 60%),
-      radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,.45), transparent 60%),
-      radial-gradient(1px 1px at 90% 20%, rgba(255,255,255,.35), transparent 60%),
-      radial-gradient(1px 1px at 10% 70%, rgba(255,255,255,.35), transparent 60%);
+      radial-gradient(800px 500px at 12% -8%, rgba(201,164,92,.16), transparent 60%),
+      radial-gradient(700px 480px at 100% 0%, rgba(201,164,92,.10), transparent 60%),
+      radial-gradient(600px 600px at 50% 110%, rgba(201,164,92,.08), transparent 60%),
+      linear-gradient(180deg,#faf8f3 0%, #fffdf7 40%, #faf8f3 100%);
   }
-  .diamond-spin{animation:spin 22s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .float{animation:float 6s ease-in-out infinite}
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-  .pulse-soft{animation:pulse-soft 4s ease-in-out infinite}
-  @keyframes pulse-soft{0%,100%{filter:drop-shadow(0 0 12px rgba(245,210,125,.35))}50%{filter:drop-shadow(0 0 28px rgba(245,210,125,.7))}}
-  .reveal{opacity:0;transform:translateY(14px);transition:all .8s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
+
+  /* gold gradient text — used only in big display headings */
+  .gold-text{
+    background:linear-gradient(180deg,#c9a45c 0%, #8a6e30 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .ink-text{ color:var(--ink); }
+
+  /* hairlines */
+  .hr-gold{ height:1px; background:linear-gradient(90deg, transparent, rgba(201,164,92,.55), transparent); }
+
+  /* card */
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:18px;
+    box-shadow: 0 1px 2px rgba(31,29,44,.04), 0 14px 30px -18px rgba(138,110,48,.18);
+  }
+  .card-elev{ box-shadow: 0 1px 2px rgba(31,29,44,.06), 0 36px 64px -28px rgba(138,110,48,.28); }
+  .ring-gold{
+    border-color:rgba(201,164,92,.55) !important;
+    box-shadow: 0 0 0 1.5px rgba(201,164,92,.35), 0 24px 50px -22px rgba(201,164,92,.4);
+  }
 
   /* slider */
   .range{
-    -webkit-appearance:none;appearance:none;width:100%;height:4px;
-    background:linear-gradient(to right,#f5d27d var(--p,50%),rgba(255,255,255,.08) var(--p,50%));
-    border-radius:9999px;outline:none;cursor:pointer;
+    -webkit-appearance:none; appearance:none; width:100%; height:4px;
+    background:linear-gradient(to right,#c9a45c var(--p,50%),#ece8dc var(--p,50%));
+    border-radius:9999px; outline:none; cursor:pointer;
   }
   .range::-webkit-slider-thumb{
-    -webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;
-    background:radial-gradient(circle at 35% 30%,#fff,#f5d27d 60%,#8a6e30 100%);
-    border:1px solid rgba(255,255,255,.6);box-shadow:0 0 0 4px rgba(245,210,125,.12),0 6px 18px rgba(0,0,0,.4);
-    cursor:pointer;transition:transform .15s ease;
+    -webkit-appearance:none; appearance:none; width:18px; height:18px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#fff,#d4b87a 60%,#8a6e30 100%);
+    border:1.5px solid #fff;
+    box-shadow:0 0 0 1px rgba(201,164,92,.4),0 4px 10px rgba(138,110,48,.35);
+    cursor:pointer; transition:transform .15s ease;
   }
-  .range::-webkit-slider-thumb:hover{transform:scale(1.12)}
+  .range::-webkit-slider-thumb:hover{transform:scale(1.1)}
   .range::-moz-range-thumb{
-    width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,.6);
-    background:radial-gradient(circle at 35% 30%,#fff,#f5d27d 60%,#8a6e30 100%);
+    width:18px;height:18px;border-radius:50%;border:1.5px solid #fff;
+    background:radial-gradient(circle at 35% 30%,#fff,#d4b87a 60%,#8a6e30 100%);
+    box-shadow:0 0 0 1px rgba(201,164,92,.4),0 4px 10px rgba(138,110,48,.35);
   }
 
-  /* number input cleanup */
+  /* inputs */
   input[type=number]::-webkit-outer-spin-button,
   input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
   input[type=number]{-moz-appearance:textfield}
-
-  /* meter (deviation bar) */
-  .meter{position:relative;height:8px;border-radius:9999px;background:rgba(255,255,255,.06);overflow:hidden}
-  .meter > i{position:absolute;inset:0;display:block;border-radius:inherit;transition:width .5s cubic-bezier(.2,.7,.2,1),background .3s}
-  .marker{position:absolute;top:-3px;width:2px;height:14px;background:#f5d27d;border-radius:2px;box-shadow:0 0 8px rgba(245,210,125,.7)}
-
-  /* tier chips */
-  .chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:9999px;font-size:11px;letter-spacing:.04em;font-weight:600;border:1px solid var(--line)}
-  .chip.ideal{background:rgba(245,210,125,.12);color:#ffe6a8;border-color:rgba(245,210,125,.35)}
-  .chip.good{background:rgba(158,195,255,.10);color:#cfe0ff;border-color:rgba(158,195,255,.30)}
-  .chip.off{background:rgba(255,120,120,.10);color:#ffc6c6;border-color:rgba(255,120,120,.30)}
-
-  /* score ring conic background */
-  .score-ring{
-    background:
-      conic-gradient(from -90deg,
-        #f5d27d calc(var(--s,0)*1%),
-        rgba(255,255,255,.07) calc(var(--s,0)*1%) 100%);
+  .input-num{
+    background:#fff; border:1px solid var(--border); color:var(--ink);
+    border-radius:10px; padding:.4rem .65rem; text-align:right; font-variant-numeric:tabular-nums;
+    transition: border-color .15s, box-shadow .15s;
   }
+  .input-num:focus{ outline:none; border-color:rgba(201,164,92,.6); box-shadow:0 0 0 3px rgba(201,164,92,.15); }
 
-  /* table layout for compare on small screens -> cards */
-  .scrollbar-thin::-webkit-scrollbar{height:8px;width:8px}
-  .scrollbar-thin::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:99px}
+  /* meter */
+  .meter{ position:relative; height:6px; border-radius:9999px; background:#f1ede3; overflow:hidden; }
+  .meter > i{ position:absolute; inset:0; display:block; border-radius:inherit; transition:width .5s cubic-bezier(.2,.7,.2,1), background .3s; }
+  .marker{ position:absolute; top:-3px; width:2px; height:12px; background:#c9a45c; border-radius:2px; }
 
-  /* button */
+  /* chips */
+  .chip{
+    display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border-radius:9999px;
+    font-size:11px; letter-spacing:.04em; font-weight:600; line-height:1.4;
+    border:1px solid var(--border); background:#fff; color:var(--ink-2);
+  }
+  .chip.ideal{ background:var(--gold-soft); color:var(--gold-deep); border-color:rgba(201,164,92,.4); }
+  .chip.good { background:#eef4ff; color:#2d4d8a; border-color:#c9d8f0; }
+  .chip.off  { background:#fdecec; color:#a13b3b; border-color:#f0c8c8; }
+
+  /* buttons */
+  .btn{ display:inline-flex; align-items:center; justify-content:center; line-height:1; transition:all .15s ease; font-weight:600; }
   .btn-gold{
-    background:linear-gradient(180deg,#ffe6a8 0%,#f5d27d 45%,#c39e4d 100%);color:#1b1500;
-    border:1px solid rgba(255,235,180,.6);box-shadow:0 10px 24px -10px rgba(245,210,125,.6),inset 0 1px 0 rgba(255,255,255,.7);
+    background:linear-gradient(180deg,#d4b87a 0%, #c9a45c 50%, #8a6e30 100%); color:#fff;
+    border:1px solid rgba(138,110,48,.5);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.45), 0 8px 18px -8px rgba(138,110,48,.5);
   }
-  .btn-gold:hover{filter:brightness(1.05);transform:translateY(-1px)}
-  .btn-ghost{border:1px solid var(--line);background:rgba(255,255,255,.02)}
-  .btn-ghost:hover{background:rgba(255,255,255,.05)}
+  .btn-gold:hover{ transform:translateY(-1px); filter:brightness(1.06); }
+  .btn-ghost{ background:#fff; border:1px solid var(--border); color:var(--ink); }
+  .btn-ghost:hover{ border-color:rgba(201,164,92,.5); background:var(--gold-soft); }
 
   /* lang toggle */
-  .lang-toggle{display:inline-flex;border:1px solid var(--line);border-radius:9999px;overflow:hidden;background:rgba(255,255,255,.02)}
-  .lang-toggle button{padding:6px 12px;font-size:12px;font-weight:600;color:#aab;letter-spacing:.04em}
-  .lang-toggle button.active{background:linear-gradient(180deg,#ffe6a8,#c39e4d);color:#1b1500}
+  .lang-toggle{ display:inline-flex; border:1px solid var(--border); border-radius:9999px; overflow:hidden; background:#fff; }
+  .lang-toggle button{ padding:6px 12px; font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.04em; line-height:1; }
+  .lang-toggle button.active{ background:linear-gradient(180deg,#d4b87a,#8a6e30); color:#fff; }
+
+  /* score conic ring */
+  .score-ring{ background:conic-gradient(from -90deg, #c9a45c calc(var(--s,0)*1%), #ece8dc calc(var(--s,0)*1%) 100%); }
 
   /* ad slot */
   .ad-slot{
-    border:1px dashed rgba(255,255,255,.12);border-radius:14px;
-    background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.005));
-    color:rgba(255,255,255,.35);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
-    display:flex;align-items:center;justify-content:center;
+    border:1px dashed var(--border); border-radius:14px; background:#fff;
+    color:var(--muted); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    display:flex; align-items:center; justify-content:center;
   }
 
-  /* subtle crown SVG outline glow */
-  .icon-glow{filter:drop-shadow(0 6px 18px rgba(245,210,125,.35))}
+  /* number+unit baseline aligned helper */
+  .num-pair{ display:inline-flex; align-items:baseline; gap:2px; line-height:1; }
+  .num-pair .unit{ font-size:.42em; color:var(--muted); font-weight:600; letter-spacing:.04em; }
 
-  /* hide on narrow */
+  /* numbered badge */
+  .badge-num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:30px; height:30px; border-radius:9999px;
+    background:var(--gold-soft); color:var(--gold-deep);
+    font-family:"Cormorant Garamond",serif; font-weight:600; font-size:15px; line-height:1;
+  }
+
+  /* reveal */
+  .reveal{ opacity:0; transform:translateY(14px); transition:all .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* subtle float */
+  .float{ animation:float 6s ease-in-out infinite; }
+  @keyframes float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
   @media (max-width: 640px){ .hide-sm{display:none} }
 </style>
+
+<!-- Structured data — WebApplication -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"BrillianceLab · 璀璨實驗室",
+  "alternateName":"鑽石頂級車工篩選",
+  "url":"https://brilliancelab.vercel.app/",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "description":"Premium Hearts & Arrows diamond cut filter using a Sweet-Spot algorithm on Table %, Depth %, Crown Angle and Pavilion Angle.",
+  "inLanguage":["zh-TW","en"],
+  "offers":{ "@type":"Offer", "price":"0", "priceCurrency":"USD" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    { "@type":"Question","name":"如何取得這四項數據?",
+      "acceptedAnswer":{"@type":"Answer","text":"GIA、IGI、HRD 等鑑定書的 Proportions 比例圖會標示 Table %、Depth %、Crown Angle、Pavilion Angle。"}},
+    { "@type":"Question","name":"本評分能取代鑑定書嗎?",
+      "acceptedAnswer":{"@type":"Answer","text":"不會,本工具僅用於快速比較鑽石的車工潛力,實際購買仍以權威鑑定書為準。"}}
+  ]
+}
+</script>
+
 </head>
 
-<body class="font-sans antialiased selection:bg-gold-400/30 selection:text-white">
+<body class="font-sans antialiased text-ink-900 selection:bg-gold-200/60 selection:text-ink-900">
 
-<!-- ======= Background ======= -->
-<div class="fixed inset-0 -z-10 overflow-hidden">
-  <div class="absolute inset-0" style="background:
-    radial-gradient(1200px 700px at 20% -10%, rgba(245,210,125,.12), transparent 60%),
-    radial-gradient(900px 600px at 100% 10%, rgba(111,156,255,.10), transparent 60%),
-    radial-gradient(900px 600px at 50% 110%, rgba(245,210,125,.08), transparent 60%),
-    linear-gradient(180deg,#06060d 0%,#0a0a14 60%,#06060d 100%)"></div>
-  <div class="absolute inset-0 stars opacity-40"></div>
-  <div class="orb" style="width:500px;height:500px;background:#f5d27d;top:-100px;left:-150px"></div>
-  <div class="orb" style="width:420px;height:420px;background:#6f9cff;top:30%;right:-150px;opacity:.35"></div>
-  <div class="absolute inset-0 grain"></div>
-</div>
-
-<!-- ======= Nav ======= -->
-<header class="sticky top-0 z-40 backdrop-blur bg-ink-900/40 border-b border-white/5">
+<!-- ============== NAV ============== -->
+<header class="sticky top-0 z-40 backdrop-blur bg-ivory-100/85 border-b border-[var(--border)]">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-    <a href="#top" class="flex items-center gap-3 group">
+    <a href="#top" class="flex items-center gap-3">
       <span class="relative inline-flex w-9 h-9 items-center justify-center">
-        <span class="absolute inset-0 rounded-full" style="background:radial-gradient(circle at 35% 35%,#fff,#f5d27d 50%,#8a6e30 100%);filter:blur(6px);opacity:.6"></span>
-        <svg viewBox="0 0 24 24" class="relative w-7 h-7 icon-glow" fill="none">
+        <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" aria-hidden="true">
           <path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#g1)" stroke-width="1.2" stroke-linejoin="round"/>
           <path d="M3.5 9h17M8 9l4-6 4 6M8 9l4 12 4-12" stroke="url(#g1)" stroke-width="1" stroke-linejoin="round"/>
-          <defs><linearGradient id="g1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ffe6a8"/><stop offset="1" stop-color="#c39e4d"/></linearGradient></defs>
+          <defs><linearGradient id="g1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs>
         </svg>
       </span>
-      <div class="leading-tight">
-        <div class="display-font font-semibold tracking-wide text-[17px]"><span class="gold-text">BrillianceLab</span></div>
-        <div class="text-[10.5px] uppercase tracking-[0.22em] text-white/45 hide-sm">璀璨實驗室 · Diamond Cut Scoring</div>
-      </div>
+      <span class="leading-none">
+        <span class="block font-display font-semibold text-[18px] gold-text tracking-wide">BrillianceLab</span>
+        <span class="block mt-1 text-[10px] uppercase tracking-[0.22em] text-ink-500 hide-sm">璀璨實驗室 · Diamond Cut Filter</span>
+      </span>
     </a>
-    <div class="flex items-center gap-3">
-      <a href="#about" class="text-xs uppercase tracking-[.18em] text-white/55 hover:text-white/90 hide-sm" data-zh="關於演算法" data-en="About">About</a>
+    <div class="flex items-center gap-4">
+      <a href="#how" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="使用方式" data-en="How it works"></a>
+      <a href="#scorer" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="開始評分" data-en="Score"></a>
+      <a href="#about" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="演算法" data-en="Algorithm"></a>
       <div class="lang-toggle" id="langToggle" role="tablist" aria-label="Language">
         <button data-lang="zh" class="active" aria-pressed="true">中文</button>
         <button data-lang="en" aria-pressed="false">EN</button>
@@ -204,339 +257,389 @@
 
 <main id="top">
 
-<!-- ======= Hero ======= -->
-<section class="relative pt-16 sm:pt-24 pb-10 sm:pb-16">
-  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1.1fr,0.9fr] gap-12 items-center">
+<!-- ============== HERO ============== -->
+<section class="relative pt-14 sm:pt-20 pb-12 sm:pb-20">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1.05fr,0.95fr] gap-12 items-center">
     <div class="reveal">
-      <div class="inline-flex items-center gap-2 chip ideal mb-6">
+      <span class="chip ideal mb-6">
         <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
         <span data-zh="甜蜜點演算法 · v2.0" data-en="Sweet-Spot Algorithm · v2.0"></span>
-      </div>
-      <h1 class="display-font font-semibold leading-[1.02] text-5xl sm:text-7xl">
-        <span class="gold-text" data-zh="鑽石頂級車工篩選" data-en="Premium Diamond Cut Filter"></span><br/>
-        <span class="text-white/95" data-zh="頂級八心八箭鑽石" data-en="Top-Tier Hearts &amp; Arrows"></span>
+      </span>
+      <h1 class="font-display font-semibold leading-[1.05] text-[44px] sm:text-[68px] tracking-tight">
+        <span class="gold-text" data-zh="鑽石頂級車工篩選" data-en="Premium Diamond"></span><br/>
+        <span class="ink-text" data-zh="頂級八心八箭鑽石" data-en="Cut Filter"></span>
       </h1>
-      <p class="mt-6 text-white/70 text-base sm:text-lg max-w-xl leading-relaxed"
+      <p class="mt-7 text-[15.5px] sm:text-[17px] leading-[1.75] text-ink-700 max-w-xl"
          data-zh="只要提供鑑定書 (GIA / IGI / HRD) 上的四個英文數據 — Table %(桌面)、Depth %(深度)、Crown Angle(冠角)、Pavilion Angle(亭角) — 我們會以業界公認的最佳光學「甜蜜點」客觀打分,不受實驗室主觀車工等級影響,協助你在有限預算內精準挑出真正最閃亮的那顆鑽石。"
          data-en="Hand us four numbers from your GIA / IGI / HRD certificate — Table %, Depth %, Crown Angle and Pavilion Angle — and we'll grade brilliance objectively against the industry sweet spots, independent of the lab's subjective cut rating, so you can pick the most sparkling stone within your budget."></p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="#scorer" class="btn-gold rounded-full px-6 py-3 text-sm font-semibold transition" data-zh="開始評分 →" data-en="Start scoring →"></a>
-        <a href="#about" class="btn-ghost rounded-full px-6 py-3 text-sm font-semibold transition" data-zh="了解演算法" data-en="How it works"></a>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="#scorer" class="btn btn-gold rounded-full px-7 py-3.5 text-sm" data-zh="開始評分 →" data-en="Start scoring →"></a>
+        <a href="#how" class="btn btn-ghost rounded-full px-7 py-3.5 text-sm" data-zh="使用方式" data-en="How it works"></a>
       </div>
-      <div class="mt-10 grid grid-cols-3 gap-4 max-w-md">
+
+      <div class="mt-10 grid grid-cols-3 gap-6 max-w-md">
         <div>
-          <div class="display-font text-3xl gold-text">100</div>
-          <div class="text-[11px] uppercase tracking-[.18em] text-white/40 mt-1" data-zh="滿分制" data-en="Max Score"></div>
+          <div class="font-display font-semibold text-[34px] gold-text leading-none num">100</div>
+          <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500 mt-2" data-zh="滿分制" data-en="Max Score"></div>
         </div>
-        <div>
-          <div class="display-font text-3xl ice-text">4</div>
-          <div class="text-[11px] uppercase tracking-[.18em] text-white/40 mt-1" data-zh="核心參數" data-en="Core Params"></div>
+        <div class="border-l border-[var(--border)] pl-6">
+          <div class="font-display font-semibold text-[34px] gold-text leading-none num">04</div>
+          <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500 mt-2" data-zh="核心參數" data-en="Core Params"></div>
         </div>
-        <div>
-          <div class="display-font text-3xl gold-text">∞</div>
-          <div class="text-[11px] uppercase tracking-[.18em] text-white/40 mt-1" data-zh="可比較顆數" data-en="Compared"></div>
+        <div class="border-l border-[var(--border)] pl-6">
+          <div class="font-display font-semibold text-[34px] gold-text leading-none num">5+</div>
+          <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500 mt-2" data-zh="主流鑑定書" data-en="Major Labs"></div>
         </div>
       </div>
     </div>
 
-    <!-- Diamond visual -->
+    <!-- Diamond cross-section illustration -->
     <div class="relative h-[360px] sm:h-[480px] flex items-center justify-center reveal">
-      <div class="absolute w-[380px] h-[380px] rounded-full glow"
-           style="background:radial-gradient(closest-side,rgba(245,210,125,.28),transparent 70%)"></div>
-      <div class="relative diamond-spin">
-        <svg viewBox="0 0 220 220" class="w-[280px] sm:w-[360px] pulse-soft">
-          <defs>
-            <linearGradient id="dGold" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stop-color="#fff3d2"/><stop offset=".5" stop-color="#f5d27d"/><stop offset="1" stop-color="#8a6e30"/>
-            </linearGradient>
-            <linearGradient id="dIce" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#cfe0ff"/><stop offset="1" stop-color="#6f9cff"/>
-            </linearGradient>
-          </defs>
-          <!-- diamond outline -->
-          <g stroke="url(#dGold)" stroke-width="1.1" fill="none" opacity=".95">
-            <path d="M40 80 L110 20 L180 80 L110 200 Z"/>
-            <path d="M40 80 H180"/>
-            <path d="M70 80 L110 20 L150 80"/>
-            <path d="M70 80 L110 200 L150 80"/>
-            <path d="M70 80 L40 80 M150 80 L180 80"/>
-            <path d="M55 80 L110 200 M165 80 L110 200"/>
-            <path d="M85 80 L110 200 M135 80 L110 200"/>
-            <path d="M70 80 L85 50 L110 20 L135 50 L150 80"/>
+      <div class="absolute w-[420px] h-[420px] rounded-full"
+           style="background:radial-gradient(closest-side, rgba(201,164,92,.20), transparent 70%); filter:blur(8px)"></div>
+      <svg viewBox="0 0 460 460" class="relative w-[320px] sm:w-[420px] float" aria-hidden="true">
+        <defs>
+          <linearGradient id="goldStroke" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/>
+          </linearGradient>
+          <linearGradient id="goldFill" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#fbf3df" stop-opacity=".9"/>
+            <stop offset="1" stop-color="#f5e9d0" stop-opacity=".4"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Diamond cross-section silhouette -->
+        <g transform="translate(230 240)">
+          <!-- table - crown right - girdle right - pavilion - culet - pavilion left - girdle left - crown left -->
+          <path d="M -75 -110 L 75 -110 L 165 -10 L 165 0 L 0 165 L -165 0 L -165 -10 Z"
+                fill="url(#goldFill)" stroke="url(#goldStroke)" stroke-width="1.4" stroke-linejoin="round"/>
+          <!-- girdle band -->
+          <line x1="-165" y1="-5" x2="165" y2="-5" stroke="#c9a45c" stroke-width=".7" stroke-dasharray="3 3" opacity=".75"/>
+          <!-- facet lines (decorative) -->
+          <g stroke="url(#goldStroke)" stroke-width=".7" opacity=".55" fill="none">
+            <path d="M -75 -110 L -110 -10 M 75 -110 L 110 -10 M -110 -10 L 110 -10"/>
+            <path d="M -40 -110 L 0 -10 M 40 -110 L 0 -10"/>
+            <path d="M -110 -10 L 0 165 M 110 -10 L 0 165"/>
+            <path d="M -55 -10 L 0 165 M 55 -10 L 0 165"/>
           </g>
-          <g stroke="url(#dIce)" stroke-width=".6" fill="none" opacity=".55">
-            <path d="M55 80 L70 80 M150 80 L165 80"/>
+
+          <!-- Table % indicator (top arrow) -->
+          <g stroke="#8a6e30" fill="#8a6e30" stroke-width=".8">
+            <line x1="-75" y1="-140" x2="75" y2="-140"/>
+            <path d="M -75 -140 l 6 -3 l 0 6 z"/>
+            <path d="M 75 -140 l -6 -3 l 0 6 z"/>
           </g>
-        </svg>
-        <div class="absolute -inset-10 rounded-full"
-             style="background:radial-gradient(closest-side,rgba(245,210,125,.18),transparent 70%);filter:blur(20px)"></div>
-      </div>
-      <div class="absolute bottom-4 text-[10px] uppercase tracking-[.3em] text-white/30">
-        <span data-zh="58 個刻面 · 圓形明亮式" data-en="58 facets · Round Brilliant"></span>
-      </div>
+          <text x="0" y="-150" font-family="Cormorant Garamond, serif" font-size="14" font-weight="600" text-anchor="middle" fill="#8a6e30">Table %</text>
+
+          <!-- Crown angle arc -->
+          <path d="M 75 -110 a 40 40 0 0 1 22 22" fill="none" stroke="#8a6e30" stroke-width=".8"/>
+          <text x="135" y="-90" font-family="Cormorant Garamond, serif" font-size="13" font-weight="600" fill="#8a6e30">Crown Angle</text>
+          <text x="135" y="-74" font-family="Inter, sans-serif" font-size="10" fill="#8a6e30" opacity=".7">冠角</text>
+
+          <!-- Pavilion angle arc -->
+          <path d="M 165 0 a 36 36 0 0 0 -8 33" fill="none" stroke="#8a6e30" stroke-width=".8"/>
+          <text x="178" y="46" font-family="Cormorant Garamond, serif" font-size="13" font-weight="600" fill="#8a6e30">Pavilion Angle</text>
+          <text x="178" y="62" font-family="Inter, sans-serif" font-size="10" fill="#8a6e30" opacity=".7">亭角</text>
+
+          <!-- Depth indicator (left vertical) -->
+          <g stroke="#8a6e30" fill="#8a6e30" stroke-width=".8">
+            <line x1="-200" y1="-110" x2="-200" y2="165"/>
+            <path d="M -200 -110 l -3 6 l 6 0 z"/>
+            <path d="M -200 165 l -3 -6 l 6 0 z"/>
+          </g>
+          <text x="-208" y="30" font-family="Cormorant Garamond, serif" font-size="13" font-weight="600" text-anchor="end" fill="#8a6e30">Depth %</text>
+          <text x="-208" y="46" font-family="Inter, sans-serif" font-size="10" text-anchor="end" fill="#8a6e30" opacity=".7">深度</text>
+        </g>
+      </svg>
+      <div class="absolute bottom-2 text-[10.5px] uppercase tracking-[.32em] text-ink-500"
+           data-zh="圓形明亮式 · 58 個刻面" data-en="Round Brilliant · 58 Facets"></div>
     </div>
   </div>
 </section>
 
-<!-- ======= How it works · 使用方式 ======= -->
-<section id="how" class="relative pb-12 sm:pb-16">
+<div class="hr-gold max-w-5xl mx-auto"></div>
+
+<!-- ============== HOW IT WORKS ============== -->
+<section id="how" class="relative pt-16 sm:pt-24 pb-12 sm:pb-16">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-10 reveal">
-      <div class="text-[11px] uppercase tracking-[.22em] text-white/40 mb-3" data-zh="使用方式" data-en="How it works"></div>
-      <h2 class="display-font text-3xl sm:text-4xl">
-        <span class="gold-text" data-zh="只要四個數字,挑出最閃亮的鑽石" data-en="Four numbers. The most brilliant pick."></span>
+    <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+      <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3" data-zh="使用方式" data-en="How it works"></div>
+      <h2 class="font-display font-semibold text-[32px] sm:text-[44px] leading-[1.1] tracking-tight">
+        <span class="gold-text" data-zh="只要四個數字" data-en="Four numbers."></span>
+        <span class="ink-text" data-zh=",挑出最閃亮的鑽石" data-en=" The most brilliant pick."></span>
       </h2>
-      <p class="text-white/65 mt-5 text-[14.5px] sm:text-[15.5px] leading-relaxed"
+      <p class="text-[14.5px] sm:text-[16px] leading-[1.8] text-ink-700 mt-6"
          data-zh="不必是專家,也不必看懂整本鑑定書。請從 GIA / IGI / HRD 鑑定書上找到下方四項常見英文數據並輸入,我們會以業界公認的最佳光學「甜蜜點」演算法,客觀評估這顆鑽石的光學潛力,不受實驗室主觀車工等級 (Cut Grade) 影響。把多顆候選鑽石都輸入一次,系統會自動排名 — 在有限預算內,幫你挑出真正最閃亮、最值得入手的那顆八心八箭。"
-         data-en="No expertise needed — and no need to read the whole report. Locate the four numbers below on a GIA / IGI / HRD certificate, type them in, and our Sweet-Spot algorithm will score the optical potential of the stone objectively, regardless of the lab's stated cut grade. Add multiple candidates and we'll rank them, so you can confidently pick the most sparkling Hearts &amp; Arrows diamond within your budget."></p>
+         data-en="No expertise needed — and no need to read the whole report. Locate the four numbers below on a GIA / IGI / HRD certificate, type them in, and our Sweet-Spot algorithm will score the optical potential of the stone objectively, regardless of the lab's stated cut grade. Add multiple candidates and we'll rank them, so you can confidently pick the most sparkling Hearts & Arrows diamond within your budget."></p>
     </div>
 
+    <!-- 4 parameter cards -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="glass rounded-2xl p-5">
-        <div class="flex items-center justify-between">
-          <div class="text-[11px] uppercase tracking-[.22em] text-white/40">01</div>
-          <span class="text-[10.5px] text-white/35 tracking-wider">Table %</span>
+      <div class="card p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-display gold-text text-[28px] leading-none num">01</span>
+          <span class="text-[10.5px] tracking-[.18em] text-ink-500 uppercase">Table %</span>
         </div>
-        <div class="display-font text-xl mt-2" data-zh="桌面百分比" data-en="Table percentage"></div>
-        <p class="text-[12.5px] text-white/55 mt-2 leading-relaxed"
+        <div class="font-display text-[20px] leading-snug" data-zh="桌面百分比" data-en="Table percentage"></div>
+        <p class="text-[13px] text-ink-700 mt-2 leading-[1.7]"
            data-zh="鑽石頂部最大平面相對於腰圍直徑的比例。鑑定書上標示為 “Table”。"
-           data-en="The flat top facet, expressed as a % of the girdle diameter. Listed as “Table” on the report."></p>
+           data-en="The flat top facet, expressed as a % of girdle diameter. Listed as “Table” on the report."></p>
       </div>
-      <div class="glass rounded-2xl p-5">
-        <div class="flex items-center justify-between">
-          <div class="text-[11px] uppercase tracking-[.22em] text-white/40">02</div>
-          <span class="text-[10.5px] text-white/35 tracking-wider">Depth %</span>
+      <div class="card p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-display gold-text text-[28px] leading-none num">02</span>
+          <span class="text-[10.5px] tracking-[.18em] text-ink-500 uppercase">Depth %</span>
         </div>
-        <div class="display-font text-xl mt-2" data-zh="深度百分比" data-en="Depth percentage"></div>
-        <p class="text-[12.5px] text-white/55 mt-2 leading-relaxed"
+        <div class="font-display text-[20px] leading-snug" data-zh="深度百分比" data-en="Depth percentage"></div>
+        <p class="text-[13px] text-ink-700 mt-2 leading-[1.7]"
            data-zh="鑽石總高度相對於腰圍直徑的比例。鑑定書上標示為 “Depth” 或 “Total Depth”。"
            data-en="Total height as a % of girdle diameter. Listed as “Depth” or “Total Depth”."></p>
       </div>
-      <div class="glass rounded-2xl p-5">
-        <div class="flex items-center justify-between">
-          <div class="text-[11px] uppercase tracking-[.22em] text-white/40">03</div>
-          <span class="text-[10.5px] text-white/35 tracking-wider">Crown Angle</span>
+      <div class="card p-6">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-display gold-text text-[28px] leading-none num">03</span>
+          <span class="text-[10.5px] tracking-[.18em] text-ink-500 uppercase">Crown Angle</span>
         </div>
-        <div class="display-font text-xl mt-2" data-zh="冠部角度" data-en="Crown angle"></div>
-        <p class="text-[12.5px] text-white/55 mt-2 leading-relaxed"
+        <div class="font-display text-[20px] leading-snug" data-zh="冠部角度" data-en="Crown angle"></div>
+        <p class="text-[13px] text-ink-700 mt-2 leading-[1.7]"
            data-zh="鑽石上半部與腰圍的傾斜角度,決定「火彩 Fire」。鑑定書上標示為 “Crown Angle”。"
-           data-en="The angle of the upper crown to the girdle — drives Fire. Listed as “Crown Angle”."></p>
+           data-en="Slope of the upper crown to the girdle — drives Fire. Listed as “Crown Angle”."></p>
       </div>
-      <div class="glass rounded-2xl p-5 ring-gold">
-        <div class="flex items-center justify-between">
-          <div class="text-[11px] uppercase tracking-[.22em] text-gold-400/80">04</div>
-          <span class="text-[10.5px] text-gold-400/80 tracking-wider">Pavilion Angle</span>
+      <div class="card p-6 ring-gold">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-display gold-text text-[28px] leading-none num">04</span>
+          <span class="text-[10.5px] tracking-[.18em] text-gold-600 uppercase font-semibold">Pavilion Angle</span>
         </div>
-        <div class="display-font text-xl mt-2" data-zh="亭部角度" data-en="Pavilion angle"></div>
-        <p class="text-[12.5px] text-white/55 mt-2 leading-relaxed"
+        <div class="font-display text-[20px] leading-snug" data-zh="亭部角度" data-en="Pavilion angle"></div>
+        <p class="text-[13px] text-ink-700 mt-2 leading-[1.7]"
            data-zh="鑽石下半部與腰圍的傾斜角度,決定「亮度 Brilliance」,是影響閃亮度的關鍵。鑑定書上標示為 “Pavilion Angle”。"
-           data-en="The angle of the lower pavilion to the girdle — drives Brilliance, the strongest sparkle factor. Listed as “Pavilion Angle”."></p>
+           data-en="Slope of the lower pavilion to the girdle — drives Brilliance, the strongest sparkle factor. Listed as “Pavilion Angle”."></p>
       </div>
     </div>
 
-    <div class="mt-10 grid sm:grid-cols-3 gap-4">
-      <div class="glass rounded-2xl p-5 flex items-start gap-4">
-        <div class="display-font gold-text text-3xl leading-none mt-1">①</div>
+    <!-- 3 steps -->
+    <div class="mt-12 grid sm:grid-cols-3 gap-4">
+      <div class="card p-6 flex items-start gap-4">
+        <span class="badge-num shrink-0">①</span>
         <div>
-          <div class="text-sm font-semibold" data-zh="抄下四個數字" data-en="Copy four numbers"></div>
-          <p class="text-[12.5px] text-white/55 mt-1 leading-relaxed"
+          <div class="font-semibold text-[15px]" data-zh="抄下四個數字" data-en="Copy the four numbers"></div>
+          <p class="text-[13px] text-ink-700 mt-1.5 leading-[1.7]"
              data-zh="翻開鑑定書「Proportions / 比例圖」頁,找到 Table、Depth、Crown Angle、Pavilion Angle。"
-             data-en="Flip to the “Proportions” diagram on the report and locate Table, Depth, Crown Angle, Pavilion Angle."></p>
+             data-en="Flip to the “Proportions” diagram on the certificate and locate the four values."></p>
         </div>
       </div>
-      <div class="glass rounded-2xl p-5 flex items-start gap-4">
-        <div class="display-font gold-text text-3xl leading-none mt-1">②</div>
+      <div class="card p-6 flex items-start gap-4">
+        <span class="badge-num shrink-0">②</span>
         <div>
-          <div class="text-sm font-semibold" data-zh="輸入並即時計分" data-en="Enter and score live"></div>
-          <p class="text-[12.5px] text-white/55 mt-1 leading-relaxed"
+          <div class="font-semibold text-[15px]" data-zh="輸入並即時計分" data-en="Enter and score live"></div>
+          <p class="text-[13px] text-ink-700 mt-1.5 leading-[1.7]"
              data-zh="拖曳滑桿或直接輸入數值,綜合分數與各參數偏差會即時跳動。"
-             data-en="Drag the sliders or type the values — the composite score and per-axis deviations update instantly."></p>
+             data-en="Drag the sliders or type the values — the score and per-axis deviations update instantly."></p>
         </div>
       </div>
-      <div class="glass rounded-2xl p-5 flex items-start gap-4">
-        <div class="display-font gold-text text-3xl leading-none mt-1">③</div>
+      <div class="card p-6 flex items-start gap-4">
+        <span class="badge-num shrink-0">③</span>
         <div>
-          <div class="text-sm font-semibold" data-zh="加入比較,挑出冠軍" data-en="Compare and crown a winner"></div>
-          <p class="text-[12.5px] text-white/55 mt-1 leading-relaxed"
+          <div class="font-semibold text-[15px]" data-zh="加入比較,挑出冠軍" data-en="Compare and crown a winner"></div>
+          <p class="text-[13px] text-ink-700 mt-1.5 leading-[1.7]"
              data-zh="把多顆候選鑽石都輸入一次,系統自動排名,最閃亮的那顆會被金光標出。"
              data-en="Add every candidate stone — we sort them and highlight the most brilliant pick in gold."></p>
         </div>
       </div>
     </div>
 
-    <p class="text-center mt-8 text-[12px] text-white/40"
+    <p class="text-center mt-10 text-[12px] tracking-[.2em] text-ink-500 uppercase"
        data-zh="支援 GIA · IGI · HRD · GCAL · AGS 等所有主流鑽石鑑定書"
-       data-en="Works with GIA · IGI · HRD · GCAL · AGS and every major diamond lab"></p>
+       data-en="Works with GIA · IGI · HRD · GCAL · AGS"></p>
   </div>
 </section>
 
-<!-- ======= Top banner ad ======= -->
-<section class="max-w-6xl mx-auto px-5 sm:px-8 mb-14">
-  <div class="ad-slot h-[90px]" data-zh="廣告位 · BrillianceLab" data-en="Advertisement · BrillianceLab">
-    <!-- AdSense slot #1 (top banner) -->
-    <!--
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    -->
-  </div>
+<!-- ============== TOP AD ============== -->
+<section class="max-w-6xl mx-auto px-5 sm:px-8 my-10">
+  <div class="ad-slot h-[90px]" data-zh="廣告位 · ADVERTISEMENT" data-en="Advertisement"></div>
+  <!-- AdSense slot #1 (top banner) -->
 </section>
 
-<!-- ======= Scorer ======= -->
-<section id="scorer" class="relative">
+<!-- ============== SCORER ============== -->
+<section id="scorer" class="relative pt-6 pb-10">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <div class="flex items-end justify-between flex-wrap gap-4 mb-6">
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
       <div>
-        <div class="text-[11px] uppercase tracking-[.22em] text-white/40 mb-2" data-zh="第一步" data-en="Step 01"></div>
-        <h2 class="display-font text-3xl sm:text-4xl"><span class="gold-text" data-zh="輸入鑽石車工數據" data-en="Enter cut parameters"></span></h2>
-        <p class="text-white/55 mt-2 text-sm" data-zh="即時計算 · 拖曳滑桿或直接輸入數值" data-en="Real-time scoring · drag the sliders or type values"></p>
+        <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3" data-zh="第一步" data-en="Step 01"></div>
+        <h2 class="font-display font-semibold text-[28px] sm:text-[36px] leading-[1.15]">
+          <span class="gold-text" data-zh="輸入鑽石車工數據" data-en="Enter cut parameters"></span>
+        </h2>
+        <p class="text-[14px] text-ink-700 mt-2" data-zh="即時計算 · 拖曳滑桿或直接輸入數值" data-en="Real-time scoring · drag the sliders or type values"></p>
       </div>
-      <button id="resetBtn" class="btn-ghost rounded-full px-4 py-2 text-xs font-semibold" data-zh="↺ 重設為理想值" data-en="↺ Reset to ideal"></button>
+      <button id="resetBtn" class="btn btn-ghost rounded-full px-4 py-2 text-xs" data-zh="↺ 重設為理想值" data-en="↺ Reset to ideal"></button>
     </div>
 
     <div class="grid lg:grid-cols-[1.1fr,0.9fr] gap-6">
-      <!-- Inputs -->
-      <div class="grid sm:grid-cols-2 gap-4" id="inputsGrid">
-        <!-- params injected by JS -->
-      </div>
+      <div class="grid sm:grid-cols-2 gap-4" id="inputsGrid"><!-- injected --></div>
 
       <!-- Score panel -->
-      <aside class="glass rounded-2xl p-6 sm:p-8 shadow-card relative overflow-hidden">
-        <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full" style="background:radial-gradient(closest-side,rgba(245,210,125,.18),transparent 70%)"></div>
+      <aside class="card card-elev p-7 sm:p-8 relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full"
+             style="background:radial-gradient(closest-side, rgba(201,164,92,.18), transparent 70%)"></div>
 
-        <div class="flex items-center justify-between relative">
-          <div class="text-[11px] uppercase tracking-[.22em] text-white/40" data-zh="即時綜合分數" data-en="Live composite score"></div>
-          <span id="tierChip" class="chip ideal"><span data-zh="極佳" data-en="Excellent"></span></span>
+        <div class="relative flex items-center justify-between">
+          <div class="text-[11px] uppercase tracking-[.24em] text-ink-500" data-zh="即時綜合分數" data-en="Live composite score"></div>
+          <span id="tierChip" class="chip ideal"><span data-zh="頂級" data-en="Outstanding"></span></span>
         </div>
 
-        <div class="mt-6 flex items-center gap-6">
-          <div class="relative w-32 h-32 rounded-full score-ring" style="--s:100">
-            <div class="absolute inset-[6px] rounded-full bg-ink-900 flex items-center justify-center">
-              <div class="text-center">
-                <div id="scoreValue" class="display-font text-5xl gold-text leading-none">100.00</div>
-                <div class="text-[10px] uppercase tracking-[.22em] text-white/40 mt-1">/ 100</div>
+        <div class="mt-7 flex items-center gap-6">
+          <div class="relative w-32 h-32 rounded-full score-ring shrink-0" style="--s:100">
+            <div class="absolute inset-[5px] rounded-full bg-white flex items-center justify-center shadow-inner">
+              <div class="text-center leading-none">
+                <div id="scoreValue" class="font-display text-[42px] font-semibold gold-text num" style="line-height:1">100.00</div>
+                <div class="text-[10px] uppercase tracking-[.22em] text-ink-500 mt-2">/ 100</div>
               </div>
             </div>
           </div>
           <div class="flex-1 min-w-0">
-            <div class="text-sm text-white/70" id="tierTitle" data-zh="完美的甜蜜點" data-en="Perfect sweet spot"></div>
-            <p class="text-[12.5px] text-white/45 mt-1 leading-relaxed" id="tierDesc"
+            <div class="font-display text-[20px] leading-snug" id="tierTitle" data-zh="完美的甜蜜點" data-en="Perfect sweet spot"></div>
+            <p class="text-[12.5px] text-ink-700 mt-2 leading-[1.7]" id="tierDesc"
                data-zh="此車工高度集中於業界公認的最佳光學區間,可預期極致的火彩與亮度。"
                data-en="This cut sits in the industry sweet spot — expect peak fire and brilliance."></p>
           </div>
         </div>
 
-        <!-- per-param meters -->
         <div class="mt-7 space-y-4" id="metersList"></div>
 
-        <button id="saveBtn" class="mt-7 w-full btn-gold rounded-full py-3 text-sm font-semibold" data-zh="加入比較 ＋" data-en="Add to comparison +"></button>
-        <p class="text-center text-[11px] text-white/35 mt-3" data-zh="可加入多顆鑽石,系統會自動排序與標出冠軍" data-en="Add multiple diamonds — we'll rank and crown the winner"></p>
+        <button id="saveBtn" class="mt-8 w-full btn btn-gold rounded-full py-3.5 text-[13.5px]" data-zh="加入比較 ＋" data-en="Add to comparison +"></button>
+        <p class="text-center text-[11.5px] text-ink-500 mt-3" data-zh="可加入多顆鑽石,系統會自動排序與標出冠軍" data-en="Add multiple diamonds — we'll rank and crown the winner"></p>
       </aside>
     </div>
   </div>
 </section>
 
-<!-- ======= Comparison ======= -->
-<section id="compare" class="relative mt-20">
+<!-- ============== COMPARISON ============== -->
+<section id="compare" class="relative pt-16 pb-10">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <div class="flex items-end justify-between flex-wrap gap-4 mb-6">
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
       <div>
-        <div class="text-[11px] uppercase tracking-[.22em] text-white/40 mb-2" data-zh="第二步" data-en="Step 02"></div>
-        <h2 class="display-font text-3xl sm:text-4xl"><span class="ice-text" data-zh="排名比較" data-en="Ranking &amp; comparison"></span></h2>
-        <p class="text-white/55 mt-2 text-sm" data-zh="高分者奪冠 · 滑動瀏覽全部結果" data-en="Highest score wins · scroll to view all"></p>
+        <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3" data-zh="第二步" data-en="Step 02"></div>
+        <h2 class="font-display font-semibold text-[28px] sm:text-[36px] leading-[1.15]">
+          <span class="gold-text" data-zh="排名比較" data-en="Ranking & comparison"></span>
+        </h2>
+        <p class="text-[14px] text-ink-700 mt-2" data-zh="高分者奪冠 · 滑動瀏覽全部結果" data-en="Highest score wins · scroll to view all"></p>
       </div>
       <div class="flex gap-2">
-        <button id="clearBtn" class="btn-ghost rounded-full px-4 py-2 text-xs font-semibold" data-zh="清空全部" data-en="Clear all"></button>
-        <button id="exportBtn" class="btn-ghost rounded-full px-4 py-2 text-xs font-semibold" data-zh="匯出 JSON" data-en="Export JSON"></button>
+        <button id="clearBtn" class="btn btn-ghost rounded-full px-4 py-2 text-xs" data-zh="清空全部" data-en="Clear all"></button>
+        <button id="exportBtn" class="btn btn-ghost rounded-full px-4 py-2 text-xs" data-zh="匯出 JSON" data-en="Export JSON"></button>
       </div>
     </div>
 
-    <div id="compareEmpty" class="glass rounded-2xl p-10 text-center">
-      <div class="display-font text-2xl text-white/70 mb-2" data-zh="尚無比較項目" data-en="Nothing to compare yet"></div>
-      <p class="text-sm text-white/45" data-zh="輸入鑽石數據後,點擊「加入比較」即可開始建立你的車工排行榜。" data-en="Enter cut data and tap “Add to comparison” to build your leaderboard."></p>
+    <div id="compareEmpty" class="card p-10 text-center">
+      <div class="font-display text-[22px] text-ink-900 mb-2" data-zh="尚無比較項目" data-en="Nothing to compare yet"></div>
+      <p class="text-[13.5px] text-ink-700" data-zh="輸入鑽石數據後,點擊「加入比較」即可開始建立你的車工排行榜。" data-en="Enter cut data and tap “Add to comparison” to build your leaderboard."></p>
     </div>
 
     <div id="compareList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 hidden"></div>
   </div>
 </section>
 
-<!-- ======= In-content ad ======= -->
-<section class="max-w-6xl mx-auto px-5 sm:px-8 my-16">
-  <div class="ad-slot h-[120px] sm:h-[100px]" data-zh="贊助內容" data-en="Sponsored">
-    <!-- AdSense slot #2 (in-content) -->
-  </div>
+<!-- ============== IN-CONTENT AD ============== -->
+<section class="max-w-6xl mx-auto px-5 sm:px-8 my-14">
+  <div class="ad-slot h-[110px] sm:h-[100px]" data-zh="贊助內容 · SPONSORED" data-en="Sponsored"></div>
+  <!-- AdSense slot #2 (in-content) -->
 </section>
 
-<!-- ======= About / Algorithm ======= -->
-<section id="about" class="relative">
+<!-- ============== ABOUT / ALGORITHM ============== -->
+<section id="about" class="relative pt-6 pb-10">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <div class="grid lg:grid-cols-[0.9fr,1.1fr] gap-10 items-start">
+    <div class="grid lg:grid-cols-[0.9fr,1.1fr] gap-12 items-start">
       <div class="reveal">
-        <div class="text-[11px] uppercase tracking-[.22em] text-white/40 mb-2" data-zh="演算法" data-en="The Algorithm"></div>
-        <h2 class="display-font text-3xl sm:text-4xl gold-text" data-zh="甜蜜點 · Sweet Spot" data-en="Sweet Spot model"></h2>
-        <p class="text-white/65 mt-4 leading-relaxed text-[15px]"
-           data-zh="不同於傳統「等級切片」評鑑,我們對每一項參數設定業界公認最佳光學數值(甜蜜點),並根據實際偏差以連續性扣分。權重依照對火彩與亮度的影響力遞增 — 亭角影響亮度最大,冠角次之。"
+        <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3" data-zh="演算法" data-en="The algorithm"></div>
+        <h2 class="font-display font-semibold text-[32px] sm:text-[40px] leading-[1.1] tracking-tight">
+          <span class="gold-text" data-zh="甜蜜點 · Sweet Spot" data-en="Sweet Spot model"></span>
+        </h2>
+        <p class="text-[15px] text-ink-700 mt-5 leading-[1.8]"
+           data-zh="不同於傳統「等級切片」評鑑,我們對每一項參數設定業界公認的最佳光學數值(甜蜜點),並根據實際偏差連續性扣分。權重依照對火彩與亮度的影響力遞增 — 亭角影響亮度最大,冠角次之。"
            data-en="Instead of bucketed grading, we anchor every parameter to its industry-accepted optical sweet spot, then deduct continuously by deviation. Weights ascend with optical impact — pavilion angle dominates brilliance, crown drives fire."></p>
       </div>
       <div class="grid sm:grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-5">
+        <div class="card p-5">
           <div class="flex items-center justify-between">
-            <div class="text-sm font-semibold" data-zh="桌面 Table" data-en="Table"></div>
-            <span class="text-xs text-white/45">×8</span>
+            <div class="text-[13px] font-semibold" data-zh="桌面 Table" data-en="Table"></div>
+            <span class="text-[11px] text-ink-500 num">×8</span>
           </div>
-          <div class="mt-2 display-font text-3xl gold-text">55.5%</div>
-          <p class="text-xs text-white/45 mt-1" data-zh="影響範圍較小,權重略低" data-en="Smaller optical footprint, lower weight"></p>
+          <div class="mt-3 flex items-baseline">
+            <span class="font-display text-[34px] gold-text leading-none num">55.5</span>
+            <span class="ml-1 text-[13px] text-ink-500 num">%</span>
+          </div>
+          <p class="text-[12px] text-ink-700 mt-2 leading-[1.6]" data-zh="影響範圍較小,權重略低" data-en="Smaller optical footprint, lower weight"></p>
         </div>
-        <div class="glass rounded-2xl p-5">
+        <div class="card p-5">
           <div class="flex items-center justify-between">
-            <div class="text-sm font-semibold" data-zh="深度 Depth" data-en="Depth"></div>
-            <span class="text-xs text-white/45">×10</span>
+            <div class="text-[13px] font-semibold" data-zh="深度 Depth" data-en="Depth"></div>
+            <span class="text-[11px] text-ink-500 num">×10</span>
           </div>
-          <div class="mt-2 display-font text-3xl gold-text">61.7%</div>
-          <p class="text-xs text-white/45 mt-1" data-zh="決定整體比例" data-en="Defines overall proportion"></p>
+          <div class="mt-3 flex items-baseline">
+            <span class="font-display text-[34px] gold-text leading-none num">61.7</span>
+            <span class="ml-1 text-[13px] text-ink-500 num">%</span>
+          </div>
+          <p class="text-[12px] text-ink-700 mt-2 leading-[1.6]" data-zh="決定整體比例" data-en="Defines overall proportion"></p>
         </div>
-        <div class="glass rounded-2xl p-5">
+        <div class="card p-5">
           <div class="flex items-center justify-between">
-            <div class="text-sm font-semibold" data-zh="冠部 Crown" data-en="Crown"></div>
-            <span class="text-xs text-white/45">×20</span>
+            <div class="text-[13px] font-semibold" data-zh="冠部 Crown" data-en="Crown"></div>
+            <span class="text-[11px] text-ink-500 num">×20</span>
           </div>
-          <div class="mt-2 display-font text-3xl gold-text">34.5°</div>
-          <p class="text-xs text-white/45 mt-1" data-zh="決定火彩 (Fire)" data-en="Drives Fire"></p>
+          <div class="mt-3 flex items-baseline">
+            <span class="font-display text-[34px] gold-text leading-none num">34.5</span>
+            <span class="ml-1 text-[13px] text-ink-500 num">°</span>
+          </div>
+          <p class="text-[12px] text-ink-700 mt-2 leading-[1.6]" data-zh="決定火彩 (Fire)" data-en="Drives Fire"></p>
         </div>
-        <div class="glass rounded-2xl p-5 ring-gold">
+        <div class="card p-5 ring-gold">
           <div class="flex items-center justify-between">
-            <div class="text-sm font-semibold" data-zh="亭部 Pavilion" data-en="Pavilion"></div>
-            <span class="text-xs text-gold-400">×30</span>
+            <div class="text-[13px] font-semibold" data-zh="亭部 Pavilion" data-en="Pavilion"></div>
+            <span class="text-[11px] text-gold-600 num font-semibold">×30</span>
           </div>
-          <div class="mt-2 display-font text-3xl gold-text">40.8°</div>
-          <p class="text-xs text-white/45 mt-1" data-zh="決定亮度 (Brilliance) · 權重最高" data-en="Drives Brilliance · highest weight"></p>
+          <div class="mt-3 flex items-baseline">
+            <span class="font-display text-[34px] gold-text leading-none num">40.8</span>
+            <span class="ml-1 text-[13px] text-ink-500 num">°</span>
+          </div>
+          <p class="text-[12px] text-ink-700 mt-2 leading-[1.6]" data-zh="決定亮度 (Brilliance) · 權重最高" data-en="Drives Brilliance · highest weight"></p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======= FAQ short ======= -->
-<section class="max-w-4xl mx-auto px-5 sm:px-8 mt-20">
+<!-- ============== FAQ ============== -->
+<section class="max-w-4xl mx-auto px-5 sm:px-8 mt-16">
   <div class="grid sm:grid-cols-2 gap-4">
-    <div class="glass rounded-2xl p-6">
-      <div class="text-sm font-semibold mb-2" data-zh="如何取得這些數據?" data-en="Where do I find these numbers?"></div>
-      <p class="text-[13px] text-white/55 leading-relaxed" data-zh="GIA、IGI、HRD 等鑑定書上皆會標示 Table、Depth、Crown Angle、Pavilion Angle 四項數值。" data-en="GIA / IGI / HRD certificates list Table %, Depth %, Crown Angle and Pavilion Angle on the proportions diagram."></p>
+    <div class="card p-6">
+      <div class="text-[14px] font-semibold mb-2" data-zh="如何取得這四項數據?" data-en="Where do I find these numbers?"></div>
+      <p class="text-[13px] text-ink-700 leading-[1.75]"
+         data-zh="GIA、IGI、HRD 等鑑定書上的「Proportions / 比例圖」頁皆會標示 Table %、Depth %、Crown Angle、Pavilion Angle 四項數值。"
+         data-en="GIA / IGI / HRD certificates list Table %, Depth %, Crown Angle and Pavilion Angle on the Proportions diagram."></p>
     </div>
-    <div class="glass rounded-2xl p-6">
-      <div class="text-sm font-semibold mb-2" data-zh="本評分能取代鑑定書嗎?" data-en="Does this replace a lab report?"></div>
-      <p class="text-[13px] text-white/55 leading-relaxed" data-zh="不會。本工具僅用於快速比較不同鑽石的車工潛力,實際購買仍以權威鑑定書為準。" data-en="No. Use this tool for fast cut-quality comparison only — always rely on an authoritative lab report when purchasing."></p>
+    <div class="card p-6">
+      <div class="text-[14px] font-semibold mb-2" data-zh="本評分能取代鑑定書嗎?" data-en="Does this replace a lab report?"></div>
+      <p class="text-[13px] text-ink-700 leading-[1.75]"
+         data-zh="不會。本工具僅用於快速比較不同鑽石的車工潛力,實際購買仍以權威鑑定書為準。"
+         data-en="No. Use this tool for fast cut-quality comparison only — always rely on an authoritative lab report when purchasing."></p>
     </div>
   </div>
 </section>
 
-<!-- ======= Footer ======= -->
-<footer class="mt-24 border-t border-white/5">
+<!-- ============== FOOTER ============== -->
+<footer class="mt-24 border-t border-[var(--border)] bg-ivory-100/60">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 py-10 flex flex-wrap items-center justify-between gap-4">
-    <div class="text-sm">
-      <span class="display-font gold-text font-semibold">BrillianceLab</span>
-      <span class="text-white/40"> · 璀璨實驗室</span>
+    <div class="flex items-center gap-3">
+      <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" aria-hidden="true">
+        <path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#gFooter)" stroke-width="1.2" stroke-linejoin="round"/>
+        <defs><linearGradient id="gFooter" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs>
+      </svg>
+      <div class="text-[13px]">
+        <span class="font-display gold-text font-semibold">BrillianceLab</span>
+        <span class="text-ink-500"> · 璀璨實驗室</span>
+      </div>
     </div>
-    <div class="text-[11px] uppercase tracking-[.18em] text-white/35">
+    <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500">
       © <span id="yr"></span> · <span data-zh="本工具僅供參考" data-en="For reference only"></span>
     </div>
   </div>
@@ -545,9 +648,9 @@
 </main>
 
 <script>
-/* =========================================================
+/* ===========================================================
    BrillianceLab — diamond cut scoring (Sweet Spot v2.0)
-   ========================================================= */
+   =========================================================== */
 
 const SWEET_SPOTS = {
   table:    { spot: 55.5, multiplier: 8,  min: 50, max: 62, step: 0.1, unit: '%', tiers: [0.5, 1.5] },
@@ -557,39 +660,37 @@ const SWEET_SPOTS = {
 };
 
 const LABELS = {
-  table:    { zh: '桌面 (Table)',          en: 'Table %',          fire_zh: '影響範圍較小',          fire_en: 'Smaller optical footprint' },
-  depth:    { zh: '深度 (Depth)',          en: 'Depth %',          fire_zh: '影響整體比例',          fire_en: 'Overall proportion' },
-  crown:    { zh: '冠部角度 (Crown)',       en: 'Crown angle',      fire_zh: '決定火彩 (Fire)',       fire_en: 'Drives Fire' },
-  pavilion: { zh: '亭部角度 (Pavilion)',    en: 'Pavilion angle',   fire_zh: '決定亮度 (Brilliance)', fire_en: 'Drives Brilliance' }
+  table:    { zh: '桌面 (Table)',          en: 'Table',          fire_zh: '影響範圍較小',            fire_en: 'Smaller optical footprint' },
+  depth:    { zh: '深度 (Depth)',          en: 'Depth',          fire_zh: '決定整體比例',            fire_en: 'Defines overall proportion' },
+  crown:    { zh: '冠部角度 (Crown)',       en: 'Crown angle',    fire_zh: '決定火彩 (Fire)',         fire_en: 'Drives Fire' },
+  pavilion: { zh: '亭部角度 (Pavilion)',    en: 'Pavilion angle', fire_zh: '決定亮度 (Brilliance)',   fire_en: 'Drives Brilliance' }
 };
 
 const TIER_TEXT = {
-  ideal: {
-    zh: { name: '完美的甜蜜點',  desc: '此車工高度集中於業界公認的最佳光學區間,可預期極致的火彩與亮度。' },
-    en: { name: 'Perfect sweet spot', desc: "This cut sits in the industry sweet spot — expect peak fire and brilliance." }
-  },
-  excellent: {
-    zh: { name: '極佳車工',  desc: '幾乎無偏離,高品質的視覺表現可被預期。' },
-    en: { name: 'Excellent cut', desc: 'Negligible deviation — premium visual performance expected.' }
-  },
-  good: {
-    zh: { name: '良好車工',  desc: '在理想範圍內,但已可從頂級車工中區分出細微差距。' },
-    en: { name: 'Very good cut', desc: 'Within the ideal envelope, with measurable distance from the top tier.' }
-  },
-  fair: {
-    zh: { name: '尚可',  desc: '已偏離理想值,光學表現可能受影響,建議進一步比較。' },
-    en: { name: 'Fair', desc: 'Departing from ideal — optical performance may be compromised.' }
-  },
-  off: {
-    zh: { name: '偏離理想',  desc: '單項或多項參數明顯偏離,建議重新確認鑑定書。' },
-    en: { name: 'Below ideal', desc: 'Clear deviation on one or more parameters — please verify the certificate.' }
-  }
+  ideal:     { zh: { name:'完美的甜蜜點',  desc:'此車工高度集中於業界公認的最佳光學區間,可預期極致的火彩與亮度。' },
+               en: { name:'Perfect sweet spot', desc:'This cut sits in the industry sweet spot — expect peak fire and brilliance.' } },
+  excellent: { zh: { name:'極佳車工',  desc:'幾乎無偏離,高品質的視覺表現可被預期。' },
+               en: { name:'Excellent cut', desc:'Negligible deviation — premium visual performance expected.' } },
+  good:      { zh: { name:'良好車工',  desc:'在理想範圍內,但已可從頂級車工中區分出細微差距。' },
+               en: { name:'Very good cut', desc:'Within the ideal envelope, with measurable distance from the top tier.' } },
+  fair:      { zh: { name:'尚可',  desc:'已偏離理想值,光學表現可能受影響,建議進一步比較。' },
+               en: { name:'Fair', desc:'Departing from ideal — optical performance may be compromised.' } },
+  off:       { zh: { name:'偏離理想',  desc:'單項或多項參數明顯偏離,建議重新確認鑑定書。' },
+               en: { name:'Below ideal', desc:'Clear deviation on one or more parameters — please verify the certificate.' } }
 };
 
 const TIER_LABEL = {
-  ideal:     { zh: '頂級',     en: 'Ideal'     },
-  good:      { zh: '理想',     en: 'Good'      },
-  off:       { zh: '偏離',     en: 'Off'       }
+  ideal:{ zh:'頂級', en:'Ideal' },
+  good: { zh:'理想', en:'Good' },
+  off:  { zh:'偏離', en:'Off'  }
+};
+
+const TIER_OVERALL_LABEL = {
+  ideal:    { zh:'頂級',     en:'Outstanding' },
+  excellent:{ zh:'極佳',     en:'Excellent'   },
+  good:     { zh:'良好',     en:'Very Good'   },
+  fair:     { zh:'尚可',     en:'Fair'        },
+  off:      { zh:'偏離',     en:'Below'       }
 };
 
 const state = {
@@ -610,7 +711,6 @@ function applyLang() {
     b.classList.toggle('active', active);
     b.setAttribute('aria-pressed', active);
   });
-  // re-render parts that depend on lang
   buildInputs();
   computeAndRender();
   renderCompare();
@@ -639,10 +739,7 @@ function evaluate(values) {
     const t = tierForParam(k, values[k]);
     detail[k] = { value: values[k], deviation: dev, tier: t.tier };
   }
-  return {
-    score: Math.max(0, Math.round(score * 100) / 100),
-    detail
-  };
+  return { score: Math.max(0, Math.round(score * 100) / 100), detail };
 }
 
 function overallTier(score) {
@@ -665,23 +762,31 @@ function buildInputs() {
     const conf = SWEET_SPOTS[key];
     const lbl = LABELS[key];
     const v = state.values[key];
+
     const card = document.createElement('div');
-    card.className = 'glass rounded-2xl p-5 shadow-card';
+    card.className = 'card p-5 sm:p-6';
     card.innerHTML = `
       <div class="flex items-start justify-between gap-3">
-        <div>
-          <div class="text-[11px] uppercase tracking-[.22em] text-white/40">${state.lang === 'zh' ? lbl.zh : lbl.en}</div>
-          <div class="text-[11px] text-white/35 mt-1">${state.lang === 'zh' ? lbl.fire_zh : lbl.fire_en} · ${state.lang==='zh'?'理想':'Ideal'} ${conf.spot}${conf.unit}</div>
+        <div class="min-w-0">
+          <div class="text-[11px] uppercase tracking-[.22em] text-ink-500">${state.lang === 'zh' ? lbl.zh : lbl.en}</div>
+          <div class="text-[11.5px] text-ink-500 mt-1.5 leading-snug">
+            ${state.lang === 'zh' ? lbl.fire_zh : lbl.fire_en}
+            <span class="text-ink-400"> · ${state.lang==='zh'?'理想':'Ideal'} ${conf.spot}${conf.unit}</span>
+          </div>
         </div>
         <span class="chip ideal" data-chip>${state.lang==='zh'?'頂級':'Ideal'}</span>
       </div>
-      <div class="mt-4 flex items-end justify-between gap-3">
-        <div class="display-font text-4xl gold-text leading-none" data-val>${v.toFixed(1)}<span class="text-lg text-white/45 ml-1">${conf.unit}</span></div>
-        <input type="number" min="${conf.min}" max="${conf.max}" step="${conf.step}" value="${v}" data-input
-          class="w-24 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-right text-sm focus:outline-none focus:border-gold-400/60 transition" />
+
+      <div class="mt-5 flex items-end justify-between gap-4">
+        <div class="font-display gold-text font-semibold leading-none num" style="font-size:42px" data-val>
+          <span data-num>${v.toFixed(1)}</span><span class="num text-[14px] text-ink-500 font-semibold ml-1">${conf.unit}</span>
+        </div>
+        <input type="number" min="${conf.min}" max="${conf.max}" step="${conf.step}" value="${v.toFixed(1)}" data-input
+          class="input-num w-24 text-[14px]" />
       </div>
+
       <input type="range" min="${conf.min}" max="${conf.max}" step="${conf.step}" value="${v}" data-range class="range mt-5" />
-      <div class="mt-2 flex justify-between text-[10px] uppercase tracking-[.18em] text-white/30">
+      <div class="mt-2 flex justify-between text-[10.5px] uppercase tracking-[.18em] text-ink-500 num">
         <span>${conf.min}${conf.unit}</span><span>${conf.spot}${conf.unit}</span><span>${conf.max}${conf.unit}</span>
       </div>
     `;
@@ -689,7 +794,7 @@ function buildInputs() {
 
     const range = card.querySelector('[data-range]');
     const input = card.querySelector('[data-input]');
-    const valEl = card.querySelector('[data-val]');
+    const numEl = card.querySelector('[data-num]');
     const chip  = card.querySelector('[data-chip]');
 
     const setProgress = (val) => {
@@ -703,8 +808,8 @@ function buildInputs() {
       if (isNaN(val)) return;
       val = Math.min(conf.max, Math.max(conf.min, Math.round(val * 10) / 10));
       state.values[key] = val;
-      range.value = val; input.value = val;
-      valEl.firstChild.nodeValue = val.toFixed(1);
+      range.value = val; input.value = val.toFixed(1);
+      numEl.textContent = val.toFixed(1);
       setProgress(val);
       const t = tierForParam(key, val).tier;
       chip.className = 'chip ' + chipForTier(t);
@@ -714,7 +819,7 @@ function buildInputs() {
 
     range.addEventListener('input', e => onChange(e.target.value));
     input.addEventListener('change', e => onChange(e.target.value));
-    input.addEventListener('blur', e => onChange(e.target.value));
+    input.addEventListener('blur',   e => onChange(e.target.value));
   });
 }
 
@@ -723,46 +828,36 @@ function computeAndRender() {
   const result = evaluate(state.values);
   const score = result.score;
 
-  // big score
   const scoreEl = document.getElementById('scoreValue');
   animateNumber(scoreEl, parseFloat(scoreEl.textContent) || 0, score, 600);
   document.querySelector('.score-ring').style.setProperty('--s', score);
 
-  // tier
   const tier = overallTier(score);
   const chip = document.getElementById('tierChip');
   chip.className = 'chip ' + (tier === 'ideal' || tier === 'excellent' ? 'ideal' : tier === 'good' ? 'good' : 'off');
+  chip.querySelector('span').textContent = TIER_OVERALL_LABEL[tier][state.lang];
   const t = TIER_TEXT[tier][state.lang];
-  chip.querySelector('span').textContent = ({
-    ideal:    state.lang==='zh'?'頂級':'Outstanding',
-    excellent:state.lang==='zh'?'極佳':'Excellent',
-    good:     state.lang==='zh'?'良好':'Very Good',
-    fair:     state.lang==='zh'?'尚可':'Fair',
-    off:      state.lang==='zh'?'偏離':'Below'
-  })[tier];
   document.getElementById('tierTitle').textContent = t.name;
   document.getElementById('tierDesc').textContent  = t.desc;
 
-  // meters
   const metersList = document.getElementById('metersList');
   metersList.innerHTML = '';
   Object.keys(SWEET_SPOTS).forEach(key => {
     const conf = SWEET_SPOTS[key];
     const d = result.detail[key];
-    const row = document.createElement('div');
     const lbl = LABELS[key];
-    const tierColor = d.tier === 'ideal' ? '#f5d27d' : d.tier === 'good' ? '#9ec3ff' : '#ff8a8a';
+    const tierColor = d.tier === 'ideal' ? '#c9a45c' : d.tier === 'good' ? '#5a86c5' : '#c75555';
     const range = conf.max - conf.min;
-    const pos = ((d.value - conf.min) / range) * 100;
-    // bar fills proportional to "closeness" to spot
     const closeness = Math.max(0, 1 - d.deviation / (conf.tiers[1] * 2));
+
+    const row = document.createElement('div');
     row.innerHTML = `
-      <div class="flex items-center justify-between text-[12px]">
-        <div class="text-white/65">${state.lang==='zh'?lbl.zh:lbl.en}</div>
-        <div class="text-white/45">${d.value.toFixed(1)}${conf.unit} · Δ ${d.deviation.toFixed(2)}</div>
+      <div class="flex items-baseline justify-between text-[12.5px]">
+        <div class="text-ink-700">${state.lang==='zh'?lbl.zh:lbl.en}</div>
+        <div class="text-ink-500 num">${d.value.toFixed(1)}${conf.unit} · Δ ${d.deviation.toFixed(2)}</div>
       </div>
       <div class="meter mt-2">
-        <i style="width:${(closeness*100).toFixed(1)}%;background:linear-gradient(90deg,${tierColor}88,${tierColor})"></i>
+        <i style="width:${(closeness*100).toFixed(1)}%;background:linear-gradient(90deg,${tierColor}aa,${tierColor})"></i>
         <span class="marker" style="left:${((conf.spot - conf.min)/range*100).toFixed(2)}%"></span>
       </div>
     `;
@@ -784,7 +879,6 @@ function animateNumber(el, from, to, dur) {
 
 /* ---------- Comparison ---------- */
 function nameFor(i) {
-  // A, B, ..., Z, AA, AB ...
   let s = '', n = i;
   do { s = String.fromCharCode(65 + (n % 26)) + s; n = Math.floor(n / 26) - 1; } while (n >= 0);
   return s;
@@ -794,13 +888,13 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   const r = evaluate({ ...state.values });
   state.saved.push({
     id: Date.now() + Math.random(),
-    name: (state.lang === 'zh' ? '鑽石' : 'Diamond ') + nameFor(state.saved.length),
+    name: (state.lang === 'zh' ? '鑽石 ' : 'Diamond ') + nameFor(state.saved.length),
     values: { ...state.values },
     score: r.score,
     detail: r.detail
   });
   renderCompare();
-  document.getElementById('compare').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('compare').scrollIntoView({ behavior:'smooth', block:'start' });
 });
 
 document.getElementById('clearBtn').addEventListener('click', () => {
@@ -831,47 +925,46 @@ function renderCompare() {
     return;
   }
   empty.classList.add('hidden'); list.classList.remove('hidden');
+
   const sorted = [...state.saved].sort((a,b) => b.score - a.score);
   list.innerHTML = '';
   sorted.forEach((d, i) => {
     const isTop = i === 0 && sorted.length > 1;
     const card = document.createElement('div');
-    card.className = 'glass rounded-2xl p-5 relative ' + (isTop ? 'ring-gold' : '');
+    card.className = 'card p-5 relative ' + (isTop ? 'ring-gold' : '');
     const tier = overallTier(d.score);
-    const tierName = ({
-      ideal:    state.lang==='zh'?'頂級':'Outstanding',
-      excellent:state.lang==='zh'?'極佳':'Excellent',
-      good:     state.lang==='zh'?'良好':'Very Good',
-      fair:     state.lang==='zh'?'尚可':'Fair',
-      off:      state.lang==='zh'?'偏離':'Below'
-    })[tier];
+    const tierName = TIER_OVERALL_LABEL[tier][state.lang];
+
     card.innerHTML = `
       ${isTop ? `<div class="absolute -top-3 left-5 chip ideal" style="font-size:10.5px">${state.lang==='zh'?'★ 冠軍':'★ Winner'}</div>` : ''}
       <div class="flex items-start justify-between gap-3">
         <div>
-          <div class="text-[10px] uppercase tracking-[.22em] text-white/40">${state.lang==='zh'?'第':''}${i+1}${state.lang==='zh'?' 名':''}</div>
-          <div class="display-font text-2xl mt-1 ${isTop?'gold-text':'text-white/85'}">${escapeHtml(d.name)}</div>
+          <div class="text-[10.5px] uppercase tracking-[.22em] text-ink-500 num">${state.lang==='zh'?'第':''}${i+1}${state.lang==='zh'?' 名':''}</div>
+          <div class="font-display text-[22px] mt-1 ${isTop?'gold-text':'text-ink-900'}">${escapeHtml(d.name)}</div>
         </div>
-        <button data-rm="${d.id}" class="text-white/35 hover:text-white/80 text-lg leading-none" aria-label="remove">×</button>
+        <button data-rm="${d.id}" class="text-ink-400 hover:text-ink-900 text-lg leading-none w-7 h-7 inline-flex items-center justify-center rounded-full hover:bg-gold-50" aria-label="remove">×</button>
       </div>
+
       <div class="mt-4 flex items-baseline gap-2">
-        <span class="display-font text-5xl gold-text leading-none">${d.score.toFixed(2)}</span>
-        <span class="text-xs uppercase tracking-[.18em] text-white/45">/ 100 · ${tierName}</span>
+        <span class="font-display text-[44px] gold-text leading-none num font-semibold">${d.score.toFixed(2)}</span>
+        <span class="text-[10.5px] uppercase tracking-[.22em] text-ink-500">/ 100 · ${tierName}</span>
       </div>
+
       <div class="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 text-[12.5px]">
         ${Object.keys(SWEET_SPOTS).map(k => {
           const lbl = LABELS[k]; const u = SWEET_SPOTS[k].unit; const t = d.detail[k].tier;
-          const dot = t==='ideal'?'#f5d27d':t==='good'?'#9ec3ff':'#ff8a8a';
-          return `<div class="flex items-center justify-between border-b border-white/5 pb-1.5">
-            <span class="flex items-center gap-2 text-white/55">
+          const dot = t==='ideal'?'#c9a45c':t==='good'?'#5a86c5':'#c75555';
+          return `<div class="flex items-center justify-between border-b border-[var(--line)] pb-1.5">
+            <span class="flex items-center gap-2 text-ink-700">
               <span class="w-1.5 h-1.5 rounded-full" style="background:${dot}"></span>
               ${state.lang==='zh'?lbl.zh:lbl.en}
             </span>
-            <span class="text-white/85 tabular-nums">${d.values[k].toFixed(1)}${u}</span>
+            <span class="text-ink-900 num">${d.values[k].toFixed(1)}${u}</span>
           </div>`;
         }).join('')}
       </div>
-      <div class="mt-4 text-[11px] text-white/40">
+
+      <div class="mt-4 text-[11px] text-ink-500 num">
         ${state.lang==='zh'?'與理想值總偏差':'Total deviation'} · Δ ${
           Object.keys(SWEET_SPOTS).reduce((s,k)=>s+d.detail[k].deviation,0).toFixed(2)
         }
@@ -879,6 +972,7 @@ function renderCompare() {
     `;
     list.appendChild(card);
   });
+
   list.querySelectorAll('[data-rm]').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = parseFloat(btn.dataset.rm);
