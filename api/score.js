@@ -34,12 +34,52 @@
  */
 
 // ---------- Hidden constants (server-only) ----------
-const SS = {
-  table:    { spot: 55.5, mul: 8,  tiers: [0.5, 1.5] },
-  depth:    { spot: 61.7, mul: 10, tiers: [0.3, 0.8] },
-  crown:    { spot: 34.5, mul: 20, tiers: [0.2, 0.5] },
-  pavilion: { spot: 40.8, mul: 30, tiers: [0.1, 0.2] },
+// Per-shape sweet spots. Each shape has its own optical optimum derived from
+// industry references (Tolkowsky for round; AGS / GIA cushion / oval modifiers
+// for the others). Princess uses an entirely different geometry (much smaller
+// crown angle, much larger table) so the bounds shift accordingly.
+const SHAPES = {
+  round: {
+    table:    { spot: 55.5, mul: 8,  tiers: [0.5, 1.5], min: 50, max: 62 },
+    depth:    { spot: 61.7, mul: 10, tiers: [0.3, 0.8], min: 58, max: 66 },
+    crown:    { spot: 34.5, mul: 20, tiers: [0.2, 0.5], min: 30, max: 38 },
+    pavilion: { spot: 40.8, mul: 30, tiers: [0.1, 0.2], min: 38, max: 43 },
+    harmonyTarget: 116.1, harmonyBand: 1.0,
+  },
+  oval: {
+    table:    { spot: 57.0, mul: 7,  tiers: [1.0, 2.5], min: 53, max: 64 },
+    depth:    { spot: 60.5, mul: 8,  tiers: [1.0, 2.0], min: 56, max: 66 },
+    crown:    { spot: 35.0, mul: 16, tiers: [0.5, 1.2], min: 30, max: 38 },
+    pavilion: { spot: 40.5, mul: 26, tiers: [0.3, 0.6], min: 38, max: 43 },
+    harmonyTarget: 115.5, harmonyBand: 1.4,
+  },
+  cushion: {
+    table:    { spot: 60.0, mul: 6,  tiers: [1.5, 3.0], min: 53, max: 70 },
+    depth:    { spot: 63.5, mul: 7,  tiers: [1.0, 2.0], min: 58, max: 70 },
+    crown:    { spot: 35.0, mul: 14, tiers: [0.7, 1.5], min: 28, max: 40 },
+    pavilion: { spot: 40.5, mul: 24, tiers: [0.4, 0.9], min: 38, max: 44 },
+    harmonyTarget: 115.5, harmonyBand: 1.6,
+  },
+  princess: {
+    table:    { spot: 70.0, mul: 5,  tiers: [2.0, 4.0], min: 60, max: 80 },
+    depth:    { spot: 71.0, mul: 7,  tiers: [1.5, 2.8], min: 65, max: 80 },
+    crown:    { spot: 11.0, mul: 14, tiers: [1.0, 2.0], min: 8,  max: 15 },
+    pavilion: { spot: 42.0, mul: 22, tiers: [0.6, 1.2], min: 38, max: 48 },
+    harmonyTarget:  95.0, harmonyBand: 2.0,    // 11 + 2*42 = 95, very different geometry
+  },
+  emerald: {
+    table:    { spot: 64.0, mul: 5,  tiers: [2.0, 4.0], min: 55, max: 75 },
+    depth:    { spot: 67.5, mul: 7,  tiers: [1.5, 3.0], min: 60, max: 75 },
+    crown:    { spot: 11.0, mul: 12, tiers: [1.0, 2.5], min: 6,  max: 18 },
+    pavilion: { spot: 45.0, mul: 18, tiers: [0.8, 1.6], min: 40, max: 50 },
+    harmonyTarget: 101.0, harmonyBand: 2.5,    // step-cut, very different geometry
+  },
 };
+
+function _shapeOf(input) {
+  const k = String(input.shape || 'round').toLowerCase();
+  return SHAPES[k] ? k : 'round';
+}
 
 const CORE = {
   // Tolkowsky harmony: crown + 2 * pavilion ≈ 116.1°
@@ -76,7 +116,7 @@ const HCA_WEIGHTS = {
 
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
 
-function axisPen(key, value) {
+function axisPen(SS, key, value) {
   const c = SS[key];
   const dev = value - c.spot;          // signed
   const adev = Math.abs(dev);
@@ -93,7 +133,7 @@ function axisPen(key, value) {
        + Math.pow(past, 1.4) * mul * 0.18;                                  // tail
 }
 
-function tierFor(key, value) {
+function tierFor(SS, key, value) {
   const c = SS[key];
   const dev = Math.abs(value - c.spot);
   if (dev <= c.tiers[0]) return 'ideal';
@@ -102,11 +142,14 @@ function tierFor(key, value) {
 }
 
 function compute(input) {
+  const shape = _shapeOf(input);
+  const SS = SHAPES[shape];
+
   const v = {
-    table:    clampInput(+input.table,    SS.table.spot,    50, 65),
-    depth:    clampInput(+input.depth,    SS.depth.spot,    55, 70),
-    crown:    clampInput(+input.crown,    SS.crown.spot,    25, 42),
-    pavilion: clampInput(+input.pavilion, SS.pavilion.spot, 36, 45),
+    table:    clampInput(+input.table,    SS.table.spot,    SS.table.min,    SS.table.max),
+    depth:    clampInput(+input.depth,    SS.depth.spot,    SS.depth.min,    SS.depth.max),
+    crown:    clampInput(+input.crown,    SS.crown.spot,    SS.crown.min,    SS.crown.max),
+    pavilion: clampInput(+input.pavilion, SS.pavilion.spot, SS.pavilion.min, SS.pavilion.max),
   };
   const adv = {
     starLength:   clampInput(+input.starLength,  50, 30, 70),
@@ -118,10 +161,10 @@ function compute(input) {
 
   // ---------- Per-axis penalties ----------
   const pen = {
-    table:    axisPen('table',    v.table),
-    depth:    axisPen('depth',    v.depth),
-    crown:    axisPen('crown',    v.crown),
-    pavilion: axisPen('pavilion', v.pavilion),
+    table:    axisPen(SS, 'table',    v.table),
+    depth:    axisPen(SS, 'depth',    v.depth),
+    crown:    axisPen(SS, 'crown',    v.crown),
+    pavilion: axisPen(SS, 'pavilion', v.pavilion),
   };
   const advStarPen = Math.abs(adv.starLength  - 50) * 0.4;
   const advLgPen   = Math.abs(adv.lowerGirdle - 80) * 0.3;
@@ -132,21 +175,23 @@ function compute(input) {
   // ---------- Composite score ----------
   let composite = 100 - (pen.table + pen.depth + pen.crown + pen.pavilion);
 
-  // Tolkowsky cross-axis harmony
-  const harmony = v.crown + 2 * v.pavilion;
-  const hDev = Math.abs(harmony - CORE.harmonyTarget);
-  if (hDev > CORE.harmonyBand) composite -= (hDev - CORE.harmonyBand) * CORE.harmonyWeight;
+  // Tolkowsky cross-axis harmony (shape-specific target & band)
+  const harmony  = v.crown + 2 * v.pavilion;
+  const hTarget  = SS.harmonyTarget ?? CORE.harmonyTarget;
+  const hBand    = SS.harmonyBand   ?? CORE.harmonyBand;
+  const hDev = Math.abs(harmony - hTarget);
+  if (hDev > hBand) composite -= (hDev - hBand) * CORE.harmonyWeight;
 
   // Advanced contributions
   composite -= advStarPen + advLgPen + polPen + symPen + fluPen;
 
   // Per-axis detail
   const detail = {};
-  for (const k of Object.keys(SS)) {
+  for (const k of ['table','depth','crown','pavilion']) {
     detail[k] = {
       value: v[k],
       deviation: round2(Math.abs(v[k] - SS[k].spot)),
-      tier: tierFor(k, v[k]),
+      tier: tierFor(SS, k, v[k]),
     };
   }
   // Hard cap when any axis is off-spec
@@ -167,14 +212,11 @@ function compute(input) {
       - pen.pavilion * w.pavilion;
 
     if (dim === 'fire') {
-      // Fire is sensitive to crown specifically; harmony hurts fire too.
-      if (hDev > CORE.harmonyBand) s -= (hDev - CORE.harmonyBand) * 1.4;
+      if (hDev > hBand) s -= (hDev - hBand) * 1.4;
       s -= polPen * 0.3;
     } else if (dim === 'lightReturn') {
-      // Brilliance: pavilion deep is worse; harmony also hurts brilliance.
-      if (hDev > CORE.harmonyBand) s -= (hDev - CORE.harmonyBand) * 1.6;
+      if (hDev > hBand) s -= (hDev - hBand) * 1.6;
     } else if (dim === 'scintillation') {
-      // Flicker depends heavily on facet symmetry & finish.
       s -= advStarPen * 1.6;
       s -= advLgPen * 1.6;
       s -= symPen * 1.6;
@@ -183,8 +225,8 @@ function compute(input) {
       // Face-up size: deep stones look smaller for same carat. Asymmetric — only deep hurts.
       const depthOver = Math.max(0, v.depth - SS.depth.spot);
       s -= depthOver * 6;
-      // very deep stones penalised harder
-      if (v.depth > 63.5) s -= (v.depth - 63.5) * 8;
+      const deepThreshold = SS.depth.spot + 1.8;
+      if (v.depth > deepThreshold) s -= (v.depth - deepThreshold) * 8;
     }
 
     hcaRaw[dim] = clamp(s, 0, 100);
@@ -197,6 +239,7 @@ function compute(input) {
   }
 
   return {
+    shape,
     score:          round2(composite),
     hca: {
       lightReturn:   round1(hcaRaw.lightReturn),
@@ -207,7 +250,7 @@ function compute(input) {
     detail,
     totalDeduction: round2(100 - composite),
     harmony:        round2(harmony),
-    algorithm:      'BL/3.1',
+    algorithm:      'BL/3.2',
   };
 }
 
@@ -217,6 +260,38 @@ function clampInput(v, fallback, lo, hi) {
 }
 function round1(v) { return Math.round(v * 10) / 10; }
 function round2(v) { return Math.round(v * 100) / 100; }
+
+// ---------- Per-IP rate limiter (in-memory, per Vercel container) ----------
+// Two windows: short burst guard (60 / minute) and longer ceiling (600 / hour).
+// State is per-region/per-instance so it resets on cold start; that's intentional —
+// for tighter limits, layer Upstash Redis or Vercel KV on top.
+const _rl = new Map();   // ip -> { m: [count, windowStart], h: [count, windowStart] }
+const _RL_LIMITS = { perMin: 60, perHour: 600 };
+
+function _clientIp(req) {
+  const xf = req.headers['x-forwarded-for'];
+  if (xf) return String(xf).split(',')[0].trim();
+  return (req.headers['x-real-ip'] || req.socket?.remoteAddress || 'anon');
+}
+
+function _checkRate(ip) {
+  const now = Date.now();
+  let s = _rl.get(ip);
+  if (!s) { s = { m: [0, now], h: [0, now] }; _rl.set(ip, s); }
+  // GC: prune the map if it gets large
+  if (_rl.size > 5000) {
+    for (const [k, v] of _rl) {
+      if (now - v.h[1] > 3600_000) _rl.delete(k);
+      if (_rl.size < 4000) break;
+    }
+  }
+  if (now - s.m[1] > 60_000)   { s.m = [0, now]; }
+  if (now - s.h[1] > 3600_000) { s.h = [0, now]; }
+  s.m[0]++; s.h[0]++;
+  if (s.m[0] > _RL_LIMITS.perMin)  return { ok: false, retry: 60_000   - (now - s.m[1]), kind: 'minute' };
+  if (s.h[0] > _RL_LIMITS.perHour) return { ok: false, retry: 3600_000 - (now - s.h[1]), kind: 'hour'   };
+  return { ok: true, remaining: _RL_LIMITS.perMin - s.m[0] };
+}
 
 // ---------- Vercel handler ----------
 export default function handler(req, res) {
@@ -231,6 +306,21 @@ export default function handler(req, res) {
     return;
   }
 
+  // ---- Rate limit ----
+  const ip = _clientIp(req);
+  const rl = _checkRate(ip);
+  res.setHeader('X-RateLimit-Limit',     String(_RL_LIMITS.perMin));
+  res.setHeader('X-RateLimit-Remaining', String(Math.max(0, rl.remaining ?? 0)));
+  if (!rl.ok) {
+    res.setHeader('Retry-After', String(Math.max(1, Math.ceil(rl.retry / 1000))));
+    res.status(429).json({
+      error: 'Too many requests',
+      kind:  rl.kind,
+      retryAfterSeconds: Math.max(1, Math.ceil(rl.retry / 1000))
+    });
+    return;
+  }
+
   try {
     // Vercel auto-parses JSON when content-type is application/json
     let body = req.body;
@@ -241,7 +331,7 @@ export default function handler(req, res) {
     const result = compute(body);
 
     res.setHeader('Cache-Control', 'no-store');
-    res.setHeader('X-Algorithm',   'BL/3.1');
+    res.setHeader('X-Algorithm',   'BL/3.2');
     res.status(200).json(result);
   } catch (err) {
     res.status(500).json({ error: 'Scoring failed', message: String(err && err.message || err) });

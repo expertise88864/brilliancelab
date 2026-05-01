@@ -265,6 +265,17 @@
 
 <body class="font-sans antialiased text-ink-900 selection:bg-gold-200/60 selection:text-ink-900">
 
+<!-- ============== OFFLINE BANNER ============== -->
+<div id="offlineBanner" class="hidden fixed top-0 inset-x-0 z-[60]" role="status" aria-live="polite">
+  <div class="max-w-6xl mx-auto px-4 sm:px-8 mt-2">
+    <div class="flex items-center gap-3 px-4 py-2.5 rounded-xl border" style="background:#fdecec;border-color:#f0c8c8;color:#8a3a3a;box-shadow:0 4px 14px -6px rgba(167,59,59,.3)">
+      <span class="inline-block w-2 h-2 rounded-full bg-[#c75555] animate-pulse"></span>
+      <span class="text-[13px] font-semibold" data-zh="目前離線 — 評分需要連線到伺服器" data-en="You are offline — scoring needs server connection" data-ja="オフラインです — 評価にはサーバー接続が必要です" data-ko="오프라인 상태 — 점수 산출에는 서버 연결이 필요합니다" data-zhcn="当前离线 — 评分需要连接服务器"></span>
+      <button id="offlineRetry" class="ml-auto text-[12px] font-semibold underline" data-zh="重試" data-en="Retry" data-ja="再試行" data-ko="재시도" data-zhcn="重试"></button>
+    </div>
+  </div>
+</div>
+
 <!-- ============== NAV ============== -->
 <header class="sticky top-0 z-40 backdrop-blur bg-ivory-100/85 border-b border-[var(--border)]">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
@@ -282,10 +293,11 @@
       </span>
     </a>
     <div class="flex items-center gap-4">
-      <a href="#how" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="使用方式" data-en="How it works"></a>
-      <a href="#scorer" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="開始評分" data-en="Score"></a>
-      <a href="#about" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="演算法" data-en="Algorithm"></a>
-      <a href="#vendors" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="市場價位" data-en="Prices"></a>
+      <a href="#how" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="使用方式" data-en="How it works" data-ja="使い方" data-ko="사용법" data-zhcn="使用方式" data-de="Anleitung" data-fr="Comment" data-es="Cómo"></a>
+      <a href="#scorer" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="開始評分" data-en="Score" data-ja="評価" data-ko="평가" data-zhcn="开始评分" data-de="Bewerten" data-fr="Évaluer" data-es="Evaluar"></a>
+      <a href="#about" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="演算法" data-en="Algorithm" data-ja="アルゴリズム" data-ko="알고리즘" data-zhcn="算法" data-de="Algorithmus" data-fr="Algorithme" data-es="Algoritmo"></a>
+      <a href="#shortlist" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="智能推薦" data-en="Shortlist" data-ja="推薦" data-ko="추천" data-zhcn="智能推荐"></a>
+      <a href="#vendors" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="市場價位" data-en="Prices" data-ja="市場価格" data-ko="시세" data-zhcn="市场价位" data-de="Preise" data-fr="Prix" data-es="Precios"></a>
       <span class="relative hide-sm" id="blogDropdown">
         <a href="/blog/gia-guide" class="text-xs uppercase tracking-[.18em] text-gold-600 hover:text-gold-700 font-semibold cursor-pointer select-none" data-zh="部落格 ▾" data-en="Blog ▾"></a>
         <span class="absolute right-0 top-full hidden pt-3 z-50 w-80" id="blogDropdownMenu">
@@ -296,9 +308,17 @@
           </span>
         </span>
       </span>
-      <div class="lang-toggle" id="langToggle" role="tablist" aria-label="Language">
-        <button data-lang="zh" class="active" aria-pressed="true">中文</button>
-        <button data-lang="en" aria-pressed="false">EN</button>
+      <div class="relative" id="langWrap">
+        <button id="langTrigger" type="button"
+          class="lang-toggle inline-flex items-center gap-1.5 px-3 py-1.5 text-[12px] font-semibold cursor-pointer hover:border-gold-300"
+          aria-haspopup="listbox" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"/></svg>
+          <span id="langLabel">中文</span>
+          <span class="text-ink-400">▾</span>
+        </button>
+        <div id="langMenu" class="hidden absolute right-0 top-full mt-2 card p-1.5 z-50 min-w-[180px]" role="listbox">
+          <!-- injected by buildLangMenu -->
+        </div>
       </div>
     </div>
   </div>
@@ -315,15 +335,38 @@
         <span data-zh="甜蜜點演算法 · v2.0" data-en="Sweet-Spot Algorithm · v2.0"></span>
       </span>
       <h1 class="font-display font-semibold leading-[1.05] text-[44px] sm:text-[68px] tracking-tight">
-        <span class="gold-text" data-zh="鑽石頂級車工篩選" data-en="Premium Diamond"></span><br/>
-        <span class="ink-text" data-zh="頂級八心八箭鑽石" data-en="Cut Filter"></span>
+        <span class="gold-text"
+          data-zh="鑽石頂級車工篩選"
+          data-en="Premium Diamond"
+          data-ja="ダイヤモンド"
+          data-ko="프리미엄 다이아"
+          data-zhcn="钻石顶级车工筛选"
+          data-de="Premium Diamant"
+          data-fr="Diamant premium"
+          data-es="Diamante premium"></span><br/>
+        <span class="ink-text"
+          data-zh="頂級八心八箭鑽石"
+          data-en="Cut Filter"
+          data-ja="カット フィルター"
+          data-ko="컷 필터"
+          data-zhcn="顶级八心八箭钻石"
+          data-de="Schliff-Filter"
+          data-fr="Filtre de taille"
+          data-es="Filtro de talla"></span>
       </h1>
       <p class="mt-7 text-[15.5px] sm:text-[17px] leading-[1.85] text-ink-700 max-w-xl"
          data-zh="從鑽石鑑定書(GIA、IGI、HRD)上抄四個數字:桌面 Table、深度 Depth、冠角 Crown、亭角 Pavilion。我們以業界公認的「甜蜜點」演算法,客觀評分這顆鑽石的光學潛力,不受實驗室主觀車工等級影響。在你的預算內,幫你挑出真正最閃亮的那顆八心八箭。"
-         data-en="Copy four numbers from your GIA / IGI / HRD report — Table, Depth, Crown Angle, Pavilion Angle. Our sweet-spot algorithm grades real-world brilliance objectively, independent of the lab's subjective cut rating. Pick the most sparkling stone in your budget."></p>
+         data-en="Copy four numbers from your GIA / IGI / HRD report — Table, Depth, Crown Angle, Pavilion Angle. Our sweet-spot algorithm grades real-world brilliance objectively, independent of the lab's subjective cut rating. Pick the most sparkling stone in your budget."
+         data-ja="GIA・IGI・HRDの鑑定書からテーブル%・デプス%・クラウン角・パビリオン角の4つの数字を入力するだけ。業界公認の「スイートスポット」アルゴリズムが、ラボの主観的カットグレードに依存しない客観的な光学評価を返します。予算内で最も輝くダイヤを選びましょう。"
+         data-ko="GIA・IGI・HRD 감정서에서 테이블・뎁스・크라운・파빌리온 네 가지 수치만 입력하세요. 업계 표준 「스위트 스팟」 알고리즘이 라보의 주관적 컷 등급에 좌우되지 않는 객관적 광학 점수를 알려드립니다."
+         data-zhcn="从 GIA / IGI / HRD 鉴定书上抄四个数字:台面 Table、深度 Depth、冠角 Crown、亭角 Pavilion。我们以业界公认的「甜蜜点」算法客观评分,不受实验室主观车工等级影响。"></p>
       <div class="mt-9 flex flex-wrap gap-3">
-        <a href="#scorer" class="btn btn-gold rounded-full px-7 py-3.5 text-sm" data-zh="開始評分 →" data-en="Start scoring →"></a>
-        <a href="#how" class="btn btn-ghost rounded-full px-7 py-3.5 text-sm" data-zh="使用方式" data-en="How it works"></a>
+        <a href="#scorer" class="btn btn-gold rounded-full px-7 py-3.5 text-sm"
+          data-zh="開始評分 →" data-en="Start scoring →" data-ja="評価する →" data-ko="평가하기 →"
+          data-zhcn="开始评分 →" data-de="Jetzt bewerten →" data-fr="Commencer →" data-es="Empezar →"></a>
+        <a href="#how" class="btn btn-ghost rounded-full px-7 py-3.5 text-sm"
+          data-zh="使用方式" data-en="How it works" data-ja="使い方" data-ko="사용법"
+          data-zhcn="使用方式" data-de="Anleitung" data-fr="Comment" data-es="Cómo funciona"></a>
       </div>
 
       <div class="mt-10 grid grid-cols-3 gap-6 max-w-md">
@@ -523,6 +566,18 @@
       </div>
     </div>
 
+    <!-- ========== Diamond shape selector ========== -->
+    <div class="card p-4 sm:p-5 mb-6">
+      <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
+        <div class="text-[11px] uppercase tracking-[.22em] text-ink-500"
+             data-zh="鑽石形狀" data-en="Diamond shape" data-ja="ダイヤの形" data-ko="다이아몬드 형태" data-zhcn="钻石形状"></div>
+        <div class="text-[11px] text-ink-500"
+             data-zh="不同形狀有不同的最佳光學比例" data-en="Each shape has its own optimal proportions"
+             data-ja="形により最適比率は異なります" data-ko="형태마다 최적 비율이 다릅니다" data-zhcn="不同形状有不同的最佳光学比例"></div>
+      </div>
+      <div id="shapeButtons" class="flex flex-wrap gap-2"><!-- injected --></div>
+    </div>
+
     <!-- ========== OCR upload (Tesseract.js, browser-side, $0) ========== -->
     <div class="card p-5 sm:p-6 mb-6">
       <div class="flex items-start justify-between gap-4 flex-wrap">
@@ -551,6 +606,10 @@
         </div>
       </div>
       <div id="ocrResult" class="hidden mt-4 grid sm:grid-cols-4 gap-3"></div>
+      <details id="ocrRaw" class="hidden mt-3 text-[12px]">
+        <summary class="cursor-pointer text-ink-500 hover:text-ink-900 select-none" data-zh="顯示原始辨識文字(Debug)" data-en="Show raw OCR text (debug)" data-ja="OCR元テキストを表示" data-ko="원본 OCR 텍스트 보기" data-zhcn="显示原始识别文字"></summary>
+        <pre id="ocrRawText" class="mt-2 p-3 rounded-lg bg-[var(--line)] text-ink-700 whitespace-pre-wrap break-words max-h-56 overflow-auto" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;line-height:1.5"></pre>
+      </details>
     </div>
 
     <!-- Advanced optional parameters panel -->
@@ -826,6 +885,72 @@
   </div>
 </section>
 
+<!-- ============== SHORTLIST (智能推薦) ============== -->
+<section id="shortlist" class="relative pt-12 pb-6">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
+      <div>
+        <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3"
+             data-zh="智能推薦清單" data-en="Smart Shortlist" data-ja="スマート推薦" data-ko="스마트 추천" data-zhcn="智能推荐清单"></div>
+        <h2 class="font-display font-semibold text-[28px] sm:text-[36px] leading-[1.15]">
+          <span class="gold-text"
+            data-zh="告訴我預算 · 給你 3 個最值的選擇"
+            data-en="Tell me your budget — I'll return 3 best-value picks"
+            data-ja="予算を教えてください — 3つのおすすめを返します"
+            data-ko="예산을 알려주세요 — 3가지 최적 추천을 받으세요"
+            data-zhcn="告诉我预算 · 给你 3 个最值的选择"></span>
+        </h2>
+        <p class="text-[14px] text-ink-700 mt-3 max-w-3xl leading-[1.75]"
+           data-zh="輸入預算與想要的形狀,我們會從不同的「克拉/顏色/淨度」組合中,挑出 BPD(每元閃光值)最高的三組規格給你。直接拿這三組去問業務,不被牽著鼻子走。"
+           data-en="Tell us your budget and shape preference. We'll search across (carat × color × clarity) combinations and return the three highest BPD specs. Take these to the salesperson and don't get steered."
+           data-ja="予算と形を入力すると、(カラット × カラー × クラリティ)から BPD 値が最高の3組を返します。これを基準に交渉してください。"
+           data-ko="예산과 형태를 입력하시면 (캐럿 × 컬러 × 투명도) 조합에서 BPD가 가장 높은 3개를 추천합니다."
+           data-zhcn="输入预算与想要的形状,我们会从「克拉/颜色/净度」组合中挑出 BPD 最高的三组规格。"></p>
+      </div>
+    </div>
+
+    <div class="card p-5 sm:p-7 mb-6">
+      <div class="grid sm:grid-cols-[1.2fr,1fr,auto] gap-4 items-end">
+        <div>
+          <label class="text-[10.5px] uppercase tracking-[.18em] text-ink-500 font-semibold"
+                 data-zh="預算 · NT$" data-en="Budget · NT$" data-ja="予算 · NT$" data-ko="예산 · NT$" data-zhcn="预算 · NT$"></label>
+          <input type="number" id="slBudget" min="30000" step="10000" placeholder="例 300000"
+                 class="input-num w-full mt-1.5 text-[14.5px] !text-left" />
+        </div>
+        <div>
+          <label class="text-[10.5px] uppercase tracking-[.18em] text-ink-500 font-semibold"
+                 data-zh="鑽石形狀" data-en="Shape" data-ja="形" data-ko="형태" data-zhcn="钻石形状"></label>
+          <select id="slShape" class="input-num w-full mt-1.5 text-[14.5px] !text-left">
+            <option value="round">圓形 / Round</option>
+            <option value="oval">橢圓 / Oval</option>
+            <option value="cushion">墊形 / Cushion</option>
+            <option value="princess">公主方 / Princess</option>
+            <option value="emerald">祖母綠 / Emerald</option>
+          </select>
+        </div>
+        <button id="slGo" class="btn btn-gold rounded-full px-6 py-3 text-[13px]"
+          data-zh="生成推薦清單 →" data-en="Generate shortlist →" data-ja="推薦を生成 →" data-ko="추천 생성 →" data-zhcn="生成推荐清单 →"></button>
+      </div>
+      <p class="text-[11px] text-ink-500 mt-3 leading-[1.7]"
+         data-zh="本工具僅依據台灣零售中位行情估價,可能與實際售價有 ±20% 落差。最終決策請以實品鑑定為準。"
+         data-en="Estimates use Taiwan retail medians; actual quotes can vary by ±20%. Always verify with a physical inspection."
+         data-ja="台湾の小売中央値で推定。実勢価格と±20%の誤差があり得ます。"
+         data-ko="대만 소매 중간가 기준 추정 — 실제 시세와 ±20% 차이가 있을 수 있습니다."
+         data-zhcn="本工具仅依据台湾零售中位行情估价,可能与实际售价有 ±20% 落差。"></p>
+    </div>
+
+    <div id="slResult" class="hidden">
+      <div id="slCards" class="grid sm:grid-cols-3 gap-4"></div>
+      <p class="text-center text-[11.5px] text-ink-500 mt-4"
+         data-zh="↑ 可以把任一推薦項目「加入比較」,跟業務拿到的鑽石並排對比"
+         data-en="↑ Add any recommendation to your comparison and stack it against your salesperson's quote"
+         data-ja="↑ 推薦をクリックして比較に追加できます" data-ko="↑ 추천을 비교에 추가할 수 있습니다"
+         data-zhcn="↑ 可以把任一推荐项目「加入比较」"></p>
+    </div>
+    <div id="slError" class="hidden card p-5 text-center text-[13px]" style="background:#fdecec;border-color:#f0c8c8;color:#8a3a3a"></div>
+  </div>
+</section>
+
 <!-- ============== VENDOR PRICE GUIDE ============== -->
 <section id="vendors" class="relative pt-16 pb-6">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
@@ -998,12 +1123,55 @@
 // against, so what users see as "ideal" is broader than what really gets
 // the maximum score. The real deduction curve, weighting, Tolkowsky term,
 // asymmetry and hard-caps all live in /api/score.js.
-const SWEET_SPOTS = {
-  table:    { spot: 55.5, min: 50, max: 62, step: 0.1, unit: '%', tiers: [2.5, 4.5] },
-  depth:    { spot: 61.5, min: 58, max: 66, step: 0.1, unit: '%', tiers: [1.4, 2.5] },
-  crown:    { spot: 34.5, min: 30, max: 38, step: 0.1, unit: '°', tiers: [1.0, 1.8] },
-  pavilion: { spot: 40.8, min: 38, max: 43, step: 0.1, unit: '°', tiers: [0.4, 0.9] }
+// Per-shape UI metadata. Spot values shown here are slightly offset from
+// the real internal optimum, and tier widths are deliberately broader than
+// what the server scores against. The real algorithm lives in /api/score.js.
+const SHAPES_UI = {
+  round:    {
+    label: { zh: '圓形 Round',     en: 'Round',     ja: 'ラウンド',    ko: '라운드',      'zh-cn': '圆形' },
+    table:    { spot: 55.5, min: 50, max: 62, step: 0.1, unit: '%', tiers: [2.5, 4.5] },
+    depth:    { spot: 61.5, min: 58, max: 66, step: 0.1, unit: '%', tiers: [1.4, 2.5] },
+    crown:    { spot: 34.5, min: 30, max: 38, step: 0.1, unit: '°', tiers: [1.0, 1.8] },
+    pavilion: { spot: 40.8, min: 38, max: 43, step: 0.1, unit: '°', tiers: [0.4, 0.9] },
+    starter:  { table: 57.0, depth: 62.5, crown: 35.0, pavilion: 41.0 }
+  },
+  oval:     {
+    label: { zh: '橢圓 Oval',      en: 'Oval',      ja: 'オーバル',    ko: '오벌',        'zh-cn': '椭圆' },
+    table:    { spot: 57.0, min: 53, max: 64, step: 0.1, unit: '%', tiers: [3.0, 5.0] },
+    depth:    { spot: 60.5, min: 56, max: 66, step: 0.1, unit: '%', tiers: [2.0, 3.5] },
+    crown:    { spot: 35.0, min: 30, max: 38, step: 0.1, unit: '°', tiers: [1.5, 2.5] },
+    pavilion: { spot: 40.5, min: 38, max: 43, step: 0.1, unit: '°', tiers: [0.7, 1.4] },
+    starter:  { table: 58.0, depth: 61.5, crown: 35.5, pavilion: 40.5 }
+  },
+  cushion:  {
+    label: { zh: '墊形 Cushion',   en: 'Cushion',   ja: 'クッション', ko: '쿠션',         'zh-cn': '垫形' },
+    table:    { spot: 60.0, min: 53, max: 70, step: 0.1, unit: '%', tiers: [4.0, 7.0] },
+    depth:    { spot: 63.5, min: 58, max: 70, step: 0.1, unit: '%', tiers: [2.5, 4.0] },
+    crown:    { spot: 35.0, min: 28, max: 40, step: 0.1, unit: '°', tiers: [2.0, 3.0] },
+    pavilion: { spot: 40.5, min: 38, max: 44, step: 0.1, unit: '°', tiers: [0.9, 1.6] },
+    starter:  { table: 60.0, depth: 64.0, crown: 35.0, pavilion: 41.0 }
+  },
+  princess: {
+    label: { zh: '公主方 Princess', en: 'Princess', ja: 'プリンセス', ko: '프린세스',     'zh-cn': '公主方' },
+    table:    { spot: 70.0, min: 60, max: 80, step: 0.1, unit: '%', tiers: [5.0, 8.0] },
+    depth:    { spot: 71.0, min: 65, max: 80, step: 0.1, unit: '%', tiers: [3.0, 5.0] },
+    crown:    { spot: 11.0, min: 8,  max: 15, step: 0.1, unit: '°', tiers: [1.5, 2.5] },
+    pavilion: { spot: 42.0, min: 38, max: 48, step: 0.1, unit: '°', tiers: [1.2, 2.2] },
+    starter:  { table: 72.0, depth: 71.5, crown: 11.5, pavilion: 42.0 }
+  },
+  emerald:  {
+    label: { zh: '祖母綠形 Emerald', en: 'Emerald', ja: 'エメラルド', ko: '에메랄드',     'zh-cn': '祖母绿形' },
+    table:    { spot: 64.0, min: 55, max: 75, step: 0.1, unit: '%', tiers: [4.0, 7.0] },
+    depth:    { spot: 67.5, min: 60, max: 75, step: 0.1, unit: '%', tiers: [3.0, 5.0] },
+    crown:    { spot: 11.0, min: 6,  max: 18, step: 0.1, unit: '°', tiers: [2.0, 4.0] },
+    pavilion: { spot: 45.0, min: 40, max: 50, step: 0.1, unit: '°', tiers: [1.5, 2.5] },
+    starter:  { table: 65.0, depth: 68.0, crown: 11.5, pavilion: 45.0 }
+  }
 };
+
+// Live-mutable: what buildInputs / chip / breakdown reads. Kept as a `let` so
+// changing shape just re-points it to a different SHAPES_UI entry.
+let SWEET_SPOTS = SHAPES_UI.round;
 
 const LABELS = {
   table:    { zh: '桌面 (Table)',          en: 'Table',          fire_zh: '影響範圍較小',            fire_en: 'Smaller optical footprint' },
@@ -1082,41 +1250,157 @@ const TIER_OVERALL_LABEL = {
   off:      { zh:'偏離',     en:'Below'       }
 };
 
-// Defaults are deliberately NOT the real internal sweet spot — they
-// represent a typical off-the-rack GIA Excellent stone. Falls inside the
-// publicly-displayed "ideal" range so users see ideal chips on first paint,
-// but the server still scores it slightly below 100.
-const _STARTER_VALUES = { table: 57.0, depth: 62.5, crown: 35.0, pavilion: 41.0 };
+// Per-shape starters — typical off-the-rack stone for each shape.
+function _starterFor(shape) {
+  return { ...(SHAPES_UI[shape] || SHAPES_UI.round).starter };
+}
+const _STARTER_VALUES = _starterFor('round');
+
+/* ---------- Persistent state (localStorage) ---------- */
+const STORAGE_KEY = 'bl_state_v1';
+function _detectLang() {
+  const stored = localStorage.getItem('bl_lang');
+  if (stored) return stored;
+  const nav = (navigator.language || 'en').toLowerCase();
+  if (nav.startsWith('zh-cn') || nav.startsWith('zh-hans')) return 'zh-cn';
+  if (nav.startsWith('zh')) return 'zh';
+  if (nav.startsWith('ja')) return 'ja';
+  if (nav.startsWith('ko')) return 'ko';
+  if (nav.startsWith('th')) return 'th';
+  if (nav.startsWith('vi')) return 'vi';
+  if (nav.startsWith('de')) return 'de';
+  if (nav.startsWith('fr')) return 'fr';
+  if (nav.startsWith('es')) return 'es';
+  return 'en';
+}
+function loadPersistedState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const data = JSON.parse(raw);
+    if (data && data.v === 1) return data;
+  } catch (e) { /* corrupt — ignore */ }
+  return null;
+}
+function savePersistedState() {
+  try {
+    const payload = {
+      v: 1,
+      values: state.values,
+      adv: state.adv,
+      pricing: state.pricing,
+      shape: state.shape,
+      saved: state.saved.map(d => ({
+        id: d.id, name: d.name, values: d.values, score: d.score,
+        detail: d.detail, hca: d.hca, shape: d.shape, price: d.price, carat: d.carat
+      }))
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+  } catch (e) { /* quota / private mode — ignore */ }
+}
+let _persistTimer = null;
+function persistDebounced() {
+  clearTimeout(_persistTimer);
+  _persistTimer = setTimeout(savePersistedState, 400);
+}
+
+const _persisted = loadPersistedState();
+const _initShape = (_persisted && SHAPES_UI[_persisted.shape]) ? _persisted.shape : 'round';
+SWEET_SPOTS = SHAPES_UI[_initShape];   // align before buildInputs runs
 
 const state = {
-  lang: (navigator.language || 'zh').toLowerCase().startsWith('zh') ? 'zh' : 'en',
-  values: { ..._STARTER_VALUES },
-  adv: { ...ADV_DEFAULTS },
-  pricing: { price: null, carat: null },
-  saved: [],
+  lang:       _detectLang(),
+  shape:      _initShape,
+  values:     (_persisted && _persisted.values)  || _starterFor(_initShape),
+  adv:        (_persisted && _persisted.adv)     || { ...ADV_DEFAULTS },
+  pricing:    (_persisted && _persisted.pricing) || { price: null, carat: null },
+  saved:      (_persisted && Array.isArray(_persisted.saved)) ? _persisted.saved : [],
   lastResult: null
 };
 
 /* ---------- i18n ---------- */
+const LANGS = [
+  { code: 'zh',    label: '中文(繁體)',  htmlLang: 'zh-TW' },
+  { code: 'zh-cn', label: '简体中文',       htmlLang: 'zh-CN' },
+  { code: 'en',    label: 'English',         htmlLang: 'en' },
+  { code: 'ja',    label: '日本語',          htmlLang: 'ja' },
+  { code: 'ko',    label: '한국어',          htmlLang: 'ko' },
+  { code: 'th',    label: 'ภาษาไทย',         htmlLang: 'th' },
+  { code: 'vi',    label: 'Tiếng Việt',      htmlLang: 'vi' },
+  { code: 'de',    label: 'Deutsch',         htmlLang: 'de' },
+  { code: 'fr',    label: 'Français',        htmlLang: 'fr' },
+  { code: 'es',    label: 'Español',         htmlLang: 'es' }
+];
+const LANG_DATAKEY = {
+  'zh':'zh', 'zh-cn':'zhcn', 'en':'en',
+  'ja':'ja', 'ko':'ko', 'th':'th', 'vi':'vi',
+  'de':'de', 'fr':'fr', 'es':'es'
+};
+
+function _t(el) {
+  // Look up data-<key> for current lang, then fall through so partial translations still work.
+  const order = state.lang === 'zh-cn' ? ['zhcn','zh','en']
+              : state.lang === 'zh'    ? ['zh','zhcn','en']
+              : [LANG_DATAKEY[state.lang], 'en', 'zh'];
+  for (const k of order) {
+    if (k && el.dataset[k] != null) return el.dataset[k];
+  }
+  return null;
+}
+
 function applyLang() {
-  document.documentElement.lang = state.lang === 'zh' ? 'zh-TW' : 'en';
-  document.querySelectorAll('[data-zh]').forEach(el => {
-    const txt = el.dataset[state.lang];
-    if (txt != null) el.textContent = txt;
+  const meta = LANGS.find(l => l.code === state.lang) || LANGS[0];
+  document.documentElement.lang = meta.htmlLang;
+  document.querySelectorAll('[data-zh],[data-en]').forEach(el => {
+    const txt = _t(el);
+    if (txt == null) return;
+    if (/[<&]/.test(txt) && /<\/?[a-z]/i.test(txt)) el.innerHTML = txt;
+    else el.textContent = txt;
   });
-  document.querySelectorAll('#langToggle button').forEach(b => {
-    const active = b.dataset.lang === state.lang;
-    b.classList.toggle('active', active);
-    b.setAttribute('aria-pressed', active);
-  });
+  const lbl = document.getElementById('langLabel');
+  if (lbl) lbl.textContent = meta.label;
+  buildShapeSelector();
   buildInputs();
   computeAndRender();
   renderCompare();
 }
 
-document.querySelectorAll('#langToggle button').forEach(b => {
-  b.addEventListener('click', () => { state.lang = b.dataset.lang; applyLang(); });
-});
+function buildLangMenu() {
+  const menu = document.getElementById('langMenu');
+  if (!menu) return;
+  menu.innerHTML = '';
+  LANGS.forEach(L => {
+    const item = document.createElement('button');
+    item.type = 'button';
+    item.className = 'block w-full text-left px-3 py-1.5 rounded-md text-[12.5px] hover:bg-[var(--gold-soft)]'
+                   + (state.lang === L.code ? ' text-gold-700 font-semibold bg-[var(--gold-soft)]' : ' text-ink-700');
+    item.textContent = L.label;
+    item.addEventListener('click', () => {
+      state.lang = L.code;
+      localStorage.setItem('bl_lang', state.lang);
+      menu.classList.add('hidden');
+      applyLang();
+      buildLangMenu();
+    });
+    menu.appendChild(item);
+  });
+}
+
+(function () {
+  const trig = document.getElementById('langTrigger');
+  const menu = document.getElementById('langMenu');
+  const wrap = document.getElementById('langWrap');
+  if (!trig || !menu || !wrap) return;
+  trig.addEventListener('click', () => {
+    const open = menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    trig.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('click', (e) => {
+    if (!wrap.contains(e.target)) menu.classList.add('hidden');
+  });
+})();
+buildLangMenu();
 
 /* ---------- Scoring ---------- */
 function tierForParam(key, value) {
@@ -1138,6 +1422,7 @@ let _scoreSeq = 0;
 
 function _serializeForApi(values, adv) {
   return {
+    shape:        state.shape || 'round',
     table:        +values.table,
     depth:        +values.depth,
     crown:        +values.crown,
@@ -1206,6 +1491,49 @@ function overallTier(score) {
 
 function chipForTier(tier) {
   return tier === 'ideal' ? 'ideal' : tier === 'good' ? 'good' : 'off';
+}
+
+/* ---------- Shape selector (Round / Oval / Cushion / Princess / Emerald) ---------- */
+const SHAPE_ICONS = {
+  // Tiny SVG silhouettes used inside each shape button
+  round:    '<svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="16" cy="16" r="11"/></svg>',
+  oval:     '<svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="16" cy="16" rx="8" ry="12"/></svg>',
+  cushion:  '<svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="22" height="22" rx="6"/></svg>',
+  princess: '<svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="6" width="20" height="20"/><path d="M6 6 L26 26 M26 6 L6 26" opacity=".4"/></svg>',
+  emerald:  '<svg viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6 L23 6 L27 10 L27 22 L23 26 L9 26 L5 22 L5 10 Z"/></svg>'
+};
+
+function _shapeLabel(key) {
+  const s = SHAPES_UI[key]; if (!s) return key;
+  return s.label[state.lang] || s.label.en || key;
+}
+
+function buildShapeSelector() {
+  const grid = document.getElementById('shapeButtons');
+  if (!grid) return;
+  grid.innerHTML = '';
+  Object.keys(SHAPES_UI).forEach(key => {
+    const active = key === state.shape;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.dataset.shape = key;
+    btn.className = 'btn rounded-xl px-3 py-2 text-[12.5px] inline-flex items-center gap-2 ' +
+      (active ? 'btn-gold' : 'btn-ghost');
+    btn.innerHTML = `${SHAPE_ICONS[key] || ''}<span>${_shapeLabel(key)}</span>`;
+    btn.addEventListener('click', () => switchShape(key));
+    grid.appendChild(btn);
+  });
+}
+
+function switchShape(key) {
+  if (!SHAPES_UI[key] || key === state.shape) return;
+  state.shape    = key;
+  SWEET_SPOTS    = SHAPES_UI[key];
+  state.values   = _starterFor(key);   // reset numbers to that shape's typical defaults
+  buildShapeSelector();
+  buildInputs();
+  computeAndRender();
+  persistDebounced();
 }
 
 /* ---------- UI: inputs ---------- */
@@ -1409,17 +1737,21 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
     values: { ...state.values },
     score: r.score,
     detail: r.detail,
-    hca: r.hca
+    hca: r.hca,
+    shape: state.shape || 'round',
+    price: state.pricing.price,
+    carat: state.pricing.carat
   });
   btn.disabled = false;
   btn.textContent = orig;
   renderCompare();
+  persistDebounced();
   document.getElementById('compare').scrollIntoView({ behavior:'smooth', block:'start' });
 });
 
 document.getElementById('clearBtn').addEventListener('click', () => {
   if (state.saved.length && confirm(state.lang==='zh'?'確定要清空全部比較項目嗎?':'Clear all compared diamonds?')) {
-    state.saved = []; renderCompare();
+    state.saved = []; renderCompare(); persistDebounced();
   }
 });
 
@@ -1433,8 +1765,8 @@ document.getElementById('exportBtn').addEventListener('click', () => {
 });
 
 document.getElementById('resetBtn').addEventListener('click', () => {
-  state.values = { ..._STARTER_VALUES };
-  buildInputs(); computeAndRender();
+  state.values = _starterFor(state.shape);
+  buildInputs(); computeAndRender(); persistDebounced();
 });
 
 function renderCompare() {
@@ -1703,6 +2035,7 @@ computeAndRender = async function() {
   // After async result lands, redraw downstream views
   updateCP();
   renderBreakdown();
+  persistDebounced();   // remember sliders / adv / pricing across reloads
 };
 
 /* ---------- Share via URL (cloud-like save) ---------- */
@@ -1763,38 +2096,164 @@ document.getElementById('pdfBtn').addEventListener('click', async () => {
   btn.disabled = true;
 
   try {
-    const target = document.getElementById('compareList');
-    const canvas = await html2canvas(target, { backgroundColor: '#faf8f3', scale: 2, useCORS: true });
-    const imgData = canvas.toDataURL('image/png');
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF('p', 'mm', 'a4');
     const pw = doc.internal.pageSize.getWidth();
     const ph = doc.internal.pageSize.getHeight();
-    const margin = 15;
+    const margin = 18;
 
-    // Header
+    // ===== Helpers =====
+    const GOLD = [201, 164, 92];   // var(--gold)
+    const GOLD_DEEP = [138, 110, 48];
+    const INK = [26, 29, 46];
+    const INK2 = [74, 77, 94];
+    const MUTED = [126, 129, 148];
+
+    function drawLogo(x, y, scale) {
+      // Diamond mark (matches /icon.svg outline) — pure jsPDF vector
+      const s = scale || 1;
+      doc.setDrawColor(...GOLD_DEEP);
+      doc.setLineWidth(0.7 * s);
+      // outer pentagon-ish diamond outline  (re-projected from SVG path)
+      const cx = x, cy = y;
+      const pts = [[-7, 1], [-2.7, -5.4], [3, -5.4], [7, 1], [0, 11]];
+      const px = (i) => cx + pts[i][0] * s, py = (i) => cy + pts[i][1] * s;
+      doc.lines([
+        [px(1)-px(0), py(1)-py(0)], [px(2)-px(1), py(2)-py(1)], [px(3)-px(2), py(3)-py(2)],
+        [px(4)-px(3), py(4)-py(3)], [px(0)-px(4), py(0)-py(4)]
+      ], px(0), py(0), [1,1], 'S', false);
+    }
+
+    function pageFrame(title, subtitle, pageNum) {
+      // Top brand bar
+      drawLogo(margin + 5, margin + 1, 1);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13); doc.setTextColor(...GOLD_DEEP);
+      doc.text('BrillianceLab', margin + 14, margin + 4);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8); doc.setTextColor(...MUTED);
+      doc.text('鑽石實驗室 · Diamond Brilliance & Fire Formula', margin + 14, margin + 9);
+      // Right metadata
+      doc.text(new Date().toLocaleString(), pw - margin, margin + 4, { align: 'right' });
+      if (pageNum) doc.text('Page ' + pageNum, pw - margin, margin + 9, { align: 'right' });
+      // Gold rule
+      doc.setDrawColor(...GOLD); doc.setLineWidth(0.4);
+      doc.line(margin, margin + 13, pw - margin, margin + 13);
+      // Section title
+      if (title) {
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(16); doc.setTextColor(...INK);
+        doc.text(title, margin, margin + 22);
+      }
+      if (subtitle) {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9); doc.setTextColor(...INK2);
+        doc.text(subtitle, margin, margin + 28);
+      }
+      // Footer
+      doc.setFontSize(7.5); doc.setTextColor(160);
+      doc.text('brilliancelab.vercel.app · Algorithm BL/3.2', margin, ph - 8);
+      doc.text('For reference only — purchase decisions should rely on the official lab report.', margin, ph - 4);
+    }
+
+    // ===== Cover page =====
+    pageFrame();
     doc.setFont('helvetica', 'bold');
-    doc.setFontSize(18); doc.setTextColor(26, 29, 46);
-    doc.text('BrillianceLab', margin, margin + 4);
-    doc.setFontSize(10); doc.setFont('helvetica', 'normal'); doc.setTextColor(120);
-    doc.text('Diamond Cut Comparison Report', margin, margin + 10);
-    doc.text('Generated ' + new Date().toLocaleString(), pw - margin, margin + 10, { align: 'right' });
-    doc.setDrawColor(201, 164, 92);
-    doc.setLineWidth(0.4);
-    doc.line(margin, margin + 13, pw - margin, margin + 13);
+    doc.setFontSize(34); doc.setTextColor(...INK);
+    doc.text('Diamond Cut', margin, 80);
+    doc.setTextColor(...GOLD_DEEP);
+    doc.text('Comparison Report', margin, 95);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(11); doc.setTextColor(...INK2);
+    doc.text('鑽石比較報告書 · Sweet Spot 演算法 (BL/3.2)', margin, 105);
 
-    // Image
-    const imgW = pw - margin * 2;
-    const imgH = (canvas.height / canvas.width) * imgW;
-    const maxH = ph - margin * 2 - 25;
-    let drawW = imgW, drawH = imgH;
-    if (imgH > maxH) { drawH = maxH; drawW = (canvas.width / canvas.height) * drawH; }
-    doc.addImage(imgData, 'PNG', (pw - drawW) / 2, margin + 18, drawW, drawH);
+    const sorted = [...state.saved].sort((a,b) => (b.score||0) - (a.score||0));
+    // Cover summary table
+    let coverY = 130;
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11); doc.setTextColor(...INK);
+    doc.text('Diamonds in this report', margin, coverY); coverY += 7;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10); doc.setTextColor(...INK2);
+    sorted.forEach((d, i) => {
+      const tag = (i === 0 && sorted.length > 1) ? '★ ' : '   ';
+      const line = `${tag}${i+1}.  ${d.name}   —   Score ${(d.score||0).toFixed(1)} / 100`;
+      doc.text(line, margin, coverY);
+      coverY += 6;
+    });
 
-    // Footer
-    doc.setFontSize(8); doc.setTextColor(150);
-    doc.text('brilliancelab.vercel.app · Sweet-Spot scoring algorithm v2.0', margin, ph - 8);
-    doc.text('For reference only — purchase decisions should rely on the official lab report.', margin, ph - 4);
+    // Per-diamond detail page
+    sorted.forEach((d, i) => {
+      doc.addPage();
+      pageFrame(`${i+1}. ${d.name}`, `Shape: ${d.shape || 'round'}   ·   Score: ${(d.score||0).toFixed(2)} / 100`, i+2);
+
+      let y = margin + 38;
+      // Big score
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(40); doc.setTextColor(...GOLD_DEEP);
+      doc.text(((d.score||0) >= 99.995 ? '100' : (d.score||0).toFixed(2)), margin, y);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9); doc.setTextColor(...MUTED);
+      doc.text('/ 100', margin + 36, y);
+
+      // Per-axis values
+      y += 10;
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11); doc.setTextColor(...INK);
+      doc.text('Cut parameters', margin, y); y += 6;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      const ax = ['table','depth','crown','pavilion'];
+      const labelMap = { table:'Table %', depth:'Depth %', crown:'Crown angle', pavilion:'Pavilion angle' };
+      ax.forEach(k => {
+        const v = d.values && d.values[k];
+        const det = d.detail && d.detail[k];
+        const tier = det ? det.tier : '-';
+        const dev  = det ? det.deviation : 0;
+        doc.setTextColor(...INK2);
+        doc.text(`${labelMap[k]}`, margin, y);
+        doc.setTextColor(...INK);
+        doc.text(`${(v||0).toFixed(1)}${k==='table'||k==='depth'?'%':'°'}`, margin + 50, y);
+        doc.setTextColor(...MUTED);
+        doc.text(`Δ ${(dev||0).toFixed(2)}   tier: ${tier}`, margin + 80, y);
+        y += 6;
+      });
+
+      // HCA breakdown
+      if (d.hca) {
+        y += 4;
+        doc.setFont('helvetica', 'bold'); doc.setFontSize(11); doc.setTextColor(...INK);
+        doc.text('HCA optical breakdown', margin, y); y += 6;
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(10);
+        const hk = ['lightReturn','fire','scintillation','spread'];
+        const hl = { lightReturn:'Light Return', fire:'Fire', scintillation:'Scintillation', spread:'Spread' };
+        hk.forEach(k => {
+          const v = d.hca[k] || 0;
+          doc.setTextColor(...INK2); doc.text(hl[k], margin, y);
+          // bar
+          const barX = margin + 55, barW = 80;
+          doc.setDrawColor(230); doc.setFillColor(241, 237, 227);
+          doc.roundedRect(barX, y - 3, barW, 3, 1.5, 1.5, 'F');
+          const fillW = Math.max(0, Math.min(barW, barW * v / 100));
+          doc.setFillColor(...GOLD);
+          doc.roundedRect(barX, y - 3, fillW, 3, 1.5, 1.5, 'F');
+          doc.setTextColor(...INK); doc.text(v.toFixed(1), barX + barW + 4, y);
+          y += 6;
+        });
+      }
+
+      // Pricing if available
+      if (d.price && d.carat) {
+        y += 4;
+        doc.setFont('helvetica', 'bold'); doc.setFontSize(11); doc.setTextColor(...INK);
+        doc.text('Pricing', margin, y); y += 6;
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(...INK2);
+        doc.text(`Carat:   ${d.carat.toFixed(2)} ct`, margin, y); y += 5;
+        doc.text(`Price:   NT$${Number(d.price).toLocaleString()}`, margin, y); y += 5;
+        const bpd = (d.score||0) * Math.sqrt(d.carat) / (d.price/10000);
+        doc.text(`BPD:     ${bpd.toFixed(2)} (Brilliance per Dollar)`, margin, y); y += 5;
+      }
+    });
 
     doc.save(`brilliancelab-${new Date().toISOString().slice(0,10)}.pdf`);
   } catch (e) {
@@ -1826,34 +2285,62 @@ function _setOcrStatus(msg, pct) {
   if (pct != null) document.getElementById('ocrProgress').style.width = Math.max(0, Math.min(100, pct)) + '%';
 }
 
-function _parseOCR(text) {
-  // Normalize: degrees, percent, common OCR confusions
-  const T = text
+/* OCR result post-processor.
+ * Tesseract on diamond reports commonly confuses:
+ *   '4l.O' / '4I.0' / '4|.0' → 41.0    'O'/'o' inside numbers → 0
+ *   'S' / 'B' before a digit run → 5 / 8                       'l'/'I'/'|' → 1
+ * We normalise the text first, then capture per-axis values with
+ * range-aware regex (e.g. crown is 25–42°, pavilion 36–45°).      */
+function _normalizeOCR(text) {
+  return text
     .replace(/[°˚]/g, '')
-    .replace(/[Oo]/g, '0')        // O → 0 in numeric runs
-    .replace(/[lI|]/g, '1')       // l/I/| → 1
-    .replace(/,/g, '.')
-    .replace(/\s+/g, ' ');
+    .replace(/[，、]/g, '.')     // Asian commas → dot
+    .replace(/(\d)[Oo]/g, '$1 0').replace(/[Oo](\d)/g, '0$1')
+    .replace(/(\d)[lI|](\d)/g, '$11$2')                // 4l1 → 411
+    .replace(/(\d)[lI|]\b/g, '$11')                    // 4l → 41
+    .replace(/\b[lI|](\d)/g, '1$1')                    // l4 → 14
+    .replace(/[‐–—−]/g, '-')                           // unify dashes
+    .replace(/[ \t]+/g, ' ');
+}
 
-  // Be slightly fuzzy — allow stray words between key and number
-  const grab = (re) => {
-    const m = T.match(re);
-    if (!m) return null;
-    const v = parseFloat(m[1]);
-    return isFinite(v) ? v : null;
-  };
+function _grabNumber(text, label, lo, hi, allowInt = false) {
+  // Allow some characters between label and number, but stop at next label-like keyword
+  const stops = '(?=Crown|Pavilion|Table|Depth|Star|Lower|Polish|Symmetry|Fluorescence|$)';
+  const numPattern = allowInt ? '([0-9]{2}(?:\\.[0-9])?)' : '([0-9]{2}\\.[0-9])';
+  const re = new RegExp(label + '[^A-Za-z]{0,30}?' + numPattern + '[^a-z]', 'i');
+  const m = text.match(re);
+  if (!m) return null;
+  const v = parseFloat(m[1]);
+  if (!isFinite(v)) return null;
+  if (v < lo || v > hi) return null;
+  return v;
+}
 
-  // Pavilion angle is checked BEFORE crown so "Crown Angle" doesn't capture pavilion line by accident
+function _parseOCR(text) {
+  const T = _normalizeOCR(text);
+  // Pavilion before Crown so the looser Crown regex doesn't snag a pavilion number
   const out = {
-    pavilion: grab(/Pavilion[^0-9]{0,12}([0-9]{2}\.[0-9])/i),
-    crown:    grab(/Crown[^0-9]{0,12}([0-9]{2}\.[0-9])/i),
-    table:    grab(/Table[^0-9]{0,8}([0-9]{2}(?:\.[0-9])?)\s*%?/i),
-    depth:    grab(/(?:Total\s*)?Depth[^0-9]{0,8}([0-9]{2}\.[0-9])\s*%?/i),
+    pavilion: _grabNumber(T, 'Pavilion(?:\\s*Angle)?', 36, 45),
+    crown:    _grabNumber(T, 'Crown(?:\\s*Angle)?',   25, 42),
+    table:    _grabNumber(T, 'Table',                 50, 75, true),
+    depth:    _grabNumber(T, '(?:Total\\s+)?Depth',   55, 75),
+    // Bonus: try to also pull advanced parameters
+    starLength:  _grabNumber(T, 'Star(?:\\s+Length)?', 40, 65, true),
+    lowerGirdle: _grabNumber(T, 'Lower(?:\\s*Half|\\s+Girdle)?', 65, 95, true),
   };
   return out;
 }
 
 function _clamp(v, mn, mx) { return Math.max(mn, Math.min(mx, v)); }
+
+function _renderRawText(raw) {
+  const wrap = document.getElementById('ocrRaw');
+  const pre  = document.getElementById('ocrRawText');
+  if (!wrap || !pre) return;
+  if (!raw) { wrap.classList.add('hidden'); return; }
+  pre.textContent = String(raw).slice(0, 4000);
+  wrap.classList.remove('hidden');
+}
 
 document.getElementById('ocrFile').addEventListener('change', async (e) => {
   const file = e.target.files && e.target.files[0];
@@ -1880,35 +2367,41 @@ document.getElementById('ocrFile').addEventListener('change', async (e) => {
     _setOcrStatus(t('解析鑑定書欄位…', 'Parsing fields…'), 96);
     const parsed = _parseOCR(data.text || '');
 
-    let any = false;
-    Object.keys(parsed).forEach((k) => {
+    let foundCore = 0, foundAdv = 0;
+    ['table', 'depth', 'crown', 'pavilion'].forEach((k) => {
       if (parsed[k] != null) {
         const c = SWEET_SPOTS[k];
         const v = _clamp(Math.round(parsed[k] * 10) / 10, c.min, c.max);
         state.values[k] = v;
-        any = true;
+        foundCore++;
       }
     });
+    if (parsed.starLength  != null) { state.adv.starLength  = _clamp(Math.round(parsed.starLength), 30, 70); foundAdv++; }
+    if (parsed.lowerGirdle != null) { state.adv.lowerGirdle = _clamp(Math.round(parsed.lowerGirdle), 60, 95); foundAdv++; }
 
-    if (!any) {
+    if (!foundCore) {
       _setOcrStatus(t('辨識完成,但找不到 Table/Depth/Crown/Pavilion 數據。請拍清楚比例圖頁面後重試。',
                      'Done — but I couldn’t spot the four fields. Try a clearer photo of the proportions page.'), 100);
+      _renderRawText(data.text);
       return;
     }
 
     buildInputs(); computeAndRender();
-    _setOcrStatus(t('完成!已自動帶入辨識結果(請對照鑑定書再確認):',
-                   'Done! Numbers auto-filled (please double-check against the report):'), 100);
+    persistDebounced();
+    _setOcrStatus(t(`完成!核心 ${foundCore}/4 項自動帶入,進階 ${foundAdv}/2 項${foundAdv?'':' 未找到'}。請對照鑑定書再確認:`,
+                   `Done! ${foundCore}/4 core fields and ${foundAdv}/2 advanced fields filled. Please verify against the report:`), 100);
 
     resultBox.classList.remove('hidden');
     const labels = { table:'Table %', depth:'Depth %', crown:'Crown Angle', pavilion:'Pavilion Angle' };
-    resultBox.innerHTML = Object.keys(labels).map(k => {
+    let html = Object.keys(labels).map(k => {
       const found = parsed[k] != null;
       return `<div class="p-3 rounded-xl border ${found?'border-gold-300 bg-[var(--gold-soft)]':'border-[var(--border)] bg-white'}">
         <div class="text-[10.5px] uppercase tracking-[.18em] ${found?'text-gold-700':'text-ink-500'} font-semibold">${labels[k]}</div>
         <div class="font-display text-[22px] mt-1 num ${found?'gold-text':'text-ink-400'}">${found?state.values[k].toFixed(1)+SWEET_SPOTS[k].unit:'—'}</div>
       </div>`;
     }).join('');
+    resultBox.innerHTML = html;
+    _renderRawText(data.text);
 
   } catch (err) {
     console.error(err);
@@ -1923,6 +2416,124 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ---------- Smart shortlist ---------- */
+(function () {
+  const btn    = document.getElementById('slGo');
+  const budget = document.getElementById('slBudget');
+  const shape  = document.getElementById('slShape');
+  const result = document.getElementById('slResult');
+  const errEl  = document.getElementById('slError');
+  const cards  = document.getElementById('slCards');
+  if (!btn || !budget || !shape || !cards) return;
+
+  // Sync shape select with current state.shape on first render
+  shape.value = state.shape || 'round';
+
+  btn.addEventListener('click', async () => {
+    const b = parseFloat(budget.value);
+    const s = shape.value;
+    if (!isFinite(b) || b < 30000) {
+      errEl.classList.remove('hidden');
+      errEl.textContent = state.lang === 'en' ? 'Please enter a budget of at least NT$30,000.' : '請輸入至少 NT$30,000 的預算。';
+      result.classList.add('hidden');
+      return;
+    }
+    errEl.classList.add('hidden');
+    btn.disabled = true;
+    const orig = btn.textContent;
+    btn.textContent = state.lang === 'en' ? 'Generating…' : '計算中…';
+    try {
+      const resp = await fetch('/api/shortlist', {
+        method: 'POST', headers: {'content-type':'application/json'},
+        body: JSON.stringify({ budget: b, shape: s })
+      });
+      const data = await resp.json();
+      if (!resp.ok) throw new Error(data.message || data.error || ('HTTP ' + resp.status));
+      _renderShortlist(data);
+    } catch (e) {
+      errEl.classList.remove('hidden');
+      errEl.textContent = (state.lang === 'en' ? 'Failed: ' : '失敗:') + (e.message || e);
+      result.classList.add('hidden');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = orig;
+    }
+  });
+
+  function _renderShortlist(data) {
+    cards.innerHTML = '';
+    if (!data.candidates || !data.candidates.length) {
+      errEl.classList.remove('hidden');
+      errEl.textContent = state.lang === 'en' ? 'No spec fits this budget — try a higher amount.' : '此預算內找不到合適規格,請調高預算。';
+      result.classList.add('hidden');
+      return;
+    }
+    data.candidates.forEach((c, i) => {
+      const isWinner = i === 0;
+      const card = document.createElement('div');
+      card.className = 'card p-5 relative ' + (isWinner ? 'ring-gold' : '');
+      card.innerHTML = `
+        ${isWinner ? `<div class="absolute -top-3 left-5 chip ideal" style="font-size:10.5px">${state.lang==='zh'?'★ 最值得':'★ Best value'}</div>` : ''}
+        <div class="font-display text-[18px] mb-3 ${isWinner?'gold-text':'text-ink-900'}">${escapeHtml(c.name)}</div>
+        <div class="grid grid-cols-2 gap-x-3 gap-y-1.5 text-[12.5px]">
+          <div class="flex justify-between"><span class="text-ink-500">${state.lang==='zh'?'克拉':'Carat'}</span><strong class="num">${c.carat.toFixed(2)} ct</strong></div>
+          <div class="flex justify-between"><span class="text-ink-500">${state.lang==='zh'?'顏色':'Color'}</span><strong>${c.color}</strong></div>
+          <div class="flex justify-between"><span class="text-ink-500">${state.lang==='zh'?'淨度':'Clarity'}</span><strong>${c.clarity}</strong></div>
+          <div class="flex justify-between"><span class="text-ink-500">${state.lang==='zh'?'形狀':'Shape'}</span><strong>${c.shape}</strong></div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-[var(--line)] grid grid-cols-3 gap-2 text-center">
+          <div>
+            <div class="text-[10px] uppercase tracking-[.18em] text-ink-500">${state.lang==='zh'?'BL分數':'Score'}</div>
+            <div class="font-display text-[18px] num gold-text mt-1">${(c.score||0).toFixed(1)}</div>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase tracking-[.18em] text-ink-500">${state.lang==='zh'?'估價':'Price'}</div>
+            <div class="font-display text-[16px] num mt-1">${(c.price/10000).toFixed(0)}<span class="text-[10px] text-ink-500 ml-0.5">萬</span></div>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase tracking-[.18em] text-ink-500">BPD</div>
+            <div class="font-display text-[18px] num text-gold-700 mt-1">${(c.bpd||0).toFixed(2)}</div>
+          </div>
+        </div>
+        <button class="btn btn-ghost rounded-full px-3 py-2 text-[11.5px] mt-4 w-full"
+          data-recipe='${escapeHtml(JSON.stringify({carat:c.carat,price:c.price,shape:c.shape,name:c.name}))}'>${state.lang==='zh'?'代入並比較 →':'Use this & compare →'}</button>
+      `;
+      cards.appendChild(card);
+    });
+    cards.querySelectorAll('[data-recipe]').forEach(el => {
+      el.addEventListener('click', () => {
+        try {
+          const r = JSON.parse(el.dataset.recipe);
+          if (r.shape && SHAPES_UI[r.shape]) switchShape(r.shape);
+          state.pricing.price = r.price;
+          state.pricing.carat = r.carat;
+          document.getElementById('priceInput').value = r.price;
+          document.getElementById('caratInput').value = r.carat;
+          updateCP();
+          persistDebounced();
+          document.getElementById('scorer').scrollIntoView({behavior:'smooth', block:'start'});
+        } catch (e) { /* ignore */ }
+      });
+    });
+    result.classList.remove('hidden');
+  }
+})();
+
+/* ---------- Online / Offline awareness ---------- */
+(function () {
+  const banner = document.getElementById('offlineBanner');
+  const retry  = document.getElementById('offlineRetry');
+  if (!banner) return;
+  function update() {
+    if (navigator.onLine) banner.classList.add('hidden');
+    else                  banner.classList.remove('hidden');
+  }
+  window.addEventListener('online',  () => { update(); computeAndRender(); });
+  window.addEventListener('offline', update);
+  retry?.addEventListener('click', () => { _scoreCache.clear(); computeAndRender(); });
+  update();
+})();
 
 /* ---------- Blog dropdown (hover-with-grace + tap-to-toggle) ---------- */
 (function () {
