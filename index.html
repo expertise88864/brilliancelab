@@ -1171,7 +1171,10 @@ const SHAPES_UI = {
 
 // Live-mutable: what buildInputs / chip / breakdown reads. Kept as a `let` so
 // changing shape just re-points it to a different SHAPES_UI entry.
+// Note: SWEET_SPOTS objects also carry `label` and `starter` keys, so any
+// loop over the four axes must use AXIS_KEYS, not the raw object keys.
 let SWEET_SPOTS = SHAPES_UI.round;
+const AXIS_KEYS = ['table', 'depth', 'crown', 'pavilion'];
 
 const LABELS = {
   table:    { zh: '桌面 (Table)',          en: 'Table',          fire_zh: '影響範圍較小',            fire_en: 'Smaller optical footprint' },
@@ -1438,7 +1441,7 @@ function _serializeForApi(values, adv) {
 /* Last-known result, for synchronous consumers (CP value, save button, PDF). */
 function _emptyResult(values) {
   const detail = {};
-  for (const k of Object.keys(SWEET_SPOTS)) {
+  for (const k of AXIS_KEYS) {
     detail[k] = { value: values[k], deviation: 0, tier: tierForParam(k, values[k]).tier };
   }
   return {
@@ -1540,7 +1543,7 @@ function switchShape(key) {
 function buildInputs() {
   const grid = document.getElementById('inputsGrid');
   grid.innerHTML = '';
-  Object.keys(SWEET_SPOTS).forEach(key => {
+  AXIS_KEYS.forEach(key => {
     const conf = SWEET_SPOTS[key];
     const lbl = LABELS[key];
     const v = state.values[key];
@@ -1645,7 +1648,7 @@ async function computeAndRender() {
   // Per-axis meters
   const metersList = document.getElementById('metersList');
   metersList.innerHTML = '';
-  Object.keys(SWEET_SPOTS).forEach(key => {
+  AXIS_KEYS.forEach(key => {
     const conf = SWEET_SPOTS[key];
     const d = result.detail[key];
     const lbl = LABELS[key];
@@ -1803,7 +1806,7 @@ function renderCompare() {
       </div>
 
       <div class="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 text-[12.5px]">
-        ${Object.keys(SWEET_SPOTS).map(k => {
+        ${AXIS_KEYS.map(k => {
           const lbl = LABELS[k]; const u = SWEET_SPOTS[k].unit; const t = d.detail[k].tier;
           const dot = t==='ideal'?'#c9a45c':t==='good'?'#5a86c5':'#c75555';
           return `<div class="flex items-center justify-between border-b border-[var(--line)] pb-1.5">
@@ -1818,7 +1821,7 @@ function renderCompare() {
 
       <div class="mt-4 text-[11px] text-ink-500 num">
         ${state.lang==='zh'?'與理想值總偏差':'Total deviation'} · Δ ${
-          Object.keys(SWEET_SPOTS).reduce((s,k)=>s+(d.detail[k].deviation||0),0).toFixed(2)
+          AXIS_KEYS.reduce((s,k)=>s+(d.detail[k].deviation||0),0).toFixed(2)
         }
       </div>
 
@@ -1963,7 +1966,7 @@ function renderBreakdown() {
   const offAxes = [];
   const goodAxes = [];
 
-  Object.keys(SWEET_SPOTS).forEach(key => {
+  AXIS_KEYS.forEach(key => {
     const conf = SWEET_SPOTS[key];
     const d = result.detail[key];
     const lbl = LABELS[key];
