@@ -2,10 +2,16 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8" />
+<!-- BL_PRELOAD -->
+<link rel="preload" as="style" href="/assets/tw.css">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/NotoSerifTC-Regular.subset.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/NotoSerifTC-Bold.subset.woff2" crossorigin>
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="dns-prefetch" href="https://www.clarity.ms">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>站內搜尋 — BrillianceLab 鑽石實驗室</title>
 <meta name="description" content="搜尋 BrillianceLab 全部 40+ 篇鑽石購買教學文章。輸入關鍵字立即取得相關文章。" />
-<meta name="keywords" content="鑽石搜尋,站內搜尋,BrillianceLab,鑽石文章,鑽石指南" />
+<meta name="keywords" content="鑽石搜尋，站內搜尋,BrillianceLab,鑽石文章，鑽石指南" />
 <link rel="canonical" href="https://brilliancelab.vercel.app/search" />
 <link rel="alternate" hreflang="x-default" href="https://brilliancelab.vercel.app/search" />
 <link rel="alternate" hreflang="zh-TW" href="https://brilliancelab.vercel.app/search" />
@@ -105,7 +111,7 @@
 
   <div class="search-box">
     <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.65" y2="16.65"/></svg>
-    <input id="q" type="search" placeholder="輸入關鍵字（例:八心八箭、GIA、分期付款）" autocomplete="off" autofocus />
+    <input id="q" type="search" placeholder="輸入關鍵字（例：八心八箭、GIA、分期付款）" autocomplete="off" autofocus />
     <button class="search-clear" id="clearBtn" aria-label="清除">✕</button>
   </div>
 
@@ -126,6 +132,10 @@
       <button data-q="淨度">淨度</button>
     </div>
   </div>
+
+  <!-- Pagefind UI mount — appears when /_pagefind/pagefind-ui.js is built (npm run search:build).
+       Until then, the legacy inline-INDEX search below remains active. -->
+  <div id="pagefind-mount" style="margin-top:24px"></div>
 
   <div class="results" id="results"></div>
 </main>
@@ -230,6 +240,51 @@ document.querySelectorAll('.popular-tags button').forEach(btn => {
 // URL ?q= support — direct search engine traffic
 const urlQ = new URLSearchParams(location.search).get('q');
 if (urlQ) { inp.value = urlQ; search(urlQ); }
+
+// ---- Pagefind upgrade path ----
+// If /_pagefind/pagefind-ui.js exists (built by `npm run search:build`), mount the
+// Pagefind UI for full-text search across every page, hide the legacy results pane,
+// and let Pagefind own the query input. Until then, the legacy inline INDEX above
+// remains active so the page still works.
+(async function tryPagefind() {
+  try {
+    const probe = await fetch('/_pagefind/pagefind-ui.js', { method: 'HEAD' });
+    if (!probe.ok) return;
+    await new Promise((res, rej) => {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet'; css.href = '/_pagefind/pagefind-ui.css';
+      document.head.appendChild(css);
+      const s = document.createElement('script');
+      s.src = '/_pagefind/pagefind-ui.js';
+      s.onload = res; s.onerror = rej;
+      document.body.appendChild(s);
+    });
+    // Hide legacy results, swap to Pagefind UI bound to the same #q input
+    document.getElementById('results').style.display = 'none';
+    document.getElementById('metaLine').textContent = '已啟用全文搜尋(Pagefind 索引)';
+    /* global PagefindUI */
+    new PagefindUI({
+      element: '#pagefind-mount',
+      showImages: false,
+      showSubResults: true,
+      autofocus: false,
+      processTerm: (t) => t,
+      translations: {
+        placeholder: '輸入關鍵字搜尋全文…',
+        clear_search: '清除',
+        load_more: '載入更多',
+        search_label: '站內全文搜尋',
+        filters_label: '篩選',
+        zero_results: '找不到符合「[SEARCH_TERM]」的內容',
+        many_results: '找到 [COUNT] 筆,顯示「[SEARCH_TERM]」',
+        one_result: '找到 1 筆,顯示「[SEARCH_TERM]」',
+        searching: '搜尋中…',
+      },
+    });
+    // Hide our own search-box because Pagefind has its own
+    document.querySelector('.search-box').style.display = 'none';
+  } catch (e) { /* Pagefind not built yet — legacy search stays */ }
+})();
 </script>
 
 </body>

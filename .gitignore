@@ -26,8 +26,25 @@ desktop.ini
 *.swp
 *.swo
 
-# Build artefacts
+# Build artefacts (generated outputs only — keep source configs tracked)
 dist/
-build/
 .cache/
 *.log
+
+# build/ contains source configs (tailwind.input.css, adsense-slots.json, README.md,
+# cjk-charset.txt) that we DO want tracked. Ignore only the heavy / generated bits:
+build/fonts-source/
+build/output/
+build/.lighthouseci/
+
+# Lighthouse CI run output
+.lighthouseci/
+
+# Tailwind / Pagefind / fonts generated output
+assets/tw.css
+assets/fonts/*.subset.woff2
+assets/fonts/fonts.css
+_pagefind/
+
+# .bak files left by switch_to_static_css.py
+*.bak

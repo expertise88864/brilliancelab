@@ -1,0 +1,17 @@
+{
+  "_comment": "Map blog slug → ordered list of AdSense slot IDs. Get the IDs from https://adsense.google.com → Ads → By ad unit. Each article currently has 2 slots: top (above fold) and bottom (post-content). Once filled in, run: python ../../apply_adsense_slots.py",
+  "_publisher": "ca-pub-8223268344248663",
+  "_default_top":    "TODO_AD_SLOT_TOP",
+  "_default_bottom": "TODO_AD_SLOT_BOTTOM",
+
+  "master-guide":       ["TODO_AD_SLOT_TOP", "TODO_AD_SLOT_BOTTOM"],
+  "gia-guide":          ["TODO_AD_SLOT_TOP", "TODO_AD_SLOT_BOTTOM"],
+  "hearts-arrows-truth":["TODO_AD_SLOT_TOP", "TODO_AD_SLOT_BOTTOM"],
+  "budget-formula":     ["TODO_AD_SLOT_TOP", "TODO_AD_SLOT_BOTTOM"],
+  "lab-vs-natural":     ["TODO_AD_SLOT_TOP", "TODO_AD_SLOT_BOTTOM"],
+  "diamond-faq":        ["TODO_AD_SLOT_TOP", "TODO_AD_SLOT_BOTTOM"],
+  "engagement-guide":   ["TODO_AD_SLOT_TOP", "TODO_AD_SLOT_BOTTOM"],
+
+  "_note_others": "All other articles fall back to _default_top / _default_bottom.",
+  "_note_amp":    "AMP pages use <amp-auto-ads> only — no per-slot needed."
+}

@@ -2,11 +2,18 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8" />
+<!-- BL_PRELOAD -->
+<link rel="preload" as="style" href="/assets/tw.css">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/NotoSerifTC-Regular.subset.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/NotoSerifTC-Bold.subset.woff2" crossorigin>
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="dns-prefetch" href="https://www.clarity.ms">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>如何看懂 GIA 鑑定書 — 5 分鐘完整解析 | BrillianceLab</title>
 <meta name="description" content="從零開始看懂 GIA 鑽石鑑定書:4Cs、比例圖、Polish/Symmetry/Fluorescence 全解析。學會辨識「真 Excellent」與「邊緣 Excellent」的差距，用 BrillianceLab 工具評估你的鑽石。" />
 <meta name="theme-color" content="#faf8f3" />
 <link rel="alternate" type="application/rss+xml" title="BrillianceLab Blog RSS" href="/blog/feed.xml" />
+<link rel="amphtml" href="https://brilliancelab.vercel.app/amp/blog/gia-guide" />
 <link rel="canonical" href="https://brilliancelab.vercel.app/blog/gia-guide"
 <link rel="alternate" hreflang="x-default" href="https://brilliancelab.vercel.app/blog/gia-guide" />
 <link rel="alternate" hreflang="zh-Hant" href="https://brilliancelab.vercel.app/blog/gia-guide" />
@@ -28,7 +35,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="如何看懂 GIA 鑑定書 — 5 分鐘完整解析 | BrillianceLab" />
 <meta name="twitter:description" content="GIA 報告書全解析:4Cs、比例圖、Polish/Symmetry/Fluorescence,以及如何用 BrillianceLab 客觀評估鑽石。" />
-<meta name="twitter:image" content="https://brilliancelab.vercel.app/icon.svg" />
+<meta name="twitter:image" content="https://brilliancelab.vercel.app/og/gia-guide.png" />
 <meta property="og:description" content="GIA 報告書全解析:4Cs、比例圖、Polish/Symmetry/Fluorescence,以及如何用 BrillianceLab 客觀評估鑽石。" />
 
 <!-- Microsoft Clarity -->
@@ -291,10 +298,10 @@
 <article class="max-w-3xl mx-auto px-5 sm:px-8 pb-16">
 
   <!-- Chinese version -->
-  <div id="proseZh" class="prose-zh">
+  <div id="proseZh" data-pagefind-body data-pagefind-meta="slug:gia-guide" class="prose-zh">
 
     <h2 id="why-gia">01 · 為什麼買鑽石一定要看 GIA?</h2>
-    <p>GIA(Gemological Institute of America，美國寶石學院)是全球最權威的鑽石鑑定機構，以「公正第三方」身份對每顆鑽石的 4Cs(克拉、淨度、顏色、車工)逐一檢驗。市面上其他鑑定機構(IGI、HRD、AGS)各有特色，但 <strong>GIA 仍是國際公認最嚴格、最一致的標準</strong> — 同一顆鑽石送 GIA 比送其他機構，結果常會「等級降一階」。</p>
+    <p>GIA（Gemological Institute of America，美國寶石學院）是全球最權威的鑽石鑑定機構，以「公正第三方」身份對每顆鑽石的 4Cs（克拉、淨度、顏色、車工）逐一檢驗。市面上其他鑑定機構(IGI、HRD、AGS)各有特色，但 <strong>GIA 仍是國際公認最嚴格、最一致的標準</strong> — 同一顆鑽石送 GIA 比送其他機構，結果常會「等級降一階」。</p>
     <blockquote>
       <p>一個簡單原則：有 GIA 就優先看 GIA;只有 IGI/HRD，要打個小折扣考慮。</p>
     </blockquote>
@@ -302,7 +309,7 @@
     <h2 id="verify">02 · 線上驗證鑑定書真偽</h2>
     <p>拿到實體鑑定書後，<strong>永遠先驗證再相信</strong>:</p>
     <ul>
-      <li>找到報告右上角的 <code>Report Number</code>(10 位數字)</li>
+      <li>找到報告右上角的 <code>Report Number</code>（10 位數字）</li>
       <li>連線至 <a href="https://www.gia.edu/report-check" target="_blank" rel="noopener">GIA Report Check</a></li>
       <li>輸入 Report Number 與克拉數，系統會即時顯示這份鑑定書的所有數據</li>
       <li>把線上資料與紙本一一比對 — 不一致 100% 是偽造</li>
@@ -312,14 +319,14 @@
     <p>每份 GIA 鑑定書的核心是 4Cs。記住 4 個 C，你就掌握了鑽石價格 95% 的決定因素。但這 4 個 C 對「閃亮度」的影響其實很不平均:</p>
 
     <div class="fig">
-      <div class="barchart-row"><span class="lbl">Cut(車工)</span><span class="bar" style="width:96%"></span><span class="val">★ 決定性</span></div>
-      <div class="barchart-row"><span class="lbl">Color(顏色)</span><span class="bar" style="width:55%;background:linear-gradient(90deg,#d4b87a,#a4a6b6)"></span><span class="val">中等</span></div>
-      <div class="barchart-row"><span class="lbl">Clarity(淨度)</span><span class="bar" style="width:42%;background:linear-gradient(90deg,#d4b87a,#a4a6b6)"></span><span class="val">中等</span></div>
-      <div class="barchart-row"><span class="lbl">Carat(克拉)</span><span class="bar" style="width:30%;background:linear-gradient(90deg,#d4b87a,#a4a6b6)"></span><span class="val">無關</span></div>
+      <div class="barchart-row"><span class="lbl">Cut（車工）</span><span class="bar" style="width:96%"></span><span class="val">★ 決定性</span></div>
+      <div class="barchart-row"><span class="lbl">Color（顏色）</span><span class="bar" style="width:55%;background:linear-gradient(90deg,#d4b87a,#a4a6b6)"></span><span class="val">中等</span></div>
+      <div class="barchart-row"><span class="lbl">Clarity（淨度）</span><span class="bar" style="width:42%;background:linear-gradient(90deg,#d4b87a,#a4a6b6)"></span><span class="val">中等</span></div>
+      <div class="barchart-row"><span class="lbl">Carat（克拉）</span><span class="bar" style="width:30%;background:linear-gradient(90deg,#d4b87a,#a4a6b6)"></span><span class="val">無關</span></div>
       <div class="fig-cap"><span class="fig-num">圖 1</span>4Cs 對「閃亮度」的相對影響 — 車工幾乎是唯一決定性因素</div>
     </div>
 
-    <h3>Carat(克拉)</h3>
+    <h3>Carat（克拉）</h3>
     <p>鑽石重量，1 克拉 = 0.2 公克。價格與克拉呈非線性 — 0.99 克拉與 1.00 克拉差價可達 20%，因為「1 克拉」是心理門檻。<em>買 0.95–0.99 克拉，實際視覺差異極小但價格便宜不少。</em></p>
 
     <div class="fig">
@@ -358,8 +365,8 @@
       <div class="fig-cap"><span class="fig-num">圖 2</span>價格在 1.00 ct 出現心理門檻跳價 — 0.99 ct 是 CP 值甜蜜點</div>
     </div>
 
-    <h3>Color(顏色)</h3>
-    <p>從 D(無色，最稀有)到 Z(黃)。整條色階如下，顏色等級越往右越偏黃:</p>
+    <h3>Color（顏色）</h3>
+    <p>從 D（無色，最稀有）到 Z（黃）。整條色階如下，顏色等級越往右越偏黃:</p>
 
     <div class="fig">
       <div class="gradbar" style="background:linear-gradient(90deg,#fff 0%,#fff 18%,#fef9ed 35%,#fcefce 60%,#f3d97f 82%,#e0b94b 100%)">
@@ -383,20 +390,20 @@
       <div class="fig-cap"><span class="fig-num">圖 3</span>D 到 Z 顏色階梯 — 肉眼下 D-F 與 G-H 的差距極小，但價差 30-50%</div>
     </div>
 
-    <h3>Color(顏色)</h3>
-    <p>從 D(無色，最稀有)到 Z(黃)。</p>
+    <h3>Color（顏色）</h3>
+    <p>從 D（無色，最稀有）到 Z（黃）。</p>
     <ul>
-      <li><strong>D–F</strong>:無色等級，最頂級</li>
-      <li><strong>G–J</strong>:接近無色，肉眼幾乎看不出</li>
-      <li><strong>K 以下</strong>:開始看得到黃色</li>
+      <li><strong>D–F</strong>：無色等級，最頂級</li>
+      <li><strong>G–J</strong>：接近無色，肉眼幾乎看不出</li>
+      <li><strong>K 以下</strong>：開始看得到黃色</li>
     </ul>
     <blockquote><p><em>CP 值最佳區間是 G–H</em> — 視覺上接近 D-F，但價格便宜 30–50%。</p></blockquote>
 
-    <h3>Clarity(淨度)</h3>
+    <h3>Clarity（淨度）</h3>
     <p>從完美無瑕到肉眼可見內含物:FL → IF → VVS1 → VVS2 → VS1 → VS2 → SI1 → SI2 → I1 → I2 → I3。</p>
     <blockquote><p><em>VS1–SI1 是 CP 值甜蜜點</em> — 肉眼看不到瑕疵，但價格比 VVS1 便宜很多。</p></blockquote>
 
-    <h3>Cut(車工)</h3>
+    <h3>Cut（車工）</h3>
     <p>GIA 把車工分為 <strong>Excellent / Very Good / Good / Fair / Poor</strong>。這是 4Cs 中<strong>唯一直接決定「閃亮度」</strong>的因素，也是 BrillianceLab 重點分析的部分。</p>
     <p>但 — <em>GIA 的 Excellent 範圍其實很廣</em>。同樣標 Excellent 的兩顆鑽石，實際閃亮度可能差 15%。這就是為什麼必須進一步看「比例圖」的數字。</p>
 
@@ -493,7 +500,7 @@
       <li>定義：鑽石總高度相對於腰圍直徑的比例</li>
       <li>GIA 標示:<code>Depth</code> 或 <code>Total Depth</code></li>
       <li>理想範圍:<strong>61–62.5%</strong></li>
-      <li>太深：中央會看起來黑黑的(光從亭部漏出)</li>
+      <li>太深：中央會看起來黑黑的（光從亭部漏出）</li>
       <li>太淺：出現「魚眼」效應，中間像玻璃透明</li>
     </ul>
 
@@ -506,7 +513,7 @@
       <li><em>偏離 0.5° 就會明顯影響火彩強度</em></li>
     </ul>
 
-    <h3>Pavilion Angle — 亭部角度(最關鍵！)</h3>
+    <h3>Pavilion Angle — 亭部角度（最關鍵！）</h3>
     <ul>
       <li>定義：鑽石下半部與腰圍的傾斜角度</li>
       <li>GIA 標示:<code>Pavilion Angle</code></li>
@@ -559,17 +566,17 @@
 
     <h2 id="advanced">05 · 進階:Polish、Symmetry、Fluorescence</h2>
 
-    <h3>Polish(拋光)</h3>
+    <h3>Polish（拋光）</h3>
     <p>鑽石表面打磨的精細程度。理想為 <code>Excellent (EX)</code>;<code>Very Good (VG)</code> 仍然極優，<code>Good</code> 以下會明顯影響光澤。</p>
 
-    <h3>Symmetry(對稱性)</h3>
+    <h3>Symmetry（對稱性）</h3>
     <p>所有刻面是否精準對稱。<strong>這是「八心八箭」是否完美的關鍵</strong> — 只有 Symmetry = Excellent 的鑽石，在觀察鏡下才會看到完美的八心八箭圖樣。</p>
 
-    <h3>Fluorescence(螢光)</h3>
+    <h3>Fluorescence（螢光）</h3>
     <p>鑽石在紫外光下發藍光的強度，從 None / Faint / Medium / Strong / Very Strong:</p>
     <ul>
-      <li><strong>None / Faint</strong>:沒影響，放心</li>
-      <li><strong>Medium 以上</strong>:對 D–H 顏色等級的鑽石可能讓鑽石看起來「霧霧的」;但對 I–K 顏色等級反而能修飾微黃，效果更好</li>
+      <li><strong>None / Faint</strong>：沒影響，放心</li>
+      <li><strong>Medium 以上</strong>：對 D–H 顏色等級的鑽石可能讓鑽石看起來「霧霧的」;但對 I–K 顏色等級反而能修飾微黃，效果更好</li>
     </ul>
 
     <h2 id="use">06 · 把數字放進 BrillianceLab — 5 分鐘看出真價值</h2>
@@ -785,7 +792,7 @@
       <span data-zh="開始評分" data-en="Start scoring">開始評分</span>
     </div>
     <h3 class="font-display text-[24px] sm:text-[28px] leading-tight">
-      <span class="gold-text" data-zh="你的鑑定書，值幾分?" data-en="What does your report score?">你的鑑定書，值幾分？</span>
+      <span class="gold-text" data-zh="你的鑑定書，值幾分？" data-en="What does your report score?">你的鑑定書，值幾分？</span>
     </h3>
     <p class="text-[14.5px] text-ink-700 mt-4 leading-[1.8] max-w-xl mx-auto"
        data-zh="把比例圖上的四個數字輸入 BrillianceLab,30 秒看到你這顆鑽石的客觀光學潛力評分，並與其他候選鑽石一鍵比較排名。"

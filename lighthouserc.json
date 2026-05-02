@@ -1,0 +1,52 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": ".",
+      "url": [
+        "http://localhost/index.html",
+        "http://localhost/blog/master-guide.html",
+        "http://localhost/blog/gia-guide.html",
+        "http://localhost/blog/budget-formula.html",
+        "http://localhost/blog/lab-vs-natural.html",
+        "http://localhost/blog/diamond-faq.html",
+        "http://localhost/amp/blog/master-guide.html"
+      ],
+      "numberOfRuns": 3,
+      "settings": {
+        "preset": "desktop",
+        "throttlingMethod": "simulate",
+        "skipAudits": ["uses-http2", "redirects-http"]
+      }
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "categories:performance":   ["error", { "minScore": 0.85 }],
+        "categories:accessibility": ["error", { "minScore": 0.90 }],
+        "categories:best-practices":["warn",  { "minScore": 0.90 }],
+        "categories:seo":           ["error", { "minScore": 0.95 }],
+
+        "largest-contentful-paint": ["error", { "maxNumericValue": 2500, "aggregationMethod": "median" }],
+        "cumulative-layout-shift":  ["error", { "maxNumericValue": 0.1,  "aggregationMethod": "median" }],
+        "interactive":              ["warn",  { "maxNumericValue": 3500, "aggregationMethod": "median" }],
+        "total-blocking-time":      ["warn",  { "maxNumericValue": 300,  "aggregationMethod": "median" }],
+        "speed-index":              ["warn",  { "maxNumericValue": 3000, "aggregationMethod": "median" }],
+
+        "uses-text-compression":      "error",
+        "uses-responsive-images":     "warn",
+        "modern-image-formats":       "warn",
+        "render-blocking-resources":  "warn",
+        "unused-css-rules":           "warn",
+        "unused-javascript":          "warn",
+
+        "csp-xss":                    "warn",
+        "is-on-https":                "off",
+        "uses-rel-preconnect":        "warn",
+        "font-display":               "error"
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

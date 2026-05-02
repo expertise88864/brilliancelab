@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Project-wide CSS variables (colors, layout) — kept here so Tailwind can pick them
+   up via arbitrary-value classes like text-[var(--gold-deep)]. */
+:root{
+  --bg:#faf8f3; --surface:#ffffff;
+  --ink:#1a1d2e; --ink-2:#4a4d5e; --muted:#7e8194;
+  --gold:#c9a45c; --gold-deep:#8a6e30; --gold-soft:#fbf3df;
+  --border:#ebe6dc; --line:#f1ede3;
+}
