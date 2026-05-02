@@ -228,6 +228,12 @@
              data-zh="⑩ 鑽石保養全攻略"             data-en="⑩ Diamond care"></a>
           <a href="/blog/diamond-resale"      class="block py-2 text-[13px] text-ink-700"
              data-zh="⑪ 鑽石回收與保值真相"         data-en="⑪ Diamond resale truth"></a>
+          <a href="/blog/diamond-color"       class="block py-2 text-[13px] text-ink-700"
+             data-zh="⑫ 鑽石顏色等級 D-Z"           data-en="⑫ Diamond color D-Z"></a>
+          <a href="/blog/diamond-clarity"     class="block py-2 text-[13px] text-ink-700"
+             data-zh="⑬ 鑽石淨度等級 FL-I"          data-en="⑬ Diamond clarity FL-I"></a>
+          <a href="/blog/diamond-carat-size"  class="block py-2 text-[13px] text-ink-700"
+             data-zh="⑭ 鑽石克拉與視覺尺寸對照"       data-en="⑭ Carat vs face-up size"></a>
           <a href="/blog/diamond-news-2026"   class="block py-2 text-[13px] text-ink-700 mt-1 pt-2 border-t border-[var(--line)]"
              data-zh="🔔 2026 鑽石市場新聞(滾動更新)" data-en="🔔 2026 diamond news (rolling)"></a>
         </div>

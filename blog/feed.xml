@@ -16,13 +16,41 @@
     <category>Jewelry</category>
     <category>Buyer's Guide</category>
     <ttl>1440</ttl>
-    <lastBuildDate>Sat, 03 May 2026 10:00:00 +0800</lastBuildDate>
-    <pubDate>Sat, 03 May 2026 10:00:00 +0800</pubDate>
+    <lastBuildDate>Sun, 04 May 2026 10:00:00 +0800</lastBuildDate>
+    <pubDate>Sun, 04 May 2026 10:00:00 +0800</pubDate>
     <image>
       <url>https://brilliancelab.vercel.app/icon.svg</url>
       <title>BrillianceLab 鑽石實驗室</title>
       <link>https://brilliancelab.vercel.app/blog/</link>
     </image>
+
+    <item>
+      <title>鑽石克拉與視覺尺寸對照 — 0.5、0.7、1 克拉到底差多少 mm?</title>
+      <link>https://brilliancelab.vercel.app/blog/diamond-carat-size</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/diamond-carat-size</guid>
+      <pubDate>Sun, 04 May 2026 12:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>購買指南</category>
+      <description>等比例對照圖、手指實際大小模擬、不同形狀的克拉換算 — 看懂「克拉視覺學」的關鍵。</description>
+    </item>
+    <item>
+      <title>鑽石淨度等級 FL-I 完整解析 — VVS1 跟 VS1 肉眼真的看得出來嗎?</title>
+      <link>https://brilliancelab.vercel.app/blog/diamond-clarity</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/diamond-clarity</guid>
+      <pubDate>Sun, 04 May 2026 11:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>購買指南</category>
+      <description>11 階淨度光譜、6 種內含物類型、Plotting 位置圖判讀,VS1-SI1 是 CP 值甜蜜點。</description>
+    </item>
+    <item>
+      <title>鑽石顏色等級 D-Z 完整解析 — D 跟 G 真的看得出差別嗎?</title>
+      <link>https://brilliancelab.vercel.app/blog/diamond-color</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/diamond-color</guid>
+      <pubDate>Sun, 04 May 2026 10:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>購買指南</category>
+      <description>23 階顏色 D-Z 完整光譜、戒台金屬搭配、η 折扣係數,G 色才是 CP 值甜蜜點。</description>
+    </item>
 
     <item>
       <title>鑽石回收與保值真相 — 為什麼 30 萬鑽戒只能換回 10 萬?</title>

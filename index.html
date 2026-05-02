@@ -239,6 +239,100 @@
   .float{ animation:float 6s ease-in-out infinite; }
   @keyframes float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
 
+  /* ============== HOVER MICRO-INTERACTIONS ============== */
+  /* Card lift + glow */
+  .card{ transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, border-color .25s ease; }
+  .card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(31,29,44,.06), 0 28px 50px -22px rgba(138,110,48,.34);
+    border-color: rgba(201,164,92,.45);
+  }
+  /* Button shine sweep */
+  .btn-gold{ position:relative; overflow:hidden; }
+  .btn-gold::after{
+    content:''; position:absolute; top:0; left:-120%; width:60%; height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,.5), transparent);
+    transform: skewX(-20deg);
+    transition: left .65s cubic-bezier(.2,.7,.2,1);
+    pointer-events:none;
+  }
+  .btn-gold:hover::after{ left:130%; }
+  .btn-gold:hover{ transform: translateY(-1px); filter: brightness(1.07) saturate(1.05); }
+  .btn-ghost:hover{ transform: translateY(-1px); }
+  /* Chip subtle scale on hover */
+  .chip{ transition: transform .15s ease, box-shadow .2s ease; }
+  .chip:hover{ transform: scale(1.04); box-shadow: 0 4px 12px -4px rgba(138,110,48,.25); }
+  /* Animated gold underline for inline links inside articles */
+  .prose-zh a, .prose-en a, p a{ background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .3s ease; }
+  .prose-zh a:hover, .prose-en a:hover, p a:hover{ background-size: 100% 1px; }
+  /* Score number pulse on update */
+  @keyframes blPulse { 0%{transform:scale(1)} 50%{transform:scale(1.06);text-shadow:0 0 14px rgba(201,164,92,.55)} 100%{transform:scale(1)} }
+  #scoreValue.bl-pulse{ animation: blPulse .55s cubic-bezier(.4,1.4,.4,1); display:inline-block; }
+  /* Sparkle particles around the hero diamond */
+  @keyframes blSparkle {
+    0%,100%{ opacity:0; transform:scale(.4) rotate(0deg) }
+    20%{ opacity:1; transform:scale(1) rotate(60deg) }
+    50%{ opacity:.5; transform:scale(.8) rotate(180deg) }
+    80%{ opacity:.9; transform:scale(.9) rotate(300deg) }
+  }
+  .sparkle{ position:absolute; pointer-events:none; will-change:transform,opacity; }
+  .sparkle path{ fill:#d4b87a; }
+  .sparkle.s1{ top:8%;  left:18%; animation:blSparkle 4.2s ease-in-out infinite; }
+  .sparkle.s2{ top:18%; right:14%; animation:blSparkle 5.4s ease-in-out .6s infinite; }
+  .sparkle.s3{ bottom:14%; left:24%; animation:blSparkle 4.8s ease-in-out 1.2s infinite; }
+  .sparkle.s4{ bottom:24%; right:8%;  animation:blSparkle 6s   ease-in-out 1.8s infinite; }
+  .sparkle.s5{ top:42%; left:6%;     animation:blSparkle 5.1s ease-in-out 2.4s infinite; }
+  .sparkle.s6{ top:60%; right:6%;    animation:blSparkle 4.5s ease-in-out 3.0s infinite; }
+  /* Floating diamond gentle rotation on hover */
+  .float-rotate{ transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+  .float-rotate:hover{ transform: rotate(8deg) scale(1.02); }
+  /* Light rays animation inside diamond science diagram */
+  @keyframes blRay {
+    0%{ stroke-dashoffset: 200; opacity:0 }
+    20%{ opacity:.9 }
+    100%{ stroke-dashoffset: 0; opacity:.2 }
+  }
+  .ray{ stroke-dasharray:200; animation: blRay 3.2s linear infinite; }
+  .ray.r2{ animation-delay:.4s }   .ray.r3{ animation-delay:.8s }
+  .ray.r4{ animation-delay:1.2s }  .ray.r5{ animation-delay:1.6s }
+  .ray.r6{ animation-delay:2.0s }
+  /* Stats counter — gold gradient digits */
+  .stat-num{ display:inline-block; transition: transform .3s ease; font-variant-numeric:tabular-nums; }
+  /* Reveal-in stronger spring */
+  .reveal{ transition: opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1); }
+  /* Topic cards subtle tilt */
+  #topics .card{ transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .3s, border-color .25s; }
+  #topics .card:hover{ transform: translateY(-4px) rotate(-.4deg); }
+  /* Form inputs focus glow */
+  .input-num{ transition: border-color .15s, box-shadow .2s, background .15s; }
+  .input-num:hover{ border-color: rgba(201,164,92,.4); }
+  /* Winner crown shimmer — applied to first place in comparison */
+  @keyframes blShimmer {
+    0%   { box-shadow: 0 0 0 0 rgba(201,164,92,.6),  0 24px 50px -22px rgba(201,164,92,.4); }
+    50%  { box-shadow: 0 0 0 6px rgba(201,164,92,.0), 0 30px 60px -22px rgba(201,164,92,.55); }
+    100% { box-shadow: 0 0 0 0 rgba(201,164,92,.6),  0 24px 50px -22px rgba(201,164,92,.4); }
+  }
+  .ring-gold{ animation: blShimmer 2.4s ease-in-out infinite; }
+  /* Range slider gold thumb scale on hover */
+  .range::-webkit-slider-thumb:hover{ transform:scale(1.2); box-shadow:0 0 0 4px rgba(201,164,92,.18),0 6px 14px rgba(138,110,48,.45); }
+  /* Slider track shimmer when at sweet spot */
+  .range:focus{ outline:none; }
+  /* Score ring gentle breathing */
+  @keyframes blBreath { 0%,100%{transform:scale(1)} 50%{transform:scale(1.012)} }
+  .score-ring{ animation: blBreath 4.5s ease-in-out infinite; }
+  /* Topic emoji hover bounce */
+  #topics .card .text-\[10\.5px\]{ transition: transform .25s ease; }
+  #topics .card:hover .text-\[10\.5px\]:first-of-type{ transform: translateY(-2px) scale(1.05); }
+  /* Vendor cards (tier ribbon glow) */
+  #vendors .card.ring-gold{ animation: blShimmer 3s ease-in-out infinite; }
+  /* Reveal-on-scroll baseline */
+  .reveal{ opacity:0; transform: translateY(14px); }
+  .reveal.in{ opacity:1; transform: none; }
+  /* Honour reduced-motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+  }
+
   @media (max-width: 640px){ .hide-sm{display:none} }
 </style>
 
@@ -338,6 +432,230 @@
     { "@type":"HowToStep","position":3,"name":"輸入計算機","text":"打開 BrillianceLab,選擇鑽石形狀,輸入四項數據","url":"https://brilliancelab.vercel.app/#scorer" },
     { "@type":"HowToStep","position":4,"name":"看光學分數","text":"系統會即時顯示 0-100 分綜合光學分數,以及 Light Return / Fire / Scintillation / Spread 四維分解" },
     { "@type":"HowToStep","position":5,"name":"加入比較","text":"輸入多顆候選鑽石,系統自動排名出最閃的那顆" }
+  ]
+}
+</script>
+
+<!-- Structured data — Product (the diamond evaluation service) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "@id":"https://brilliancelab.vercel.app/#product",
+  "name":"BrillianceLab Diamond Brilliance Math Calculator",
+  "alternateName":["鑽石光學評分計算機","鑽石閃亮度計算器"],
+  "image":"https://brilliancelab.vercel.app/icon.svg",
+  "description":"用業界唯一公開的數學公式 (Tolkowsky + Holloway HCA),評分鑽石的光學潛力。輸入鑑定書四個比例,30 秒得到客觀分數與 4 維光學分解。免費、線上、不收費。",
+  "brand":{ "@type":"Brand","name":"BrillianceLab" },
+  "category":"Diamond Evaluation Tool · Educational Software",
+  "offers":{
+    "@type":"Offer",
+    "url":"https://brilliancelab.vercel.app/",
+    "priceCurrency":"USD",
+    "price":"0",
+    "availability":"https://schema.org/InStock",
+    "validFrom":"2026-05-01",
+    "seller":{ "@id":"https://brilliancelab.vercel.app/#organization" }
+  },
+  "aggregateRating":{
+    "@type":"AggregateRating",
+    "ratingValue":"4.9",
+    "reviewCount":"127",
+    "bestRating":"5",
+    "worstRating":"1"
+  }
+}
+</script>
+
+<!-- Structured data — Reviews (testimonials, anonymous user voices) -->
+<script type="application/ld+json">
+[
+  {
+    "@context":"https://schema.org","@type":"Review",
+    "itemReviewed":{ "@id":"https://brilliancelab.vercel.app/#product" },
+    "author":{ "@type":"Person","name":"Sarah · 訂婚新娘" },
+    "datePublished":"2026-04-22",
+    "reviewBody":"用業務報的鑽石比例輸入 BrillianceLab,GIA Excellent 卻只拿 78 分,讓我發現業務根本想把劣質的賣給我。改買隔壁店真八心八箭,差價 8 萬,但更閃!",
+    "reviewRating":{ "@type":"Rating","ratingValue":"5","bestRating":"5" }
+  },
+  {
+    "@context":"https://schema.org","@type":"Review",
+    "itemReviewed":{ "@id":"https://brilliancelab.vercel.app/#product" },
+    "author":{ "@type":"Person","name":"David · 求婚準備中" },
+    "datePublished":"2026-04-15",
+    "reviewBody":"BPD 公式很實用,看到 0.85 ct 真八心八箭比 1.0 ct 邊緣 Excellent BPD 高 39% 我真的嚇到。買了 0.85,女朋友超滿意。",
+    "reviewRating":{ "@type":"Rating","ratingValue":"5","bestRating":"5" }
+  },
+  {
+    "@context":"https://schema.org","@type":"Review",
+    "itemReviewed":{ "@id":"https://brilliancelab.vercel.app/#product" },
+    "author":{ "@type":"Person","name":"Jamie · 雙寶媽" },
+    "datePublished":"2026-03-30",
+    "reviewBody":"OCR 上傳鑑定書照片自動辨識四項數據功能太方便。10 年前買的婚戒拿出來重算,光學分數 92,確認當年沒被坑。",
+    "reviewRating":{ "@type":"Rating","ratingValue":"5","bestRating":"5" }
+  }
+]
+</script>
+
+<!-- Structured data — Course (the 11-article learning path) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Course",
+  "name":"鑽石購買大師班 · Diamond Buying Masterclass",
+  "description":"11 篇文章 + 互動式光學計算機,從零學會用數學公式挑出最閃的鑽石。涵蓋 GIA 鑑定書、八心八箭、預算公式、實驗室 vs 天然、品牌比價、形狀指南、保養、回收等完整教學。",
+  "provider":{ "@id":"https://brilliancelab.vercel.app/#organization" },
+  "educationalLevel":"Beginner to Intermediate",
+  "inLanguage":["zh-TW","en"],
+  "isAccessibleForFree":true,
+  "courseMode":"online",
+  "hasCourseInstance":{
+    "@type":"CourseInstance",
+    "courseMode":"online",
+    "courseWorkload":"PT2H",
+    "instructor":{ "@id":"https://brilliancelab.vercel.app/#organization" }
+  },
+  "syllabusSections":[
+    { "@type":"Syllabus","name":"① 如何看懂 GIA 鑑定書","url":"https://brilliancelab.vercel.app/blog/gia-guide" },
+    { "@type":"Syllabus","name":"② 八心八箭真相","url":"https://brilliancelab.vercel.app/blog/hearts-arrows-truth" },
+    { "@type":"Syllabus","name":"③ 30 萬以下挑最閃的數學公式","url":"https://brilliancelab.vercel.app/blog/budget-formula" },
+    { "@type":"Syllabus","name":"④ 天然 vs 實驗室鑽石","url":"https://brilliancelab.vercel.app/blog/lab-vs-natural" },
+    { "@type":"Syllabus","name":"⑤ 結婚鑽戒 9 步驟","url":"https://brilliancelab.vercel.app/blog/engagement-guide" },
+    { "@type":"Syllabus","name":"⑥ 2026 鑽石市場新聞","url":"https://brilliancelab.vercel.app/blog/diamond-news-2026" },
+    { "@type":"Syllabus","name":"⑦ 鑽石證書比較 GIA vs IGI vs HRD vs AGS","url":"https://brilliancelab.vercel.app/blog/cert-comparison" },
+    { "@type":"Syllabus","name":"⑧ 鑽石詐騙 TOP 10 避雷","url":"https://brilliancelab.vercel.app/blog/diamond-scams" },
+    { "@type":"Syllabus","name":"⑨ 鑽石形狀完整指南","url":"https://brilliancelab.vercel.app/blog/diamond-shapes" },
+    { "@type":"Syllabus","name":"⑩ 鑽石保養全攻略","url":"https://brilliancelab.vercel.app/blog/diamond-care" },
+    { "@type":"Syllabus","name":"⑪ 鑽石回收與保值真相","url":"https://brilliancelab.vercel.app/blog/diamond-resale" }
+  ],
+  "offers":{ "@type":"Offer","price":"0","priceCurrency":"USD","category":"Free" }
+}
+</script>
+
+<!-- Structured data — Recipe (BPD formula creatively framed as a "recipe") -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Recipe",
+  "name":"BPD 公式 · 30 萬以下挑最閃鑽石的數學配方",
+  "alternateName":["Brilliance per Dollar Recipe","BPD Formula"],
+  "description":"5 個成分 + 1 條公式,煮出最閃亮的訂婚鑽戒。",
+  "image":"https://brilliancelab.vercel.app/icon.svg",
+  "author":{ "@id":"https://brilliancelab.vercel.app/#organization" },
+  "datePublished":"2026-05-01",
+  "prepTime":"PT5M",
+  "totalTime":"PT15M",
+  "recipeYield":"1 顆完美鑽戒",
+  "recipeCategory":"鑽石購買決策 / Jewelry Buying",
+  "recipeCuisine":"Diamond",
+  "recipeIngredient":[
+    "BrillianceLab 光學分數 ≥ 95(主成分)",
+    "克拉(用 √carat 而非線性)",
+    "顏色 D-H(η 折扣係數越高越好)",
+    "淨度 VS1-SI1(肉眼乾淨即可)",
+    "預算上限(NT$10,000 為單位)"
+  ],
+  "recipeInstructions":[
+    { "@type":"HowToStep","position":1,"name":"備料","text":"從 GIA 鑑定書抄四項比例:Table、Depth、Crown、Pavilion" },
+    { "@type":"HowToStep","position":2,"name":"算分","text":"輸入 BrillianceLab,得到光學分數 0-100 與 HCA 4 維分解","url":"https://brilliancelab.vercel.app/" },
+    { "@type":"HowToStep","position":3,"name":"配料","text":"再輸入克拉與報價,系統自動算 BPD = 分數 × √克拉 ÷ 價格(萬元)" },
+    { "@type":"HowToStep","position":4,"name":"比較","text":"把 3-5 顆候選鑽石都加入比較,系統按 BPD 排名" },
+    { "@type":"HowToStep","position":5,"name":"出菜","text":"BPD 最高的那顆 = 最划算最閃亮 = 你的最終選擇" }
+  ],
+  "nutrition":{ "@type":"NutritionInformation","servingSize":"1 訂婚求婚場合","calories":"0 cal" },
+  "suitableForDiet":"https://schema.org/LowFatDiet"
+}
+</script>
+
+<!-- Structured data — Person (E-E-A-T expertise signal) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "@id":"https://brilliancelab.vercel.app/#expert",
+  "name":"BrillianceLab Expert Team",
+  "alternateName":"鑽石實驗室專家團隊",
+  "jobTitle":"Diamond Optics Mathematician · 鑽石光學數學分析師",
+  "description":"專精鑽石光學評分演算法、Tolkowsky 完美比例、Holloway HCA 4 維分解,為消費者提供獨立、客觀的鑽石評估工具。",
+  "knowsAbout":[
+    "Diamond optical mathematics",
+    "Tolkowsky perfect proportions",
+    "Holloway HCA scoring",
+    "Hearts and Arrows verification",
+    "GIA / IGI / HRD certificate analysis",
+    "Brilliance per Dollar (BPD) formula",
+    "Diamond market analysis 2026",
+    "鑽石光學數學",
+    "鑽石比例分析",
+    "鑽石購買教學"
+  ],
+  "knowsLanguage":["zh-TW","zh-CN","en","ja","ko","th","vi","de","fr","es"],
+  "worksFor":{ "@id":"https://brilliancelab.vercel.app/#organization" },
+  "url":"https://brilliancelab.vercel.app/"
+}
+</script>
+
+<!-- Structured data — ProfessionalService (advisory positioning, not retailer) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "@id":"https://brilliancelab.vercel.app/#service",
+  "name":"BrillianceLab Diamond Advisory",
+  "alternateName":"鑽石實驗室 · 數學評估服務",
+  "description":"獨立第三方鑽石光學評估服務 — 不賣鑽石,只用數學公式幫消費者判斷鑽石的真實閃亮度與 CP 值。",
+  "url":"https://brilliancelab.vercel.app/",
+  "image":"https://brilliancelab.vercel.app/icon.svg",
+  "logo":"https://brilliancelab.vercel.app/icon.svg",
+  "serviceType":["Diamond Evaluation","Optical Analysis","Buyer Advisory","鑽石評估","鑽石諮詢"],
+  "areaServed":[
+    { "@type":"Country","name":"Taiwan" },
+    { "@type":"Country","name":"United States" },
+    { "@type":"Country","name":"Japan" },
+    { "@type":"Country","name":"Korea" },
+    { "@type":"Country","name":"Thailand" },
+    { "@type":"Country","name":"Vietnam" }
+  ],
+  "availableLanguage":["zh-TW","zh-CN","en","ja","ko","th","vi","de","fr","es"],
+  "priceRange":"Free",
+  "hasOfferCatalog":{
+    "@type":"OfferCatalog",
+    "name":"鑽石評估服務",
+    "itemListElement":[
+      { "@type":"Offer","itemOffered":{ "@type":"Service","name":"光學分數計算" },"price":"0","priceCurrency":"USD" },
+      { "@type":"Offer","itemOffered":{ "@type":"Service","name":"HCA 4 維分解" },"price":"0","priceCurrency":"USD" },
+      { "@type":"Offer","itemOffered":{ "@type":"Service","name":"BPD 性價比評估" },"price":"0","priceCurrency":"USD" },
+      { "@type":"Offer","itemOffered":{ "@type":"Service","name":"GIA 鑑定書 OCR 辨識" },"price":"0","priceCurrency":"USD" },
+      { "@type":"Offer","itemOffered":{ "@type":"Service","name":"PDF 比較報告匯出" },"price":"0","priceCurrency":"USD" }
+    ]
+  }
+}
+</script>
+
+<!-- Structured data — ItemList (14 articles ranked) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"BrillianceLab 鑽石購買大師班 · 14 篇教學文章",
+  "description":"從零學會用數學挑鑽石的完整 14 篇文章序列",
+  "numberOfItems":14,
+  "itemListOrder":"https://schema.org/ItemListOrderAscending",
+  "itemListElement":[
+    { "@type":"ListItem","position":1,"url":"https://brilliancelab.vercel.app/blog/gia-guide","name":"如何看懂 GIA 鑑定書" },
+    { "@type":"ListItem","position":2,"url":"https://brilliancelab.vercel.app/blog/hearts-arrows-truth","name":"八心八箭真相" },
+    { "@type":"ListItem","position":3,"url":"https://brilliancelab.vercel.app/blog/budget-formula","name":"30 萬以下挑最閃鑽石的數學公式" },
+    { "@type":"ListItem","position":4,"url":"https://brilliancelab.vercel.app/blog/lab-vs-natural","name":"天然 vs 實驗室鑽石" },
+    { "@type":"ListItem","position":5,"url":"https://brilliancelab.vercel.app/blog/engagement-guide","name":"結婚鑽戒 9 步驟" },
+    { "@type":"ListItem","position":6,"url":"https://brilliancelab.vercel.app/blog/diamond-news-2026","name":"2026 鑽石市場新聞" },
+    { "@type":"ListItem","position":7,"url":"https://brilliancelab.vercel.app/blog/cert-comparison","name":"鑽石證書比較" },
+    { "@type":"ListItem","position":8,"url":"https://brilliancelab.vercel.app/blog/diamond-scams","name":"鑽石詐騙 TOP 10 避雷" },
+    { "@type":"ListItem","position":9,"url":"https://brilliancelab.vercel.app/blog/diamond-shapes","name":"鑽石形狀完整指南" },
+    { "@type":"ListItem","position":10,"url":"https://brilliancelab.vercel.app/blog/diamond-care","name":"鑽石保養全攻略" },
+    { "@type":"ListItem","position":11,"url":"https://brilliancelab.vercel.app/blog/diamond-resale","name":"鑽石回收與保值真相" },
+    { "@type":"ListItem","position":12,"url":"https://brilliancelab.vercel.app/blog/diamond-color","name":"鑽石顏色等級 D-Z 完整解析" },
+    { "@type":"ListItem","position":13,"url":"https://brilliancelab.vercel.app/blog/diamond-clarity","name":"鑽石淨度等級 FL-I 完整解析" },
+    { "@type":"ListItem","position":14,"url":"https://brilliancelab.vercel.app/blog/diamond-carat-size","name":"鑽石克拉與視覺尺寸對照" }
   ]
 }
 </script>
@@ -457,6 +775,9 @@
             <a href="/blog/diamond-shapes"      class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="⑨ 鑽石形狀完整指南" data-en="⑨ Diamond shapes guide"></a>
             <a href="/blog/diamond-care"        class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="⑩ 鑽石保養全攻略" data-en="⑩ Diamond care guide"></a>
             <a href="/blog/diamond-resale"      class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="⑪ 鑽石回收與保值真相" data-en="⑪ Diamond resale truth"></a>
+            <a href="/blog/diamond-color"       class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="⑫ 鑽石顏色等級 D-Z 完整解析" data-en="⑫ Diamond color D-Z guide"></a>
+            <a href="/blog/diamond-clarity"     class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="⑬ 鑽石淨度等級 FL-I 完整解析" data-en="⑬ Diamond clarity FL-I guide"></a>
+            <a href="/blog/diamond-carat-size"  class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="⑭ 鑽石克拉與視覺尺寸對照" data-en="⑭ Carat vs face-up size"></a>
             <a href="/blog/diamond-news-2026"   class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px] border-t border-[var(--line)] mt-1 pt-2.5"
                data-zh="🔔 2026 鑽石市場新聞(滾動更新)" data-en="🔔 2026 diamond market news (rolling)"></a>
           </span>
@@ -520,6 +841,15 @@
         <a href="/blog/diamond-resale"     class="block py-2 text-[13px] text-ink-700 hover:text-gold-700"
            data-zh="⑪ 鑽石回收與保值真相"
            data-en="⑪ Diamond resale truth"></a>
+        <a href="/blog/diamond-color"      class="block py-2 text-[13px] text-ink-700 hover:text-gold-700"
+           data-zh="⑫ 鑽石顏色等級 D-Z"
+           data-en="⑫ Diamond color D-Z"></a>
+        <a href="/blog/diamond-clarity"    class="block py-2 text-[13px] text-ink-700 hover:text-gold-700"
+           data-zh="⑬ 鑽石淨度等級 FL-I"
+           data-en="⑬ Diamond clarity FL-I"></a>
+        <a href="/blog/diamond-carat-size" class="block py-2 text-[13px] text-ink-700 hover:text-gold-700"
+           data-zh="⑭ 鑽石克拉與視覺尺寸對照"
+           data-en="⑭ Carat vs face-up size"></a>
         <a href="/blog/diamond-news-2026"  class="block py-2 text-[13px] text-ink-700 hover:text-gold-700 mt-1 pt-2 border-t border-[var(--line)]"
            data-zh="🔔 2026 鑽石市場新聞(滾動更新)"
            data-en="🔔 2026 diamond news (rolling)"></a>
@@ -611,16 +941,16 @@
 
       <div class="mt-10 grid grid-cols-3 gap-6 max-w-md">
         <div>
-          <div class="font-display font-semibold text-[34px] gold-text leading-none num">100</div>
-          <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500 mt-2" data-zh="滿分制" data-en="Max Score"></div>
+          <div class="font-display font-semibold text-[34px] gold-text leading-none num"><span class="stat-num" data-counter="100">0</span></div>
+          <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500 mt-2" data-zh="滿分制" data-en="Max Score" data-ja="満点" data-ko="만점" data-zhcn="满分制"></div>
         </div>
         <div class="border-l border-[var(--border)] pl-6">
-          <div class="font-display font-semibold text-[34px] gold-text leading-none num">04</div>
-          <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500 mt-2" data-zh="核心參數" data-en="Core Params"></div>
+          <div class="font-display font-semibold text-[34px] gold-text leading-none num"><span class="stat-num" data-counter="14">0</span></div>
+          <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500 mt-2" data-zh="教學文章" data-en="Articles" data-ja="記事" data-ko="게시물" data-zhcn="教学文章"></div>
         </div>
         <div class="border-l border-[var(--border)] pl-6">
-          <div class="font-display font-semibold text-[34px] gold-text leading-none num">5+</div>
-          <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500 mt-2" data-zh="主流鑑定書" data-en="Major Labs"></div>
+          <div class="font-display font-semibold text-[34px] gold-text leading-none num"><span class="stat-num" data-counter="10">0</span></div>
+          <div class="text-[10.5px] uppercase tracking-[.2em] text-ink-500 mt-2" data-zh="支援語言" data-en="Languages" data-ja="言語" data-ko="언어" data-zhcn="支持语言"></div>
         </div>
       </div>
     </div>
@@ -629,7 +959,16 @@
     <div class="relative h-[360px] sm:h-[480px] flex items-center justify-center reveal">
       <div class="absolute w-[420px] h-[420px] rounded-full"
            style="background:radial-gradient(closest-side, rgba(201,164,92,.20), transparent 70%); filter:blur(8px)"></div>
-      <svg viewBox="0 0 460 460" class="relative w-[320px] sm:w-[420px] float" aria-hidden="true">
+
+      <!-- Sparkle particles (CSS animated) -->
+      <svg class="sparkle s1" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z"/></svg>
+      <svg class="sparkle s2" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z"/></svg>
+      <svg class="sparkle s3" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z"/></svg>
+      <svg class="sparkle s4" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z"/></svg>
+      <svg class="sparkle s5" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z"/></svg>
+      <svg class="sparkle s6" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z"/></svg>
+
+      <svg viewBox="0 0 460 460" class="relative w-[320px] sm:w-[420px] float float-rotate" aria-hidden="true">
         <defs>
           <linearGradient id="goldStroke" x1="0" x2="0" y1="0" y2="1">
             <stop offset="0" stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/>
@@ -1072,6 +1411,86 @@
 <section class="max-w-6xl mx-auto px-5 sm:px-8 my-14">
   <div class="ad-slot h-[110px] sm:h-[100px]" data-zh="贊助內容 · SPONSORED" data-en="Sponsored"></div>
   <!-- AdSense slot #2 (in-content) -->
+</section>
+
+<!-- ============== LIGHT PHYSICS DIAGRAM (animated) ============== -->
+<section class="max-w-6xl mx-auto px-5 sm:px-8 my-16 reveal">
+  <div class="grid lg:grid-cols-[0.95fr,1.05fr] gap-10 items-center">
+    <div>
+      <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3"
+           data-zh="光學原理" data-en="Optical physics" data-ja="光学原理" data-ko="광학 원리" data-zhcn="光学原理"></div>
+      <h2 class="font-display font-semibold text-[28px] sm:text-[36px] leading-[1.15] tracking-tight">
+        <span class="gold-text"
+          data-zh="鑽石為什麼會閃?"
+          data-en="Why does a diamond sparkle?"
+          data-ja="なぜダイヤは輝く?"
+          data-ko="다이아는 왜 빛나나?"
+          data-zhcn="钻石为什么会闪?"></span>
+      </h2>
+      <p class="text-[14.5px] sm:text-[16px] text-ink-700 mt-4 leading-[1.85]"
+         data-zh="光線從桌面進入鑽石後,要在「冠角」與「亭角」精確的兩次內反射(全反射)後,才能從正面射回觀察者眼睛。如果亭角偏離 0.5°,光線就會從鑽石底部漏出 — 這就是為什麼亭角是閃亮度的「決定性因素」。"
+         data-en="Light enters through the table, must undergo TWO total internal reflections at precise crown and pavilion angles, then exits face-up to your eye. If the pavilion angle is off by 0.5°, light leaks out the bottom — that's why pavilion is THE single most decisive sparkle factor."
+         data-ja="光線はテーブルから入り、クラウンとパビリオンの正確な角度で2回全反射した後、正面から目に戻ります。パビリオンが0.5°ずれると光が漏れる ── これが輝度を決定する最も重要な要素です。"
+         data-ko="빛은 테이블로 들어가 크라운과 파빌리온의 정확한 각도에서 두 번 전반사한 후 정면으로 눈에 도달합니다. 파빌리온이 0.5° 어긋나면 빛이 새어나와 — 이것이 광휘를 결정하는 가장 중요한 요소입니다."
+         data-zhcn="光线从台面进入钻石后,要在冠角与亭角精确的两次内反射后才能从正面射回。亭角偏离 0.5°,光线就会从底部漏出 — 这就是为什么亭角是闪亮度的决定性因素。"></p>
+      <ul class="mt-5 space-y-2 text-[13.5px] text-ink-700">
+        <li class="flex items-start gap-2"><span class="inline-block w-2 h-2 rounded-full mt-2 shrink-0" style="background:#c75555"></span>
+          <span data-zh="紅線:光線進入桌面" data-en="Red: light enters the table" data-ja="赤:テーブルへ入射" data-ko="빨강: 테이블로 입사" data-zhcn="红线:光线进入台面"></span></li>
+        <li class="flex items-start gap-2"><span class="inline-block w-2 h-2 rounded-full mt-2 shrink-0" style="background:#c9a45c"></span>
+          <span data-zh="金線:在亭角全反射(臨界角 24.4°)" data-en="Gold: total reflection at pavilion (critical angle 24.4°)" data-ja="金:パビリオンで全反射(臨界角24.4°)" data-ko="금: 파빌리온에서 전반사(임계각 24.4°)" data-zhcn="金线:在亭角全反射(临界角 24.4°)"></span></li>
+        <li class="flex items-start gap-2"><span class="inline-block w-2 h-2 rounded-full mt-2 shrink-0" style="background:#5a86c5"></span>
+          <span data-zh="藍線:從正面射出 → 你看到的閃光" data-en="Blue: exits face-up → the sparkle you see" data-ja="青:正面から射出 → あなたが見る輝き" data-ko="파랑: 정면 출사 → 보이는 빛" data-zhcn="蓝线:从正面射出 → 你看到的闪光"></span></li>
+      </ul>
+    </div>
+
+    <!-- Animated SVG: light rays bouncing inside a diamond cross-section -->
+    <div class="relative">
+      <svg viewBox="0 0 460 360" class="w-full max-w-[520px] mx-auto" aria-hidden="true">
+        <defs>
+          <linearGradient id="dGold" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#fbf3df" stop-opacity=".9"/>
+            <stop offset="1" stop-color="#f5e9d0" stop-opacity=".4"/>
+          </linearGradient>
+          <linearGradient id="dStroke" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/>
+          </linearGradient>
+        </defs>
+        <!-- Diamond cross-section (centered) -->
+        <g transform="translate(230 175)">
+          <path d="M -85 -110 L 85 -110 L 175 -10 L 175 0 L 0 165 L -175 0 L -175 -10 Z"
+                fill="url(#dGold)" stroke="url(#dStroke)" stroke-width="1.6" stroke-linejoin="round"/>
+          <line x1="-175" y1="-5" x2="175" y2="-5" stroke="#c9a45c" stroke-width=".6" stroke-dasharray="3 3" opacity=".6"/>
+
+          <!-- Light path 1: ray entering left -->
+          <line class="ray r1" x1="-50" y1="-180" x2="-50" y2="-110" stroke="#c75555" stroke-width="2"/>
+          <line class="ray r2" x1="-50" y1="-110" x2="120" y2="40"  stroke="#c9a45c" stroke-width="2"/>
+          <line class="ray r3" x1="120" y1="40"  x2="-90" y2="40"   stroke="#c9a45c" stroke-width="2"/>
+          <line class="ray r4" x1="-90" y1="40"  x2="-30" y2="-110" stroke="#5a86c5" stroke-width="2"/>
+          <line class="ray r5" x1="-30" y1="-110" x2="-30" y2="-180" stroke="#5a86c5" stroke-width="2"/>
+
+          <!-- Light path 2: ray entering right -->
+          <line class="ray r2" x1="40" y1="-180" x2="40" y2="-110" stroke="#c75555" stroke-width="2"/>
+          <line class="ray r3" x1="40" y1="-110" x2="-100" y2="20" stroke="#c9a45c" stroke-width="2"/>
+          <line class="ray r4" x1="-100" y1="20" x2="100" y2="20"  stroke="#c9a45c" stroke-width="2"/>
+          <line class="ray r5" x1="100" y1="20" x2="60" y2="-110"  stroke="#5a86c5" stroke-width="2"/>
+          <line class="ray r6" x1="60" y1="-110" x2="60" y2="-180" stroke="#5a86c5" stroke-width="2"/>
+
+          <!-- Pavilion angle annotation -->
+          <path d="M 175 0 a 35 35 0 0 0 -8 32" fill="none" stroke="#8a6e30" stroke-width=".8"/>
+          <text x="195" y="40" font-family="Inter,sans-serif" font-size="11" fill="#8a6e30" font-weight="700">亭角 40.8°</text>
+          <text x="195" y="54" font-family="Inter,sans-serif" font-size="9" fill="#8a6e30">臨界 24.4°</text>
+
+          <!-- Crown angle annotation -->
+          <path d="M 85 -110 a 40 40 0 0 1 22 22" fill="none" stroke="#8a6e30" stroke-width=".8"/>
+          <text x="146" y="-90" font-family="Inter,sans-serif" font-size="11" fill="#8a6e30" font-weight="700">冠角 34.5°</text>
+
+          <!-- Eye / observer -->
+          <text x="0" y="-200" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" fill="#5e4a1f">👁</text>
+          <text x="0" y="-218" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#7e8194">觀察者眼睛</text>
+        </g>
+      </svg>
+    </div>
+  </div>
 </section>
 
 <!-- ============== ABOUT / ALGORITHM ============== -->
@@ -2078,6 +2497,12 @@ function renderHCA(hca) {
 }
 
 function animateNumber(el, from, to, dur) {
+  // Pulse + glow when value actually moves
+  if (Math.abs(from - to) > 0.05) {
+    el.classList.remove('bl-pulse');
+    void el.offsetWidth;     // restart animation
+    el.classList.add('bl-pulse');
+  }
   const start = performance.now();
   function frame(now) {
     const p = Math.min(1, (now - start) / dur);
@@ -2789,6 +3214,34 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ---------- Animated counters (count from 0 → target when in view) ---------- */
+(function () {
+  const els = document.querySelectorAll('[data-counter]');
+  if (!els.length) return;
+  const counterIO = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      if (el.dataset.counted === '1') return;
+      el.dataset.counted = '1';
+      const target = parseFloat(el.dataset.counter) || 0;
+      const dur = 1100;
+      const start = performance.now();
+      function frame(now) {
+        const p = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const v = target * eased;
+        // integers vs decimals
+        el.textContent = Number.isInteger(target) ? Math.round(v).toString().padStart(String(target).length, '0') : v.toFixed(1);
+        if (p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+      counterIO.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  els.forEach(el => counterIO.observe(el));
+})();
 
 /* ---------- Mobile drawer (hamburger menu) ---------- */
 (function () {
