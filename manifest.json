@@ -26,19 +26,19 @@
       "description": "立即輸入鑽石數據並評分"
     },
     {
-      "name": "GIA 鑑定書教學",
-      "short_name": "GIA Guide",
-      "url": "/blog/gia-guide"
+      "name": "結婚鑽戒怎麼挑",
+      "short_name": "Engagement Guide",
+      "url": "/blog/engagement-guide"
     },
     {
-      "name": "八心八箭真相",
-      "short_name": "H&A Truth",
-      "url": "/blog/hearts-arrows-truth"
+      "name": "天然 vs 實驗室鑽石 2026",
+      "short_name": "Lab vs Natural",
+      "url": "/blog/lab-vs-natural"
     },
     {
-      "name": "30 萬以下挑最閃鑽石的數學公式",
-      "short_name": "Budget Formula",
-      "url": "/blog/budget-formula"
+      "name": "2026 鑽石市場新聞",
+      "short_name": "Diamond News",
+      "url": "/blog/diamond-news-2026"
     }
   ]
 }

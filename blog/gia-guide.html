@@ -787,40 +787,9 @@
 
 </main>
 
-<script>
-const lang = (() => {
-  const stored = localStorage.getItem('bl_lang');
-  if (stored === 'zh' || stored === 'en') return stored;
-  return (navigator.language || 'zh').toLowerCase().startsWith('zh') ? 'zh' : 'en';
-})();
-
-let curLang = lang;
-
-function applyLang() {
-  document.documentElement.lang = curLang === 'zh' ? 'zh-TW' : 'en';
-  document.querySelectorAll('[data-zh]').forEach(el => {
-    const txt = el.dataset[curLang];
-    if (txt == null) return;
-    if (/[<&]/.test(txt) && /<\/?[a-z]/i.test(txt)) el.innerHTML = txt;
-    else el.textContent = txt;
-  });
-  document.getElementById('proseZh').style.display = curLang === 'zh' ? '' : 'none';
-  document.getElementById('proseEn').style.display = curLang === 'en' ? '' : 'none';
-  document.querySelectorAll('#langToggle button').forEach(b => {
-    b.classList.toggle('active', b.dataset.lang === curLang);
-  });
-}
-
-document.querySelectorAll('#langToggle button').forEach(b => {
-  b.addEventListener('click', () => {
-    curLang = b.dataset.lang;
-    localStorage.setItem('bl_lang', curLang);
-    applyLang();
-  });
-});
-
-document.getElementById('yr').textContent = new Date().getFullYear();
-applyLang();
+<script src="/blog/blog-shared.js" defer></script>
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => BL.initBlog());
 </script>
 
 </body>

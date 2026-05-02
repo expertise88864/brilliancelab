@@ -613,27 +613,9 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, documen
 
 </main>
 
-<script>
-const stored = localStorage.getItem('bl_lang');
-let curLang = (stored === 'zh' || stored === 'en') ? stored : ((navigator.language || 'zh').toLowerCase().startsWith('zh') ? 'zh' : 'en');
-function applyLang() {
-  document.documentElement.lang = curLang === 'zh' ? 'zh-TW' : 'en';
-  document.querySelectorAll('[data-zh]').forEach(el => {
-    const t = el.dataset[curLang];
-    if (t == null) return;
-    if (/[<&]/.test(t) && /<\/?[a-z]/i.test(t)) el.innerHTML = t;
-    else el.textContent = t;
-  });
-  document.getElementById('proseZh').style.display = curLang === 'zh' ? '' : 'none';
-  document.getElementById('proseEn').style.display = curLang === 'en' ? '' : 'none';
-  document.querySelectorAll('#langToggle button').forEach(b => b.classList.toggle('active', b.dataset.lang === curLang));
-}
-document.querySelectorAll('#langToggle button').forEach(b => {
-  b.addEventListener('click', () => { curLang = b.dataset.lang; localStorage.setItem('bl_lang', curLang); applyLang(); });
-});
-document.getElementById('yr').textContent = new Date().getFullYear();
-applyLang();
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(()=>{});
+<script src="/blog/blog-shared.js" defer></script>
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => BL.initBlog());
 </script>
 
 </body>
