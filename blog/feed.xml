@@ -16,13 +16,63 @@
     <category>Jewelry</category>
     <category>Buyer's Guide</category>
     <ttl>1440</ttl>
-    <lastBuildDate>Fri, 02 May 2026 10:00:00 +0800</lastBuildDate>
-    <pubDate>Fri, 02 May 2026 10:00:00 +0800</pubDate>
+    <lastBuildDate>Sat, 03 May 2026 10:00:00 +0800</lastBuildDate>
+    <pubDate>Sat, 03 May 2026 10:00:00 +0800</pubDate>
     <image>
       <url>https://brilliancelab.vercel.app/icon.svg</url>
       <title>BrillianceLab 鑽石實驗室</title>
       <link>https://brilliancelab.vercel.app/blog/</link>
     </image>
+
+    <item>
+      <title>鑽石回收與保值真相 — 為什麼 30 萬鑽戒只能換回 10 萬?</title>
+      <link>https://brilliancelab.vercel.app/blog/diamond-resale</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/diamond-resale</guid>
+      <pubDate>Sat, 03 May 2026 14:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>購買指南</category>
+      <description>30 萬買的鑽戒回收只剩 10 萬?揭露零售-批發價差結構、4 種回收管道實際行情、什麼鑽石真的保值。</description>
+    </item>
+
+    <item>
+      <title>鑽石保養全攻略 — 戴 30 年還像新的 7 個習慣</title>
+      <link>https://brilliancelab.vercel.app/blog/diamond-care</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/diamond-care</guid>
+      <pubDate>Sat, 03 May 2026 13:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>購買指南</category>
+      <description>居家清潔 SOP、配戴禁忌、爪子鬆動自檢、專業保養週期 — 完整鑽戒保養指南。</description>
+    </item>
+
+    <item>
+      <title>鑽石形狀完整指南 — 圓形、橢圓、墊形、公主方、祖母綠怎麼挑?</title>
+      <link>https://brilliancelab.vercel.app/blog/diamond-shapes</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/diamond-shapes</guid>
+      <pubDate>Sat, 03 May 2026 12:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>購買指南</category>
+      <description>10 種鑽石形狀的光學特性、價格、適合場合與配戴心得完整比較。</description>
+    </item>
+
+    <item>
+      <title>鑽石詐騙 TOP 10 避雷指南 — 銀樓、網購、夜市常見手法</title>
+      <link>https://brilliancelab.vercel.app/blog/diamond-scams</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/diamond-scams</guid>
+      <pubDate>Sat, 03 May 2026 11:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>購買指南</category>
+      <description>10 個鑽石詐騙手法完整解析,加上自保 SOP — 以小換大、莫桑石冒充、假鑑定書、業務話術全揭露。</description>
+    </item>
+
+    <item>
+      <title>鑽石證書比較:GIA vs IGI vs HRD vs AGS — 哪一張最值得信?</title>
+      <link>https://brilliancelab.vercel.app/blog/cert-comparison</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/cert-comparison</guid>
+      <pubDate>Sat, 03 May 2026 10:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>購買指南</category>
+      <description>四大實驗室嚴謹度、價格、市佔率、買家信任度全比較。同一顆鑽石送不同實驗室,等級可能差一階。</description>
+    </item>
 
     <item>
       <title>2026 鑽石市場新聞速報 — De Beers 拆分、實驗室鑽石突破 50%、印度切磨業洗牌</title>
@@ -54,7 +104,7 @@
       <dc:creator>BrillianceLab</dc:creator>
       <category>趨勢分析</category>
       <category>Trends</category>
-      <description>一樣是真鑽,為什麼價差 70%?從物理屬性、價格走勢、保值率、道德爭議、辨識方法五個角度,2026 最新版完整比較。含 6 年價格走勢圖與保值率對比。</description>
+      <description>一樣是真鑽，為什麼價差 70%?從物理屬性、價格走勢、保值率、道德爭議、辨識方法五個角度,2026 最新版完整比較。含 6 年價格走勢圖與保值率對比。</description>
     </item>
 
     <item>
@@ -65,7 +115,7 @@
       <dc:creator>BrillianceLab</dc:creator>
       <category>數學公式</category>
       <category>Math Formula</category>
-      <description>BPD(每元閃光值)= 分數 × √克拉 ÷ 價格(萬元)。把 4Cs 取捨數學化,在預算內挑最閃。內含三種預算策略對照表與決策樹流程圖。</description>
+      <description>BPD(每元閃光值)= 分數 × √克拉 ÷ 價格(萬元)。把 4Cs 取捨數學化，在預算內挑最閃。內含三種預算策略對照表與決策樹流程圖。</description>
     </item>
 
     <item>
@@ -76,7 +126,7 @@
       <dc:creator>BrillianceLab</dc:creator>
       <category>數學公式</category>
       <category>Math Formula</category>
-      <description>同樣 GIA Excellent,實際閃亮度可差到 25%。本文用四個實際比例案例與光學圖解,告訴你哪些 GIA Excellent 其實達不到頂級閃亮度,以及如何用 Tolkowsky 調和項驗證真八心八箭。</description>
+      <description>同樣 GIA Excellent,實際閃亮度可差到 25%。本文用四個實際比例案例與光學圖解，告訴你哪些 GIA Excellent 其實達不到頂級閃亮度，以及如何用 Tolkowsky 調和項驗證真八心八箭。</description>
     </item>
 
     <item>

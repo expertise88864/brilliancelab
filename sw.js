@@ -1,5 +1,5 @@
 /* BrillianceLab service worker — offline-first for static, network-first for HTML */
-const CACHE = 'bl-v6';
+const CACHE = 'bl-v8';
 const PRECACHE = [
   '/',
   '/index.html',
@@ -13,7 +13,12 @@ const PRECACHE = [
   '/blog/budget-formula',
   '/blog/lab-vs-natural',
   '/blog/engagement-guide',
-  '/blog/diamond-news-2026'
+  '/blog/diamond-news-2026',
+  '/blog/cert-comparison',
+  '/blog/diamond-scams',
+  '/blog/diamond-shapes',
+  '/blog/diamond-care',
+  '/blog/diamond-resale'
 ];
 
 self.addEventListener('install', (e) => {

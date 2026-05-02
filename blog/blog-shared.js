@@ -174,6 +174,78 @@
     }, { passive: true });
   };
 
+  /* ---------- mobile hamburger drawer (auto-injected on every blog page) ---------- */
+  BL.injectMobileMenu = function () {
+    if (document.getElementById('blMobileMenuBtn')) return;
+    // Find the page's <header>; if missing, give up gracefully
+    const header = document.querySelector('header.sticky') || document.querySelector('header');
+    if (!header) return;
+    const headerInner = header.querySelector('div.flex.items-center.justify-between') || header.firstElementChild;
+    if (!headerInner) return;
+    const right = headerInner.lastElementChild;   // usually the lang-toggle wrapper
+
+    // 1) Hamburger button — inserted before the right cluster
+    const btn = document.createElement('button');
+    btn.id = 'blMobileMenuBtn';
+    btn.type = 'button';
+    btn.className = 'sm:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg border border-[var(--border)] bg-white hover:border-gold-300 mr-2';
+    btn.setAttribute('aria-label', 'Menu');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>';
+    right.parentNode.insertBefore(btn, right);
+
+    // 2) Drawer — appended INSIDE the header so it inherits sticky positioning
+    const drawer = document.createElement('div');
+    drawer.id = 'blMobileDrawer';
+    drawer.className = 'hidden sm:hidden border-t border-[var(--border)]';
+    drawer.style.cssText = 'background:rgba(250,248,243,.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)';
+    drawer.innerHTML = `
+      <nav class="max-w-5xl mx-auto px-5 py-4 flex flex-col gap-1">
+        <a href="/"        class="block px-3 py-2.5 rounded-lg hover:bg-[var(--gold-soft)] text-[14px] font-semibold text-gold-700"
+           data-zh="🛠 主頁工具(輸入鑽石評分)"   data-en="🛠 Home tool"     data-ja="🛠 ホームツール"  data-ko="🛠 홈 도구"   data-zhcn="🛠 主页工具"></a>
+        <div class="mt-2 px-3 pt-2 border-t border-[var(--border)]">
+          <div class="text-[10.5px] uppercase tracking-[.22em] text-gold-700 font-semibold mb-2"
+               data-zh="部落格文章" data-en="Blog articles" data-ja="ブログ記事" data-ko="블로그 게시물" data-zhcn="博客文章"></div>
+          <a href="/blog/"                    class="block py-2 text-[13.5px] text-ink-700 font-semibold"
+             data-zh="📖 全部文章索引" data-en="📖 All articles"  data-ja="📖 記事一覧" data-ko="📖 모든 게시물" data-zhcn="📖 全部文章索引"></a>
+          <a href="/blog/gia-guide"           class="block py-2 text-[13px] text-ink-700"
+             data-zh="① 如何看懂 GIA 鑑定書"           data-en="① How to read a GIA report"></a>
+          <a href="/blog/hearts-arrows-truth" class="block py-2 text-[13px] text-ink-700"
+             data-zh="② 八心八箭真相"                 data-en="② Hearts &amp; Arrows truth"></a>
+          <a href="/blog/budget-formula"      class="block py-2 text-[13px] text-ink-700"
+             data-zh="③ 30 萬以下挑最閃鑽石的數學公式" data-en="③ Math formula under NT$300K"></a>
+          <a href="/blog/lab-vs-natural"      class="block py-2 text-[13px] text-ink-700"
+             data-zh="④ 天然 vs 實驗室鑽石"           data-en="④ Natural vs lab-grown"></a>
+          <a href="/blog/engagement-guide"    class="block py-2 text-[13px] text-ink-700"
+             data-zh="⑤ 結婚鑽戒 9 步驟"             data-en="⑤ Engagement ring 9 steps"></a>
+          <a href="/blog/cert-comparison"     class="block py-2 text-[13px] text-ink-700"
+             data-zh="⑦ 鑽石證書比較"               data-en="⑦ Cert comparison"></a>
+          <a href="/blog/diamond-scams"       class="block py-2 text-[13px] text-ink-700"
+             data-zh="⑧ 鑽石詐騙 TOP 10"           data-en="⑧ Top 10 diamond scams"></a>
+          <a href="/blog/diamond-shapes"      class="block py-2 text-[13px] text-ink-700"
+             data-zh="⑨ 鑽石形狀完整指南"           data-en="⑨ Diamond shapes guide"></a>
+          <a href="/blog/diamond-care"        class="block py-2 text-[13px] text-ink-700"
+             data-zh="⑩ 鑽石保養全攻略"             data-en="⑩ Diamond care"></a>
+          <a href="/blog/diamond-resale"      class="block py-2 text-[13px] text-ink-700"
+             data-zh="⑪ 鑽石回收與保值真相"         data-en="⑪ Diamond resale truth"></a>
+          <a href="/blog/diamond-news-2026"   class="block py-2 text-[13px] text-ink-700 mt-1 pt-2 border-t border-[var(--line)]"
+             data-zh="🔔 2026 鑽石市場新聞(滾動更新)" data-en="🔔 2026 diamond news (rolling)"></a>
+        </div>
+        <a href="/blog/feed.xml" class="mt-2 mx-3 inline-flex items-center justify-center gap-2 py-2.5 rounded-lg border border-[var(--border)] text-[12.5px] font-semibold text-ink-700">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="#c75e00"><circle cx="6" cy="18" r="2.5"/><path d="M3 13a8 8 0 0 1 8 8h-3a5 5 0 0 0-5-5v-3zm0-6a14 14 0 0 1 14 14h-3a11 11 0 0 0-11-11V7z"/></svg>
+          <span data-zh="RSS 訂閱" data-en="RSS feed" data-ja="RSS 購読" data-ko="RSS 구독" data-zhcn="RSS 订阅"></span>
+        </a>
+      </nav>
+    `;
+    header.appendChild(drawer);
+
+    function open()  { drawer.classList.remove('hidden'); btn.setAttribute('aria-expanded', 'true');  document.body.style.overflow = 'hidden'; }
+    function close() { drawer.classList.add('hidden');    btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+    btn.addEventListener('click', () => drawer.classList.contains('hidden') ? open() : close());
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    window.addEventListener('resize', () => { if (window.innerWidth >= 640) close(); });
+  };
+
   /* ---------- one-call init for blog pages ---------- */
   BL.initBlog = function (opts) {
     opts = opts || {};
@@ -190,6 +262,7 @@
       if (typeof opts.onChange === 'function') opts.onChange(lang);
     }
 
+    BL.injectMobileMenu();      // run BEFORE injectLangDropdown so the lang trigger ends up to the right of hamburger
     BL.injectLangDropdown(apply);
     apply(curLang);
     BL.addReadingProgress();
