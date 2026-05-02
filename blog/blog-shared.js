@@ -262,8 +262,12 @@
           <a href="/blog/heirloom-redesign"     class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 傳家鑽石重做" data-en="◆ Heirloom redesign"></a>
           <a href="/blog/diamond-vs-gold"       class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 鑽石 vs 黃金" data-en="◆ Diamond vs Gold"></a>
           <a href="/blog/lgbtq-rings"           class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 同志婚戒指南" data-en="◆ LGBTQ+ rings"></a>
+          <a href="/blog/diamond-photography"   class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 鑽石攝影 IG" data-en="◆ Photography"></a>
+          <a href="/blog/dating-duration"       class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 交往多久求婚" data-en="◆ When to propose"></a>
+          <a href="/blog/destination-wedding"   class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 異國婚禮採購" data-en="◆ Destination wedding"></a>
+          <a href="/blog/diamond-price-trends"  class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 2026-2030 趨勢" data-en="◆ Price trends"></a>
 
-          <a href="/blog/topics"               class="block py-2 text-[13.5px] text-gold-700 font-bold" data-zh="🗺 主題索引(38 篇地圖)" data-en="🗺 Topic map"></a>
+          <a href="/blog/topics"               class="block py-2 text-[13.5px] text-gold-700 font-bold" data-zh="🗺 主題索引(43 篇地圖)" data-en="🗺 Topic map"></a>
           <a href="/search"                    class="block py-2 text-[13.5px] text-gold-700 font-bold" data-zh="🔍 站內搜尋" data-en="🔍 Search"></a>
 
           <a href="/blog/diamond-news-2026"   class="block py-2 text-[13px] text-ink-700 mt-1 pt-2 border-t border-[var(--line)]"
