@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>鑽石螢光反應深度解析 — 為什麼 Strong 螢光便宜 15% 卻可能更白 | BrillianceLab</title>
+<meta name="description" content="GIA 證書上的「Fluorescence」一欄寫 None / Faint / Medium / Strong / Very Strong — 大部分人根本不知道意思。本篇拆解螢光反應的物理、對價格與視覺的影響、什麼情況下有「奶霧」副作用。" />
+<meta name="theme-color" content="#faf8f3" />
+<meta name="keywords" content="鑽石螢光,鑽石螢光反應,Fluorescence,鑽石發藍,鑽石奶霧,strong fluorescence,medium fluorescence,鑽石 UV,鑽石黃光,鑽石顏色補正,鑽石折扣" />
+<link rel="canonical" href="https://brilliancelab.vercel.app/blog/fluorescence-deep-dive" />
+<link rel="alternate" hreflang="x-default" href="https://brilliancelab.vercel.app/blog/fluorescence-deep-dive" />
+<link rel="alternate" hreflang="zh-TW" href="https://brilliancelab.vercel.app/blog/fluorescence-deep-dive" />
+<link rel="alternate" hreflang="en" href="https://brilliancelab.vercel.app/blog/fluorescence-deep-dive" />
+<link rel="icon" type="image/svg+xml" href="/icon.svg" />
+<link rel="alternate" type="application/rss+xml" title="BrillianceLab Blog RSS" href="/blog/feed.xml" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="鑽石螢光反應深度解析 | BrillianceLab" />
+<meta property="og:description" content="為什麼 Strong 螢光便宜 15% 卻可能更白。" />
+<meta property="og:image" content="https://brilliancelab.vercel.app/icon.svg" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8223268344248663" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{ --bg:#faf8f3; --ink:#1a1d2e; --ink-2:#4a4d5e; --muted:#7e8194; --gold:#c9a45c; --gold-deep:#8a6e30; --gold-soft:#fbf3df; --border:#ebe6dc; --line:#f1ede3; --ok:#3d7d4e; --ok-soft:#e7f4e9; --warn:#b04545; --warn-soft:#fdebe9; --info:#4a6cb6; --info-soft:#e7eef9; }
+  html,body{ background:var(--bg); color:var(--ink) }
+  body::before{ content:''; position:fixed; inset:0; pointer-events:none; z-index:-1; background: radial-gradient(800px 500px at 12% -8%, rgba(201,164,92,.16), transparent 60%), linear-gradient(180deg,#faf8f3 0%, #fffdf7 40%, #faf8f3 100%); }
+  .gold-text{ background:linear-gradient(180deg,#c9a45c 0%, #8a6e30 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .card{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:0 1px 2px rgba(31,29,44,.04), 0 14px 30px -18px rgba(138,110,48,.18); }
+  .lang-toggle{ display:inline-flex; border:1px solid var(--border); border-radius:9999px; overflow:hidden; background:#fff; }
+  .lang-toggle button{ padding:6px 12px; font-size:12px; font-weight:600; color:var(--muted); }
+  .lang-toggle button.active{ background:linear-gradient(180deg,#d4b87a,#8a6e30); color:#fff; }
+  .ad-slot{ border:1px dashed var(--border); border-radius:14px; background:#fff; color:var(--muted); font-size:11px; letter-spacing:.18em; text-transform:uppercase; display:flex; align-items:center; justify-content:center; }
+  .prose-zh{ line-height:1.85; font-size:16px; font-family:'Noto Serif TC','Microsoft JhengHei',Georgia,serif; }
+  .prose-zh h2{ font-family:'Noto Serif TC',Georgia,serif; font-weight:700; font-size:24px; margin:42px 0 12px; color:var(--ink); border-left:3px solid var(--gold); padding-left:14px; }
+  .prose-zh p{ margin:14px 0; color:var(--ink-2); }
+  .prose-zh ul{ margin:14px 0 14px 22px; list-style:disc; color:var(--ink-2); }
+  .prose-zh strong{ color:var(--ink); font-weight:700; }
+  .prose-zh em{ font-style:normal; color:var(--gold-deep); font-weight:600; }
+  .prose-zh blockquote{ margin:22px 0; padding:16px 20px; background:var(--gold-soft); border-left:3px solid var(--gold); border-radius:0 12px 12px 0; color:var(--ink); }
+  .prose-zh blockquote p{ margin:0; }
+  .prose-zh a{ color:var(--gold-deep); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+  .level{ background:#fff; border:1px solid var(--border); border-radius:14px; padding:16px 18px; margin:12px 0; transition:transform .22s, box-shadow .22s; }
+  .level:hover{ transform:translateY(-2px); box-shadow:0 10px 22px -10px rgba(74,108,182,.25); }
+  .level-head{ display:flex; align-items:center; gap:12px; margin-bottom:8px; flex-wrap:wrap; }
+  .level-glow{ width:38px; height:38px; border-radius:50%; flex-shrink:0; box-shadow:inset 0 0 0 1px rgba(0,0,0,.12); }
+  .glow-none{ background:#f7f1e2; }
+  .glow-faint{ background:radial-gradient(circle, #e3eaf6, #f7f1e2); }
+  .glow-medium{ background:radial-gradient(circle, #b9c8e8, #e3eaf6); }
+  .glow-strong{ background:radial-gradient(circle, #5a86c5, #b9c8e8); }
+  .glow-vstrong{ background:radial-gradient(circle, #2d4d8a, #5a86c5); }
+  .level h3{ font-family:'Noto Serif TC',Georgia,serif; font-size:17px; font-weight:700; margin:0; color:var(--ink); }
+  .level .pct{ font-size:12px; color:var(--gold-deep); font-weight:700; letter-spacing:.05em; }
+  .level p{ font-size:13.5px; color:var(--ink-2); margin:6px 0 0; line-height:1.7; }
+  .level .effect{ display:inline-block; padding:2px 10px; border-radius:999px; font-size:11px; font-weight:600; margin:6px 4px 0 0; }
+  .effect-pos{ background:var(--ok-soft); color:var(--ok); }
+  .effect-neutral{ background:var(--gold-soft); color:var(--gold-deep); }
+  .effect-neg{ background:var(--warn-soft); color:var(--warn); }
+  table.cmp{ width:100%; border-collapse:collapse; font-size:13px; margin:18px 0; }
+  table.cmp th,table.cmp td{ padding:9px 8px; border-bottom:1px solid var(--line); text-align:right; }
+  table.cmp th{ background:#fbf3df; color:#5e4a1f; }
+  table.cmp td:first-child,table.cmp th:first-child{ text-align:left; font-weight:700; color:var(--ink); }
+  @media (max-width:640px){ .hide-sm{display:none} .prose-zh{font-size:15.5px} .prose-zh h2{font-size:21px} table.cmp{font-size:12px} table.cmp th,table.cmp td{padding:6px 5px} }
+</style>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"Article","headline":"鑽石螢光反應深度解析","description":"為什麼 Strong 螢光便宜 15% 卻可能更白。","datePublished":"2026-04-30","dateModified":"2026-05-01","author":{"@type":"Person","name":"BrillianceLab Editorial"},"publisher":{"@type":"Organization","name":"BrillianceLab","logo":{"@type":"ImageObject","url":"https://brilliancelab.vercel.app/icon.svg"}},"image":"https://brilliancelab.vercel.app/icon.svg","mainEntityOfPage":"https://brilliancelab.vercel.app/blog/fluorescence-deep-dive"}
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://brilliancelab.vercel.app/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://brilliancelab.vercel.app/blog/"},{"@type":"ListItem","position":3,"name":"螢光反應","item":"https://brilliancelab.vercel.app/blog/fluorescence-deep-dive"}]}
+</script>
+</head>
+<body class="font-sans antialiased text-ink-900">
+
+<header class="sticky top-0 z-40 backdrop-blur bg-ivory-100/85 border-b border-[var(--border)]"><div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between"><a href="/" class="flex items-center gap-3"><span class="relative inline-flex w-9 h-9 items-center justify-center"><svg viewBox="0 0 24 24" class="w-7 h-7" fill="none"><path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#gN)" stroke-width="1.2" stroke-linejoin="round"/><path d="M3.5 9h17M8 9l4-6 4 6M8 9l4 12 4-12" stroke="url(#gN)" stroke-width="1" stroke-linejoin="round"/><defs><linearGradient id="gN" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs></svg></span><span class="leading-none"><span class="block font-display font-semibold text-[18px] gold-text tracking-wide">BrillianceLab</span><span class="block mt-1 text-[10px] uppercase tracking-[0.22em] text-ink-500 hide-sm">鑽石實驗室</span></span></a><div class="flex items-center gap-4"><a href="/" class="text-xs uppercase tracking-[.18em] text-ink-700 hide-sm">← 回主頁工具</a><div class="lang-toggle" id="langToggle"><button data-lang="zh" class="active">中文</button><button data-lang="en">EN</button></div></div></div></header>
+
+<main>
+<section class="relative pt-12 sm:pt-16 pb-8"><div class="max-w-3xl mx-auto px-5 sm:px-8">
+  <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3"><span data-zh="子文 · 顏色拆解 · 螢光" data-en="Sub · Color · Fluorescence">子文 · 顏色拆解 · 螢光</span></div>
+  <h1 class="font-display font-bold leading-[1.15] text-[34px] sm:text-[48px]"><span data-zh="鑽石螢光反應深度解析" data-en="Fluorescence Deep Dive">鑽石螢光反應深度解析</span><br/><span class="gold-text" data-zh="為什麼 Strong 螢光便宜 15% 卻可能更白" data-en="Why Strong Saves 15% — and Often Looks Whiter">為什麼 Strong 螢光便宜 15% 卻可能更白</span></h1>
+  <p class="mt-7 text-[15.5px] sm:text-[17px] text-ink-700 leading-[1.9]" data-zh="GIA 證書上的「Fluorescence」一欄寫 None / Faint / Medium / Strong / Very Strong — 但大部分買家根本不知道這代表什麼。本篇是<a href='/blog/diamond-color'>顏色等級指南</a>的子文,完整拆解螢光反應的物理原因、對視覺與價格的真實影響、什麼情況下會有「奶霧」(milky) 副作用。" data-en="A sub-article of our Color Grade Guide. The complete physics, visual impact, price effect, and milky-haze risk of diamond fluorescence.">
+  </p>
+</div></section>
+
+<section class="max-w-3xl mx-auto px-5 sm:px-8 mt-2 mb-6"><div class="ad-slot h-24 sm:h-28"><ins class="adsbygoogle" style="display:block;width:100%;height:100%" data-ad-client="ca-pub-8223268344248663" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins></div></section>
+
+<article class="max-w-3xl mx-auto px-5 sm:px-8 pb-16">
+  <div class="prose-zh" data-lang-block="zh">
+
+    <h2>什麼是鑽石的「螢光反應」?</h2>
+    <p>鑽石的螢光反應是指鑽石在<strong>紫外線(UV)照射</strong>下會發出可見光。約 30%-35% 的天然鑽石含有微量的硼或氮原子,這些雜質吸收 UV 後會「重新發射」可見光 — 通常是藍色,少數是黃色、綠色、橘色。</p>
+
+    <p>白天陽光中包含 UV 成分,所以螢光鑽石在戶外會比室內看起來「藍一點」。GIA 將螢光分為 5 級,每一級都是用標準 UV 燈下的視覺強度判定。詳細的 4Cs 之外的補充參數可看<a href="/blog/gia-guide">GIA 鑑定書教學</a>。</p>
+
+    <h2>5 個螢光等級拆解</h2>
+
+    <div class="level">
+      <div class="level-head"><span class="level-glow glow-none"></span><div><h3>None — 無螢光</h3><div class="pct">約 65% 鑽石屬於此類 · 價格基準</div></div></div>
+      <span class="effect effect-neutral">中性</span>
+      <p>UV 下完全不發光。是「最純粹」的鑽石,也是頂級 D-F 色鑽石最常見的等級。價格基準。<em>但「無螢光」不等於「最美」</em> — 在 G-J 色等級中,有適量螢光反而看起來更白。</p>
+    </div>
+
+    <div class="level">
+      <div class="level-head"><span class="level-glow glow-faint"></span><div><h3>Faint — 微弱螢光</h3><div class="pct">約 16% · 價格 ≈ None</div></div></div>
+      <span class="effect effect-pos">略增白(G-J 色)</span>
+      <p>UV 下幾乎不發光,只有實驗室嚴格條件下能看到。對價格幾乎無影響(±2%)。<em>對 G-J 色鑽石微微增白,對 D-F 色無感</em>。買鑽時可以接受這級,等於「免費的微微增白」。</p>
+    </div>
+
+    <div class="level">
+      <div class="level-head"><span class="level-glow glow-medium"></span><div><h3>Medium — 中等螢光</h3><div class="pct">約 12% · 折扣 0%-5%</div></div></div>
+      <span class="effect effect-pos">G-K 色明顯增白</span>
+      <p>UV 下肉眼可見藍色螢光。<strong>這是性價比最高的等級</strong>:對 D-F 色幾乎無視覺影響(可能略掉價 0%-5%);對 G-K 色有明顯增白效果(陽光下看起來會「冒藍光」中和黃色)。<em>建議優先選擇 G-J 色 + Medium 螢光</em>,等於用 G 色價格買到視覺上的 F 色。</p>
+    </div>
+
+    <div class="level">
+      <div class="level-head"><span class="level-glow glow-strong"></span><div><h3>Strong — 強烈螢光</h3><div class="pct">約 5% · 折扣 8%-15%</div></div></div>
+      <span class="effect effect-pos">K-M 色救星</span>
+      <span class="effect effect-neg">3% 機率「奶霧」</span>
+      <p>UV 下藍光強烈,在自然光下也能看到輕微藍調。 <em>對 D-F 色:</em>市場視為負面,折扣 10%-15%(「太藍」會讓白鑽看起來「冷冰冰」)。 <em>對 G-J 色:</em>正面,陽光下顏色看起來像 D-E 色,折扣只有 5%-8%。 <em>對 K-M 色:</em>救星,折扣只有 0%-3% 但顏色升 2 級。 <strong>風險:</strong>約 3% 的 Strong 螢光鑽會在白光下出現「奶霧」(milky haze),讓鑽石失去通透感 — 買前一定要看實品或 360° 影片。</p>
+    </div>
+
+    <div class="level">
+      <div class="level-head"><span class="level-glow glow-vstrong"></span><div><h3>Very Strong — 極強螢光</h3><div class="pct">約 2% · 折扣 15%-25%</div></div></div>
+      <span class="effect effect-neg">奶霧風險 12%</span>
+      <span class="effect effect-pos">適合 L-N 色</span>
+      <p>UV 下藍光強到近乎發亮。<strong>奶霧機率約 12%</strong>(每 8 顆有 1 顆是「奶鑽」),且部分鑽石在強陽光下會看起來「霧霧的」。除非你刻意要「會發光的鑽石」這種特殊效果,或者買 L-N 顏色想用螢光救一下,否則建議避開。</p>
+    </div>
+
+    <h2>價格影響表 — 螢光 × 顏色</h2>
+    <p>同 1 克拉、同 VS1 淨度、同 Excellent 切工下,各組合相對於「D 色 None 螢光」的折扣:</p>
+    <table class="cmp">
+      <thead><tr><th>螢光 \ 顏色</th><th>D-E</th><th>F-G</th><th>H-J</th><th>K-M</th></tr></thead>
+      <tbody>
+        <tr><td>None</td><td>基準</td><td>−15%</td><td>−35%</td><td>−55%</td></tr>
+        <tr><td>Faint</td><td>−2%</td><td>−16%</td><td>−35%</td><td>−55%</td></tr>
+        <tr><td>Medium</td><td>−5%</td><td>−16%</td><td>−33%</td><td>−52%</td></tr>
+        <tr><td>Strong</td><td>−15%</td><td>−18%</td><td>−32%</td><td>−50%</td></tr>
+        <tr><td>Very Strong</td><td>−25%</td><td>−30%</td><td>−40%</td><td>−55%</td></tr>
+      </tbody>
+    </table>
+
+    <p>從表格可以看出:<em>K 色 Strong 螢光只比 K 色 None 便宜 5%,但視覺上看起來像 H 色</em>。也就是說,你用 K 色的價格,買到了 H 色的視覺 — 用螢光「換」一級顏色,是預算控的進階玩法。</p>
+
+    <h2>什麼是「奶霧」副作用?</h2>
+    <p>少數含螢光的鑽石在陽光下會出現「milky haze」 — 鑽石看起來霧霧的、缺乏通透感、像奶白玻璃球。原因是鑽石內部的<strong>螢光分子分布不均</strong>,在強光下產生「散射效應」。</p>
+
+    <p>奶霧機率與螢光等級成正比:</p>
+    <ul>
+      <li><strong>None / Faint:</strong>0% 風險</li>
+      <li><strong>Medium:</strong>< 1% 風險</li>
+      <li><strong>Strong:</strong>約 3% 風險</li>
+      <li><strong>Very Strong:</strong>約 12% 風險</li>
+    </ul>
+
+    <p>避免奶霧的方法:① 看 360° 鑽石影片(在自然光下);② 買前要求賣家提供「無奶霧保證書」(reputable dealer 都會出);③ 透過<a href="/blog/secondhand-rings">二手通路</a>買時尤其要小心,有奶霧的鑽石經常以螢光鑽石的價格出售。</p>
+
+    <h2>螢光怎麼搭戒台金屬?</h2>
+    <p>螢光與戒台金屬的關係常被忽略,但其實很重要。<a href="/blog/wedding-metals">婚戒材質指南</a>中各金屬的反射顏色不同:</p>
+
+    <ul>
+      <li><strong>鉑金 / 18K 白金:</strong>無色反射,讓螢光的藍色更明顯。<em>適合 G-J 色 + Medium 螢光</em>。</li>
+      <li><strong>18K 黃金:</strong>黃色反射會中和藍色螢光,等於「螢光被吃掉」。<em>不適合螢光鑽,選 None 即可</em>。</li>
+      <li><strong>18K 玫瑰金:</strong>粉色反射對螢光中性,影響不大。</li>
+    </ul>
+
+    <h2>對「光學評分」有沒有影響?</h2>
+    <p>螢光對<a href="/blog/cut-grade">切工 / 光學評分</a>「直接」影響為零 — Tolkowsky 的數學公式只看比例,不看螢光。但<em>視覺上 Strong 螢光鑽在陽光下會看起來「更亮」</em>(藍色能反射更多自然光)。</p>
+
+    <p>BrillianceLab <a href="/">計算器</a>不對螢光做加減分,但會在「顏色等級」這欄考慮螢光的補正效應 — 例如輸入「H 色 + Medium 螢光」時,系統會在內部以「視覺 G 色」處理,給出更精準的 BPD 性價比評分。</p>
+
+    <h2>螢光鑽石的「投資面」</h2>
+    <p>從轉售角度看:None / Faint 流動性最高,Strong / Very Strong 流動性較差(因為部分買家對螢光有偏見)。但這也意味著<em>二手市場上 Strong 螢光鑽石「真便宜」</em>,如果你不打算將來轉售,反而是省錢的好選擇。<a href="/blog/diamond-resale">鑽石回收與保值真相</a>有完整轉售管道分析。</p>
+
+    <h2>3 個情境推薦表</h2>
+    <ul>
+      <li><strong>預算緊張、想要 D-F 色視覺感:</strong>選 H-J 色 + Medium 螢光,陽光下看起來像 F 色,省 30%-35%。</li>
+      <li><strong>預算極限、要 1 克拉以上:</strong>選 K-L 色 + Strong 螢光,陽光下看起來像 H 色,省 50% 以上 — 但要確認無奶霧。</li>
+      <li><strong>頂級收藏、追求「最純」:</strong>選 D-F 色 + None 螢光,流動性最高、保值最強。</li>
+    </ul>
+
+    <blockquote><p><strong>結論:</strong>螢光不是「越少越好」,也不是「越多越好」 — 它是一個可以被精明買家利用的「補正參數」。把候選鑽石的顏色 × 螢光組合輸進<a href="/">BrillianceLab 計算器</a>,系統會自動計算視覺顏色補正,告訴你哪個組合 BPD 最高。</p></blockquote>
+
+    <h2>延伸閱讀路徑</h2>
+    <ul>
+      <li><a href="/blog/diamond-color">鑽石顏色等級 D-Z 完整解析</a> — 23 階顏色光譜</li>
+      <li><a href="/blog/diamond-clarity">鑽石淨度等級 FL-I 指南</a> — 內含物分類</li>
+      <li><a href="/blog/gia-guide">GIA 鑑定書教學</a> — 看懂證書上每個欄位</li>
+      <li><a href="/blog/master-guide">回到主幹教學</a> — 看其他 14 個階段</li>
+    </ul>
+
+  </div>
+
+  <div class="prose-en hidden" data-lang-block="en">
+    <h2>Fluorescence Deep Dive</h2>
+    <p>Why Strong saves 15% — and often looks whiter. Complete physics, price effect, and milky-haze risk.</p>
+    <p>(English translation in progress — switch back to 中文 for the full article.)</p>
+  </div>
+
+  <div class="ad-slot h-28 my-10"><ins class="adsbygoogle" style="display:block;width:100%;height:100%" data-ad-client="ca-pub-8223268344248663" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+
+  <div class="card p-6 sm:p-8 mt-10">
+    <h3 class="font-display text-[22px] font-bold mb-3" data-zh="把螢光當變數丟進公式" data-en="Run fluorescence through the math">把螢光當變數丟進公式</h3>
+    <p class="text-[14.5px] text-ink-700 mb-4" data-zh="計算器內建顏色 × 螢光的視覺補正,告訴你 H 色 + Medium 螢光是不是真的 CP 值最高。" data-en="Color × fluorescence interaction is built-in. See if H + Medium beats G + None.">
+    </p>
+    <a href="/" class="inline-flex items-center gap-2 px-5 py-3 rounded-full text-white font-semibold text-sm" style="background:linear-gradient(180deg,#d4b87a,#8a6e30)"><span data-zh="開始計算 →" data-en="Run calculator →">開始計算 →</span></a>
+  </div>
+
+</article>
+</main>
+
+<footer class="border-t border-[var(--border)] py-10 mt-6"><div class="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-500"><div>© 2026 BrillianceLab · <span data-zh="鑽石實驗室" data-en="Diamond Laboratory">鑽石實驗室</span></div><div class="flex gap-5"><a href="/" class="hover:text-ink-900" data-zh="首頁工具" data-en="Calculator">首頁工具</a><a href="/blog/" class="hover:text-ink-900" data-zh="部落格" data-en="Blog">部落格</a><a href="/blog/feed.xml" class="hover:text-ink-900">RSS</a></div></div></footer>
+
+<script src="/blog/blog-shared.js" defer></script>
+<script>document.addEventListener('DOMContentLoaded',function(){if(window.BL&&BL.initBlog)BL.initBlog({slug:'fluorescence-deep-dive'});});</script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</body>
+</html>

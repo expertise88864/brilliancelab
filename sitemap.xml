@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://brilliancelab.vercel.app/</loc><lastmod>2026-05-03</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://brilliancelab.vercel.app/blog/</loc><lastmod>2026-05-03</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/</loc><lastmod>2026-05-01</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/</loc><lastmod>2026-05-01</lastmod><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/master-guide</loc><lastmod>2026-05-01</lastmod><changefreq>weekly</changefreq><priority>0.98</priority></url>
   <url><loc>https://brilliancelab.vercel.app/blog/gia-guide</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://brilliancelab.vercel.app/blog/hearts-arrows-truth</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://brilliancelab.vercel.app/blog/budget-formula</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -16,4 +17,20 @@
   <url><loc>https://brilliancelab.vercel.app/blog/diamond-color</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://brilliancelab.vercel.app/blog/diamond-clarity</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://brilliancelab.vercel.app/blog/diamond-carat-size</loc><lastmod>2026-05-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/mens-engagement-rings</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/proposal-speech</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/wedding-bands</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/wedding-metals</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/ring-sizing</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/diamond-fun-facts</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/diamond-financing</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/secondhand-rings</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/ring-insurance</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/diamond-faq</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.92</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/round-cut-deep-dive</loc><lastmod>2026-05-02</lastmod><changefreq>monthly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/fancy-cuts-guide</loc><lastmod>2026-05-02</lastmod><changefreq>monthly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/prong-settings-guide</loc><lastmod>2026-05-02</lastmod><changefreq>monthly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/fluorescence-deep-dive</loc><lastmod>2026-05-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/inclusions-types-guide</loc><lastmod>2026-05-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://brilliancelab.vercel.app/blog/engraving-personalization</loc><lastmod>2026-05-02</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
 </urlset>

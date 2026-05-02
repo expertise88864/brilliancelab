@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>花式車工完整指南 — 橢圓、梨形、馬眼、祖母綠的領結效應與崩角風險 | BrillianceLab</title>
+<meta name="description" content="非圓形鑽石叫「花式車工」(fancy cut),包含橢圓、梨形、馬眼、墊形、公主方、祖母綠、亞瑟方等。每種都有獨特的隱形風險:領結效應、崩角、淨度依賴 — 完整避雷指南。" />
+<meta name="theme-color" content="#faf8f3" />
+<meta name="keywords" content="花式車工,fancy cut,橢圓鑽石,梨形鑽石,馬眼鑽石,墊形鑽石,公主方,祖母綠車工,亞瑟方,領結效應,bow-tie,鑽石崩角,鑽石形狀風險" />
+<link rel="canonical" href="https://brilliancelab.vercel.app/blog/fancy-cuts-guide" />
+<link rel="alternate" hreflang="x-default" href="https://brilliancelab.vercel.app/blog/fancy-cuts-guide" />
+<link rel="alternate" hreflang="zh-TW" href="https://brilliancelab.vercel.app/blog/fancy-cuts-guide" />
+<link rel="alternate" hreflang="en" href="https://brilliancelab.vercel.app/blog/fancy-cuts-guide" />
+<link rel="icon" type="image/svg+xml" href="/icon.svg" />
+<link rel="alternate" type="application/rss+xml" title="BrillianceLab Blog RSS" href="/blog/feed.xml" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="花式車工完整指南 | BrillianceLab" />
+<meta property="og:description" content="橢圓、梨形、馬眼、祖母綠的領結效應與崩角風險。" />
+<meta property="og:image" content="https://brilliancelab.vercel.app/icon.svg" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8223268344248663" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{ --bg:#faf8f3; --ink:#1a1d2e; --ink-2:#4a4d5e; --muted:#7e8194; --gold:#c9a45c; --gold-deep:#8a6e30; --gold-soft:#fbf3df; --border:#ebe6dc; --line:#f1ede3; --warn:#b04545; --warn-soft:#fdebe9; }
+  html,body{ background:var(--bg); color:var(--ink) }
+  body::before{ content:''; position:fixed; inset:0; pointer-events:none; z-index:-1; background: radial-gradient(800px 500px at 12% -8%, rgba(201,164,92,.16), transparent 60%), linear-gradient(180deg,#faf8f3 0%, #fffdf7 40%, #faf8f3 100%); }
+  .gold-text{ background:linear-gradient(180deg,#c9a45c 0%, #8a6e30 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .card{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:0 1px 2px rgba(31,29,44,.04), 0 14px 30px -18px rgba(138,110,48,.18); }
+  .lang-toggle{ display:inline-flex; border:1px solid var(--border); border-radius:9999px; overflow:hidden; background:#fff; }
+  .lang-toggle button{ padding:6px 12px; font-size:12px; font-weight:600; color:var(--muted); }
+  .lang-toggle button.active{ background:linear-gradient(180deg,#d4b87a,#8a6e30); color:#fff; }
+  .ad-slot{ border:1px dashed var(--border); border-radius:14px; background:#fff; color:var(--muted); font-size:11px; letter-spacing:.18em; text-transform:uppercase; display:flex; align-items:center; justify-content:center; }
+  .prose-zh{ line-height:1.85; font-size:16px; font-family:'Noto Serif TC','Microsoft JhengHei',Georgia,serif; }
+  .prose-zh h2{ font-family:'Noto Serif TC',Georgia,serif; font-weight:700; font-size:24px; margin:42px 0 12px; color:var(--ink); border-left:3px solid var(--gold); padding-left:14px; }
+  .prose-zh p{ margin:14px 0; color:var(--ink-2); }
+  .prose-zh ul{ margin:14px 0 14px 22px; list-style:disc; color:var(--ink-2); }
+  .prose-zh strong{ color:var(--ink); font-weight:700; }
+  .prose-zh em{ font-style:normal; color:var(--gold-deep); font-weight:600; }
+  .prose-zh blockquote{ margin:22px 0; padding:16px 20px; background:var(--gold-soft); border-left:3px solid var(--gold); border-radius:0 12px 12px 0; color:var(--ink); }
+  .prose-zh blockquote p{ margin:0; }
+  .prose-zh a{ color:var(--gold-deep); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+  .shape{ background:#fff; border:1px solid var(--border); border-radius:14px; padding:18px; margin:14px 0; transition:transform .22s, box-shadow .22s; display:grid; grid-template-columns:90px 1fr; gap:16px; align-items:start; }
+  .shape:hover{ transform:translateY(-2px); box-shadow:0 10px 22px -10px rgba(138,110,48,.28); }
+  .shape svg{ width:90px; height:90px; }
+  .shape h3{ font-family:'Noto Serif TC',Georgia,serif; font-size:18px; font-weight:700; margin:0 0 4px; color:var(--ink); }
+  .shape .meta{ font-size:11.5px; color:var(--gold-deep); letter-spacing:.05em; margin-bottom:6px; font-weight:700; }
+  .shape p{ font-size:13.5px; color:var(--ink-2); margin:0 0 6px; line-height:1.7; }
+  .shape .risk{ display:inline-block; background:var(--warn-soft); color:var(--warn); font-size:11px; padding:2px 8px; border-radius:999px; font-weight:600; margin-top:4px; }
+  @media (max-width:640px){ .hide-sm{display:none} .prose-zh{font-size:15.5px} .prose-zh h2{font-size:21px} .shape{grid-template-columns:60px 1fr; gap:12px; padding:14px} .shape svg{width:60px;height:60px} }
+</style>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"Article","headline":"花式車工完整指南","description":"橢圓、梨形、馬眼、祖母綠的領結效應與崩角風險。","datePublished":"2026-04-30","dateModified":"2026-05-01","author":{"@type":"Person","name":"BrillianceLab Editorial"},"publisher":{"@type":"Organization","name":"BrillianceLab","logo":{"@type":"ImageObject","url":"https://brilliancelab.vercel.app/icon.svg"}},"image":"https://brilliancelab.vercel.app/icon.svg","mainEntityOfPage":"https://brilliancelab.vercel.app/blog/fancy-cuts-guide"}
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://brilliancelab.vercel.app/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://brilliancelab.vercel.app/blog/"},{"@type":"ListItem","position":3,"name":"花式車工指南","item":"https://brilliancelab.vercel.app/blog/fancy-cuts-guide"}]}
+</script>
+</head>
+<body class="font-sans antialiased text-ink-900">
+
+<header class="sticky top-0 z-40 backdrop-blur bg-ivory-100/85 border-b border-[var(--border)]"><div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between"><a href="/" class="flex items-center gap-3"><span class="relative inline-flex w-9 h-9 items-center justify-center"><svg viewBox="0 0 24 24" class="w-7 h-7" fill="none"><path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#gN)" stroke-width="1.2" stroke-linejoin="round"/><path d="M3.5 9h17M8 9l4-6 4 6M8 9l4 12 4-12" stroke="url(#gN)" stroke-width="1" stroke-linejoin="round"/><defs><linearGradient id="gN" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs></svg></span><span class="leading-none"><span class="block font-display font-semibold text-[18px] gold-text tracking-wide">BrillianceLab</span><span class="block mt-1 text-[10px] uppercase tracking-[0.22em] text-ink-500 hide-sm">鑽石實驗室</span></span></a><div class="flex items-center gap-4"><a href="/" class="text-xs uppercase tracking-[.18em] text-ink-700 hide-sm">← 回主頁工具</a><div class="lang-toggle" id="langToggle"><button data-lang="zh" class="active">中文</button><button data-lang="en">EN</button></div></div></div></header>
+
+<main>
+<section class="relative pt-12 sm:pt-16 pb-8"><div class="max-w-3xl mx-auto px-5 sm:px-8">
+  <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3"><span data-zh="子文 · 切工拆解 · 花式" data-en="Sub · Cut · Fancy">子文 · 切工拆解 · 花式</span></div>
+  <h1 class="font-display font-bold leading-[1.15] text-[34px] sm:text-[48px]"><span data-zh="花式車工完整指南" data-en="Fancy Cuts Guide">花式車工完整指南</span><br/><span class="gold-text" data-zh="領結效應、崩角、淨度依賴 — 7 種非圓形避雷" data-en="Bow-Tie, Chipping, Clarity Traps">領結效應、崩角、淨度依賴 — 7 種非圓形避雷</span></h1>
+  <p class="mt-7 text-[15.5px] sm:text-[17px] text-ink-700 leading-[1.9]" data-zh="非圓形的鑽石統稱「花式車工」(fancy cut),包含橢圓、梨形、馬眼、墊形、公主方、祖母綠、亞瑟方 7 種主流。每種都有自己的優勢,也有圓形沒有的隱形風險 — 領結效應、崩角、強烈淨度依賴。本篇是<a href='/blog/diamond-shapes'>形狀總覽</a>的子文。" data-en="Non-round diamonds are 'fancy cuts' — oval, pear, marquise, cushion, princess, emerald, asscher. Each has unique advantages and unique risks: bow-tie, chipping, clarity dependency. Avoid the traps.">
+  </p>
+</div></section>
+
+<section class="max-w-3xl mx-auto px-5 sm:px-8 mt-2 mb-6"><div class="ad-slot h-24 sm:h-28"><ins class="adsbygoogle" style="display:block;width:100%;height:100%" data-ad-client="ca-pub-8223268344248663" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins></div></section>
+
+<article class="max-w-3xl mx-auto px-5 sm:px-8 pb-16">
+  <div class="prose-zh" data-lang-block="zh">
+
+    <h2>為什麼選花式車工?</h2>
+    <p>圓形是市場主流,但有 3 個原因讓人選花式:<em>視覺更大、價格更便宜、個性更獨特</em>。同樣 1 克拉,橢圓在手指上看起來會比圓形大 10%-15%,梨形大 5%-10%,馬眼大 15%。價格上花式車工平均比同等級圓形便宜 15%-30% — 因為市場流動性低、切磨損耗也較少(不像圓形要丟掉 60% 原石)。</p>
+
+    <p>但花式車工的最大陷阱是<strong>「沒有 GIA Excellent 切工等級」</strong>。GIA 從 2006 年起只給圓形鑽石發 Cut Grade(Excellent / Very Good / Good / Fair / Poor),花式車工只給 Polish 與 Symmetry 兩項評估,沒有官方光學評分。這也是為什麼<a href="/">BrillianceLab 計算器</a>內建 5 種形狀的甜蜜點算法 — 補上 GIA 沒給的那一塊。</p>
+
+    <h2>7 種主流花式車工解析</h2>
+
+    <div class="shape">
+      <svg viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="32" ry="44" fill="#fbf3df" stroke="#8a6e30" stroke-width="1.5"/><line x1="50" y1="6" x2="50" y2="94" stroke="#c9a45c" stroke-width="0.6" stroke-dasharray="2 2"/></svg>
+      <div>
+        <div class="meta">OVAL · 橢圓形</div>
+        <h3>1. 橢圓形 (Oval)</h3>
+        <p>視覺拉長手指,最受 30+ 女性歡迎。理想長寬比 <em>1.35–1.45</em>。布蕾克萊弗利、海莉•比伯都戴橢圓。</p>
+        <span class="risk">⚠ 領結效應 (bow-tie)</span><span class="risk" style="margin-left:6px">深度敏感</span>
+      </div>
+    </div>
+
+    <div class="shape">
+      <svg viewBox="0 0 100 100"><path d="M50 8 C 22 8, 16 50, 16 60 C 16 80, 32 92, 50 92 C 68 92, 84 80, 84 60 C 84 50, 78 8, 50 8 Z" fill="#fbf3df" stroke="#8a6e30" stroke-width="1.5"/></svg>
+      <div>
+        <div class="meta">PEAR · 梨形/水滴</div>
+        <h3>2. 梨形 (Pear)</h3>
+        <p>一頭尖一頭圓,戴在手指上有「拉長」效果。理想長寬比 <em>1.45–1.75</em>。尖端必須對稱、無歪斜。</p>
+        <span class="risk">⚠ 尖端易崩</span><span class="risk" style="margin-left:6px">領結效應</span>
+      </div>
+    </div>
+
+    <div class="shape">
+      <svg viewBox="0 0 100 100"><path d="M50 6 L 86 50 L 50 94 L 14 50 Z" fill="#fbf3df" stroke="#8a6e30" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      <div>
+        <div class="meta">MARQUISE · 馬眼/欖尖</div>
+        <h3>3. 馬眼形 (Marquise)</h3>
+        <p>路易十五為情婦設計的形狀,兩頭尖、視覺最大。1 克拉看起來像 1.5。理想長寬比 <em>1.85–2.10</em>。</p>
+        <span class="risk">⚠ 兩端極易崩</span><span class="risk" style="margin-left:6px">復古感重</span>
+      </div>
+    </div>
+
+    <div class="shape">
+      <svg viewBox="0 0 100 100"><rect x="14" y="14" width="72" height="72" rx="18" fill="#fbf3df" stroke="#8a6e30" stroke-width="1.5"/></svg>
+      <div>
+        <div class="meta">CUSHION · 墊形</div>
+        <h3>4. 墊形 (Cushion)</h3>
+        <p>圓潤的方形,角不利容易戴,光學表現僅次於圓形。卡地亞、Tiffany 都有經典墊形款。</p>
+        <span class="risk">⚠ 大刻面型 vs 細刻面型差很多</span>
+      </div>
+    </div>
+
+    <div class="shape">
+      <svg viewBox="0 0 100 100"><rect x="18" y="18" width="64" height="64" fill="#fbf3df" stroke="#8a6e30" stroke-width="1.5"/><line x1="18" y1="18" x2="82" y2="82" stroke="#c9a45c" stroke-width="0.5"/><line x1="82" y1="18" x2="18" y2="82" stroke="#c9a45c" stroke-width="0.5"/></svg>
+      <div>
+        <div class="meta">PRINCESS · 公主方</div>
+        <h3>5. 公主方 (Princess)</h3>
+        <p>1980 年代發明的方形車工,4 個尖角是脆弱點。每克拉切磨損耗最少,所以同條件下比圓形便宜約 25%。</p>
+        <span class="risk">⚠ 4 角崩裂風險</span><span class="risk" style="margin-left:6px">需 V 字爪保護</span>
+      </div>
+    </div>
+
+    <div class="shape">
+      <svg viewBox="0 0 100 100"><rect x="22" y="14" width="56" height="72" fill="#fbf3df" stroke="#8a6e30" stroke-width="1.5"/><rect x="30" y="22" width="40" height="56" fill="none" stroke="#c9a45c" stroke-width="0.6"/><rect x="36" y="28" width="28" height="44" fill="none" stroke="#c9a45c" stroke-width="0.4"/></svg>
+      <div>
+        <div class="meta">EMERALD · 祖母綠</div>
+        <h3>6. 祖母綠車工 (Emerald)</h3>
+        <p>長方形階梯式刻面,像「Hall of Mirrors」鏡廳效果。優雅低調,珍妮佛安妮絲頓、瑪格羅比、貝克漢都戴。</p>
+        <span class="risk">⚠ 淨度要求高 (VS1+)</span><span class="risk" style="margin-left:6px">不夠閃</span>
+      </div>
+    </div>
+
+    <div class="shape">
+      <svg viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" fill="#fbf3df" stroke="#8a6e30" stroke-width="1.5"/><rect x="28" y="28" width="44" height="44" fill="none" stroke="#c9a45c" stroke-width="0.6"/><rect x="34" y="34" width="32" height="32" fill="none" stroke="#c9a45c" stroke-width="0.4"/></svg>
+      <div>
+        <div class="meta">ASSCHER · 亞瑟方</div>
+        <h3>7. 亞瑟方 (Asscher)</h3>
+        <p>1902 年荷蘭 Asscher 兄弟設計的正方形階梯切工,Art Deco 復古風格的代表。Pippa Middleton、Reese Witherspoon 都戴。</p>
+        <span class="risk">⚠ 淨度要求極高 (VVS+)</span>
+      </div>
+    </div>
+
+    <h2>什麼是「領結效應」(Bow-tie)?</h2>
+    <p>橢圓、梨形、馬眼三種拉長形狀,中央會出現一條深色橫帶,看起來像領結 — 這就是領結效應。原因是這些形狀的中央區域,光線從觀者頭部方向進入時被自己的影子擋住,造成「中央暗帶」。</p>
+
+    <p><em>不是所有橢圓都有領結效應</em>,但 95% 的橢圓多少有一點。輕微的領結幾乎看不見,嚴重的領結會讓鑽石中央死黑一片。買橢圓、梨形、馬眼時必須親眼看實品(或看 360° 影片),不能只看靜態照片。深度落在 60–62%、桌面 56–59% 時領結最輕。<a href="/blog/cut-grade">切工分級指南</a>有更詳細的領結成因解析。</p>
+
+    <h2>崩角風險與解決方法</h2>
+    <p>所有有「尖角」的花式車工都有崩角風險:公主方 4 角、馬眼 2 端、梨形 1 端。日常碰撞、衣物勾掛、運動時撞到桌角 — 這些尖端就是斷點。</p>
+
+    <p>解決方法是<em>選對戒台</em>:公主方一定要 <strong>V 字爪 (V-tip)</strong> 保護 4 個角;梨形與馬眼要在尖端用「子彈爪」(bullet prong) 完整包覆;包邊鑲(bezel)可徹底消除崩角風險,但會壓掉一些火光。<a href="/blog/wedding-bands">5 種戒指完全指南</a>第三節有戒台對應形狀的搭配規則,<a href="/blog/diamond-care">鑽石保養全攻略</a>也有日常防撞 SOP。</p>
+
+    <h2>祖母綠 vs 亞瑟方:為什麼淨度這麼重要?</h2>
+    <p>祖母綠與亞瑟方屬於「階梯式切工」(step cut),刻面少而大、像鏡廳一樣。優點是優雅、價格相對低 30%-40%;缺點是<strong>放大鏡效果</strong> — 內含物會因階梯反射被「複印」出來,平常 SI1 級就能買的鑽石,在階梯切工下要 VS1 才安全。</p>
+
+    <p>所以如果你執意買祖母綠或亞瑟方,<a href="/blog/diamond-clarity">淨度等級指南</a>建議的甜蜜點 (VS2-SI1) 在這裡要往上推一級到 VS1-VS2,且要看 GIA 的 Plotting Diagram 確認內含物不在桌面正中央。</p>
+
+    <h2>長寬比怎麼挑?</h2>
+    <p>每種拉長形狀(橢圓、梨形、馬眼)都有「黃金長寬比」區間,落在區間內視覺最美:</p>
+    <ul>
+      <li><strong>橢圓:</strong>1.35–1.45(最瘦長 1.50,最胖 1.30)</li>
+      <li><strong>梨形:</strong>1.45–1.75</li>
+      <li><strong>馬眼:</strong>1.85–2.10</li>
+      <li><strong>祖母綠/亞瑟方:</strong>1.30–1.45 為祖母綠,1.00–1.05 為亞瑟方</li>
+    </ul>
+    <p>低於下限會「太胖看起來像不及格的圓」,高於上限會「太瘦像被擠壓」。比例查證可以從 GIA 證書的 Measurements 欄拿到 — 把長 ÷ 寬就是長寬比。詳細的看書步驟在<a href="/blog/gia-guide">GIA 鑑定書教學</a>。</p>
+
+    <h2>花式車工最適合誰?</h2>
+    <ul>
+      <li><strong>追求視覺尺寸:</strong>橢圓、梨形、馬眼。同 1 克拉看起來大 10%-15%。</li>
+      <li><strong>復古優雅風格:</strong>祖母綠、亞瑟方。Art Deco 與英倫古典首選。</li>
+      <li><strong>預算有限想要方形:</strong>公主方便宜圓形 25%,但要選對戒台。</li>
+      <li><strong>個性低調但要有故事:</strong>墊形 — 古老形狀(1700 年起),光學僅次圓形。</li>
+    </ul>
+
+    <p>什麼情境不適合花式?</p>
+    <ul>
+      <li><strong>第一次買鑽戒、沒有判斷能力:</strong>圓形最不踩雷。</li>
+      <li><strong>戴著做粗活、運動:</strong>選墊形或包邊鑲嵌,避免馬眼、梨形。</li>
+      <li><strong>打算將來轉售:</strong><a href="/blog/diamond-resale">圓形流動性最高</a>,花式車工脫手會比較難。</li>
+    </ul>
+
+    <blockquote><p><strong>結論:</strong>花式車工適合「想要與眾不同 + 知道自己在挑什麼風險」的買家。對著候選鑽石把長寬比、深度、桌面數字輸進<a href="/">BrillianceLab 計算器</a>,選擇對應形狀(橢圓/梨形/馬眼/墊形/公主方),系統會用該形狀的甜蜜點算法評分 — 比 GIA 沒給的 Cut Grade 還精準。</p></blockquote>
+
+    <h2>延伸閱讀路徑</h2>
+    <ul>
+      <li><a href="/blog/round-cut-deep-dive">圓形明亮車工深度解析</a> — 最閃形狀的完整數學</li>
+      <li><a href="/blog/diamond-shapes">10 種鑽石形狀完整指南</a> — 加上輻射方、Trillion 等冷門形狀</li>
+      <li><a href="/blog/diamond-clarity">淨度等級指南</a> — 階梯切工為什麼要更高淨度</li>
+      <li><a href="/blog/master-guide">回到主幹教學</a> — 看其他 14 個階段</li>
+    </ul>
+
+  </div>
+
+  <div class="prose-en hidden" data-lang-block="en">
+    <h2>Fancy Cuts Guide — Bow-tie, Chipping, Clarity Traps</h2>
+    <p>Non-round diamonds are 'fancy cuts'. Each has unique advantages and unique risks. Avoid the traps.</p>
+    <p>(English translation in progress — switch back to 中文 for the full article.)</p>
+  </div>
+
+  <div class="ad-slot h-28 my-10"><ins class="adsbygoogle" style="display:block;width:100%;height:100%" data-ad-client="ca-pub-8223268344248663" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+
+  <div class="card p-6 sm:p-8 mt-10">
+    <h3 class="font-display text-[22px] font-bold mb-3" data-zh="花式車工專用評分演算法" data-en="Fancy-cut scorer">花式車工專用評分演算法</h3>
+    <p class="text-[14.5px] text-ink-700 mb-4" data-zh="GIA 沒給花式車工 Cut Grade,BrillianceLab 內建 5 種形狀(圓形/橢圓/公主方/墊形/祖母綠)的甜蜜點算法,30 秒打分。" data-en="GIA doesn't give fancy cuts a grade — our calculator does. 5 shapes built-in.">
+    </p>
+    <a href="/" class="inline-flex items-center gap-2 px-5 py-3 rounded-full text-white font-semibold text-sm" style="background:linear-gradient(180deg,#d4b87a,#8a6e30)"><span data-zh="開始計算 →" data-en="Run calculator →">開始計算 →</span></a>
+  </div>
+
+</article>
+</main>
+
+<footer class="border-t border-[var(--border)] py-10 mt-6"><div class="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-500"><div>© 2026 BrillianceLab · <span data-zh="鑽石實驗室" data-en="Diamond Laboratory">鑽石實驗室</span></div><div class="flex gap-5"><a href="/" class="hover:text-ink-900" data-zh="首頁工具" data-en="Calculator">首頁工具</a><a href="/blog/" class="hover:text-ink-900" data-zh="部落格" data-en="Blog">部落格</a><a href="/blog/feed.xml" class="hover:text-ink-900">RSS</a></div></div></footer>
+
+<script src="/blog/blog-shared.js" defer></script>
+<script>document.addEventListener('DOMContentLoaded',function(){if(window.BL&&BL.initBlog)BL.initBlog({slug:'fancy-cuts-guide'});});</script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</body>
+</html>

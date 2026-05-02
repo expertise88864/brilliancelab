@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>圓形明亮車工深度解析 — 為什麼它是 75% 鑽石的選擇 | BrillianceLab</title>
+<meta name="description" content="圓形明亮車工(Round Brilliant)為什麼最閃?從 Tolkowsky 1919 年的數學論文開始,57 + 1 個刻面如何把光線「鎖」在鑽石裡反射兩次再射出。深度解析背後的物理。" />
+<meta name="theme-color" content="#faf8f3" />
+<meta name="keywords" content="圓形明亮車工,圓鑽,Round Brilliant,Tolkowsky 切工,57 面鑽石,58 面鑽石,鑽石數學,圓形鑽石比例,完美比例,光學切工,鑽石折射" />
+<link rel="canonical" href="https://brilliancelab.vercel.app/blog/round-cut-deep-dive" />
+<link rel="alternate" hreflang="x-default" href="https://brilliancelab.vercel.app/blog/round-cut-deep-dive" />
+<link rel="alternate" hreflang="zh-TW" href="https://brilliancelab.vercel.app/blog/round-cut-deep-dive" />
+<link rel="alternate" hreflang="en" href="https://brilliancelab.vercel.app/blog/round-cut-deep-dive" />
+<link rel="icon" type="image/svg+xml" href="/icon.svg" />
+<link rel="alternate" type="application/rss+xml" title="BrillianceLab Blog RSS" href="/blog/feed.xml" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="圓形明亮車工深度解析 | BrillianceLab" />
+<meta property="og:description" content="為什麼它是 75% 鑽石的選擇 — Tolkowsky 數學完整解析。" />
+<meta property="og:image" content="https://brilliancelab.vercel.app/icon.svg" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8223268344248663" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{ --bg:#faf8f3; --ink:#1a1d2e; --ink-2:#4a4d5e; --muted:#7e8194; --gold:#c9a45c; --gold-deep:#8a6e30; --gold-soft:#fbf3df; --border:#ebe6dc; --line:#f1ede3; }
+  html,body{ background:var(--bg); color:var(--ink) }
+  body::before{ content:''; position:fixed; inset:0; pointer-events:none; z-index:-1; background: radial-gradient(800px 500px at 12% -8%, rgba(201,164,92,.16), transparent 60%), linear-gradient(180deg,#faf8f3 0%, #fffdf7 40%, #faf8f3 100%); }
+  .gold-text{ background:linear-gradient(180deg,#c9a45c 0%, #8a6e30 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .card{ background:#fff; border:1px solid var(--border); border-radius:18px; box-shadow:0 1px 2px rgba(31,29,44,.04), 0 14px 30px -18px rgba(138,110,48,.18); }
+  .lang-toggle{ display:inline-flex; border:1px solid var(--border); border-radius:9999px; overflow:hidden; background:#fff; }
+  .lang-toggle button{ padding:6px 12px; font-size:12px; font-weight:600; color:var(--muted); }
+  .lang-toggle button.active{ background:linear-gradient(180deg,#d4b87a,#8a6e30); color:#fff; }
+  .ad-slot{ border:1px dashed var(--border); border-radius:14px; background:#fff; color:var(--muted); font-size:11px; letter-spacing:.18em; text-transform:uppercase; display:flex; align-items:center; justify-content:center; }
+  .prose-zh,.prose-en{ line-height:1.85; font-size:16px; }
+  .prose-zh{ font-family:'Noto Serif TC','Microsoft JhengHei',Georgia,serif; }
+  .prose-zh h2,.prose-en h2{ font-family:'Noto Serif TC',Georgia,serif; font-weight:700; font-size:24px; margin:42px 0 12px; color:var(--ink); border-left:3px solid var(--gold); padding-left:14px; }
+  .prose-zh p,.prose-en p{ margin:14px 0; color:var(--ink-2); }
+  .prose-zh ul{ margin:14px 0 14px 22px; list-style:disc; color:var(--ink-2); }
+  .prose-zh strong{ color:var(--ink); font-weight:700; }
+  .prose-zh em{ font-style:normal; color:var(--gold-deep); font-weight:600; }
+  .prose-zh blockquote{ margin:22px 0; padding:16px 20px; background:var(--gold-soft); border-left:3px solid var(--gold); border-radius:0 12px 12px 0; color:var(--ink); }
+  .prose-zh blockquote p{ margin:0; }
+  .prose-zh a{ color:var(--gold-deep); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+  .ratio-tbl{ width:100%; border-collapse:collapse; font-size:13px; margin:18px 0; }
+  .ratio-tbl th,.ratio-tbl td{ padding:9px 8px; border-bottom:1px solid var(--line); text-align:right; }
+  .ratio-tbl th{ background:#fbf3df; color:#5e4a1f; }
+  .ratio-tbl td:first-child,.ratio-tbl th:first-child{ text-align:left; font-weight:700; color:var(--ink); }
+  .diagram{ display:block; margin:22px auto; max-width:420px; width:100%; }
+  @media (max-width:640px){ .hide-sm{display:none} .prose-zh{font-size:15.5px} .prose-zh h2{font-size:21px} }
+</style>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"Article","headline":"圓形明亮車工深度解析","description":"為什麼它是 75% 鑽石的選擇。","datePublished":"2026-04-30","dateModified":"2026-05-01","author":{"@type":"Person","name":"BrillianceLab Editorial"},"publisher":{"@type":"Organization","name":"BrillianceLab","logo":{"@type":"ImageObject","url":"https://brilliancelab.vercel.app/icon.svg"}},"image":"https://brilliancelab.vercel.app/icon.svg","mainEntityOfPage":"https://brilliancelab.vercel.app/blog/round-cut-deep-dive"}
+</script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://brilliancelab.vercel.app/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://brilliancelab.vercel.app/blog/"},{"@type":"ListItem","position":3,"name":"圓形明亮車工","item":"https://brilliancelab.vercel.app/blog/round-cut-deep-dive"}]}
+</script>
+</head>
+<body class="font-sans antialiased text-ink-900">
+
+<header class="sticky top-0 z-40 backdrop-blur bg-ivory-100/85 border-b border-[var(--border)]"><div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between"><a href="/" class="flex items-center gap-3"><span class="relative inline-flex w-9 h-9 items-center justify-center"><svg viewBox="0 0 24 24" class="w-7 h-7" fill="none"><path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#gN)" stroke-width="1.2" stroke-linejoin="round"/><path d="M3.5 9h17M8 9l4-6 4 6M8 9l4 12 4-12" stroke="url(#gN)" stroke-width="1" stroke-linejoin="round"/><defs><linearGradient id="gN" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs></svg></span><span class="leading-none"><span class="block font-display font-semibold text-[18px] gold-text tracking-wide">BrillianceLab</span><span class="block mt-1 text-[10px] uppercase tracking-[0.22em] text-ink-500 hide-sm">鑽石實驗室</span></span></a><div class="flex items-center gap-4"><a href="/" class="text-xs uppercase tracking-[.18em] text-ink-700 hide-sm">← 回主頁工具</a><div class="lang-toggle" id="langToggle"><button data-lang="zh" class="active">中文</button><button data-lang="en">EN</button></div></div></div></header>
+
+<main>
+<section class="relative pt-12 sm:pt-16 pb-8"><div class="max-w-3xl mx-auto px-5 sm:px-8">
+  <div class="text-[11px] uppercase tracking-[.24em] text-ink-500 mb-3"><span data-zh="子文 · 切工拆解 · 圓形" data-en="Sub · Cut · Round">子文 · 切工拆解 · 圓形</span></div>
+  <h1 class="font-display font-bold leading-[1.15] text-[34px] sm:text-[48px]"><span data-zh="圓形明亮車工" data-en="Round Brilliant">圓形明亮車工</span><br/><span class="gold-text" data-zh="深度解析:為什麼它是 75% 鑽石的選擇" data-en="Why 75% of Diamonds Are Round">深度解析:為什麼它是 75% 鑽石的選擇</span></h1>
+  <p class="mt-7 text-[15.5px] sm:text-[17px] text-ink-700 leading-[1.9]" data-zh="這是 BrillianceLab 主幹文「鑽石購買總教學」的子文之一,專門講解圓形明亮車工(Round Brilliant)的數學起源、57 + 1 刻面結構,以及為什麼這個從 1919 年沿用至今的設計仍是市場上最閃亮的選擇。" data-en="A sub-article of BrillianceLab's master guide. Deep dive on the round brilliant cut — its mathematical origin, 57+1 facet structure, and why it remains the brightest cut from 1919 to today.">
+  </p>
+</div></section>
+
+<section class="max-w-3xl mx-auto px-5 sm:px-8 mt-2 mb-6"><div class="ad-slot h-24 sm:h-28"><ins class="adsbygoogle" style="display:block;width:100%;height:100%" data-ad-client="ca-pub-8223268344248663" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins></div></section>
+
+<article class="max-w-3xl mx-auto px-5 sm:px-8 pb-16">
+  <div class="prose-zh" data-lang-block="zh">
+
+    <h2>1919 年的博士論文,改變整個產業</h2>
+    <p>1919 年,俄裔比利時數學家 <strong>Marcel Tolkowsky</strong> 在倫敦大學發表博士論文《Diamond Design》。他以光學折射定律(Snell's Law)為基礎,計算出鑽石若想最大化「光線進入後反射兩次再射出」的比例,各刻面應該成什麼角度。論文中得到的數字 — 桌面 53%、亭角 40.75°、冠角 34.5° — 就是今天圓形明亮車工的「黃金比例」。詳細的<a href="/blog/cut-grade">切工分級數學</a>會解釋這些數字背後的具體推導,而<a href="/blog/hearts-arrows-truth">八心八箭真相</a>則拆穿一些 GIA Excellent 為什麼仍然不及格。</p>
+
+    <p>這篇論文的影響力延續至今:<em>市面上 75% 的鑽石都是圓形明亮式</em>。剩下的 25% 是橢圓、公主方、墊形、祖母綠、梨形等所謂「花式車工」(fancy cut)。如果你打算讓鑽石「最閃」,圓形仍然是最穩的選擇 — 這也是<a href="/blog/master-guide">主幹教學文</a>第一階段就推薦圓形給新手的原因。</p>
+
+    <h2>57 + 1 刻面是怎麼設計的</h2>
+    <p>圓形明亮式正式名稱叫「Round Brilliant 57+1」,代表 <strong>57 個刻面 + 1 個底尖(culet)</strong>。從鑽石頂端往下看,你會看到 33 個冠部刻面與 24 個亭部刻面 — 上下對應、互相補位,讓光線無論從哪個角度進入都能找到「全反射路徑」。</p>
+
+    <ul>
+      <li><strong>1 個桌面(Table):</strong>頂端最大的八角形,負責讓光線進入。</li>
+      <li><strong>8 個風箏面(Bezel):</strong>冠部主刻面,負責主要折射。</li>
+      <li><strong>8 個星面(Star):</strong>桌面與風箏面之間,提升火光。</li>
+      <li><strong>16 個上腰面(Upper Girdle):</strong>連接到腰部,提升閃爍。</li>
+      <li><strong>1 個腰圍(Girdle):</strong>鑽石最寬處,通常是雷射編號刻在這裡。</li>
+      <li><strong>16 個下腰面(Lower Girdle):</strong>對稱於上腰面。</li>
+      <li><strong>8 個亭面(Pavilion):</strong>下半身主刻面,負責反射。</li>
+      <li><strong>1 個底尖(Culet):</strong>有時磨平、有時是點 — 完美比例下幾乎看不見。</li>
+    </ul>
+
+    <p>這 57 + 1 個面組成「天然的稜鏡陣列」,把白光分解成彩虹色再射回觀者眼睛 — 這就是「火光」(fire)的來源。如果你想看每一面如何貢獻於最終分數,<a href="/blog/gia-guide">GIA 鑑定書教學</a>第三節會解釋 GIA 的「Plotting Diagram」怎麼讀。</p>
+
+    <h2>圓形的 4 個比例甜蜜點</h2>
+    <p>同樣是「圓形明亮式」,落在不同比例區間的鑽石,光學表現可以差到 25%。BrillianceLab <a href="/">計算器</a>內建的甜蜜點區間如下:</p>
+
+    <table class="ratio-tbl">
+      <thead><tr><th>比例</th><th>甜蜜點</th><th>偏離影響</th></tr></thead>
+      <tbody>
+        <tr><td>桌面 Table %</td><td>53–58%</td><td>過大火光弱、過小閃爍弱</td></tr>
+        <tr><td>深度 Depth %</td><td>60–63%</td><td>太深變「暗釘子」、太淺漏光</td></tr>
+        <tr><td>冠角 Crown °</td><td>33.5–35.5°</td><td>影響火光散射角度</td></tr>
+        <tr><td>亭角 Pavilion °</td><td>40.4–41.2°</td><td>差 0.5° 就可能漏光</td></tr>
+      </tbody>
+    </table>
+
+    <p>更微妙的是「Tolkowsky 調和項」 — <em>冠角 + 2 × 亭角應落在 115.5–117°</em>。同樣 GIA Excellent 的兩顆鑽石,一顆 116° 一顆 119°,前者光學分數可能 92,後者只有 78。這就是為什麼「真八心八箭」需要四項比例同時到位,光看 GIA 的 Cut Grade 是不夠的。<a href="/blog/hearts-arrows-truth">八心八箭真相</a>用實際比例案例展示這個現象。</p>
+
+    <h2>圓形 vs 花式車工的價格差</h2>
+    <p>圓形是市場主流,但<strong>每克拉切磨損耗最大</strong> — 從原石(rough)切成圓鑽,平均要丟掉 60% 的重量。這就是為什麼<em>同 1 克拉、同顏色淨度,圓形比公主方貴 25%-35%、比橢圓貴 15%-20%、比祖母綠貴 30% 以上</em>。</p>
+
+    <p>如果預算有限想讓鑽石看起來更大,可以考慮花式車工。但要注意:橢圓、梨形有「領結效應」(bow-tie),公主方有崩角風險,祖母綠淨度要求高 — 各有各的踩雷點,在<a href="/blog/diamond-shapes">鑽石形狀完整指南</a>裡有 10 種形狀的詳細比較。</p>
+
+    <h2>圓形最適合什麼戒台?</h2>
+    <p>圓形與所有戒台都搭,但不同戒台會放大或抵消鑽石的優點。<a href="/blog/engagement-guide">結婚鑽戒 9 步驟</a>第六步有完整戒台選擇邏輯,簡單規則是:</p>
+
+    <ul>
+      <li><strong>六爪 Tiffany Setting:</strong>1925 年由 Tiffany 創立的爪鑲,讓最多光線從側面進入,圓鑽搭配最閃 — 但爪子多卡頭髮、衣服。</li>
+      <li><strong>四爪鑲嵌:</strong>側面更通透,適合 0.5 克拉以下的小鑽,大鑽建議六爪以策安全。</li>
+      <li><strong>包邊鑲(Bezel):</strong>金屬完全包圍腰部,壓掉一些火光,但耐用度最高,適合天天戴。</li>
+      <li><strong>暈鑲(Halo):</strong>主鑽周圍鑲一圈小鑽,視覺放大 30%,但多花的錢能不能 justify 要看你重不重視「看起來像 1.5 克拉」。</li>
+    </ul>
+
+    <p>戒台金屬也會影響圓鑽的視覺顏色 — <a href="/blog/wedding-metals">婚戒材質完整指南</a>解釋 18K 黃金為什麼讓 H 色鑽石看起來像 G 色,而鉑金則會讓 J 色鑽石看起來像 K 色。</p>
+
+    <h2>圓形保值率最高</h2>
+    <p>由於市場流動性最強,圓形也是<strong>最好脫手的形狀</strong>。中古市場上同條件圓鑽通常比花式車工多賣 10%-15%。如果你打算將來可能升級或轉售,圓形保值率最高;如果你買了打算戴一輩子,形狀就純粹按個人喜好。<a href="/blog/diamond-resale">鑽石回收與保值真相</a>有 4 種回收管道的實際行情。</p>
+
+    <blockquote><p><strong>結論:</strong>圓形明亮式是 1919 年 Tolkowsky 數學論文的傑作,57 + 1 刻面把光線「鎖在鑽石裡反射兩次再射出」,是物理上「最閃」的形狀 — 也是最好脫手的形狀。把鑽石的桌面、深度、冠角、亭角輸入 <a href="/">BrillianceLab 計算器</a>,看看你那顆鑽石有沒有達到 Tolkowsky 黃金比例。</p></blockquote>
+
+    <h2>延伸閱讀路徑</h2>
+    <p>讀完圓形,接下來建議讀:</p>
+    <ul>
+      <li><a href="/blog/diamond-shapes">10 種鑽石形狀完整指南</a> — 看橢圓、公主方、祖母綠等其他選擇</li>
+      <li><a href="/blog/hearts-arrows-truth">八心八箭真相</a> — 為什麼有些 Excellent 圓鑽其實不及格</li>
+      <li><a href="/blog/cut-grade">切工分級指南</a> — Tolkowsky 數學的完整推導</li>
+      <li><a href="/blog/master-guide">回到主幹教學</a> — 看其他 14 個階段</li>
+    </ul>
+
+  </div>
+
+  <div class="prose-en hidden" data-lang-block="en">
+    <h2>The Round Brilliant Cut — Deep Dive</h2>
+    <p>Why 75% of diamonds are round, and how Tolkowsky's 1919 PhD thesis still defines the gold standard today.</p>
+    <p>(English translation in progress — switch back to 中文 for the full article.)</p>
+  </div>
+
+  <div class="ad-slot h-28 my-10"><ins class="adsbygoogle" style="display:block;width:100%;height:100%" data-ad-client="ca-pub-8223268344248663" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+
+  <div class="card p-6 sm:p-8 mt-10">
+    <h3 class="font-display text-[22px] font-bold mb-3" data-zh="算算你那顆圓鑽的數學分數" data-en="Score your round diamond">算算你那顆圓鑽的數學分數</h3>
+    <p class="text-[14.5px] text-ink-700 mb-4" data-zh="輸入桌面、深度、冠角、亭角四個數字,30 秒內看到 Tolkowsky 黃金比例對應的光學評分。" data-en="Punch in 4 numbers — get the Tolkowsky-based score in 30 seconds.">
+    </p>
+    <a href="/" class="inline-flex items-center gap-2 px-5 py-3 rounded-full text-white font-semibold text-sm" style="background:linear-gradient(180deg,#d4b87a,#8a6e30)"><span data-zh="開始計算 →" data-en="Run calculator →">開始計算 →</span></a>
+  </div>
+
+</article>
+</main>
+
+<footer class="border-t border-[var(--border)] py-10 mt-6"><div class="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-500"><div>© 2026 BrillianceLab · <span data-zh="鑽石實驗室" data-en="Diamond Laboratory">鑽石實驗室</span></div><div class="flex gap-5"><a href="/" class="hover:text-ink-900" data-zh="首頁工具" data-en="Calculator">首頁工具</a><a href="/blog/" class="hover:text-ink-900" data-zh="部落格" data-en="Blog">部落格</a><a href="/blog/feed.xml" class="hover:text-ink-900">RSS</a></div></div></footer>
+
+<script src="/blog/blog-shared.js" defer></script>
+<script>document.addEventListener('DOMContentLoaded',function(){if(window.BL&&BL.initBlog)BL.initBlog({slug:'round-cut-deep-dive'});});</script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</body>
+</html>

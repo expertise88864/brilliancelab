@@ -16,13 +16,183 @@
     <category>Jewelry</category>
     <category>Buyer's Guide</category>
     <ttl>1440</ttl>
-    <lastBuildDate>Sun, 04 May 2026 10:00:00 +0800</lastBuildDate>
-    <pubDate>Sun, 04 May 2026 10:00:00 +0800</pubDate>
+    <lastBuildDate>Fri, 01 May 2026 10:00:00 +0800</lastBuildDate>
+    <pubDate>Fri, 01 May 2026 10:00:00 +0800</pubDate>
     <image>
       <url>https://brilliancelab.vercel.app/icon.svg</url>
       <title>BrillianceLab 鑽石實驗室</title>
       <link>https://brilliancelab.vercel.app/blog/</link>
     </image>
+
+    <item>
+      <title>婚戒刻字完整指南 — 8 種字體 × 5 種文案 × 4 個不褪色秘訣</title>
+      <link>https://brilliancelab.vercel.app/blog/engraving-personalization</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/engraving-personalization</guid>
+      <pubDate>Sat, 02 May 2026 18:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>戒指選購</category>
+      <description>戒指內側刻什麼字才不會 5 年後想撕毀?完整字體與文案範本指南。</description>
+    </item>
+
+    <item>
+      <title>鑽石內含物 8 種完整圖解 — 哪些可以買、哪些一定避開</title>
+      <link>https://brilliancelab.vercel.app/blog/inclusions-types-guide</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/inclusions-types-guide</guid>
+      <pubDate>Sat, 02 May 2026 17:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>淨度拆解</category>
+      <description>GIA Plotting Diagram 8 種符號完整圖解 — 晶體、雲霧、羽裂、針點、孿晶、鑽痕、激光鑽孔、缺口。</description>
+    </item>
+
+    <item>
+      <title>鑽石螢光反應深度解析 — 為什麼 Strong 螢光便宜 15% 卻可能更白</title>
+      <link>https://brilliancelab.vercel.app/blog/fluorescence-deep-dive</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/fluorescence-deep-dive</guid>
+      <pubDate>Sat, 02 May 2026 16:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>顏色拆解</category>
+      <description>5 個螢光等級 × 4 種顏色 = 折扣矩陣;奶霧副作用機率;戒台金屬交互影響完整解析。</description>
+    </item>
+
+    <item>
+      <title>鑽戒爪鑲完整指南 — 6 爪、4 爪、包邊、暈鑲、Pavé 7 種戒台比較</title>
+      <link>https://brilliancelab.vercel.app/blog/prong-settings-guide</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/prong-settings-guide</guid>
+      <pubDate>Sat, 02 May 2026 15:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>戒指選購</category>
+      <description>同一顆鑽石,鑲在六爪 Tiffany 與包邊鑲嵌上,視覺差異可達 30%。7 種戒台完整比較。</description>
+    </item>
+
+    <item>
+      <title>花式車工完整指南 — 橢圓、梨形、馬眼、祖母綠的領結效應與崩角風險</title>
+      <link>https://brilliancelab.vercel.app/blog/fancy-cuts-guide</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/fancy-cuts-guide</guid>
+      <pubDate>Sat, 02 May 2026 14:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>切工拆解</category>
+      <description>非圓形 7 種主流車工的領結效應、崩角風險、淨度依賴 — 完整避雷指南。</description>
+    </item>
+
+    <item>
+      <title>圓形明亮車工深度解析 — 為什麼它是 75% 鑽石的選擇</title>
+      <link>https://brilliancelab.vercel.app/blog/round-cut-deep-dive</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/round-cut-deep-dive</guid>
+      <pubDate>Sat, 02 May 2026 13:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>切工拆解</category>
+      <description>1919 年 Tolkowsky 博士論文、57+1 刻面結構、四個比例甜蜜點完整解析。</description>
+    </item>
+
+    <item>
+      <title>鑽石購買 50 問 FAQ — 4C、預算、品牌、保養一次解答</title>
+      <link>https://brilliancelab.vercel.app/blog/diamond-faq</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/diamond-faq</guid>
+      <pubDate>Fri, 01 May 2026 22:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>新手問答</category>
+      <description>50 個鑽石新手最常問的問題,從 4C、預算、品牌、培育鑽到求婚、保養、轉售一次解答。</description>
+    </item>
+
+    <item>
+      <title>婚戒保險與失竊處理完整指南 — 4 種方案 + 24 小時行動清單</title>
+      <link>https://brilliancelab.vercel.app/blog/ring-insurance</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/ring-insurance</guid>
+      <pubDate>Fri, 01 May 2026 21:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>保養與保險</category>
+      <description>4 種保險方案完整比較,加上失竊後 24 小時應對 SOP — 不報警 99% 拒賠,理賠的關鍵流程。</description>
+    </item>
+
+    <item>
+      <title>二手婚戒購買指南 — 省 50% 但別踩這 7 個雷</title>
+      <link>https://brilliancelab.vercel.app/blog/secondhand-rings</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/secondhand-rings</guid>
+      <pubDate>Fri, 01 May 2026 20:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>購買指南</category>
+      <description>二手鑽戒便宜 30%-50%,7 個地雷:來路不明、證書遺失、修改痕跡、刮傷、款式過時、心理坎、退貨難。</description>
+    </item>
+
+    <item>
+      <title>鑽石貸款分期付款指南 — 0 利率背後的隱藏成本</title>
+      <link>https://brilliancelab.vercel.app/blog/diamond-financing</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/diamond-financing</guid>
+      <pubDate>Fri, 01 May 2026 19:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>預算規劃</category>
+      <description>5 種分期方案的真實年利率比較 — 0 利率其實內含 5%-8% 折扣放棄,簽約前必問 3 件事。</description>
+    </item>
+
+    <item>
+      <title>鑽石的 30 個冷知識 — 從太空墜落到 9.99 億年的歷史</title>
+      <link>https://brilliancelab.vercel.app/blog/diamond-fun-facts</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/diamond-fun-facts</guid>
+      <pubDate>Fri, 01 May 2026 18:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>趣聞歷史</category>
+      <description>鑽石其實會燃燒、有顆星球完全是鑽石、史上最貴鑽石拍出 71.5 億 — 30 個讓你變派對話題王的冷知識。</description>
+    </item>
+
+    <item>
+      <title>戒指尺寸完整指南 — 7 種無痕量法 + 台美日歐換算對照表</title>
+      <link>https://brilliancelab.vercel.app/blog/ring-sizing</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/ring-sizing</guid>
+      <pubDate>Fri, 01 May 2026 17:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>求婚準備</category>
+      <description>求婚不能直接問尺寸怎麼辦?7 種偷量無名指尺寸的方法,加上台灣號、美國號、日本號、歐洲號完整換算表。</description>
+    </item>
+
+    <item>
+      <title>婚戒材質完整指南 — 鉑金、18K、鈀金、鈦、鎢鋼 6 種比較</title>
+      <link>https://brilliancelab.vercel.app/blog/wedding-metals</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/wedding-metals</guid>
+      <pubDate>Fri, 01 May 2026 16:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>戒指選購</category>
+      <description>6 種婚戒金屬材質的硬度、保值、過敏性、20 年維護成本完整比較,3 個問題決定你選哪一種。</description>
+    </item>
+
+    <item>
+      <title>對戒、訂婚戒、結婚戒、紀念戒、永恆戒 — 5 種戒指完全指南</title>
+      <link>https://brilliancelab.vercel.app/blog/wedding-bands</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/wedding-bands</guid>
+      <pubDate>Fri, 01 May 2026 15:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>戒指選購</category>
+      <description>訂婚戒 vs 結婚戒 vs 對戒到底差在哪?5 種戒指完整功能、佩戴禮儀、stacking 疊戴規則。</description>
+    </item>
+
+    <item>
+      <title>求婚詞範本 50 句 — 浪漫、實在、幽默、文藝、簡潔 5 種風格</title>
+      <link>https://brilliancelab.vercel.app/blog/proposal-speech</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/proposal-speech</guid>
+      <pubDate>Fri, 01 May 2026 14:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>求婚準備</category>
+      <description>「3 個具體理由」黃金公式 + 50 個範本台詞 + 5 句絕對不能說的話 — 求婚當下不卡詞。</description>
+    </item>
+
+    <item>
+      <title>男士訂婚戒完整指南 — 5 種個性 × 6 種戒台材質</title>
+      <link>https://brilliancelab.vercel.app/blog/mens-engagement-rings</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/mens-engagement-rings</guid>
+      <pubDate>Fri, 01 May 2026 13:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>戒指選購</category>
+      <description>男生戴訂婚戒的時代來了 — 5 種個性原型對應的款式 × 6 種金屬材質完整選購邏輯。</description>
+    </item>
+
+    <item>
+      <title>鑽石購買總教學 — 14 階段完整路線(主幹文)</title>
+      <link>https://brilliancelab.vercel.app/blog/master-guide</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/master-guide</guid>
+      <pubDate>Fri, 01 May 2026 12:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>主幹文</category>
+      <description>從零到精通的 14 階段學習路徑,串接所有部落格文章。新手必讀的入口主幹。</description>
+    </item>
 
     <item>
       <title>鑽石克拉與視覺尺寸對照 — 0.5、0.7、1 克拉到底差多少 mm?</title>

@@ -1,5 +1,5 @@
 /* BrillianceLab service worker — offline-first for static, network-first for HTML */
-const CACHE = 'bl-v9';
+const CACHE = 'bl-v11';
 const PRECACHE = [
   '/',
   '/index.html',
@@ -8,6 +8,7 @@ const PRECACHE = [
   '/blog/',
   '/blog/feed.xml',
   '/blog/blog-shared.js',
+  '/blog/master-guide',
   '/blog/gia-guide',
   '/blog/hearts-arrows-truth',
   '/blog/budget-formula',
@@ -21,7 +22,23 @@ const PRECACHE = [
   '/blog/diamond-resale',
   '/blog/diamond-color',
   '/blog/diamond-clarity',
-  '/blog/diamond-carat-size'
+  '/blog/diamond-carat-size',
+  '/blog/mens-engagement-rings',
+  '/blog/proposal-speech',
+  '/blog/wedding-bands',
+  '/blog/wedding-metals',
+  '/blog/ring-sizing',
+  '/blog/diamond-fun-facts',
+  '/blog/diamond-financing',
+  '/blog/secondhand-rings',
+  '/blog/ring-insurance',
+  '/blog/diamond-faq',
+  '/blog/round-cut-deep-dive',
+  '/blog/fancy-cuts-guide',
+  '/blog/prong-settings-guide',
+  '/blog/fluorescence-deep-dive',
+  '/blog/inclusions-types-guide',
+  '/blog/engraving-personalization'
 ];
 
 self.addEventListener('install', (e) => {

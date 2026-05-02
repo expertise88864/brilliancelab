@@ -198,7 +198,8 @@
     const drawer = document.createElement('div');
     drawer.id = 'blMobileDrawer';
     drawer.className = 'hidden sm:hidden border-t border-[var(--border)]';
-    drawer.style.cssText = 'background:rgba(250,248,243,.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)';
+    // max-height + overflow so drawer scrolls when its content is taller than viewport
+    drawer.style.cssText = 'background:rgba(250,248,243,.98);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);max-height:calc(100vh - 64px);overflow-y:auto;-webkit-overflow-scrolling:touch;';
     drawer.innerHTML = `
       <nav class="max-w-5xl mx-auto px-5 py-4 flex flex-col gap-1">
         <a href="/"        class="block px-3 py-2.5 rounded-lg hover:bg-[var(--gold-soft)] text-[14px] font-semibold text-gold-700"
@@ -208,34 +209,52 @@
                data-zh="部落格文章" data-en="Blog articles" data-ja="ブログ記事" data-ko="블로그 게시물" data-zhcn="博客文章"></div>
           <a href="/blog/"                    class="block py-2 text-[13.5px] text-ink-700 font-semibold"
              data-zh="📖 全部文章索引" data-en="📖 All articles"  data-ja="📖 記事一覧" data-ko="📖 모든 게시물" data-zhcn="📖 全部文章索引"></a>
-          <a href="/blog/gia-guide"           class="block py-2 text-[13px] text-ink-700"
-             data-zh="① 如何看懂 GIA 鑑定書"           data-en="① How to read a GIA report"></a>
-          <a href="/blog/hearts-arrows-truth" class="block py-2 text-[13px] text-ink-700"
-             data-zh="② 八心八箭真相"                 data-en="② Hearts &amp; Arrows truth"></a>
-          <a href="/blog/budget-formula"      class="block py-2 text-[13px] text-ink-700"
-             data-zh="③ 30 萬以下挑最閃鑽石的數學公式" data-en="③ Math formula under NT$300K"></a>
-          <a href="/blog/lab-vs-natural"      class="block py-2 text-[13px] text-ink-700"
-             data-zh="④ 天然 vs 實驗室鑽石"           data-en="④ Natural vs lab-grown"></a>
-          <a href="/blog/engagement-guide"    class="block py-2 text-[13px] text-ink-700"
-             data-zh="⑤ 結婚鑽戒 9 步驟"             data-en="⑤ Engagement ring 9 steps"></a>
-          <a href="/blog/cert-comparison"     class="block py-2 text-[13px] text-ink-700"
-             data-zh="⑦ 鑽石證書比較"               data-en="⑦ Cert comparison"></a>
-          <a href="/blog/diamond-scams"       class="block py-2 text-[13px] text-ink-700"
-             data-zh="⑧ 鑽石詐騙 TOP 10"           data-en="⑧ Top 10 diamond scams"></a>
-          <a href="/blog/diamond-shapes"      class="block py-2 text-[13px] text-ink-700"
-             data-zh="⑨ 鑽石形狀完整指南"           data-en="⑨ Diamond shapes guide"></a>
-          <a href="/blog/diamond-care"        class="block py-2 text-[13px] text-ink-700"
-             data-zh="⑩ 鑽石保養全攻略"             data-en="⑩ Diamond care"></a>
-          <a href="/blog/diamond-resale"      class="block py-2 text-[13px] text-ink-700"
-             data-zh="⑪ 鑽石回收與保值真相"         data-en="⑪ Diamond resale truth"></a>
-          <a href="/blog/diamond-color"       class="block py-2 text-[13px] text-ink-700"
-             data-zh="⑫ 鑽石顏色等級 D-Z"           data-en="⑫ Diamond color D-Z"></a>
-          <a href="/blog/diamond-clarity"     class="block py-2 text-[13px] text-ink-700"
-             data-zh="⑬ 鑽石淨度等級 FL-I"          data-en="⑬ Diamond clarity FL-I"></a>
-          <a href="/blog/diamond-carat-size"  class="block py-2 text-[13px] text-ink-700"
-             data-zh="⑭ 鑽石克拉與視覺尺寸對照"       data-en="⑭ Carat vs face-up size"></a>
+          <a href="/blog/master-guide"        class="block py-2 text-[13.5px] text-gold-700 font-bold"
+             data-zh="★ 鑽石購買總教學(主幹)" data-en="★ Master Guide (pillar)"></a>
+
+          <div class="mt-2 pt-2 border-t border-[var(--line)] text-[10px] uppercase tracking-[.18em] text-ink-500" data-zh="基礎篇" data-en="Fundamentals">基礎篇</div>
+          <a href="/blog/gia-guide"           class="block py-1.5 text-[13px] text-ink-700" data-zh="① 如何看懂 GIA 鑑定書" data-en="① GIA report"></a>
+          <a href="/blog/hearts-arrows-truth" class="block py-1.5 text-[13px] text-ink-700" data-zh="② 八心八箭真相" data-en="② H&amp;A truth"></a>
+          <a href="/blog/budget-formula"      class="block py-1.5 text-[13px] text-ink-700" data-zh="③ 挑最閃公式 BPD" data-en="③ BPD formula"></a>
+          <a href="/blog/lab-vs-natural"      class="block py-1.5 text-[13px] text-ink-700" data-zh="④ 天然 vs 實驗室鑽石" data-en="④ Natural vs lab"></a>
+
+          <div class="mt-2 text-[10px] uppercase tracking-[.18em] text-ink-500" data-zh="4C 拆解" data-en="4Cs">4C 拆解</div>
+          <a href="/blog/diamond-color"       class="block py-1.5 text-[13px] text-ink-700" data-zh="⑤ 鑽石顏色 D-Z" data-en="⑤ Color D-Z"></a>
+          <a href="/blog/diamond-clarity"     class="block py-1.5 text-[13px] text-ink-700" data-zh="⑥ 鑽石淨度 FL-I" data-en="⑥ Clarity FL-I"></a>
+          <a href="/blog/diamond-carat-size"  class="block py-1.5 text-[13px] text-ink-700" data-zh="⑦ 克拉與視覺尺寸" data-en="⑦ Carat vs size"></a>
+          <a href="/blog/diamond-shapes"      class="block py-1.5 text-[13px] text-ink-700" data-zh="⑧ 鑽石形狀指南" data-en="⑧ Diamond shapes"></a>
+          <a href="/blog/cert-comparison"     class="block py-1.5 text-[13px] text-ink-700" data-zh="⑨ 證書比較 GIA / IGI" data-en="⑨ Cert comparison"></a>
+
+          <div class="mt-2 text-[10px] uppercase tracking-[.18em] text-ink-500" data-zh="購買實戰" data-en="Practical">購買實戰</div>
+          <a href="/blog/engagement-guide"    class="block py-1.5 text-[13px] text-ink-700" data-zh="⑩ 結婚鑽戒 9 步驟" data-en="⑩ Engagement 9 steps"></a>
+          <a href="/blog/diamond-scams"       class="block py-1.5 text-[13px] text-ink-700" data-zh="⑪ 詐騙 TOP 10 避雷" data-en="⑪ Top 10 scams"></a>
+          <a href="/blog/diamond-financing"   class="block py-1.5 text-[13px] text-ink-700" data-zh="⑫ 鑽石分期付款指南" data-en="⑫ Financing guide"></a>
+          <a href="/blog/secondhand-rings"    class="block py-1.5 text-[13px] text-ink-700" data-zh="⑬ 二手婚戒購買指南" data-en="⑬ Pre-owned guide"></a>
+          <a href="/blog/diamond-faq"         class="block py-1.5 text-[13px] text-ink-700" data-zh="⑭ 鑽石購買 50 問 FAQ" data-en="⑭ 50 FAQs"></a>
+
+          <div class="mt-2 text-[10px] uppercase tracking-[.18em] text-ink-500" data-zh="求婚與婚戒" data-en="Proposal &amp; Bands">求婚與婚戒</div>
+          <a href="/blog/proposal-speech"     class="block py-1.5 text-[13px] text-ink-700" data-zh="⑮ 求婚詞 50 句" data-en="⑮ 50 proposal lines"></a>
+          <a href="/blog/ring-sizing"         class="block py-1.5 text-[13px] text-ink-700" data-zh="⑯ 戒指尺寸完整指南" data-en="⑯ Ring sizing"></a>
+          <a href="/blog/wedding-bands"       class="block py-1.5 text-[13px] text-ink-700" data-zh="⑰ 5 種戒指完全指南" data-en="⑰ 5 ring types"></a>
+          <a href="/blog/wedding-metals"      class="block py-1.5 text-[13px] text-ink-700" data-zh="⑱ 婚戒材質完整指南" data-en="⑱ Wedding metals"></a>
+          <a href="/blog/mens-engagement-rings" class="block py-1.5 text-[13px] text-ink-700" data-zh="⑲ 男士訂婚戒指南" data-en="⑲ Men's rings"></a>
+
+          <div class="mt-2 text-[10px] uppercase tracking-[.18em] text-ink-500" data-zh="保養與市場" data-en="Care &amp; Market">保養與市場</div>
+          <a href="/blog/diamond-care"        class="block py-1.5 text-[13px] text-ink-700" data-zh="⑳ 鑽石保養全攻略" data-en="⑳ Diamond care"></a>
+          <a href="/blog/ring-insurance"      class="block py-1.5 text-[13px] text-ink-700" data-zh="㉑ 婚戒保險與失竊處理" data-en="㉑ Ring insurance"></a>
+          <a href="/blog/diamond-resale"      class="block py-1.5 text-[13px] text-ink-700" data-zh="㉒ 鑽石回收與保值真相" data-en="㉒ Resale truth"></a>
+          <a href="/blog/diamond-fun-facts"   class="block py-1.5 text-[13px] text-ink-700" data-zh="㉓ 鑽石 30 個冷知識" data-en="㉓ 30 fun facts"></a>
+
+          <div class="mt-2 text-[10px] uppercase tracking-[.18em] text-gold-700 font-semibold" data-zh="✦ 深度子文" data-en="✦ Deep Dives">✦ 深度子文</div>
+          <a href="/blog/round-cut-deep-dive"      class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 圓形明亮車工" data-en="◆ Round brilliant"></a>
+          <a href="/blog/fancy-cuts-guide"         class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 花式車工指南" data-en="◆ Fancy cuts"></a>
+          <a href="/blog/prong-settings-guide"     class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 鑽戒爪鑲 7 種" data-en="◆ 7 prong settings"></a>
+          <a href="/blog/fluorescence-deep-dive"   class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 鑽石螢光反應" data-en="◆ Fluorescence"></a>
+          <a href="/blog/inclusions-types-guide"   class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 內含物 8 種" data-en="◆ 8 inclusions"></a>
+          <a href="/blog/engraving-personalization" class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 婚戒刻字指南" data-en="◆ Engraving"></a>
+
           <a href="/blog/diamond-news-2026"   class="block py-2 text-[13px] text-ink-700 mt-1 pt-2 border-t border-[var(--line)]"
-             data-zh="🔔 2026 鑽石市場新聞(滾動更新)" data-en="🔔 2026 diamond news (rolling)"></a>
+             data-zh="🔔 2026 鑽石市場新聞" data-en="🔔 2026 diamond news"></a>
         </div>
         <a href="/blog/feed.xml" class="mt-2 mx-3 inline-flex items-center justify-center gap-2 py-2.5 rounded-lg border border-[var(--border)] text-[12.5px] font-semibold text-ink-700">
           <svg viewBox="0 0 24 24" width="13" height="13" fill="#c75e00"><circle cx="6" cy="18" r="2.5"/><path d="M3 13a8 8 0 0 1 8 8h-3a5 5 0 0 0-5-5v-3zm0-6a14 14 0 0 1 14 14h-3a11 11 0 0 0-11-11V7z"/></svg>
