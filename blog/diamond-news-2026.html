@@ -7,6 +7,7 @@
 <meta name="description" content="2026 年鑽石產業重大事件整理:De Beers 母公司 Anglo American 出售案、實驗室鑽石占比突破 50%、印度切磨業裁員 30%、Lightbox 收攤、Tiffany 漲價...一篇看完今年所有重點。" />
 <meta name="theme-color" content="#faf8f3" />
 <meta name="keywords" content="鑽石新聞,2026 鑽石,De Beers,Anglo American,實驗室鑽石,LightBox,印度切磨,Tiffany 漲價,鑽石趨勢,鑽石市場,鑽石產業,Surat,鑽石價格走勢" />
+<link rel="alternate" type="application/rss+xml" title="BrillianceLab Blog RSS" href="/blog/feed.xml" />
 <link rel="canonical" href="https://brilliancelab.vercel.app/blog/diamond-news-2026" />
 <link rel="icon" type="image/svg+xml" href="/icon.svg" />
 <link rel="apple-touch-icon" href="/icon.svg" />
@@ -158,6 +159,14 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, documen
        data-zh="2026 上半年鑽石產業歷經巨變 — De Beers 母公司宣布出售案、Anglo American 重組、印度 Surat 切磨業大規模裁員、實驗室鑽石市場份額破 50%、Tiffany 第三度漲價、Lightbox 結束營運。本文整理今年上半到目前最重要的 8 則新聞,並分析對你買鑽石有什麼影響。"
        data-en="The first half of 2026 has rewritten the diamond industry — De Beers' parent Anglo American restructuring, mass layoffs in Surat, lab-grown crossing 50% share, Tiffany's third price hike, Lightbox shutting down. Here are the 8 biggest stories so far and what they mean for you as a buyer.">
     </p>
+
+    <div class="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11.5px] font-semibold"
+         style="background:linear-gradient(180deg,#fbf3df,#f5e9d0);border:1px solid rgba(201,164,92,.5);color:#5e4a1f">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+      <span data-zh="本文為滾動式更新 — 最新一則:" data-en="Rolling-update article — latest entry:"
+            data-ja="ローリング更新 — 最新:" data-ko="롤링 업데이트 — 최신:" data-zhcn="本文为滚动式更新 — 最新一则:"></span>
+      <span id="latestNewsDate" class="num">2026.04.30</span>
+    </div>
     <div class="mt-5 p-3 rounded-lg text-[12px] text-ink-700 leading-[1.7] flex items-start gap-2" style="background:#f3ede0;border:1px solid var(--border)">
       <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="#8a6e30" stroke-width="1.5" class="mt-0.5 flex-shrink-0"><circle cx="8" cy="8" r="6.5"/><path d="M8 5v3.5M8 11h0"/></svg>
       <span data-zh="本文整理自 Rapaport、Diamond Loupe、Bloomberg、Reuters、Financial Times、JCK Online 等公開新聞報導,日期至 2026 年 5 月。所有市場數據與分析僅供讀者參考,不構成投資建議。"
@@ -216,7 +225,18 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, documen
       <div class="fig-cap"><span class="fig-num">圖 1</span>過去 6 年:天然鑽石從疫情後高點下修約 25%,實驗室鑽石跌了近 70%</div>
     </div>
 
-    <h2>八則 2026 重大新聞</h2>
+    <h2 id="newsTimeline">2026 重大新聞 · 由新到舊</h2>
+
+    <!-- ============================================================
+         INSERT NEW NEWS HERE (newest first)
+         Each entry uses class "news" with .news-date (m/d) and .news-body.
+         The script at the bottom automatically picks up the topmost date
+         for the "最新一則" badge in the hero, so you only need to:
+           1) Copy any existing <div class="news">…</div> block
+           2) Paste it ABOVE this comment block
+           3) Update <span class="m"> month / <span class="d"> day, the
+              chip class (good / bear / neutral), title, body, impact.
+         ============================================================ -->
 
     <div class="news">
       <div class="news-date"><span class="m">Jan</span><span class="d">14</span></div>
@@ -453,7 +473,16 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, documen
 
 <script src="/blog/blog-shared.js" defer></script>
 <script defer>
-  document.addEventListener('DOMContentLoaded', () => BL.initBlog());
+  document.addEventListener('DOMContentLoaded', () => {
+    BL.initBlog();
+    // Auto-pick the topmost news date so "latest entry" badge stays in sync
+    // when new entries are inserted above.
+    const first = document.querySelector('#newsTimeline ~ .news, #newsTimeline + * .news, .news');
+    const m = first?.querySelector('.news-date .m')?.textContent?.trim();
+    const d = first?.querySelector('.news-date .d')?.textContent?.trim();
+    const badge = document.getElementById('latestNewsDate');
+    if (badge && m && d) badge.textContent = `2026.${m}.${d}`;
+  });
 </script>
 
 </body>

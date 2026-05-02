@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>BrillianceLab 鑽石實驗室 · 部落格</title>
+    <link>https://brilliancelab.vercel.app/blog/</link>
+    <atom:link href="https://brilliancelab.vercel.app/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>用數學公式幫你挑出最閃亮的鑽石 · GIA 鑑定書教學、八心八箭真相、實驗室鑽石比較、2026 鑽石市場新聞</description>
+    <language>zh-TW</language>
+    <copyright>© BrillianceLab</copyright>
+    <managingEditor>noreply@brilliancelab.vercel.app (BrillianceLab)</managingEditor>
+    <webMaster>noreply@brilliancelab.vercel.app (BrillianceLab)</webMaster>
+    <category>Diamonds</category>
+    <category>Jewelry</category>
+    <category>Buyer's Guide</category>
+    <ttl>1440</ttl>
+    <lastBuildDate>Fri, 02 May 2026 10:00:00 +0800</lastBuildDate>
+    <pubDate>Fri, 02 May 2026 10:00:00 +0800</pubDate>
+    <image>
+      <url>https://brilliancelab.vercel.app/icon.svg</url>
+      <title>BrillianceLab 鑽石實驗室</title>
+      <link>https://brilliancelab.vercel.app/blog/</link>
+    </image>
+
+    <item>
+      <title>2026 鑽石市場新聞速報 — De Beers 拆分、實驗室鑽石突破 50%、印度切磨業洗牌</title>
+      <link>https://brilliancelab.vercel.app/blog/diamond-news-2026</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/diamond-news-2026</guid>
+      <pubDate>Fri, 02 May 2026 09:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>新聞速報</category>
+      <category>News</category>
+      <description>De Beers 出售案、印度 Surat 切磨業裁員、實驗室鑽石突破 50% 市場份額、Tiffany 第三度漲價、Lightbox 收攤、GIA 新增 Lab-Grown 報告、中國需求衰退、EU 透明法。8 則 2026 上半年大事與買家影響分析(滾動更新)。</description>
+    </item>
+
+    <item>
+      <title>結婚鑽戒怎麼挑 — 從預算到求婚的 9 步驟</title>
+      <link>https://brilliancelab.vercel.app/blog/engagement-guide</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/engagement-guide</guid>
+      <pubDate>Fri, 02 May 2026 08:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>購買指南</category>
+      <category>Buyer's Guide</category>
+      <description>第一次買鑽戒不知道怎麼挑?完整 9 步驟:決定預算、了解她的喜好、天然 vs 實驗室、4Cs 順序、看鑑定書、用 BrillianceLab 跑分數、選戒台款式、戒圍祕招、求婚當天細節。</description>
+    </item>
+
+    <item>
+      <title>天然鑽石 vs 實驗室培育鑽石 — 2026 全面比較</title>
+      <link>https://brilliancelab.vercel.app/blog/lab-vs-natural</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/lab-vs-natural</guid>
+      <pubDate>Fri, 02 May 2026 07:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>趨勢分析</category>
+      <category>Trends</category>
+      <description>一樣是真鑽,為什麼價差 70%?從物理屬性、價格走勢、保值率、道德爭議、辨識方法五個角度,2026 最新版完整比較。含 6 年價格走勢圖與保值率對比。</description>
+    </item>
+
+    <item>
+      <title>30 萬以下挑最閃鑽石的數學公式 · BPD 公式詳解</title>
+      <link>https://brilliancelab.vercel.app/blog/budget-formula</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/budget-formula</guid>
+      <pubDate>Thu, 01 May 2026 10:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>數學公式</category>
+      <category>Math Formula</category>
+      <description>BPD(每元閃光值)= 分數 × √克拉 ÷ 價格(萬元)。把 4Cs 取捨數學化,在預算內挑最閃。內含三種預算策略對照表與決策樹流程圖。</description>
+    </item>
+
+    <item>
+      <title>八心八箭真相 — 哪些 GIA Excellent 其實不及格</title>
+      <link>https://brilliancelab.vercel.app/blog/hearts-arrows-truth</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/hearts-arrows-truth</guid>
+      <pubDate>Thu, 01 May 2026 09:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>數學公式</category>
+      <category>Math Formula</category>
+      <description>同樣 GIA Excellent,實際閃亮度可差到 25%。本文用四個實際比例案例與光學圖解,告訴你哪些 GIA Excellent 其實達不到頂級閃亮度,以及如何用 Tolkowsky 調和項驗證真八心八箭。</description>
+    </item>
+
+    <item>
+      <title>如何看懂 GIA 鑑定書 — 5 分鐘完整解析</title>
+      <link>https://brilliancelab.vercel.app/blog/gia-guide</link>
+      <guid isPermaLink="true">https://brilliancelab.vercel.app/blog/gia-guide</guid>
+      <pubDate>Thu, 01 May 2026 08:00:00 +0800</pubDate>
+      <dc:creator>BrillianceLab</dc:creator>
+      <category>購買指南</category>
+      <category>Buyer's Guide</category>
+      <description>從零開始看懂 GIA 鑽石鑑定書 — 4Cs、比例圖、Polish/Symmetry/Fluorescence 全解析。學會辨識「真 Excellent」與「邊緣 Excellent」的差距。</description>
+    </item>
+  </channel>
+</rss>

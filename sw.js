@@ -1,10 +1,12 @@
 /* BrillianceLab service worker — offline-first for static, network-first for HTML */
-const CACHE = 'bl-v4';
+const CACHE = 'bl-v5';
 const PRECACHE = [
   '/',
   '/index.html',
   '/icon.svg',
   '/manifest.json',
+  '/blog/',
+  '/blog/blog-shared.js',
   '/blog/gia-guide',
   '/blog/hearts-arrows-truth',
   '/blog/budget-formula',

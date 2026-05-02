@@ -20,6 +20,9 @@
 <!-- PWA -->
 <link rel="manifest" href="/manifest.json" />
 
+<!-- RSS feed (blog) -->
+<link rel="alternate" type="application/rss+xml" title="BrillianceLab Blog RSS" href="/blog/feed.xml" />
+
 <!-- Search engine verification -->
 <meta name="google-site-verification" content="f7oOM7GQVYUXeCH8os4s_MDVzaO62i-Ry7fMs8xWJYs" />
 <meta name="msvalidate.01" content="E0C80549746F44CC7041C29DBBE89452" />
@@ -298,16 +301,18 @@
       <a href="#about" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="演算法" data-en="Algorithm" data-ja="アルゴリズム" data-ko="알고리즘" data-zhcn="算法" data-de="Algorithmus" data-fr="Algorithme" data-es="Algoritmo"></a>
       <a href="#vendors" class="text-xs uppercase tracking-[.18em] text-ink-700 hover:text-ink-900 hide-sm" data-zh="市場價位" data-en="Prices" data-ja="市場価格" data-ko="시세" data-zhcn="市场价位" data-de="Preise" data-fr="Prix" data-es="Precios"></a>
       <span class="relative hide-sm" id="blogDropdown">
-        <a href="/blog/gia-guide" class="text-xs uppercase tracking-[.18em] text-gold-600 hover:text-gold-700 font-semibold cursor-pointer select-none" data-zh="部落格 ▾" data-en="Blog ▾" data-ja="ブログ ▾" data-ko="블로그 ▾" data-zhcn="博客 ▾"></a>
+        <a href="/blog/" class="text-xs uppercase tracking-[.18em] text-gold-600 hover:text-gold-700 font-semibold cursor-pointer select-none" data-zh="部落格 ▾" data-en="Blog ▾" data-ja="ブログ ▾" data-ko="블로그 ▾" data-zhcn="博客 ▾"></a>
         <span class="absolute right-0 top-full hidden pt-3 z-50 w-[22rem]" id="blogDropdownMenu">
           <span class="card p-2 block max-h-[70vh] overflow-y-auto">
+            <a href="/blog/" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px] font-semibold border-b border-[var(--line)] mb-1 pb-2.5"
+               data-zh="📖 全部文章索引 →" data-en="📖 All articles →" data-ja="📖 記事一覧 →" data-ko="📖 모든 게시물 →" data-zhcn="📖 全部文章索引 →"></a>
             <a href="/blog/gia-guide" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="① 如何看懂 GIA 鑑定書" data-en="① How to read a GIA report"></a>
             <a href="/blog/hearts-arrows-truth" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="② 八心八箭真相 — 哪些 GIA Excellent 不及格" data-en="② Hearts &amp; Arrows truth — which GIA Excellents fail"></a>
             <a href="/blog/budget-formula" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="③ 30 萬以下挑最閃鑽石的數學公式" data-en="③ The math formula to pick the brightest diamond under NT$300K"></a>
             <a href="/blog/lab-vs-natural" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="④ 天然 vs 實驗室鑽石 — 2026 全面比較" data-en="④ Natural vs Lab-Grown — 2026 full comparison"></a>
             <a href="/blog/engagement-guide" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="⑤ 結婚鑽戒怎麼挑 — 9 步驟完整指南" data-en="⑤ Engagement ring guide — 9 steps"></a>
             <a href="/blog/diamond-news-2026" class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px] border-t border-[var(--line)] mt-1 pt-2.5"
-               data-zh="🔔 2026 鑽石市場新聞速報" data-en="🔔 2026 diamond market news roundup"></a>
+               data-zh="🔔 2026 鑽石市場新聞(滾動更新)" data-en="🔔 2026 diamond market news (rolling)"></a>
           </span>
         </span>
       </span>
