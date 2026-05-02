@@ -209,8 +209,38 @@
   .lang-toggle button{ padding:6px 12px; font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.04em; line-height:1; }
   .lang-toggle button.active{ background:linear-gradient(180deg,#d4b87a,#8a6e30); color:#fff; }
 
-  /* score conic ring */
-  .score-ring{ background:conic-gradient(from -90deg, #c9a45c calc(var(--s,0)*1%), #ece8dc calc(var(--s,0)*1%) 100%); }
+  /* score conic ring — tier-aware via CSS var --ring */
+  .score-ring{
+    background:conic-gradient(from -90deg, var(--ring,#c9a45c) calc(var(--s,0)*1%), #ece8dc calc(var(--s,0)*1%) 100%);
+    transition:background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  }
+  .score-ring.tier-ideal     { --ring:#c9a45c; box-shadow:0 0 0 3px rgba(201,164,92,.18), 0 18px 38px -12px rgba(201,164,92,.55); }
+  .score-ring.tier-excellent { --ring:#3d7d4e; box-shadow:0 0 0 3px rgba(61,125,78,.16),  0 18px 38px -12px rgba(61,125,78,.45); }
+  .score-ring.tier-good      { --ring:#b89146; box-shadow:0 0 0 3px rgba(184,145,70,.16),  0 14px 32px -12px rgba(184,145,70,.42); }
+  .score-ring.tier-fair      { --ring:#c97a2c; box-shadow:0 0 0 3px rgba(201,122,44,.18),  0 14px 32px -12px rgba(201,122,44,.42); }
+  .score-ring.tier-off       { --ring:#b04545; box-shadow:0 0 0 3px rgba(176,69,69,.18),   0 14px 32px -12px rgba(176,69,69,.42); }
+
+  /* score numeric value — bigger, with per-tier gradient */
+  #scoreValue{ background-image:linear-gradient(180deg,#d4b87a 0%,#8a6e30 100%); -webkit-background-clip:text; background-clip:text; color:transparent; transition:background-image 0.4s ease, transform 0.3s ease; }
+  #scoreValue.tier-ideal     { background-image:linear-gradient(180deg,#e8c876 0%,#8a6e30 100%); }
+  #scoreValue.tier-excellent { background-image:linear-gradient(180deg,#5fb878 0%,#2d6038 100%); }
+  #scoreValue.tier-good      { background-image:linear-gradient(180deg,#d8b85a 0%,#8a6e30 100%); }
+  #scoreValue.tier-fair      { background-image:linear-gradient(180deg,#e89548 0%,#8a4e1a 100%); }
+  #scoreValue.tier-off       { background-image:linear-gradient(180deg,#d65c5c 0%,#7a2929 100%); }
+
+  /* tier chip variants */
+  .chip.tier-ideal     { background:linear-gradient(180deg,#fff5d6,#fbf3df); color:#5e4a1f; border-color:rgba(201,164,92,.5); }
+  .chip.tier-excellent { background:linear-gradient(180deg,#e7f4e9,#d6eedb); color:#2d6038; border-color:rgba(61,125,78,.4); }
+  .chip.tier-good      { background:linear-gradient(180deg,#fbf3df,#f5e9d0); color:#5e4a1f; border-color:rgba(201,164,92,.45); }
+  .chip.tier-fair      { background:linear-gradient(180deg,#fde8d4,#f9d8b6); color:#8a4e1a; border-color:rgba(201,122,44,.4); }
+  .chip.tier-off       { background:linear-gradient(180deg,#fdebe9,#fbd7d3); color:#7a2929; border-color:rgba(176,69,69,.4); }
+
+  /* tierTitle color sync per tier */
+  #tierTitle.tier-ideal     { color:#5e4a1f; }
+  #tierTitle.tier-excellent { color:#2d6038; }
+  #tierTitle.tier-good      { color:#5e4a1f; }
+  #tierTitle.tier-fair      { color:#8a4e1a; }
+  #tierTitle.tier-off       { color:#7a2929; }
 
   /* ad slot */
   .ad-slot{
@@ -1335,40 +1365,6 @@
       <div id="shapeButtons" class="flex flex-wrap gap-2"><!-- injected --></div>
     </div>
 
-    <!-- ========== OCR upload (Tesseract.js, browser-side, $0) ========== -->
-    <div class="card p-5 sm:p-6 mb-6">
-      <div class="flex items-start justify-between gap-4 flex-wrap">
-        <div class="min-w-0">
-          <div class="text-[11px] uppercase tracking-[.22em] text-gold-600 font-semibold mb-1.5"
-               data-zh="懶人模式 · 免費 OCR" data-en="Lazy mode · Free OCR"></div>
-          <div class="font-display text-[18px] sm:text-[20px]"
-               data-zh="上傳 GIA / IGI 鑑定書照片，自動填入四項數據"
-               data-en="Upload a GIA / IGI report photo to auto-fill four numbers"></div>
-          <p class="text-[12px] text-ink-700 mt-1.5 leading-[1.7] max-w-2xl"
-             data-zh="完全在你的瀏覽器內辨識，圖片不會離開你的裝置，不上傳任何伺服器、不收費。建議拍 GIA 第二頁的「Proportions / 比例圖」。"
-             data-en="Runs 100% in-browser. Your photo never leaves your device. Free, no API key. For best results, photograph the “Proportions” diagram on page 2."></p>
-        </div>
-        <label class="btn btn-gold rounded-full px-5 py-2.5 text-[12.5px] cursor-pointer shrink-0">
-          <input id="ocrFile" type="file" accept="image/*" class="hidden" />
-          <span data-zh="📷 選擇照片" data-en="📷 Choose photo"></span>
-        </label>
-      </div>
-      <div id="ocrStatus" class="hidden mt-4 p-3 rounded-xl bg-[var(--gold-soft)] border border-[var(--border)]">
-        <div class="flex items-center gap-3">
-          <div class="w-3 h-3 rounded-full bg-gold-400 animate-pulse"></div>
-          <div class="text-[12.5px] text-ink-900 num" id="ocrStatusText">—</div>
-        </div>
-        <div class="mt-2 h-1 bg-[var(--line)] rounded-full overflow-hidden">
-          <div id="ocrProgress" class="h-full bg-gold-400 transition-all" style="width:0%"></div>
-        </div>
-      </div>
-      <div id="ocrResult" class="hidden mt-4 grid sm:grid-cols-4 gap-3"></div>
-      <details id="ocrRaw" class="hidden mt-3 text-[12px]">
-        <summary class="cursor-pointer text-ink-500 hover:text-ink-900 select-none" data-zh="顯示原始辨識文字(Debug)" data-en="Show raw OCR text (debug)" data-ja="OCR元テキストを表示" data-ko="원본 OCR 텍스트 보기" data-zhcn="显示原始识别文字"></summary>
-        <pre id="ocrRawText" class="mt-2 p-3 rounded-lg bg-[var(--line)] text-ink-700 whitespace-pre-wrap break-words max-h-56 overflow-auto" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;line-height:1.5"></pre>
-      </details>
-    </div>
-
     <!-- Advanced optional parameters panel -->
     <div id="advPanel" class="card p-5 sm:p-6 mb-6 hidden">
       <div class="flex items-start justify-between gap-4 mb-4">
@@ -1457,18 +1453,18 @@
           <span id="tierChip" class="chip ideal"><span data-zh="頂級" data-en="Outstanding"></span></span>
         </div>
 
-        <div class="mt-7 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6">
-          <div class="relative w-44 h-44 sm:w-40 sm:h-40 rounded-full score-ring mx-auto sm:mx-0 shrink-0" style="--s:100">
-            <div class="absolute inset-[6px] rounded-full bg-white flex items-center justify-center">
+        <div class="mt-7 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-7">
+          <div class="relative w-52 h-52 sm:w-48 sm:h-48 rounded-full score-ring mx-auto sm:mx-0 shrink-0" id="scoreRing" style="--s:100">
+            <div class="absolute inset-[7px] rounded-full bg-white flex items-center justify-center">
               <div class="text-center leading-none px-3">
-                <div id="scoreValue" class="font-display font-bold gold-text num whitespace-nowrap" style="font-size:30px;line-height:1.05;letter-spacing:-0.015em">—</div>
-                <div class="text-[10px] uppercase tracking-[.22em] text-ink-500 mt-2.5 num">/ 100</div>
+                <div id="scoreValue" class="font-display font-bold num whitespace-nowrap" style="font-size:56px;line-height:0.95;letter-spacing:-0.02em">—</div>
+                <div class="text-[10.5px] uppercase tracking-[.22em] text-ink-500 mt-3 num font-semibold">／ 100</div>
               </div>
             </div>
           </div>
           <div class="flex-1 min-w-0 text-center sm:text-left">
-            <div class="font-display text-[20px] leading-snug" id="tierTitle" data-zh="完美的甜蜜點" data-en="Perfect sweet spot"></div>
-            <p class="text-[12.5px] text-ink-700 mt-2 leading-[1.7]" id="tierDesc"
+            <div class="font-display font-bold text-[24px] sm:text-[26px] leading-tight" id="tierTitle" data-zh="完美的甜蜜點" data-en="Perfect sweet spot">完美的甜蜜點</div>
+            <p class="text-[13px] text-ink-700 mt-2.5 leading-[1.75]" id="tierDesc"
                data-zh="此車工高度集中於業界公認的最佳光學區間，可預期極致的火彩與亮度。"
                data-en="This cut sits in the industry sweet spot — expect peak fire and brilliance."></p>
           </div>
@@ -1524,6 +1520,46 @@
         <p class="text-center text-[11.5px] text-ink-500 mt-3" data-zh="可加入多顆鑽石，系統會自動排序與標出冠軍" data-en="Add multiple diamonds — we'll rank and crown the winner"></p>
       </aside>
     </div>
+
+    <!-- ========== OCR upload (Tesseract.js, browser-side, free) — moved AFTER inputs, marked optional ========== -->
+    <div class="card p-5 sm:p-6 mt-8" id="ocrCard" style="background:linear-gradient(180deg,#fffdf7,#faf8f3);border-color:rgba(201,164,92,.35)">
+      <div class="flex items-start justify-between gap-4 flex-wrap">
+        <div class="min-w-0">
+          <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+            <span class="text-[11px] uppercase tracking-[.22em] text-gold-600 font-semibold"
+                  data-zh="懶人模式 · 免費 OCR" data-en="Lazy mode · Free OCR"></span>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10.5px] font-bold tracking-wider"
+                  style="background:#fbf3df;color:#8a6e30;border:1px solid rgba(201,164,92,.5)"
+                  data-zh="選填" data-en="OPTIONAL">選填</span>
+          </div>
+          <div class="font-display text-[18px] sm:text-[20px]"
+               data-zh="不想手動輸入?上傳 GIA／IGI 鑑定書照片，自動填入上方四個數據"
+               data-en="Skip the typing — upload a GIA / IGI report photo and we'll auto-fill the 4 numbers above"></div>
+          <p class="text-[12px] text-ink-700 mt-1.5 leading-[1.7] max-w-2xl"
+             data-zh="完全在你的瀏覽器內辨識，圖片不會離開你的裝置，不上傳任何伺服器、不收費。建議拍 GIA 第二頁的「Proportions ／ 比例圖」。"
+             data-en="Runs 100% in-browser. Your photo never leaves your device. Free, no API key. For best results, photograph the “Proportions” diagram on page 2."></p>
+        </div>
+        <label class="btn btn-gold rounded-full px-5 py-2.5 text-[12.5px] cursor-pointer shrink-0">
+          <input id="ocrFile" type="file" accept="image/*" class="hidden" />
+          <span data-zh="📷 選擇照片" data-en="📷 Choose photo"></span>
+        </label>
+      </div>
+      <div id="ocrStatus" class="hidden mt-4 p-3 rounded-xl bg-[var(--gold-soft)] border border-[var(--border)]">
+        <div class="flex items-center gap-3">
+          <div class="w-3 h-3 rounded-full bg-gold-400 animate-pulse"></div>
+          <div class="text-[12.5px] text-ink-900 num" id="ocrStatusText">—</div>
+        </div>
+        <div class="mt-2 h-1 bg-[var(--line)] rounded-full overflow-hidden">
+          <div id="ocrProgress" class="h-full bg-gold-400 transition-all" style="width:0%"></div>
+        </div>
+      </div>
+      <div id="ocrResult" class="hidden mt-4 grid sm:grid-cols-4 gap-3"></div>
+      <details id="ocrRaw" class="hidden mt-3 text-[12px]">
+        <summary class="cursor-pointer text-ink-500 hover:text-ink-900 select-none" data-zh="顯示原始辨識文字（Debug）" data-en="Show raw OCR text (debug)" data-ja="OCR元テキストを表示" data-ko="원본 OCR 텍스트 보기" data-zhcn="显示原始识别文字"></summary>
+        <pre id="ocrRawText" class="mt-2 p-3 rounded-lg bg-[var(--line)] text-ink-700 whitespace-pre-wrap break-words max-h-56 overflow-auto" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;line-height:1.5"></pre>
+      </details>
+    </div>
+
   </div>
 </section>
 
@@ -2581,6 +2617,7 @@ function _showPending() {
   scoreEl.textContent = '…';
   const chip = document.getElementById('tierChip');
   if (chip) chip.style.opacity = '0.45';
+  // Keep current tier color during debounce — only fade — so user sees stable feedback
 }
 
 async function computeAndRender() {
@@ -2604,12 +2641,21 @@ async function computeAndRender() {
   document.querySelector('.score-ring').style.setProperty('--s', score);
 
   const tier = overallTier(score);
+
+  // Apply tier-color classes to all score components for color-coded prominence
+  const ring = document.getElementById('scoreRing') || document.querySelector('.score-ring');
+  if (ring) ring.className = 'relative w-52 h-52 sm:w-48 sm:h-48 rounded-full score-ring mx-auto sm:mx-0 shrink-0 tier-' + tier;
+  scoreEl.className = 'font-display font-bold num whitespace-nowrap tier-' + tier;
+
   const chip = document.getElementById('tierChip');
-  chip.className = 'chip ' + (tier === 'ideal' || tier === 'excellent' ? 'ideal' : tier === 'good' ? 'good' : 'off');
+  chip.className = 'chip tier-' + tier;
   chip.style.opacity = '';
   chip.querySelector('span').textContent = TIER_OVERALL_LABEL[tier][state.lang];
+
   const t = TIER_TEXT[tier][state.lang];
-  document.getElementById('tierTitle').textContent = t.name + (result._offline ? ' · ' + (state.lang==='zh'?'(離線)':'(offline)') : '');
+  const titleEl = document.getElementById('tierTitle');
+  titleEl.className = 'font-display font-bold text-[24px] sm:text-[26px] leading-tight tier-' + tier;
+  titleEl.textContent = t.name + (result._offline ? ' · ' + (state.lang==='zh'?'（離線）':'(offline)') : '');
   document.getElementById('tierDesc').textContent  = t.desc;
 
   // Per-axis meters
