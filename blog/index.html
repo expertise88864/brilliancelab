@@ -319,7 +319,8 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, documen
     </a>
 
     <!-- 3. Budget formula -->
-    <a href="/blog/budget-formula" class="card p-5" data-cat="formula">
+    <a href="/blog/budget-formula" class="card p-5" data-cat="formula"
+       data-keywords="鑽石預算 30萬鑽石 鑽戒推薦 BPD 每元閃光值 鑽石CP值 鑽石性價比 數學公式 一克拉 0.85克拉 0.7克拉 鑽石購買公式 鑽石閃光分數 鑽石閃亮度計算 BrillianceLab 公式 carat color clarity cut 取捨 訂婚預算 30萬訂婚 50萬鑽石">
       <div class="post-thumb mb-4">
         <svg viewBox="0 0 200 120" fill="none">
           <rect x="35" y="60" width="30" height="40" fill="#a4a6b6"/>
@@ -350,7 +351,8 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, documen
     </a>
 
     <!-- 4. Lab vs Natural -->
-    <a href="/blog/lab-vs-natural" class="card p-5" data-cat="trend">
+    <a href="/blog/lab-vs-natural" class="card p-5" data-cat="trend"
+       data-keywords="實驗室鑽石 培育鑽石 Lab-grown 天然鑽石 mined diamond 鑽石保值 De Beers LightBox HPHT CVD 化學氣相沉積 高溫高壓 仿鑽 莫桑石 鋯石 道德 血鑽石 Kimberley process 鑽石價格 跌價 2026 鑽石比較 真鑽差別 鑽石結晶 純碳">
       <div class="post-thumb mb-4">
         <svg viewBox="0 0 200 120" fill="none">
           <g transform="translate(60 60)">
@@ -384,7 +386,8 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, documen
     </a>
 
     <!-- 5. Engagement guide -->
-    <a href="/blog/engagement-guide" class="card p-5" data-cat="guide">
+    <a href="/blog/engagement-guide" class="card p-5" data-cat="guide"
+       data-keywords="結婚鑽戒 訂婚鑽戒 鑽戒推薦 鑽戒預算 求婚戒指 鑽戒挑選 4Cs GIA 八心八箭 戒台 訂婚戒指尺寸 求婚指南 新娘鑽戒 六爪戒台 四爪戒台 Solitaire Halo Pavé Trilogy Bezel 戒圍 戒指尺寸 一克拉 D色 G色 VS1 VVS1 求婚計畫 求婚場地 求婚詞 鑽戒保險">
       <div class="post-thumb mb-4">
         <svg viewBox="0 0 200 120" fill="none">
           <circle cx="100" cy="50" r="14" fill="#fbf3df" stroke="#8a6e30" stroke-width="1.6"/>
@@ -414,7 +417,8 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, documen
     </a>
 
     <!-- 6. News -->
-    <a href="/blog/diamond-news-2026" class="card p-5" data-cat="news">
+    <a href="/blog/diamond-news-2026" class="card p-5" data-cat="news"
+       data-keywords="鑽石新聞 2026 De Beers Anglo American 拆分 出售 印度 Surat 切磨 裁員 LightBox 結束 Tiffany 漲價 LVMH 實驗室鑽石 50% Z世代 The Knot GIA Lab-Grown 證書 EU 透明法 中國鑽石需求 黃金 彩寶 鑽石趨勢 滾動更新 鑽石產業 大事 動態 Bloomberg Reuters Financial Times Rapaport">
       <div class="post-thumb mb-4">
         <svg viewBox="0 0 200 120" fill="none">
           <rect x="30" y="25" width="140" height="70" rx="6" fill="#fffdf7" stroke="#c9a45c" stroke-width="1.4"/>
@@ -483,17 +487,61 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, documen
   document.addEventListener('DOMContentLoaded', () => {
     BL.initBlog({ proseZh: '__none__', proseEn: '__none__' });
 
-    // Category filter
+    // ---------- Category filter ----------
     const grid  = document.getElementById('postGrid');
     const pills = document.querySelectorAll('.filter-pill');
+    let activeCat = 'all';
+    let activeQuery = '';
+
+    function applyFilters() {
+      const q = activeQuery.trim().toLowerCase();
+      const tokens = q ? q.split(/\s+/).filter(Boolean) : [];
+      let visible = 0;
+      grid.querySelectorAll('a[data-cat]').forEach(card => {
+        const catOk = (activeCat === 'all' || card.dataset.cat === activeCat);
+        // Build a haystack of title + description + keywords for token matching
+        const hay = (
+          card.textContent + ' ' + (card.dataset.keywords || '')
+        ).toLowerCase();
+        const queryOk = tokens.length === 0 || tokens.every(tok => hay.includes(tok));
+        const show = catOk && queryOk;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      const hint = document.getElementById('searchHint');
+      const cnt  = document.getElementById('searchCount');
+      if (q) { hint.classList.remove('hidden'); cnt.textContent = visible; }
+      else   { hint.classList.add('hidden'); }
+    }
+
     pills.forEach(p => p.addEventListener('click', () => {
       pills.forEach(x => x.classList.remove('active'));
       p.classList.add('active');
-      const cat = p.dataset.cat;
-      grid.querySelectorAll('a[data-cat]').forEach(card => {
-        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
-      });
+      activeCat = p.dataset.cat;
+      applyFilters();
     }));
+
+    // ---------- Search input ----------
+    const search = document.getElementById('blogSearch');
+    const clear  = document.getElementById('searchClear');
+    let searchDebounce = null;
+    search.addEventListener('input', () => {
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(() => {
+        activeQuery = search.value;
+        clear.classList.toggle('hidden', !activeQuery);
+        applyFilters();
+      }, 120);
+    });
+    clear.addEventListener('click', () => {
+      search.value = ''; activeQuery = '';
+      clear.classList.add('hidden');
+      applyFilters();
+      search.focus();
+    });
+    // Allow ?q= in URL to deep-link a search
+    const initialQ = new URLSearchParams(location.search).get('q');
+    if (initialQ) { search.value = initialQ; activeQuery = initialQ; clear.classList.remove('hidden'); applyFilters(); }
   });
 </script>
 
