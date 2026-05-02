@@ -1,5 +1,5 @@
 /* BrillianceLab service worker — offline-first for static, network-first for HTML */
-const CACHE = 'bl-v11';
+const CACHE = 'bl-v13';
 const PRECACHE = [
   '/',
   '/index.html',
@@ -38,7 +38,17 @@ const PRECACHE = [
   '/blog/prong-settings-guide',
   '/blog/fluorescence-deep-dive',
   '/blog/inclusions-types-guide',
-  '/blog/engraving-personalization'
+  '/blog/engraving-personalization',
+  '/blog/moissanite-vs-cz-vs-lab',
+  '/blog/famous-diamonds',
+  '/blog/engagement-timeline',
+  '/blog/topics',
+  '/blog/gemstones-comparison',
+  '/blog/sustainable-diamonds',
+  '/blog/heirloom-redesign',
+  '/blog/diamond-vs-gold',
+  '/blog/lgbtq-rings',
+  '/search'
 ];
 
 self.addEventListener('install', (e) => {
@@ -67,31 +77,36 @@ self.addEventListener('fetch', (e) => {
   // Bypass server-side function endpoints
   if (url.pathname.startsWith('/api/')) return;
 
-  // Network-first for navigation requests (HTML pages)
+  // STALE-WHILE-REVALIDATE for HTML pages: serve cache immediately, update in background.
+  // User gets instant page; next visit gets fresh content. Best of both worlds.
   if (req.mode === 'navigate' || req.headers.get('accept')?.includes('text/html')) {
     e.respondWith(
-      fetch(req)
-        .then((resp) => {
-          const copy = resp.clone();
-          caches.open(CACHE).then((c) => c.put(req, copy));
+      caches.match(req).then((cached) => {
+        const fetchPromise = fetch(req).then((resp) => {
+          if (resp && resp.status === 200) {
+            const copy = resp.clone();
+            caches.open(CACHE).then((c) => c.put(req, copy));
+          }
           return resp;
-        })
-        .catch(() => caches.match(req).then((r) => r || caches.match('/')))
+        }).catch(() => cached || caches.match('/'));
+        // Return cached immediately if present, otherwise wait for network.
+        return cached || fetchPromise;
+      })
     );
     return;
   }
 
-  // Cache-first for static assets
+  // STALE-WHILE-REVALIDATE for static assets too — serve cache, refresh in background.
   e.respondWith(
     caches.match(req).then((cached) => {
-      if (cached) return cached;
-      return fetch(req).then((resp) => {
+      const fetchPromise = fetch(req).then((resp) => {
         if (resp && resp.status === 200) {
           const copy = resp.clone();
           caches.open(CACHE).then((c) => c.put(req, copy));
         }
         return resp;
       }).catch(() => cached);
+      return cached || fetchPromise;
     })
   );
 });

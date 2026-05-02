@@ -364,6 +364,37 @@
   }
 
   @media (max-width: 640px){ .hide-sm{display:none} }
+
+/* ===== Dark mode (auto, follows OS) ===== */
+@media (prefers-color-scheme: dark) {
+  :root{ --bg:#15131a; --ink:#f0eadc; --ink-2:#cdc8b8; --muted:#8e8a7d; --gold:#d4b87a; --gold-deep:#e8c876; --gold-soft:#3a2f1f; --border:#3a3530; --line:#2a2620; }
+  body{ background:var(--bg)!important; color:var(--ink)!important; }
+  body::before{ background: radial-gradient(800px 500px at 12% -8%, rgba(212,184,122,.08), transparent 60%), linear-gradient(180deg,#15131a 0%, #1a1714 40%, #15131a 100%)!important; }
+  .card,.fact,.shape,.method,.plan,.ins,.step,.month,.gem,.stone,.test,.font-card,.level,.inc,.setting,.topic{ background:#1f1c20!important; border-color:#3a3530!important; color:var(--ink); }
+  .prose-zh,.prose-en,.prose-zh p,.prose-en p,article p{ color:var(--ink-2)!important; }
+  .prose-zh strong,.prose-en strong{ color:var(--ink)!important; }
+  .prose-zh blockquote{ background:#3a2f1f!important; color:var(--ink)!important; }
+  .ad-slot{ background:#1f1c20!important; border-color:#3a3530!important; }
+  .gold-text{ background:linear-gradient(180deg,#e8c876 0%,#d4b87a 100%)!important; -webkit-background-clip:text; background-clip:text; color:transparent!important; }
+  table.cmp th,table.size-tbl th,.ratio-tbl th{ background:#3a2f1f!important; color:#e8c876!important; }
+  table.cmp td,table.size-tbl td,.ratio-tbl td{ border-color:#2a2620!important; }
+  header.sticky{ background:rgba(21,19,26,.85)!important; }
+  details.qa,details.qa[open]{ background:#1f1c20!important; }
+  details.qa summary{ color:var(--ink)!important; }
+  .check{ background:#1f1c20!important; }
+}
+/* ===== Print stylesheet — clean PDF output ===== */
+@media print {
+  header.sticky,footer,.ad-slot,.lang-toggle,#mobileDrawer,#blMobileDrawer,#blMobileMenuBtn,nav.mobile,.no-print{ display:none!important; }
+  body,html{ background:#fff!important; color:#000!important; }
+  body::before{ display:none!important; }
+  a{ color:#5e4a1f!important; text-decoration:underline!important; }
+  a[href^="http"]:after{ content:" ("attr(href)")"; font-size:.8em; color:#666; }
+  .card,article{ box-shadow:none!important; border:1px solid #ddd!important; page-break-inside:avoid; }
+  h1,h2,h3{ page-break-after:avoid; color:#000!important; }
+  img,svg{ max-width:100%!important; }
+  .gold-text{ color:#5e4a1f!important; -webkit-text-fill-color:#5e4a1f!important; }
+}
 </style>
 
 <!-- Service Worker registration (PWA, offline) -->
@@ -842,6 +873,17 @@
             <a href="/blog/fluorescence-deep-dive"   class="block px-3 py-1.5 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="◆ 鑽石螢光反應深度解析" data-en="◆ Fluorescence deep dive"></a>
             <a href="/blog/inclusions-types-guide"   class="block px-3 py-1.5 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="◆ 內含物 8 種圖解" data-en="◆ 8 inclusion types"></a>
             <a href="/blog/engraving-personalization" class="block px-3 py-1.5 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="◆ 婚戒刻字完整指南" data-en="◆ Ring engraving guide"></a>
+            <a href="/blog/moissanite-vs-cz-vs-lab" class="block px-3 py-1.5 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="◆ 真假鑽辨識(莫桑/CZ/培育/天然)" data-en="◆ Real vs fake diamond"></a>
+            <a href="/blog/famous-diamonds"      class="block px-3 py-1.5 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="◆ 世界 10 大名鑽傳奇" data-en="◆ 10 most famous diamonds"></a>
+            <a href="/blog/engagement-timeline"  class="block px-3 py-1.5 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="◆ 訂婚到結婚 12 個月時間軸" data-en="◆ 12-month wedding timeline"></a>
+            <div class="px-3 pt-2 pb-1 text-[10px] uppercase tracking-[.2em] text-gold-700">✦ 進階主題</div>
+            <a href="/blog/gemstones-comparison" class="block px-3 py-1.5 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="◆ 鑽石 vs 紅藍祖母綠 4 大寶石" data-en="◆ Diamond vs Ruby/Sapphire/Emerald"></a>
+            <a href="/blog/sustainable-diamonds"  class="block px-3 py-1.5 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="◆ 道德鑽石(血鑽石/Kimberley)" data-en="◆ Sustainable / Ethical"></a>
+            <a href="/blog/heirloom-redesign"     class="block px-3 py-1.5 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="◆ 傳家鑽石重新設計" data-en="◆ Heirloom redesign"></a>
+            <a href="/blog/diamond-vs-gold"       class="block px-3 py-1.5 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="◆ 鑽石 vs 黃金保值" data-en="◆ Diamond vs Gold"></a>
+            <a href="/blog/lgbtq-rings"           class="block px-3 py-1.5 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px]" data-zh="◆ 同志婚戒指南(LGBTQ+)" data-en="◆ LGBTQ+ rings"></a>
+            <a href="/blog/topics"               class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px] font-bold text-gold-700" data-zh="🗺 主題索引(38 篇地圖)" data-en="🗺 Topic map"></a>
+            <a href="/search"                    class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px] font-bold text-gold-700" data-zh="🔍 站內搜尋" data-en="🔍 Search"></a>
             <a href="/blog/diamond-news-2026"   class="block px-3 py-2 rounded-lg hover:bg-[var(--gold-soft)] text-[12.5px] border-t border-[var(--line)] mt-1 pt-2.5"
                data-zh="🔔 2026 鑽石市場新聞(滾動更新)" data-en="🔔 2026 diamond market news (rolling)"></a>
           </span>
@@ -920,6 +962,19 @@
         <a href="/blog/fluorescence-deep-dive"   class="block py-1.5 text-[13px] text-ink-700 hover:text-gold-700" data-zh="◆ 鑽石螢光反應" data-en="◆ Fluorescence"></a>
         <a href="/blog/inclusions-types-guide"   class="block py-1.5 text-[13px] text-ink-700 hover:text-gold-700" data-zh="◆ 內含物 8 種" data-en="◆ 8 inclusions"></a>
         <a href="/blog/engraving-personalization" class="block py-1.5 text-[13px] text-ink-700 hover:text-gold-700" data-zh="◆ 婚戒刻字指南" data-en="◆ Engraving"></a>
+        <a href="/blog/moissanite-vs-cz-vs-lab" class="block py-1.5 text-[13px] text-ink-700 hover:text-gold-700" data-zh="◆ 真假鑽辨識" data-en="◆ Real vs fake"></a>
+        <a href="/blog/famous-diamonds"      class="block py-1.5 text-[13px] text-ink-700 hover:text-gold-700" data-zh="◆ 10 大名鑽傳奇" data-en="◆ 10 famous diamonds"></a>
+        <a href="/blog/engagement-timeline"  class="block py-1.5 text-[13px] text-ink-700 hover:text-gold-700" data-zh="◆ 12 個月時間軸" data-en="◆ 12-month timeline"></a>
+
+        <div class="mt-2 text-[10px] uppercase tracking-[.18em] text-gold-700 font-semibold" data-zh="✦ 進階主題" data-en="✦ Advanced">✦ 進階主題</div>
+        <a href="/blog/gemstones-comparison" class="block py-1.5 text-[13px] text-ink-700 hover:text-gold-700" data-zh="◆ 4 大寶石比較" data-en="◆ 4 gemstones"></a>
+        <a href="/blog/sustainable-diamonds"  class="block py-1.5 text-[13px] text-ink-700 hover:text-gold-700" data-zh="◆ 道德鑽石" data-en="◆ Sustainable"></a>
+        <a href="/blog/heirloom-redesign"     class="block py-1.5 text-[13px] text-ink-700 hover:text-gold-700" data-zh="◆ 傳家鑽石重做" data-en="◆ Heirloom redesign"></a>
+        <a href="/blog/diamond-vs-gold"       class="block py-1.5 text-[13px] text-ink-700 hover:text-gold-700" data-zh="◆ 鑽石 vs 黃金" data-en="◆ Diamond vs Gold"></a>
+        <a href="/blog/lgbtq-rings"           class="block py-1.5 text-[13px] text-ink-700 hover:text-gold-700" data-zh="◆ 同志婚戒指南" data-en="◆ LGBTQ+ rings"></a>
+
+        <a href="/blog/topics"               class="block py-2 text-[13.5px] text-gold-700 font-bold" data-zh="🗺 主題索引(38 篇地圖)" data-en="🗺 Topic map"></a>
+        <a href="/search"                    class="block py-2 text-[13.5px] text-gold-700 font-bold" data-zh="🔍 站內搜尋" data-en="🔍 Search"></a>
 
         <a href="/blog/diamond-news-2026"  class="block py-2 text-[13px] text-ink-700 hover:text-gold-700 mt-1 pt-2 border-t border-[var(--line)]"
            data-zh="🔔 2026 鑽石市場新聞" data-en="🔔 2026 diamond news"></a>

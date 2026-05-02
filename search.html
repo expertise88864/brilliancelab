@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>站內搜尋 — BrillianceLab 鑽石實驗室</title>
+<meta name="description" content="搜尋 BrillianceLab 全部 40+ 篇鑽石購買教學文章。輸入關鍵字立即取得相關文章。" />
+<meta name="keywords" content="鑽石搜尋,站內搜尋,BrillianceLab,鑽石文章,鑽石指南" />
+<link rel="canonical" href="https://brilliancelab.vercel.app/search" />
+<link rel="alternate" hreflang="x-default" href="https://brilliancelab.vercel.app/search" />
+<link rel="alternate" hreflang="zh-TW" href="https://brilliancelab.vercel.app/search" />
+<link rel="alternate" hreflang="zh-Hans" href="https://brilliancelab.vercel.app/search" />
+<link rel="alternate" hreflang="en" href="https://brilliancelab.vercel.app/search" />
+<link rel="icon" type="image/svg+xml" href="/icon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="站內搜尋 | BrillianceLab" />
+<meta property="og:description" content="搜尋 40+ 篇鑽石購買教學。" />
+<meta property="og:image" content="https://brilliancelab.vercel.app/icon.svg" />
+<meta property="og:url" content="https://brilliancelab.vercel.app/search" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="站內搜尋 | BrillianceLab" />
+<meta name="twitter:description" content="搜尋 40+ 篇鑽石購買教學。" />
+<meta name="twitter:image" content="https://brilliancelab.vercel.app/icon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"WebSite","url":"https://brilliancelab.vercel.app/","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://brilliancelab.vercel.app/search?q={search_term_string}"},"query-input":"required name=search_term_string"}}
+</script>
+<style>
+  :root{ --bg:#faf8f3; --ink:#1a1d2e; --ink-2:#4a4d5e; --muted:#7e8194; --gold:#c9a45c; --gold-deep:#8a6e30; --gold-soft:#fbf3df; --border:#ebe6dc; --line:#f1ede3; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{ background:var(--bg); color:var(--ink); font-family:'Inter','Noto Serif TC','Microsoft JhengHei',Georgia,serif; min-height:100vh; }
+  body::before{ content:''; position:fixed; inset:0; pointer-events:none; z-index:-1; background: radial-gradient(800px 500px at 12% -8%, rgba(201,164,92,.16), transparent 60%), linear-gradient(180deg,#faf8f3 0%, #fffdf7 40%, #faf8f3 100%); }
+  .gold-text{ background:linear-gradient(180deg,#c9a45c,#8a6e30); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  header.top{ padding:18px 24px; border-bottom:1px solid var(--border); background:rgba(250,248,243,.85); backdrop-filter:blur(10px); position:sticky; top:0; z-index:10; }
+  .hwrap{ max-width:1080px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:inherit; }
+  .logo span{ font-family:'Noto Serif TC',Georgia,serif; font-weight:700; font-size:18px; }
+  .nav-links{ display:flex; gap:18px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-2); }
+  .nav-links a{ color:inherit; text-decoration:none; }
+  .nav-links a:hover{ color:var(--ink); }
+  main{ max-width:780px; margin:0 auto; padding:48px 24px 80px; }
+  h1{ font-family:'Noto Serif TC',Georgia,serif; font-size:clamp(28px,5vw,42px); font-weight:700; line-height:1.2; margin-bottom:8px; }
+  h1 .accent{ display:block; }
+  .subtitle{ color:var(--ink-2); font-size:15px; margin-bottom:28px; line-height:1.7; }
+  .search-box{ position:relative; display:flex; align-items:center; }
+  .search-box input{ width:100%; padding:18px 56px 18px 56px; border:2px solid var(--border); border-radius:9999px; background:#fff; font-size:16px; font-family:inherit; outline:none; transition:border-color .2s, box-shadow .2s; }
+  .search-box input:focus{ border-color:var(--gold); box-shadow:0 0 0 4px rgba(201,164,92,.18); }
+  .search-icon{ position:absolute; left:20px; color:var(--gold-deep); pointer-events:none; }
+  .search-clear{ position:absolute; right:20px; background:transparent; border:none; cursor:pointer; color:var(--muted); font-size:18px; display:none; padding:4px; }
+  .search-clear.visible{ display:block; }
+  .meta-line{ margin-top:20px; font-size:12.5px; color:var(--muted); }
+  .meta-line strong{ color:var(--ink); }
+  .results{ margin-top:30px; display:flex; flex-direction:column; gap:14px; }
+  .result{ padding:18px 20px; background:#fff; border:1px solid var(--border); border-radius:14px; transition:transform .2s, box-shadow .25s, border-color .2s; }
+  .result:hover{ transform:translateX(4px); border-color:rgba(201,164,92,.5); box-shadow:0 12px 28px -10px rgba(138,110,48,.25); }
+  .result a{ text-decoration:none; color:inherit; display:block; }
+  .result h3{ font-family:'Noto Serif TC',Georgia,serif; font-size:16.5px; font-weight:700; margin-bottom:6px; line-height:1.4; color:var(--ink); }
+  .result h3 mark{ background:linear-gradient(180deg,#fff5d6,#fbf3df); color:var(--gold-deep); padding:0 2px; border-radius:3px; }
+  .result p{ font-size:13px; color:var(--ink-2); line-height:1.7; margin-bottom:6px; }
+  .result p mark{ background:#fbf3df; color:var(--gold-deep); padding:0 2px; }
+  .result-meta{ font-size:11px; color:var(--gold-deep); letter-spacing:.05em; font-weight:700; }
+  .empty{ text-align:center; padding:48px 20px; color:var(--muted); }
+  .empty .gem{ font-size:42px; margin-bottom:12px; opacity:.4; }
+  .popular{ margin-top:28px; padding-top:20px; border-top:1px dashed var(--border); }
+  .popular-title{ font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-deep); font-weight:700; margin-bottom:12px; }
+  .popular-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .popular-tags button{ padding:6px 12px; border-radius:9999px; background:var(--gold-soft); border:1px solid rgba(201,164,92,.3); color:var(--ink); font-size:12.5px; cursor:pointer; font-family:inherit; transition:transform .15s, background .15s; }
+  .popular-tags button:hover{ background:linear-gradient(180deg,#fff5d6,#fbf3df); transform:translateY(-1px); }
+  footer{ border-top:1px solid var(--border); padding:24px; text-align:center; font-size:12px; color:var(--muted); }
+  footer a{ color:var(--gold-deep); text-decoration:none; margin:0 8px; }
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root{ --bg:#15131a; --ink:#f0eadc; --ink-2:#cdc8b8; --muted:#8e8a7d; --gold:#d4b87a; --gold-deep:#e8c876; --gold-soft:#3a2f1f; --border:#3a3530; --line:#2a2620; }
+    body::before{ background: radial-gradient(800px 500px at 12% -8%, rgba(212,184,122,.08), transparent 60%), linear-gradient(180deg,#15131a 0%, #1a1714 40%, #15131a 100%); }
+    header.top{ background:rgba(21,19,26,.85); }
+    .search-box input,.result{ background:#1f1c20; }
+    .result h3 mark{ background:#3a2f1f; color:#e8c876; }
+    .result p mark{ background:#3a2f1f; color:#e8c876; }
+  }
+  /* Print: hide for printability */
+  @media print { .search-box,.popular,header,footer{display:none} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="hwrap">
+    <a class="logo" href="/">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#gS)" stroke-width="1.4" stroke-linejoin="round"/><path d="M3.5 9h17M8 9l4-6 4 6M8 9l4 12 4-12" stroke="url(#gS)" stroke-width="1.1" stroke-linejoin="round"/><defs><linearGradient id="gS" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs></svg>
+      <span class="gold-text">BrillianceLab</span>
+    </a>
+    <div class="nav-links">
+      <a href="/">主頁工具</a>
+      <a href="/blog/">部落格</a>
+      <a href="/blog/topics">主題索引</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1><span>找一篇文章</span><span class="accent gold-text">關鍵字立即顯示結果</span></h1>
+  <p class="subtitle">搜尋 BrillianceLab 全部 40+ 篇鑽石購買教學。輸入「GIA」、「八心八箭」、「分期」、「保險」… 任何詞都行。</p>
+
+  <div class="search-box">
+    <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.65" y2="16.65"/></svg>
+    <input id="q" type="search" placeholder="輸入關鍵字（例:八心八箭、GIA、分期付款）" autocomplete="off" autofocus />
+    <button class="search-clear" id="clearBtn" aria-label="清除">✕</button>
+  </div>
+
+  <div class="meta-line" id="metaLine">已索引 <strong id="totalCount">42</strong> 篇文章</div>
+
+  <div class="popular">
+    <div class="popular-title">熱門搜尋</div>
+    <div class="popular-tags">
+      <button data-q="GIA">GIA 鑑定書</button>
+      <button data-q="八心八箭">八心八箭</button>
+      <button data-q="培育">培育鑽石</button>
+      <button data-q="預算">預算</button>
+      <button data-q="保險">保險</button>
+      <button data-q="求婚">求婚</button>
+      <button data-q="戒台">戒台</button>
+      <button data-q="形狀">形狀</button>
+      <button data-q="顏色">顏色</button>
+      <button data-q="淨度">淨度</button>
+    </div>
+  </div>
+
+  <div class="results" id="results"></div>
+</main>
+
+<footer>
+  <a href="/">首頁</a> · <a href="/blog/">部落格</a> · <a href="/blog/topics">主題索引</a> · <a href="/blog/feed.xml">RSS</a>
+  <div style="margin-top:8px">© 2026 BrillianceLab · 鑽石實驗室</div>
+</footer>
+
+<script>
+// Inline search index — title + url + tag + summary keywords for client-side fuzzy matching.
+const INDEX = [
+  { url:'/blog/master-guide', title:'鑽石購買總教學 — 14 階段路線', cat:'主幹', kw:'總整理 入門 完整 路線 14 階段 master guide' },
+  { url:'/blog/gia-guide', title:'如何看懂 GIA 鑑定書 — 5 分鐘完整解析', cat:'4C 基礎', kw:'GIA 鑑定書 證書 4Cs Polish Symmetry Fluorescence' },
+  { url:'/blog/hearts-arrows-truth', title:'八心八箭真相 — 哪些 GIA Excellent 不及格', cat:'切工', kw:'八心八箭 H&A 真假八心八箭 Tolkowsky Excellent 切工數學' },
+  { url:'/blog/budget-formula', title:'30 萬以下挑最閃鑽石的數學公式', cat:'預算', kw:'BPD 預算 公式 性價比 CP值 30萬 50萬 鑽石預算' },
+  { url:'/blog/lab-vs-natural', title:'天然 vs 實驗室培育鑽石 — 2026 全面比較', cat:'市場', kw:'培育鑽 lab grown CVD HPHT 天然鑽 比較 便宜 70%' },
+  { url:'/blog/engagement-guide', title:'結婚鑽戒怎麼挑 — 從預算到求婚的 9 步驟', cat:'求婚', kw:'結婚 訂婚 鑽戒 9步驟 求婚 戒台' },
+  { url:'/blog/diamond-news-2026', title:'2026 鑽石市場新聞速報', cat:'市場', kw:'2026 新聞 De Beers Tiffany 印度 EU 透明法' },
+  { url:'/blog/cert-comparison', title:'鑽石證書比較 GIA vs IGI vs HRD vs AGS', cat:'4C 基礎', kw:'證書 GIA IGI HRD AGS 鑑定 實驗室比較' },
+  { url:'/blog/diamond-scams', title:'鑽石詐騙 TOP 10 避雷指南', cat:'避雷', kw:'詐騙 騙術 銀樓 莫桑石冒充 假證書 業務話術' },
+  { url:'/blog/diamond-shapes', title:'鑽石形狀完整指南 — 10 種形狀', cat:'切工', kw:'形狀 圓形 橢圓 公主方 墊形 祖母綠 馬眼 梨形' },
+  { url:'/blog/diamond-care', title:'鑽石保養全攻略 — 戴 30 年還像新的', cat:'保養', kw:'保養 清潔 維護 配戴禁忌 爪子 拋光' },
+  { url:'/blog/diamond-resale', title:'鑽石回收與保值真相', cat:'市場', kw:'回收 賣鑽 保值 二手 鑽石脫手 折舊' },
+  { url:'/blog/diamond-color', title:'鑽石顏色等級 D-Z 完整解析', cat:'4C 基礎', kw:'顏色 D色 G色 D-Z 23階 顏色光譜 戒台金屬' },
+  { url:'/blog/diamond-clarity', title:'鑽石淨度等級 FL-I 完整解析', cat:'4C 基礎', kw:'淨度 VS1 VS2 SI1 VVS1 內含物 11階' },
+  { url:'/blog/diamond-carat-size', title:'鑽石克拉與視覺尺寸對照', cat:'4C 基礎', kw:'克拉 carat 尺寸 mm 視覺 0.5 0.7 1克拉' },
+  { url:'/blog/mens-engagement-rings', title:'男士訂婚戒完整指南', cat:'戒指', kw:'男生 男士 mens engagement 訂婚戒 6種金屬' },
+  { url:'/blog/proposal-speech', title:'求婚詞範本 50 句', cat:'求婚', kw:'求婚詞 求婚台詞 50句 求婚範本 浪漫 簡潔' },
+  { url:'/blog/wedding-bands', title:'5 種戒指完全指南 — 訂婚 結婚 對戒 永恆 紀念', cat:'戒指', kw:'對戒 訂婚戒 結婚戒 永恆戒 紀念戒 stacking' },
+  { url:'/blog/wedding-metals', title:'婚戒材質完整指南 — 6 種金屬比較', cat:'戒指', kw:'鉑金 18K 玫瑰金 黃金 鈀金 鈦 鎢鋼 過敏 保值' },
+  { url:'/blog/ring-sizing', title:'戒指尺寸完整指南 — 7 種無痕量法', cat:'求婚', kw:'戒指尺寸 戒圍 偷量 量戒指 換算表 台灣 美國 日本 歐洲' },
+  { url:'/blog/diamond-fun-facts', title:'鑽石的 30 個冷知識', cat:'歷史', kw:'冷知識 30個 趣聞 歷史 鑽石燒掉 太空鑽石' },
+  { url:'/blog/diamond-financing', title:'鑽石分期付款指南 — 5 種方案真實年利率', cat:'預算', kw:'分期 0利率 信用卡 信貸 真實年利率 隱藏成本' },
+  { url:'/blog/secondhand-rings', title:'二手婚戒購買指南 — 7 個地雷', cat:'市場', kw:'二手 中古 鑽戒 7個雷 9步檢查 拆鑽重鑲' },
+  { url:'/blog/ring-insurance', title:'婚戒保險與失竊處理 — 24 小時 SOP', cat:'保養', kw:'保險 失竊 遺失 報警 理賠 婚戒保險 24小時' },
+  { url:'/blog/diamond-faq', title:'鑽石購買 50 問 FAQ', cat:'問答', kw:'FAQ 50問 常見問題 新手懶人包 鑽戒推薦' },
+  { url:'/blog/round-cut-deep-dive', title:'圓形明亮車工深度解析', cat:'切工', kw:'圓形 round brilliant 57+1 Tolkowsky 1919 比例' },
+  { url:'/blog/fancy-cuts-guide', title:'花式車工完整指南 — 7 種非圓形', cat:'切工', kw:'花式 fancy cut 橢圓 領結 bow-tie 崩角 馬眼 梨形' },
+  { url:'/blog/prong-settings-guide', title:'鑽戒爪鑲 7 種戒台比較', cat:'戒指', kw:'六爪 四爪 包邊 暈鑲 halo pavé 密釘 滿天星 東西式' },
+  { url:'/blog/fluorescence-deep-dive', title:'鑽石螢光反應深度解析', cat:'4C 基礎', kw:'螢光 fluorescence 奶霧 medium strong UV 折扣' },
+  { url:'/blog/inclusions-types-guide', title:'鑽石內含物 8 種圖解', cat:'4C 基礎', kw:'內含物 plotting 晶體 雲霧 羽裂 針點 孿晶 鑽痕 激光鑽孔' },
+  { url:'/blog/engraving-personalization', title:'婚戒刻字完整指南 — 8 種字體 50 句文案', cat:'戒指', kw:'刻字 字體 文案 雷射 手工雕刻 雕刻深度' },
+  { url:'/blog/moissanite-vs-cz-vs-lab', title:'真假鑽辨識 — 莫桑石 CZ 培育 天然 4 種對照', cat:'避雷', kw:'真假鑽 莫桑石 CZ 鋯石 培育鑽 天然鑽 辨識 哈氣 折射率' },
+  { url:'/blog/famous-diamonds', title:'世界 10 大名鑽傳奇 — 庫利南 霍普 Pink Star', cat:'歷史', kw:'名鑽 庫利南 Cullinan 霍普 Hope Pink Star 光之山 Koh-i-Noor' },
+  { url:'/blog/engagement-timeline', title:'訂婚到結婚 12 個月時間軸', cat:'求婚', kw:'時間軸 12個月 結婚倒數 婚禮籌備 訂婚到結婚多久' },
+  { url:'/blog/topics', title:'鑽石主題索引 — 38 篇文章 8 個主題', cat:'索引', kw:'主題索引 文章地圖 知識庫 學習路徑' }
+];
+
+const $ = id => document.getElementById(id);
+$('totalCount').textContent = INDEX.length;
+
+function highlight(text, q) {
+  if (!q) return text;
+  const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  return text.replace(re, '<mark>$1</mark>');
+}
+
+function search(q) {
+  q = q.trim();
+  const results = $('results');
+  if (!q) {
+    results.innerHTML = '';
+    $('clearBtn').classList.remove('visible');
+    return;
+  }
+  $('clearBtn').classList.add('visible');
+  const lower = q.toLowerCase();
+  const matched = INDEX.map(item => {
+    const haystack = (item.title + ' ' + item.kw + ' ' + item.cat).toLowerCase();
+    let score = 0;
+    if (item.title.toLowerCase().includes(lower)) score += 10;
+    if (item.kw.toLowerCase().includes(lower)) score += 5;
+    if (item.cat.toLowerCase().includes(lower)) score += 3;
+    return { ...item, score };
+  }).filter(x => x.score > 0).sort((a,b) => b.score - a.score);
+
+  if (matched.length === 0) {
+    results.innerHTML = '<div class="empty"><div class="gem">💎</div>找不到符合「' + q + '」的文章。<br/>試試其他關鍵字，或瀏覽 <a href="/blog/topics" style="color:#8a6e30">主題索引</a>。</div>';
+    return;
+  }
+
+  results.innerHTML = matched.map(item => `
+    <div class="result">
+      <a href="${item.url}">
+        <div class="result-meta">${item.cat}</div>
+        <h3>${highlight(item.title, q)}</h3>
+        <p>${highlight(item.kw.split(' ').slice(0, 8).join(' / '), q)}</p>
+      </a>
+    </div>
+  `).join('');
+  $('metaLine').innerHTML = '找到 <strong>' + matched.length + '</strong> 篇相關文章 / 共 <strong>' + INDEX.length + '</strong> 篇';
+}
+
+const inp = $('q');
+inp.addEventListener('input', e => search(e.target.value));
+$('clearBtn').addEventListener('click', () => { inp.value = ''; search(''); inp.focus(); });
+document.querySelectorAll('.popular-tags button').forEach(btn => {
+  btn.addEventListener('click', () => { inp.value = btn.dataset.q; search(btn.dataset.q); });
+});
+
+// URL ?q= support — direct search engine traffic
+const urlQ = new URLSearchParams(location.search).get('q');
+if (urlQ) { inp.value = urlQ; search(urlQ); }
+</script>
+
+</body>
+</html>

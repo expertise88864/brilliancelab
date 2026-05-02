@@ -30,6 +30,10 @@
 <meta property="og:title" content="鑽石購買指南 · 部落格目錄 | BrillianceLab" />
 <meta property="og:description" content="從 GIA 鑑定書到 2026 鑽石新聞 — 完整鑽石購買教戰守則。" />
 <meta property="og:image" content="https://brilliancelab.vercel.app/icon.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="鑽石購買指南 · 部落格目錄 | BrillianceLab" />
+<meta name="twitter:description" content="從 GIA 鑑定書到 2026 鑽石新聞 — 完整鑽石購買教戰守則。" />
+<meta name="twitter:image" content="https://brilliancelab.vercel.app/icon.svg" />
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8223268344248663" crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-8223268344248663" />
@@ -80,6 +84,37 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, documen
   .filter-pill.active{ background:linear-gradient(180deg,#d4b87a,#8a6e30); color:#fff; border-color:transparent; }
 
   @media (max-width:640px){ .hide-sm{display:none} }
+
+/* ===== Dark mode (auto, follows OS) ===== */
+@media (prefers-color-scheme: dark) {
+  :root{ --bg:#15131a; --ink:#f0eadc; --ink-2:#cdc8b8; --muted:#8e8a7d; --gold:#d4b87a; --gold-deep:#e8c876; --gold-soft:#3a2f1f; --border:#3a3530; --line:#2a2620; }
+  body{ background:var(--bg)!important; color:var(--ink)!important; }
+  body::before{ background: radial-gradient(800px 500px at 12% -8%, rgba(212,184,122,.08), transparent 60%), linear-gradient(180deg,#15131a 0%, #1a1714 40%, #15131a 100%)!important; }
+  .card,.fact,.shape,.method,.plan,.ins,.step,.month,.gem,.stone,.test,.font-card,.level,.inc,.setting,.topic{ background:#1f1c20!important; border-color:#3a3530!important; color:var(--ink); }
+  .prose-zh,.prose-en,.prose-zh p,.prose-en p,article p{ color:var(--ink-2)!important; }
+  .prose-zh strong,.prose-en strong{ color:var(--ink)!important; }
+  .prose-zh blockquote{ background:#3a2f1f!important; color:var(--ink)!important; }
+  .ad-slot{ background:#1f1c20!important; border-color:#3a3530!important; }
+  .gold-text{ background:linear-gradient(180deg,#e8c876 0%,#d4b87a 100%)!important; -webkit-background-clip:text; background-clip:text; color:transparent!important; }
+  table.cmp th,table.size-tbl th,.ratio-tbl th{ background:#3a2f1f!important; color:#e8c876!important; }
+  table.cmp td,table.size-tbl td,.ratio-tbl td{ border-color:#2a2620!important; }
+  header.sticky{ background:rgba(21,19,26,.85)!important; }
+  details.qa,details.qa[open]{ background:#1f1c20!important; }
+  details.qa summary{ color:var(--ink)!important; }
+  .check{ background:#1f1c20!important; }
+}
+/* ===== Print stylesheet — clean PDF output ===== */
+@media print {
+  header.sticky,footer,.ad-slot,.lang-toggle,#mobileDrawer,#blMobileDrawer,#blMobileMenuBtn,nav.mobile,.no-print{ display:none!important; }
+  body,html{ background:#fff!important; color:#000!important; }
+  body::before{ display:none!important; }
+  a{ color:#5e4a1f!important; text-decoration:underline!important; }
+  a[href^="http"]:after{ content:" ("attr(href)")"; font-size:.8em; color:#666; }
+  .card,article{ box-shadow:none!important; border:1px solid #ddd!important; page-break-inside:avoid; }
+  h1,h2,h3{ page-break-after:avoid; color:#000!important; }
+  img,svg{ max-width:100%!important; }
+  .gold-text{ color:#5e4a1f!important; -webkit-text-fill-color:#5e4a1f!important; }
+}
 </style>
 
 <!-- Blog index schema (Blog) -->

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>找不到頁面 (404) — BrillianceLab 鑽石實驗室</title>
+<meta name="description" content="這個頁面已搬家或不存在。回到首頁開始評分，或瀏覽 38 篇鑽石購買教學。" />
+<meta name="robots" content="noindex" />
+<link rel="canonical" href="https://brilliancelab.vercel.app/404" />
+<link rel="icon" type="image/svg+xml" href="/icon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{ --bg:#faf8f3; --ink:#1a1d2e; --ink-2:#4a4d5e; --muted:#7e8194; --gold:#c9a45c; --gold-deep:#8a6e30; --gold-soft:#fbf3df; --border:#ebe6dc; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:var(--bg); color:var(--ink); font-family:'Inter','Noto Serif TC','Microsoft JhengHei',Georgia,serif; min-height:100vh; }
+  body{ background: radial-gradient(800px 500px at 12% -8%, rgba(201,164,92,.16), transparent 60%), radial-gradient(700px 480px at 100% 100%, rgba(201,164,92,.10), transparent 60%), linear-gradient(180deg,#faf8f3 0%, #fffdf7 50%, #faf8f3 100%); display:flex; flex-direction:column; }
+  .gold-text{ background:linear-gradient(180deg,#c9a45c,#8a6e30); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  header{ padding:20px 24px; }
+  .logo{ font-family:'Noto Serif TC',Georgia,serif; font-weight:700; font-size:18px; }
+  main{ flex:1; display:flex; align-items:center; justify-content:center; padding:40px 24px 80px; }
+  .wrap{ max-width:560px; text-align:center; }
+  .big{ font-family:'Noto Serif TC',Georgia,serif; font-weight:800; font-size:clamp(96px,18vw,160px); line-height:1; letter-spacing:-.04em; }
+  h1{ font-family:'Noto Serif TC',Georgia,serif; font-size:clamp(22px,3.5vw,32px); margin:8px 0 16px; font-weight:700; }
+  p{ font-size:15px; color:var(--ink-2); line-height:1.85; margin-bottom:8px; }
+  .ctas{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:28px; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border-radius:9999px; font-weight:600; font-size:14px; text-decoration:none; transition:transform .15s, box-shadow .2s; }
+  .btn-gold{ background:linear-gradient(180deg,#d4b87a,#8a6e30); color:#fff; box-shadow:0 8px 18px -8px rgba(138,110,48,.5); }
+  .btn-gold:hover{ transform:translateY(-2px); box-shadow:0 14px 26px -8px rgba(138,110,48,.6); }
+  .btn-ghost{ background:#fff; color:var(--ink); border:1px solid var(--border); }
+  .btn-ghost:hover{ border-color:var(--gold); }
+  .links{ margin-top:36px; padding-top:28px; border-top:1px dashed var(--border); }
+  .links-title{ font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-deep); font-weight:700; margin-bottom:12px; }
+  .links a{ display:inline-block; margin:4px 8px; font-size:13.5px; color:var(--gold-deep); text-decoration:underline; text-underline-offset:3px; }
+  .links a:hover{ color:var(--ink); }
+  .gem{ display:inline-block; margin-bottom:8px; }
+
+/* ===== Dark mode (auto, follows OS) ===== */
+@media (prefers-color-scheme: dark) {
+  :root{ --bg:#15131a; --ink:#f0eadc; --ink-2:#cdc8b8; --muted:#8e8a7d; --gold:#d4b87a; --gold-deep:#e8c876; --gold-soft:#3a2f1f; --border:#3a3530; --line:#2a2620; }
+  body{ background:var(--bg)!important; color:var(--ink)!important; }
+  body::before{ background: radial-gradient(800px 500px at 12% -8%, rgba(212,184,122,.08), transparent 60%), linear-gradient(180deg,#15131a 0%, #1a1714 40%, #15131a 100%)!important; }
+  .card,.fact,.shape,.method,.plan,.ins,.step,.month,.gem,.stone,.test,.font-card,.level,.inc,.setting,.topic{ background:#1f1c20!important; border-color:#3a3530!important; color:var(--ink); }
+  .prose-zh,.prose-en,.prose-zh p,.prose-en p,article p{ color:var(--ink-2)!important; }
+  .prose-zh strong,.prose-en strong{ color:var(--ink)!important; }
+  .prose-zh blockquote{ background:#3a2f1f!important; color:var(--ink)!important; }
+  .ad-slot{ background:#1f1c20!important; border-color:#3a3530!important; }
+  .gold-text{ background:linear-gradient(180deg,#e8c876 0%,#d4b87a 100%)!important; -webkit-background-clip:text; background-clip:text; color:transparent!important; }
+  table.cmp th,table.size-tbl th,.ratio-tbl th{ background:#3a2f1f!important; color:#e8c876!important; }
+  table.cmp td,table.size-tbl td,.ratio-tbl td{ border-color:#2a2620!important; }
+  header.sticky{ background:rgba(21,19,26,.85)!important; }
+  details.qa,details.qa[open]{ background:#1f1c20!important; }
+  details.qa summary{ color:var(--ink)!important; }
+  .check{ background:#1f1c20!important; }
+}
+/* ===== Print stylesheet — clean PDF output ===== */
+@media print {
+  header.sticky,footer,.ad-slot,.lang-toggle,#mobileDrawer,#blMobileDrawer,#blMobileMenuBtn,nav.mobile,.no-print{ display:none!important; }
+  body,html{ background:#fff!important; color:#000!important; }
+  body::before{ display:none!important; }
+  a{ color:#5e4a1f!important; text-decoration:underline!important; }
+  a[href^="http"]:after{ content:" ("attr(href)")"; font-size:.8em; color:#666; }
+  .card,article{ box-shadow:none!important; border:1px solid #ddd!important; page-break-inside:avoid; }
+  h1,h2,h3{ page-break-after:avoid; color:#000!important; }
+  img,svg{ max-width:100%!important; }
+  .gold-text{ color:#5e4a1f!important; -webkit-text-fill-color:#5e4a1f!important; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="/" style="text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:8px">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#g404)" stroke-width="1.4" stroke-linejoin="round"/><path d="M3.5 9h17M8 9l4-6 4 6M8 9l4 12 4-12" stroke="url(#g404)" stroke-width="1.1" stroke-linejoin="round"/><defs><linearGradient id="g404" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs></svg>
+    <span class="logo gold-text">BrillianceLab</span>
+  </a>
+</header>
+<main>
+  <div class="wrap">
+    <div class="gem">
+      <svg viewBox="0 0 80 80" width="80" height="80" fill="none"><g transform="translate(40 40)"><path d="M -22 -10 L 22 -10 L 30 0 L 0 26 L -30 0 Z" fill="#fbf3df" stroke="#8a6e30" stroke-width="1.4"/><path d="M -22 -10 L 22 -10 M -22 -10 L 0 26 M 22 -10 L 0 26" stroke="#c9a45c" stroke-width="0.8" opacity="0.5"/></g></svg>
+    </div>
+    <div class="big gold-text">404</div>
+    <h1>這顆鑽石找不到了</h1>
+    <p>這個網址可能已搬家、寫錯，或還沒被切磨完成。</p>
+    <p>下面幾個出口任你選 — 或直接回首頁開始評分。</p>
+
+    <div class="ctas">
+      <a href="/" class="btn btn-gold">🛠 回首頁工具 →</a>
+      <a href="/blog/" class="btn btn-ghost">📖 部落格首頁</a>
+      <a href="/blog/topics" class="btn btn-ghost">🗺 38 篇主題索引</a>
+    </div>
+
+    <div class="links">
+      <div class="links-title">熱門入口</div>
+      <a href="/blog/master-guide">★ 主幹教學</a>
+      <a href="/blog/gia-guide">GIA 鑑定書</a>
+      <a href="/blog/budget-formula">BPD 預算公式</a>
+      <a href="/blog/lab-vs-natural">天然 vs 培育鑽</a>
+      <a href="/blog/diamond-faq">50 問 FAQ</a>
+      <a href="/blog/famous-diamonds">10 大名鑽</a>
+      <a href="/blog/moissanite-vs-cz-vs-lab">真假鑽辨識</a>
+    </div>
+  </div>
+</main>
+</body>
+</html>

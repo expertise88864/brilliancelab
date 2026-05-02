@@ -252,6 +252,19 @@
           <a href="/blog/fluorescence-deep-dive"   class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 鑽石螢光反應" data-en="◆ Fluorescence"></a>
           <a href="/blog/inclusions-types-guide"   class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 內含物 8 種" data-en="◆ 8 inclusions"></a>
           <a href="/blog/engraving-personalization" class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 婚戒刻字指南" data-en="◆ Engraving"></a>
+          <a href="/blog/moissanite-vs-cz-vs-lab" class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 真假鑽辨識" data-en="◆ Real vs fake"></a>
+          <a href="/blog/famous-diamonds"      class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 10 大名鑽傳奇" data-en="◆ 10 famous diamonds"></a>
+          <a href="/blog/engagement-timeline"  class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 12 個月時間軸" data-en="◆ 12-month timeline"></a>
+
+          <div class="mt-2 text-[10px] uppercase tracking-[.18em] text-gold-700 font-semibold" data-zh="✦ 進階主題" data-en="✦ Advanced">✦ 進階主題</div>
+          <a href="/blog/gemstones-comparison" class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 4 大寶石比較" data-en="◆ 4 gemstones"></a>
+          <a href="/blog/sustainable-diamonds"  class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 道德鑽石" data-en="◆ Sustainable"></a>
+          <a href="/blog/heirloom-redesign"     class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 傳家鑽石重做" data-en="◆ Heirloom redesign"></a>
+          <a href="/blog/diamond-vs-gold"       class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 鑽石 vs 黃金" data-en="◆ Diamond vs Gold"></a>
+          <a href="/blog/lgbtq-rings"           class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 同志婚戒指南" data-en="◆ LGBTQ+ rings"></a>
+
+          <a href="/blog/topics"               class="block py-2 text-[13.5px] text-gold-700 font-bold" data-zh="🗺 主題索引(38 篇地圖)" data-en="🗺 Topic map"></a>
+          <a href="/search"                    class="block py-2 text-[13.5px] text-gold-700 font-bold" data-zh="🔍 站內搜尋" data-en="🔍 Search"></a>
 
           <a href="/blog/diamond-news-2026"   class="block py-2 text-[13px] text-ink-700 mt-1 pt-2 border-t border-[var(--line)]"
              data-zh="🔔 2026 鑽石市場新聞" data-en="🔔 2026 diamond news"></a>

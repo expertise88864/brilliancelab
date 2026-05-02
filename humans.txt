@@ -1,0 +1,23 @@
+/* TEAM */
+
+Site: BrillianceLab — 鑽石實驗室
+URL:  https://brilliancelab.vercel.app/
+About: A math-driven diamond evaluation calculator. Free, in-browser, no signup.
+       基於 Tolkowsky 黃金比例與 HCA 4 維光學分解的鑽石評分工具。
+
+Editor: BrillianceLab Editorial
+Lang:   Traditional Chinese / English
+Twitter: (TBD)
+
+/* THANKS */
+
+Tolkowsky, Marcel — 1919 PhD thesis "Diamond Design"
+Holloway, Garry  — Holloway Cut Adviser (HCA) framework
+GIA              — 4Cs grading standard
+
+/* SITE */
+
+Last update: 2026-05-02
+Standards: HTML5, JSON-LD, hreflang
+Components: Tailwind CSS, Tesseract.js (OCR), Service Worker (PWA)
+Hosting: Vercel (Edge + Serverless)
