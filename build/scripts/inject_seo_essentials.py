@@ -50,7 +50,9 @@ HUBS_REVERSE = {
     'diamond-1ct-price-2026':'hub-purchase',
     'proposal-vs-wedding-vs-eternity':'hub-proposal',
     'diamond-glossary':'hub-fundamentals',
-    'dcard-ptt-recommendations':'hub-purchase'
+    'dcard-ptt-recommendations':'hub-purchase',
+    'diamond-4cs-cheatsheet':'hub-fundamentals',
+    'diamond-50-cents':'hub-purchase'
 }
 HUB_TITLES = {
     'hub-fundamentals': '基礎篇',

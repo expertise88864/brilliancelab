@@ -37,6 +37,7 @@ HUBS = [
             ('diamond-faq',           '50 問 FAQ',          '新手最常問的 50 題,直接給答案不囉嗦。'),
             ('diamond-fun-facts',     '30 個冷知識',        '建立談資 — 鑽石歷史、奇聞、科學趣事。'),
             ('diamond-glossary',      '鑽石術語字典 30 詞', 'GIA / Tolkowsky / Pavé / Halo / 八心八箭 完整定義。'),
+            ('diamond-4cs-cheatsheet','鑽石 4C 懶人包',     '一頁解析 Color / Clarity / Cut / Carat,每 C 一句結論 + 甜蜜點。'),
         ],
     },
     {
@@ -70,6 +71,7 @@ HUBS = [
             ('moissanite-vs-cz-vs-lab', '真假鑽辨識',       '莫桑石 / CZ / 培育 / 天然 4 種 6 招辨識。'),
             ('diamond-1ct-price-2026', '一克拉鑽石價格查表', '從培育鑽 NT$7 萬到 Cartier NT$130 萬完整價位帶。'),
             ('dcard-ptt-recommendations', 'Dcard / PTT 推薦排行榜', '30 篇真實心得統計,點睛品 / I-PRIMO / 銀座白石誰被推最多。'),
+            ('diamond-50-cents',      '20-50 分鑽戒指南',   '台灣求婚最主流 0.2-0.5 ct 完整指南,NT$8-25 萬最聰明組合。'),
         ],
     },
     {
@@ -191,12 +193,27 @@ HEAD_TEMPLATE = '''<!doctype html>
   </nav>
 
   <h1 class="font-display font-bold leading-[1.15] text-[34px] sm:text-[48px]">{title}</h1>
-  <p class="mt-5 max-w-2xl text-[15.5px] sm:text-[17px] text-ink-700 leading-[1.85]">{subtitle}</p>
+  <p class="mt-5 max-w-2xl text-[15.5px] sm:text-[17px] text-ink-700 leading-[1.85]">{subtitle}。本主題收錄 {n} 篇深度文章,從基礎概念到進階實作,適合作為「{title}」這個主題的完整學習路徑。建議照順序閱讀,前後文章彼此呼應。</p>
 
   <article id="proseZh" data-pagefind-body data-pagefind-meta="slug:{slug}" class="mt-10">
+
+    <h2 class="font-display font-bold text-[22px]" style="border-left:3px solid var(--gold);padding-left:12px;margin:24px 0 14px">本主題 {n} 篇文章</h2>
     <div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
       {cards}
     </div>
+
+    <h2 class="font-display font-bold text-[22px]" style="border-left:3px solid var(--gold);padding-left:12px;margin:36px 0 14px">怎麼讀這個 silo?</h2>
+    <p class="text-[14.5px] text-ink-700 leading-[1.85]">建議的閱讀路徑:第 1-2 篇建立基礎概念,中段 3-5 篇深入單一面向,最後 1-2 篇是綜合應用或實戰案例。每篇文章都有「TL;DR · 一分鐘掌握」的摘要區塊,時間不夠時可以先掃所有 TL;DR。</p>
+
+    <h2 class="font-display font-bold text-[22px]" style="border-left:3px solid var(--gold);padding-left:12px;margin:36px 0 14px">其他相關主題 silo</h2>
+    <div style="display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:14px 0">
+      <a href="/blog/hub-fundamentals" style="display:block;padding:12px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:#1a1d2e;font-size:13.5px"><strong>基礎篇</strong> · GIA / 八心八箭 / 培育鑽</a>
+      <a href="/blog/hub-4cs" style="display:block;padding:12px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:#1a1d2e;font-size:13.5px"><strong>4Cs 拆解</strong> · 顏色 / 淨度 / 形狀</a>
+      <a href="/blog/hub-purchase" style="display:block;padding:12px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:#1a1d2e;font-size:13.5px"><strong>購買實戰</strong> · 預算 / 詐騙 / 二手</a>
+      <a href="/blog/hub-proposal" style="display:block;padding:12px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:#1a1d2e;font-size:13.5px"><strong>求婚與婚戒</strong> · 戒圍 / 戒台 / 對戒</a>
+      <a href="/blog/hub-care" style="display:block;padding:12px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:#1a1d2e;font-size:13.5px"><strong>保養與市場</strong> · 保險 / 回收 / 趨勢</a>
+    </div>
+
   </article>
 
   <section class="mt-12 p-6 rounded-2xl border border-[var(--border)] bg-[var(--gold-soft)]/40">

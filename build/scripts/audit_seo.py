@@ -67,11 +67,16 @@ def audit_one(p: Path) -> dict:
     out['h1_count'] = len(h1s)
     out['h1']       = h1_clean[0] if h1_clean else ''
 
-    # h1 keyword overlap with title
+    # h1 keyword overlap with title — use CJK 2-char n-grams + Latin words so
+    # that "鑽石形狀完整指南" in title and "鑽石形狀 完整指南" (split by <br>)
+    # in h1 still share tokens. Naive whole-token match misses these.
+    def tok(s: str) -> set:
+        latin = set(re.findall(r'[A-Za-z]{2,}', s))
+        cjk   = re.sub(r'[^㐀-鿿]', '', s)
+        bigrams = {cjk[i:i+2] for i in range(len(cjk) - 1)} if len(cjk) >= 2 else set()
+        return latin | bigrams
     if h1_clean and title:
-        title_tokens = set(re.findall(r'[\w㐀-鿿]{2,}', title))
-        h1_tokens    = set(re.findall(r'[\w㐀-鿿]{2,}', h1_clean[0]))
-        out['h1_overlap'] = len(title_tokens & h1_tokens)
+        out['h1_overlap'] = len(tok(title) & tok(h1_clean[0]))
     else:
         out['h1_overlap'] = 0
 

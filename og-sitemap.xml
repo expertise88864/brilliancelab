@@ -50,6 +50,22 @@
     </image:image>
   </url>
   <url>
+    <loc>https://brilliancelab.vercel.app/blog/diamond-4cs-cheatsheet</loc>
+    <image:image>
+      <image:loc>https://brilliancelab.vercel.app/og/diamond-4cs-cheatsheet.0c236929.png</image:loc>
+      <image:title>Diamond 4Cs Cheatsheet | BrillianceLab</image:title>
+      <image:caption>BrillianceLab article OG image — diamond-4cs-cheatsheet</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://brilliancelab.vercel.app/blog/diamond-50-cents</loc>
+    <image:image>
+      <image:loc>https://brilliancelab.vercel.app/og/diamond-50-cents.6daec257.png</image:loc>
+      <image:title>Diamond 50 Cents | BrillianceLab</image:title>
+      <image:caption>BrillianceLab article OG image — diamond-50-cents</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://brilliancelab.vercel.app/blog/diamond-carat-size</loc>
     <image:image>
       <image:loc>https://brilliancelab.vercel.app/og/diamond-carat-size.2c2aa36a.png</image:loc>
@@ -324,7 +340,7 @@
   <url>
     <loc>https://brilliancelab.vercel.app/blog/master-guide</loc>
     <image:image>
-      <image:loc>https://brilliancelab.vercel.app/og/master-guide.575b64c1.png</image:loc>
+      <image:loc>https://brilliancelab.vercel.app/og/master-guide.786f9a43.png</image:loc>
       <image:title>Master Guide | BrillianceLab</image:title>
       <image:caption>BrillianceLab article OG image — master-guide</image:caption>
     </image:image>

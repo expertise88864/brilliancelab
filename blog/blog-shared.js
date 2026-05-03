@@ -412,7 +412,9 @@
     'diamond-1ct-price-2026':  ['budget-formula','taiwan-brands','lab-vs-natural','diamond-carat-size'],
     'proposal-vs-wedding-vs-eternity': ['wedding-bands','wedding-metals','engagement-guide','engagement-timeline'],
     'diamond-glossary':        ['gia-guide','hearts-arrows-truth','round-cut-deep-dive','prong-settings-guide'],
-    'dcard-ptt-recommendations': ['taiwan-brands','engagement-guide','budget-formula','cert-comparison']
+    'dcard-ptt-recommendations': ['taiwan-brands','engagement-guide','budget-formula','cert-comparison'],
+    'diamond-4cs-cheatsheet':  ['gia-guide','diamond-color','diamond-clarity','master-guide'],
+    'diamond-50-cents':        ['diamond-carat-size','budget-formula','taiwan-brands','diamond-1ct-price-2026']
   };
   // Title lookup so we don't hard-code titles in every page; fallback = humanise the slug.
   BL.TITLES = {
@@ -463,7 +465,9 @@
     'diamond-1ct-price-2026': { zh:'2026 一克拉鑽石價格查表', en:'2026 1ct diamond price table' },
     'proposal-vs-wedding-vs-eternity': { zh:'4 種戒指完整差別', en:'4 types of rings compared' },
     'diamond-glossary':       { zh:'鑽石術語字典 30 詞', en:'30-term diamond glossary' },
-    'dcard-ptt-recommendations': { zh:'Dcard / PTT 鑽戒推薦排行榜', en:'Dcard / PTT diamond ring rankings' }
+    'dcard-ptt-recommendations': { zh:'Dcard / PTT 鑽戒推薦排行榜', en:'Dcard / PTT diamond ring rankings' },
+    'diamond-4cs-cheatsheet':  { zh:'鑽石 4C 懶人包', en:'Diamond 4Cs cheatsheet' },
+    'diamond-50-cents':        { zh:'20-50 分鑽戒指南', en:'20-50 cent diamond ring guide' }
   };
 
   BL.injectRelated = function (slug) {
@@ -1484,7 +1488,9 @@
     'diamond-1ct-price-2026':'hub-purchase',
     'proposal-vs-wedding-vs-eternity':'hub-proposal',
     'diamond-glossary':'hub-fundamentals',
-    'dcard-ptt-recommendations':'hub-purchase'
+    'dcard-ptt-recommendations':'hub-purchase',
+    'diamond-4cs-cheatsheet':'hub-fundamentals',
+    'diamond-50-cents':'hub-purchase'
   };
   BL.HUB_TITLES = {
     'hub-fundamentals': '基礎篇',
