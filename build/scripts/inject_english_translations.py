@@ -15,6 +15,20 @@ Round 13 batch: 10 articles
   - diamond-50-cents / taiwan-brands / dcard-ptt-recommendations
   - diamond-glossary / proposal-vs-wedding-vs-eternity
   - diamond-faq / gia-guide
+
+Round 14 batch: remaining 39 articles (full site coverage)
+  4Cs/Shapes:  diamond-color, diamond-clarity, diamond-carat-size, diamond-shapes,
+               cert-comparison, hearts-arrows-truth, lab-vs-natural, budget-formula,
+               fluorescence-deep-dive, inclusions-types-guide
+  Purchase:    engagement-guide, diamond-scams, diamond-resale, diamond-financing,
+               diamond-price-trends, diamond-vs-gold, ring-sizing, ring-insurance,
+               secondhand-rings, mens-engagement-rings
+  Bands/Cer:   wedding-bands, wedding-metals, prong-settings-guide,
+               engraving-personalization, heirloom-redesign, proposal-speech,
+               engagement-timeline, dating-duration, destination-wedding, lgbtq-rings
+  Care/Niche:  diamond-care, diamond-fun-facts, famous-diamonds, fancy-cuts-guide,
+               round-cut-deep-dive, moissanite-vs-cz-vs-lab, gemstones-comparison,
+               sustainable-diamonds, diamond-photography
 """
 from __future__ import annotations
 import re, sys
@@ -821,6 +835,1684 @@ for an objective optical score and 4-dim breakdown
 through the <a href="/">BrillianceLab calculator</a> and see where it scores.
 Same NT$300K, two GIA-Excellent stones can score 30 points apart on optics —
 that's the difference between buying and not buying.</p>
+'''
+
+
+# ─────────────────────────────────────────────────────────────────
+# Round 14 — 4Cs / Shapes (10)
+# ─────────────────────────────────────────────────────────────────
+
+EN['diamond-color'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Diamond color D-Z grades how <em>colorless</em> the stone is. D-F is "colorless",
+  G-J "near-colorless", K+ visibly tinted. Face-up you cannot tell D from G.
+  G is the value sweet spot — same look as D, ~30% cheaper.
+</aside>
+
+<h2>How GIA grades color</h2>
+<p>Gemologists view the diamond <strong>table-down</strong> against a white card under
+controlled D65 lighting and compare against master stones. The scale runs D
+(absolutely colorless) to Z (light yellow). After Z, the diamond enters
+<a href="/blog/fancy-cuts-guide">Fancy Color</a> territory and is graded on a
+separate scale.</p>
+
+<h2>The face-up truth</h2>
+<p>D-G look identical face-up to the naked eye. Below G, a yellow tint becomes
+detectable, especially in larger stones (over 1 ct) and in step-cuts (emerald,
+asscher) where the open table reveals body color. For brilliant cuts (round,
+oval, cushion) you can drop to <strong>H or even I</strong> and still appear white in
+warm Asian indoor lighting (3000K).</p>
+
+<h2>Why G is the sweet spot</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Color</th><th style="padding:6px;border:1px solid #d4c08a">Look face-up</th><th style="padding:6px;border:1px solid #d4c08a">Price vs G</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">D</td><td style="padding:6px;border:1px solid #d4c08a">Identical</td><td style="padding:6px;border:1px solid #d4c08a">+45%</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">E</td><td style="padding:6px;border:1px solid #d4c08a">Identical</td><td style="padding:6px;border:1px solid #d4c08a">+30%</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">F</td><td style="padding:6px;border:1px solid #d4c08a">Identical</td><td style="padding:6px;border:1px solid #d4c08a">+15%</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a"><strong>G</strong></td><td style="padding:6px;border:1px solid #d4c08a">Reference</td><td style="padding:6px;border:1px solid #d4c08a">0%</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">H</td><td style="padding:6px;border:1px solid #d4c08a">Still white</td><td style="padding:6px;border:1px solid #d4c08a">-10%</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">I</td><td style="padding:6px;border:1px solid #d4c08a">Slight warmth</td><td style="padding:6px;border:1px solid #d4c08a">-20%</td></tr>
+  </tbody>
+</table>
+
+<h2>Setting metal interaction</h2>
+<p>Yellow gold settings <em>mask</em> body color — you can drop to J-K. White gold
+or platinum reveals every degree, so don't go below H. Rose gold is forgiving
+to I-J. See <a href="/blog/wedding-metals">wedding metal guide</a> for matching.</p>
+
+<p>Read <a href="/blog/diamond-clarity">clarity next</a>, then go to the
+<a href="/">calculator</a> to see how color affects your overall optical score.</p>
+'''
+
+
+EN['diamond-clarity'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Clarity grades inclusions under 10× magnification. FL-IF flawless, VVS1-VVS2
+  hard to find under loupe, VS1-VS2 invisible to the naked eye, SI1-SI2 sometimes
+  visible, I1-I3 visible. <strong>VS2 is the practical floor</strong> — eye-clean and 40-60% cheaper than VVS.
+</aside>
+
+<h2>The 11-grade scale</h2>
+<p>FL → IF → VVS1 → VVS2 → VS1 → VS2 → SI1 → SI2 → I1 → I2 → I3.
+"Eye-clean" means no inclusion visible at 25 cm in normal light. The vast
+majority of VS2 and many SI1 stones are eye-clean — but you must check the
+GIA plot, not just the grade.</p>
+
+<h2>Inclusion types that matter</h2>
+<ul>
+  <li><strong>Crystal</strong> — most common, often white/colorless and easy to hide.</li>
+  <li><strong>Feather</strong> — small fracture; check it isn't on the girdle (durability risk).</li>
+  <li><strong>Cloud</strong> — group of pinpoints; large clouds dim brilliance even at SI grade.</li>
+  <li><strong>Cavity / chip</strong> — surface defects; avoid in any grade.</li>
+</ul>
+<p>See <a href="/blog/inclusions-types-guide">the full inclusion atlas</a> with photos.</p>
+
+<h2>Where on the stone matters</h2>
+<p>An inclusion under the table is more visible than one near the girdle (hidden
+by the prongs). Ask the seller for a face-up photo at 10× to verify your VS2
+or SI1 reads as eye-clean. SI1 with edge-only inclusions can outperform VS2
+with a center crystal.</p>
+
+<h2>The economic answer</h2>
+<p><strong>VS2 GIA</strong> for safety, <strong>SI1 GIA with eye-clean plot</strong> for value.
+Anything VVS+ is paying for the loupe view nobody will ever take. Pair VS2 with
+G color for the optimal price-quality knot — see <a href="/blog/diamond-color">color guide</a>
+and run the numbers in the <a href="/">calculator</a>.</p>
+'''
+
+
+EN['diamond-carat-size'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Carat is weight, not size. A round 1 ct ≈ 6.5 mm, 0.7 ct ≈ 5.75 mm, 0.5 ct ≈ 5.2 mm.
+  Going from 0.7 to 1.0 ct adds only ~13% diameter but ~50% price. Choose carat
+  based on <em>face-up diameter</em>, not weight on paper.
+</aside>
+
+<h2>Carat-to-mm reference (round brilliant)</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Carat</th><th style="padding:6px;border:1px solid #d4c08a">Diameter</th><th style="padding:6px;border:1px solid #d4c08a">Looks like</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">0.30 ct</td><td style="padding:6px;border:1px solid #d4c08a">4.3 mm</td><td style="padding:6px;border:1px solid #d4c08a">delicate, daily wear</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">0.50 ct</td><td style="padding:6px;border:1px solid #d4c08a">5.2 mm</td><td style="padding:6px;border:1px solid #d4c08a">classic petite</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">0.70 ct</td><td style="padding:6px;border:1px solid #d4c08a">5.75 mm</td><td style="padding:6px;border:1px solid #d4c08a">value sweet spot</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a"><strong>1.00 ct</strong></td><td style="padding:6px;border:1px solid #d4c08a"><strong>6.5 mm</strong></td><td style="padding:6px;border:1px solid #d4c08a">milestone, "real" engagement size</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">1.50 ct</td><td style="padding:6px;border:1px solid #d4c08a">7.4 mm</td><td style="padding:6px;border:1px solid #d4c08a">noticeable from across the room</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">2.00 ct</td><td style="padding:6px;border:1px solid #d4c08a">8.1 mm</td><td style="padding:6px;border:1px solid #d4c08a">statement</td></tr>
+  </tbody>
+</table>
+
+<h2>Magic-number pricing cliffs</h2>
+<p>Diamond prices jump at psychological round numbers: 0.50, 0.70, 0.90, 1.00,
+1.50, 2.00 ct. A 0.95 ct can be 20-30% cheaper than 1.00 ct with face-up
+diameter only 0.1 mm smaller. <strong>Buy "just under"</strong> (0.93, 1.45, 1.95) to
+exploit this cliff — see the <a href="/blog/diamond-1ct-price-2026">2026 1-carat
+price article</a> for live numbers.</p>
+
+<h2>Spread vs depth</h2>
+<p>Two 1.00 ct stones can have different face-up diameters. A "spready" cut
+(shallow pavilion) looks 5-7% larger than a deep one — but trades brilliance.
+Run candidates through the <a href="/">calculator</a> to verify the deeper one
+isn't winning on optics. Read <a href="/blog/hearts-arrows-truth">hearts &amp;
+arrows</a> for the cut-quality story.</p>
+'''
+
+
+EN['diamond-shapes'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Round brilliant accounts for ~70% of engagement diamonds for a reason —
+  highest brilliance, easiest to certify, deepest market. Fancy shapes (oval,
+  cushion, princess, emerald, pear) trade some sparkle for individuality and
+  10-25% lower price per carat.
+</aside>
+
+<h2>The 10 shapes at a glance</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Shape</th><th style="padding:6px;border:1px solid #d4c08a">Brilliance</th><th style="padding:6px;border:1px solid #d4c08a">Best for</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Round</td><td style="padding:6px;border:1px solid #d4c08a">★★★★★</td><td style="padding:6px;border:1px solid #d4c08a">Maximum sparkle, classic</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Oval</td><td style="padding:6px;border:1px solid #d4c08a">★★★★☆</td><td style="padding:6px;border:1px solid #d4c08a">Elongates fingers, looks 10% larger</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Cushion</td><td style="padding:6px;border:1px solid #d4c08a">★★★★☆</td><td style="padding:6px;border:1px solid #d4c08a">Vintage, soft glow</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Princess</td><td style="padding:6px;border:1px solid #d4c08a">★★★★☆</td><td style="padding:6px;border:1px solid #d4c08a">Modern, square face-up</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Emerald</td><td style="padding:6px;border:1px solid #d4c08a">★★★☆☆</td><td style="padding:6px;border:1px solid #d4c08a">Hall-of-mirrors look, art deco</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Pear</td><td style="padding:6px;border:1px solid #d4c08a">★★★★☆</td><td style="padding:6px;border:1px solid #d4c08a">Unique, slimming finger</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Marquise</td><td style="padding:6px;border:1px solid #d4c08a">★★★★☆</td><td style="padding:6px;border:1px solid #d4c08a">Largest face-up per carat</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Asscher</td><td style="padding:6px;border:1px solid #d4c08a">★★★☆☆</td><td style="padding:6px;border:1px solid #d4c08a">Square emerald, vintage</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Radiant</td><td style="padding:6px;border:1px solid #d4c08a">★★★★☆</td><td style="padding:6px;border:1px solid #d4c08a">Brilliant facets in rectangular outline</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Heart</td><td style="padding:6px;border:1px solid #d4c08a">★★★☆☆</td><td style="padding:6px;border:1px solid #d4c08a">Symbol pieces; 1ct+ recommended</td></tr>
+  </tbody>
+</table>
+
+<h2>Step-cut vs brilliant-cut</h2>
+<p><strong>Brilliant cuts</strong> (round, oval, cushion, pear, marquise, princess, radiant)
+have triangular facets that scatter light into many small flashes — high
+sparkle, hides inclusions. <strong>Step cuts</strong> (emerald, asscher, baguette) have
+parallel rectangular facets producing wide, mirror-like flashes — elegant but
+require higher clarity (VS1+).</p>
+
+<h2>Shape-specific buying tips</h2>
+<ul>
+  <li><strong>Oval &amp; pear</strong> — watch for a "bow-tie" dark shadow across the center.</li>
+  <li><strong>Princess</strong> — protect sharp corners with V-prongs.</li>
+  <li><strong>Emerald</strong> — buy color G+ and clarity VS1+ (open table reveals everything).</li>
+  <li><strong>Marquise</strong> — verify symmetry; lopsided ones look cheap.</li>
+</ul>
+
+<p>Round on a budget? Look at <a href="/blog/round-cut-deep-dive">the deep dive</a>.
+Want a different shape? Read <a href="/blog/fancy-cuts-guide">the fancy-cuts
+guide</a>. Then run your candidate through the <a href="/">calculator</a>.</p>
+'''
+
+
+EN['cert-comparison'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  GIA is the strictest and most universally trusted. IGI dominates the lab-grown
+  market. HRD and AGS are credible alternatives. EGL and "in-house" reports are
+  notoriously soft — discount the grade by 1-2 levels.
+</aside>
+
+<h2>The big four labs</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Lab</th><th style="padding:6px;border:1px solid #d4c08a">Strictness</th><th style="padding:6px;border:1px solid #d4c08a">Strongest in</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a"><strong>GIA</strong></td><td style="padding:6px;border:1px solid #d4c08a">Reference</td><td style="padding:6px;border:1px solid #d4c08a">Natural diamonds, global</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">AGS</td><td style="padding:6px;border:1px solid #d4c08a">≥ GIA on cut</td><td style="padding:6px;border:1px solid #d4c08a">Light performance reports (now part of GIA)</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">HRD</td><td style="padding:6px;border:1px solid #d4c08a">≈ GIA</td><td style="padding:6px;border:1px solid #d4c08a">Antwerp / Europe market</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">IGI</td><td style="padding:6px;border:1px solid #d4c08a">~ 0.5 grade looser</td><td style="padding:6px;border:1px solid #d4c08a">Lab-grown, India market</td></tr>
+  </tbody>
+</table>
+
+<h2>Read GIA before everything</h2>
+<p>For natural diamonds, <strong>insist on GIA</strong>. The grade-to-grade discount for
+non-GIA paper is real (5-15%) but the resale and trade-in penalty is much worse.
+A GIA-graded stone is liquid; a non-GIA stone trades back at 30-50%. Read
+<a href="/blog/gia-guide">how to read a GIA report</a> for the format walkthrough.</p>
+
+<h2>For lab-grown: IGI is fine</h2>
+<p>IGI dominates lab-grown certification because it built the workflow first.
+The grading is consistent within IGI lab-grown reports and the digital format
+is QR-verifiable. GIA also grades lab-grown but at a premium price.</p>
+
+<h2>Avoid soft labs</h2>
+<p>EGL (especially EGL International) and many "in-house" or jeweller-issued
+"appraisals" routinely run 1-2 grades looser. A "EGL F-VS2" is realistically
+"GIA H-SI1". Discount the asking price accordingly or refuse.</p>
+
+<p>Verify your report at the lab's official site before purchase. See
+<a href="/blog/diamond-scams">the scams article</a> for fake-cert recognition.</p>
+'''
+
+
+EN['hearts-arrows-truth'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  "Hearts &amp; Arrows" is a precision benchmark above GIA Excellent — only ~5%
+  of round Excellents qualify. The visual pattern (8 hearts under, 8 arrows
+  over) is proof of optical symmetry, not marketing.
+</aside>
+
+<h2>What is Hearts &amp; Arrows?</h2>
+<p>When viewed through an H&amp;A scope from the pavilion side, an ideally cut
+round shows 8 perfectly shaped hearts. From the table side, 8 arrows. This
+pattern only forms when crown angle, pavilion angle, and facet azimuth are
+within ±0.2° of Tolkowsky's ideal. The math is binary: in or out.</p>
+
+<h2>Why GIA Excellent isn't enough</h2>
+<p>GIA Excellent allows table 53-58%, depth 60.5-62.5%, crown 31-37°,
+pavilion 40.6-41.8°. The <em>edge</em> of Excellent (table 58, crown 37, pavilion
+41.8) measurably leaks light — our calculator scores it 25% below the
+center-of-Excellent (table 56, crown 34.5, pavilion 41).</p>
+
+<h2>How to verify</h2>
+<ol>
+  <li>Ask for an <strong>ASET</strong> or <strong>Ideal-Scope</strong> image.</li>
+  <li>Look for 8 hearts symmetrical and centered (no split heart bases).</li>
+  <li>Confirm proportions: table 55-57%, depth 60.5-62%, crown 34-35°, pavilion 40.6-41°.</li>
+  <li>Run the four numbers through the <a href="/">BrillianceLab calculator</a> — true H&amp;A scores 92+.</li>
+</ol>
+
+<h2>Is the H&amp;A premium worth it?</h2>
+<p>True H&amp;A trades at a 15-25% premium over edge-Excellent. For a 1 ct, that's
+roughly NT$30-50K. If your budget allows it, yes — the visible difference is
+significant. If not, prioritise center-Excellent proportions over the pattern
+itself. Read <a href="/blog/budget-formula">the budget formula</a> for the math.</p>
+'''
+
+
+EN['lab-vs-natural'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Lab-grown diamonds are chemically identical to natural — same C, same lattice,
+  same hardness, same optics. Price is now 70-80% lower. The remaining
+  arguments are emotional (provenance, resale) — not optical.
+</aside>
+
+<h2>Same crystal, different origin</h2>
+<p>Both natural and lab-grown diamonds are pure carbon in cubic crystal lattice.
+A trained gemologist cannot tell them apart by eye, by loupe, or by fire.
+Specialised instruments (DiamondView fluorescence, Raman spectroscopy) detect
+the trace nitrogen / Si patterns of growth chambers — but only labs run those
+tests. To you and your fiancée, identical.</p>
+
+<h2>The price collapse</h2>
+<p>Lab-grown diamond wholesale prices fell ~85% from 2018-2025 as HPHT and
+CVD capacity scaled. A 1 ct G-VS2 lab is now ~NT$30-50K vs ~NT$180-250K
+natural — same stone, 70% off. See <a href="/blog/diamond-price-trends">price
+trends</a> for the full curve.</p>
+
+<h2>The emotional case for natural</h2>
+<ul>
+  <li><strong>Provenance</strong> — billion-year geological story is real.</li>
+  <li><strong>Scarcity</strong> — finite supply (until lab capacity floods).</li>
+  <li><strong>Resale</strong> — natural retains 30-40% trade-in; lab is closer to 5-10%.</li>
+</ul>
+
+<h2>The case for lab</h2>
+<ul>
+  <li><strong>3-4× the size</strong> for the same budget.</li>
+  <li><strong>No conflict-zone risk</strong> (and natural Kimberley Process has gaps).</li>
+  <li><strong>Smaller environmental footprint</strong> (depending on grid mix).</li>
+</ul>
+
+<h2>The honest answer</h2>
+<p>If you want maximum sparkle for your budget, buy lab. If you want a stone you
+can trade or pass down with stable value, buy natural. Both are real diamonds.
+Read <a href="/blog/sustainable-diamonds">the sustainability deep-dive</a> and
+the <a href="/blog/diamond-faq">FAQ</a> for nuance.</p>
+'''
+
+
+EN['budget-formula'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Forget "3 months' salary" — that was 1947 De Beers ad copy. The real budget
+  formula: <strong>BPD = (optical score × √carat) / price</strong>. Maximise BPD
+  under your hard cap and you've found the optimal stone.
+</aside>
+
+<h2>Why "3 months' salary" is wrong</h2>
+<p>The figure was invented by N.W. Ayer for De Beers in the 1940s and bumped to
+"2 months" then "3 months" through the 1980s as commission-driven marketing.
+There is no relationship between your salary and the optimal stone size.
+The optimal stone is the one that maximises perceived sparkle within your
+hard budget — measurable, not emotional.</p>
+
+<h2>The BPD formula</h2>
+<p><strong>BPD = (Optical Score × √Carat) ÷ Price (NT$1000)</strong></p>
+<p>Why √carat? Because face-up area scales with the square of diameter, and
+diameter scales with the cube root of weight, so visual impact scales roughly
+with √(weight). Optical score (0-100) comes from the
+<a href="/">calculator</a> — it captures the 4-dim cut analysis (light return,
+fire, scintillation, spread).</p>
+
+<h2>Worked example</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Stone</th><th style="padding:6px;border:1px solid #d4c08a">Score</th><th style="padding:6px;border:1px solid #d4c08a">Carat</th><th style="padding:6px;border:1px solid #d4c08a">Price (k)</th><th style="padding:6px;border:1px solid #d4c08a">BPD</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">A: 1ct GIA-EX edge</td><td style="padding:6px;border:1px solid #d4c08a">76</td><td style="padding:6px;border:1px solid #d4c08a">1.00</td><td style="padding:6px;border:1px solid #d4c08a">220</td><td style="padding:6px;border:1px solid #d4c08a">0.345</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">B: 0.95ct H&amp;A</td><td style="padding:6px;border:1px solid #d4c08a">94</td><td style="padding:6px;border:1px solid #d4c08a">0.95</td><td style="padding:6px;border:1px solid #d4c08a">195</td><td style="padding:6px;border:1px solid #d4c08a"><strong>0.470</strong></td></tr>
+  </tbody>
+</table>
+<p>B wins on BPD by 36% despite being 0.05 ct smaller and "only" 6% cheaper —
+because the score gap is huge.</p>
+
+<h2>Putting it to work</h2>
+<p>Set your hard cap (NT$200K, NT$300K, etc.). Pull 5-10 candidates from
+<a href="/blog/taiwan-brands">Taiwan brands</a> in your price range. Compute
+BPD for each. Buy the highest. Don't haggle over 5%; haggle over 35% BPD gaps.</p>
+'''
+
+
+EN['fluorescence-deep-dive'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  ~30% of diamonds glow blue under UV. For G-J colors, Medium Blue
+  fluorescence <em>improves</em> face-up appearance and saves 5-10% on price.
+  Avoid only Strong/Very Strong on D-F (potential haziness).
+</aside>
+
+<h2>What is fluorescence?</h2>
+<p>Trace nitrogen clusters in the diamond lattice absorb UV and re-emit visible
+light. Most fluorescence is blue. GIA grades it: None / Faint / Medium /
+Strong / Very Strong, and notes color (almost always Blue).</p>
+
+<h2>The myth and the reality</h2>
+<p>The trade discounts fluorescent stones because of a 1990s rumor that strong
+fluorescence makes diamonds look "milky" or "oily". GIA's own 1997 study
+showed: untrained observers <em>preferred</em> fluorescent stones in 99% of
+side-by-side comparisons. The "milky" effect is real but rare — limited to
+~3% of Strong+ stones.</p>
+
+<h2>Color × fluorescence matrix</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Color</th><th style="padding:6px;border:1px solid #d4c08a">Best fluorescence</th><th style="padding:6px;border:1px solid #d4c08a">Why</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">D-F</td><td style="padding:6px;border:1px solid #d4c08a">None / Faint</td><td style="padding:6px;border:1px solid #d4c08a">Already colorless; risk haze</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a"><strong>G-J</strong></td><td style="padding:6px;border:1px solid #d4c08a"><strong>Medium / Strong Blue</strong></td><td style="padding:6px;border:1px solid #d4c08a">Blue cancels yellow tint, looks whiter</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">K+</td><td style="padding:6px;border:1px solid #d4c08a">Strong Blue</td><td style="padding:6px;border:1px solid #d4c08a">Big visual upgrade</td></tr>
+  </tbody>
+</table>
+
+<h2>The pricing arbitrage</h2>
+<p>A G-VS2 with Medium Blue fluorescence trades 5-10% below a non-fluorescent
+twin — same paper, same look (or better). On a NT$200K stone, that's NT$10-20K
+saved. Always view the stone in person under daylight before buying — the
+~3% milky risk is verifiable in 30 seconds.</p>
+
+<p>Read <a href="/blog/diamond-color">the color guide</a> for the matching
+strategy and <a href="/blog/gia-guide">how to spot fluorescence</a> on a GIA
+report (Page 2, lower-right block).</p>
+'''
+
+
+EN['inclusions-types-guide'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Not all VS2 inclusions are equal. Crystals and feathers near the girdle hide
+  under prongs; clouds under the table dim brilliance even at SI grade. Always
+  read the GIA plot, not just the letter grade.
+</aside>
+
+<h2>The 12 inclusion types</h2>
+<ul>
+  <li><strong>Crystal</strong> — embedded mineral, most common. Color-grade matters: white crystals hide better than dark.</li>
+  <li><strong>Pinpoint</strong> — single tiny crystal, often invisible to eye.</li>
+  <li><strong>Cloud</strong> — group of pinpoints. Large clouds look hazy; small clouds invisible.</li>
+  <li><strong>Feather</strong> — internal fracture. Safe if small &amp; not on girdle.</li>
+  <li><strong>Needle</strong> — long thin crystal. Hard to see face-up.</li>
+  <li><strong>Knot</strong> — crystal that reaches the surface. Avoid.</li>
+  <li><strong>Cavity</strong> — surface dip. Catches dirt; avoid.</li>
+  <li><strong>Chip</strong> — small surface break. Reflects ugly; avoid.</li>
+  <li><strong>Indented natural</strong> — original crystal skin recess on girdle. Acceptable.</li>
+  <li><strong>Bruise</strong> — impact site, often with feather. Acceptable if small.</li>
+  <li><strong>Twinning wisp</strong> — wavy growth ribbons. Often invisible, can dim brilliance if dense.</li>
+  <li><strong>Etch channel</strong> — straight tube from natural acid attack. Cosmetic.</li>
+</ul>
+
+<h2>Position matters more than count</h2>
+<p>An SI1 with one inclusion under the prong can be eye-clean; a VS2 with a
+crystal directly under the table can be visible. <strong>Buy by photo, not by
+grade.</strong> Ask the seller for a 10× face-up photo and a side-photo before
+purchase.</p>
+
+<h2>Avoid these no matter the grade</h2>
+<ul>
+  <li>Surface-reaching feather on the girdle (durability risk during setting).</li>
+  <li>Knot or chip anywhere.</li>
+  <li>Dark crystal directly under the table.</li>
+  <li>Dense twinning wisps reading as "haze" face-up.</li>
+</ul>
+
+<p>See the <a href="/blog/diamond-clarity">clarity guide</a> for the grading
+scale and <a href="/blog/gia-guide">GIA plot reading</a> for which symbol is
+which on the report.</p>
+'''
+
+
+# ─────────────────────────────────────────────────────────────────
+# Round 14 — Purchase / brands / scams (10)
+# ─────────────────────────────────────────────────────────────────
+
+EN['engagement-guide'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  9-step engagement ring playbook: budget → ring style → 4Cs → cert lab →
+  shortlist 3 stones → in-person view → compute BPD → negotiate → buy.
+  Total elapsed time: 2-4 weeks if you start with a clear budget.
+</aside>
+
+<h2>The 9 steps</h2>
+<ol>
+  <li><strong>Set a hard budget cap.</strong> Not "around X", a number. NT$150K, NT$250K, NT$400K.</li>
+  <li><strong>Pick a ring style.</strong> Solitaire, halo, three-stone, bezel, vintage. See <a href="/blog/prong-settings-guide">prong settings</a>.</li>
+  <li><strong>Get her ring size.</strong> Borrow an existing ring or use the <a href="/blog/ring-sizing">ring sizing guide</a>.</li>
+  <li><strong>Decide natural vs lab.</strong> Read <a href="/blog/lab-vs-natural">the comparison</a>; lab is 70% cheaper at the same look.</li>
+  <li><strong>Lock the 4Cs.</strong> Default: G color / VS2 clarity / 0.7-1.0 ct / Excellent cut. Adjust per <a href="/blog/budget-formula">BPD formula</a>.</li>
+  <li><strong>Insist on GIA.</strong> Or IGI for lab-grown. Read <a href="/blog/cert-comparison">the cert guide</a>.</li>
+  <li><strong>Shortlist 3 stones.</strong> From 2-3 vendors. Get GIA numbers; run them through <a href="/">the calculator</a>.</li>
+  <li><strong>View in person.</strong> Daylight + indoor. Verify no haze (fluorescence check) and eye-clean.</li>
+  <li><strong>Negotiate &amp; buy.</strong> 5-10% off list is normal in Taiwan. Get a written certificate, appraisal, return policy.</li>
+</ol>
+
+<h2>Common pitfalls</h2>
+<ul>
+  <li>Buying brand-name first, stone second — paying 2-4× for a logo. See <a href="/blog/taiwan-brands">brand tier comparison</a>.</li>
+  <li>Falling for "GIA Excellent" without checking proportions — read <a href="/blog/hearts-arrows-truth">H&amp;A truth</a>.</li>
+  <li>Ignoring resale — see <a href="/blog/diamond-resale">the resale article</a>.</li>
+  <li>Forgetting insurance — see <a href="/blog/ring-insurance">ring insurance</a>.</li>
+</ul>
+
+<h2>Timeline</h2>
+<p>Allow 2-4 weeks for research + viewing + setting (if custom). For a stock
+ring you can buy and walk out same day, but custom mounting adds 1-2 weeks.
+Time the proposal accordingly. See <a href="/blog/proposal-speech">the
+proposal speech guide</a> for what comes next.</p>
+'''
+
+
+EN['diamond-scams'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  The 10 most common diamond scams in 2026: switched stones, fake certs, soft
+  labs, "investment grade" pitches, lab-as-natural, undisclosed treatments,
+  inflated retail "discount", night-market loose stones, fake H&amp;A claims,
+  and 4-prong "phantom" weight tricks.
+</aside>
+
+<h2>The top 10 scams</h2>
+<ol>
+  <li><strong>Stone switching</strong> — you bring in a stone for cleaning; you get a CZ back. Always insist on cleaning while watching, or insure first.</li>
+  <li><strong>Fake or altered GIA certs</strong> — verify the report number at gia.edu/report-check. The number must match the stone's laser inscription.</li>
+  <li><strong>Soft lab certs</strong> — EGL, in-house "appraisals", or "international" labs grading 1-2 levels loose. See <a href="/blog/cert-comparison">cert comparison</a>.</li>
+  <li><strong>"Investment grade" pitch</strong> — diamonds are a lousy investment. Resale is 30-40% of retail. See <a href="/blog/diamond-resale">resale truth</a>.</li>
+  <li><strong>Lab passed off as natural</strong> — lab-grown stones sold without disclosure. Insist on GIA paper that explicitly states "natural".</li>
+  <li><strong>Undisclosed HPHT/laser treatments</strong> — color enhancement or fracture filling not disclosed. GIA reports list treatments; check.</li>
+  <li><strong>Fake retail "discount"</strong> — "75% off list price!" Real wholesale is 30-50% under retail; deeper "discounts" usually mean inflated list.</li>
+  <li><strong>Night-market loose stones</strong> — moissanite, white sapphire, or CZ sold as "wholesale diamond". Walk away.</li>
+  <li><strong>Fake Hearts &amp; Arrows</strong> — H&amp;A claimed without ASET image proof. See <a href="/blog/hearts-arrows-truth">H&amp;A truth</a>.</li>
+  <li><strong>Phantom weight</strong> — heavy crowns or extra-deep pavilions raise carat weight without raising face-up size. Check spread vs depth.</li>
+</ol>
+
+<h2>How to protect yourself</h2>
+<ul>
+  <li>Always GIA, always verified at gia.edu.</li>
+  <li>Cross-quote with at least 2 vendors (and one online).</li>
+  <li>Run proportions through <a href="/">the calculator</a> before paying.</li>
+  <li>Pay by credit card (chargeback protection).</li>
+  <li>Insist on a written 7-day no-questions return.</li>
+  <li>Get an independent appraisal within 48 hours.</li>
+</ul>
+
+<p>For brand selection, read <a href="/blog/taiwan-brands">the Taiwan brand
+tier guide</a>. For the second-hand market, see <a href="/blog/secondhand-rings">
+secondhand rings</a>.</p>
+'''
+
+
+EN['diamond-resale'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  A NT$300K diamond ring trades back at NT$80-120K — a 60-75% loss. The "loss"
+  is mostly retail markup + setting work + emotion. The stone alone holds 30-40%
+  of retail. Buy for love, not investment.
+</aside>
+
+<h2>Where the value goes</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Component</th><th style="padding:6px;border:1px solid #d4c08a">% of retail</th><th style="padding:6px;border:1px solid #d4c08a">Resale recovery</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Loose stone</td><td style="padding:6px;border:1px solid #d4c08a">~50%</td><td style="padding:6px;border:1px solid #d4c08a">~70% of stone wholesale = ~25-30% of retail</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Setting (metal + labor)</td><td style="padding:6px;border:1px solid #d4c08a">~10%</td><td style="padding:6px;border:1px solid #d4c08a">Metal scrap value only ~3%</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Brand markup</td><td style="padding:6px;border:1px solid #d4c08a">~25%</td><td style="padding:6px;border:1px solid #d4c08a">~0%</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Retailer margin</td><td style="padding:6px;border:1px solid #d4c08a">~15%</td><td style="padding:6px;border:1px solid #d4c08a">~0%</td></tr>
+  </tbody>
+</table>
+
+<h2>Channels and recovery rates</h2>
+<ul>
+  <li><strong>Auction (Christie's/Sotheby's)</strong> — best for 2 ct+ certified stones; 30-50% of original retail after fees.</li>
+  <li><strong>Trade-in at original retailer</strong> — usually only against a higher-priced new ring; 40-60% credit, but you spend more.</li>
+  <li><strong>Diamond buyback service (e.g. Worthy)</strong> — 25-40% of retail; convenience trade-off.</li>
+  <li><strong>Pawn shop</strong> — 10-20%. Avoid.</li>
+  <li><strong>Private sale (Carousell/Yahoo)</strong> — 35-50% if you can find a buyer; takes weeks.</li>
+</ul>
+
+<h2>Lab-grown resale is much worse</h2>
+<p>Lab-grown wholesale is collapsing ~10% per year. A 2024 lab stone bought
+for NT$60K trades back for NT$5-10K today. If resale matters, buy natural.</p>
+
+<h2>The honest investment math</h2>
+<p>From 1980-2024, natural diamond wholesale grew ~3% annually — below inflation.
+A "diamond as investment" pitch ignores the 50% retail markup you can never
+recover. Buy for love and lifestyle. For investment, buy gold or stocks. See
+<a href="/blog/diamond-vs-gold">the gold comparison</a>.</p>
+'''
+
+
+EN['diamond-financing'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  In Taiwan, ring financing usually means 12-24 month installment at 0% APR
+  through the jeweller (real cost is hidden in price). Pay cash for negotiating
+  power; only finance if the 0% is genuinely free and you have the cash sitting safely.
+</aside>
+
+<h2>Taiwan financing options</h2>
+<ul>
+  <li><strong>Jeweller installment plan</strong> — 6-24 months, advertised 0%. Reality: discount of 5-8% typically goes away if you finance.</li>
+  <li><strong>Credit card installment</strong> — 3-24 months. Bank may charge handling fee (1-3% of total). Often passable for cash-back rewards.</li>
+  <li><strong>Personal loan</strong> — last resort. Rates 8-15% APR; interest on a depreciating asset is bad math.</li>
+</ul>
+
+<h2>The "0%" trick</h2>
+<p>Many "0% 24-month" plans embed a 5-10% retailer kickback in the sticker
+price. Ask: "what's your cash price?" If the cash price is NT$285K and the
+financed price is NT$300K, your "0%" is actually 5.3% over 1 year (~10.6% APR).
+Always negotiate <em>both</em> the price and the financing.</p>
+
+<h2>Should you finance an engagement ring?</h2>
+<ul>
+  <li><strong>If you have the cash and 0% is real</strong> — yes, keep your cash earning interest.</li>
+  <li><strong>If you don't have the cash</strong> — buy a smaller ring. Going into debt for a ring is a bad start to a marriage.</li>
+  <li><strong>If financing carries any interest</strong> — almost never worth it.</li>
+</ul>
+
+<h2>Smarter alternatives</h2>
+<ul>
+  <li><strong>Buy under-magic numbers</strong> (0.95 vs 1.00 ct) — see <a href="/blog/diamond-1ct-price-2026">1ct price article</a>.</li>
+  <li><strong>Choose lab-grown</strong> — 70% cheaper at same look. See <a href="/blog/lab-vs-natural">comparison</a>.</li>
+  <li><strong>Buy from value-tier brands</strong> — see <a href="/blog/taiwan-brands">brand tiers</a>.</li>
+  <li><strong>Plan an upgrade later</strong> — many jewellers credit 100% of original stone toward future trade-up.</li>
+</ul>
+'''
+
+
+EN['diamond-price-trends'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  2020-2026 diamond prices: natural 1ct dropped ~28% from peak (2022 H1).
+  Lab-grown collapsed ~85% over same period. De Beers split, India layoffs,
+  and 50%+ lab market share define the new normal.
+</aside>
+
+<h2>The 5-year picture</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Year</th><th style="padding:6px;border:1px solid #d4c08a">Natural 1ct G-VS2 (NT$)</th><th style="padding:6px;border:1px solid #d4c08a">Lab 1ct G-VS2 (NT$)</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">2020</td><td style="padding:6px;border:1px solid #d4c08a">200K</td><td style="padding:6px;border:1px solid #d4c08a">120K</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">2022 H1 (peak)</td><td style="padding:6px;border:1px solid #d4c08a">280K</td><td style="padding:6px;border:1px solid #d4c08a">90K</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">2024</td><td style="padding:6px;border:1px solid #d4c08a">220K</td><td style="padding:6px;border:1px solid #d4c08a">50K</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">2026</td><td style="padding:6px;border:1px solid #d4c08a">200K</td><td style="padding:6px;border:1px solid #d4c08a">35K</td></tr>
+  </tbody>
+</table>
+
+<h2>What's driving the trend</h2>
+<ul>
+  <li><strong>Lab-grown supply explosion</strong> — Indian CVD capacity grew 8× from 2018-2024.</li>
+  <li><strong>De Beers strategic split</strong> — Anglo American spun off De Beers in 2025; rough sales discipline weakening.</li>
+  <li><strong>India polishing layoffs</strong> — 200K+ jobs lost in Surat 2023-2024 reflect natural demand softness.</li>
+  <li><strong>Lab now ~50% of US engagement market</strong> by units, ~30% by value.</li>
+  <li><strong>China demand stagnation</strong> — economic slowdown removed marginal buyers.</li>
+</ul>
+
+<h2>Where prices go from here</h2>
+<p>Our base case: natural 1 ct G-VS2 holds NT$190-220K through 2027 (some
+support from supply discipline). Lab continues falling 8-12% per year toward
+the marginal cost of CVD production (~NT$15K for 1 ct by 2028).</p>
+
+<h2>Buy or wait?</h2>
+<p>Lab: waiting is rational — you'll pay less in 6 months. Natural: prices
+are roughly stable; buy when you need to. See <a href="/blog/diamond-1ct-price-2026">
+the 2026 1-carat detail</a> and <a href="/blog/lab-vs-natural">lab vs natural</a>.</p>
+'''
+
+
+EN['diamond-vs-gold'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Gold is liquid, fungible, and tracks inflation. Diamonds are illiquid, unique,
+  and lose 60-70% on resale. As an investment, gold wins. As an emotional
+  symbol, diamonds win. Don't confuse the two.
+</aside>
+
+<h2>Side-by-side</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Dimension</th><th style="padding:6px;border:1px solid #d4c08a">Gold</th><th style="padding:6px;border:1px solid #d4c08a">Diamond</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Liquidity</td><td style="padding:6px;border:1px solid #d4c08a">Daily quotes; cash-out in 24h</td><td style="padding:6px;border:1px solid #d4c08a">Weeks-months to sell</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Resale recovery</td><td style="padding:6px;border:1px solid #d4c08a">95-98% of spot</td><td style="padding:6px;border:1px solid #d4c08a">25-40% of retail</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">15-yr CAGR</td><td style="padding:6px;border:1px solid #d4c08a">~7%</td><td style="padding:6px;border:1px solid #d4c08a">~3% (natural); negative (lab)</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Inflation hedge</td><td style="padding:6px;border:1px solid #d4c08a">Strong</td><td style="padding:6px;border:1px solid #d4c08a">Weak</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Wearability</td><td style="padding:6px;border:1px solid #d4c08a">High; jewellery + bullion</td><td style="padding:6px;border:1px solid #d4c08a">High; emotional</td></tr>
+  </tbody>
+</table>
+
+<h2>Taiwan context</h2>
+<p>Taiwanese savers historically buy gold as a wealth store — bank gold passbooks,
+gold bars, gold jewellery. Diamond ownership is for milestone events
+(engagement, anniversary). The two serve different mental accounts.</p>
+
+<h2>If you must choose only one wedding metal</h2>
+<p>For engagement: a 1 ct natural diamond + plain platinum band beats any
+"all-gold" alternative on emotional impact. For wealth-storage anniversary
+gifts: 24K gold pendants beat colored stones. See <a href="/blog/wedding-metals">
+the metal guide</a>.</p>
+
+<p>Investment-minded? Read <a href="/blog/diamond-resale">the resale article</a> —
+the math is brutal.</p>
+'''
+
+
+EN['ring-sizing'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Ring size in Taiwan uses Hong Kong (HK) numbering 1-30. Average bride: HK 10-13.
+  Measure 3 times across the day (size changes ±1 with temperature). Buy 0.5
+  size larger if proposing as a surprise — easier to size down than up.
+</aside>
+
+<h2>Three ways to measure</h2>
+<ol>
+  <li><strong>Borrow an existing ring</strong> — take it to any jeweller; they'll size it free in 30 seconds. Most accurate.</li>
+  <li><strong>Wrap a string</strong> around her finger at the base, mark the overlap, measure mm. Divide by π (3.14) for diameter, look up HK size.</li>
+  <li><strong>Print a sizing chart</strong> — many jeweller sites offer PDF templates. Accuracy ±1 size.</li>
+</ol>
+
+<h2>Quick reference (HK ↔ mm)</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">HK</th><th style="padding:6px;border:1px solid #d4c08a">Inner diameter</th><th style="padding:6px;border:1px solid #d4c08a">US</th><th style="padding:6px;border:1px solid #d4c08a">EU</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">8</td><td style="padding:6px;border:1px solid #d4c08a">15.7 mm</td><td style="padding:6px;border:1px solid #d4c08a">5</td><td style="padding:6px;border:1px solid #d4c08a">49</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">10</td><td style="padding:6px;border:1px solid #d4c08a">16.5 mm</td><td style="padding:6px;border:1px solid #d4c08a">6</td><td style="padding:6px;border:1px solid #d4c08a">52</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a"><strong>12</strong></td><td style="padding:6px;border:1px solid #d4c08a"><strong>17.3 mm</strong></td><td style="padding:6px;border:1px solid #d4c08a">7</td><td style="padding:6px;border:1px solid #d4c08a">54</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">14</td><td style="padding:6px;border:1px solid #d4c08a">18.2 mm</td><td style="padding:6px;border:1px solid #d4c08a">8</td><td style="padding:6px;border:1px solid #d4c08a">57</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">16</td><td style="padding:6px;border:1px solid #d4c08a">19.0 mm</td><td style="padding:6px;border:1px solid #d4c08a">9</td><td style="padding:6px;border:1px solid #d4c08a">60</td></tr>
+  </tbody>
+</table>
+
+<h2>Tips</h2>
+<ul>
+  <li>Fingers are largest in the afternoon, smallest in the morning and after exercise. Measure mid-day for the daily-life size.</li>
+  <li>Wide bands (4mm+) feel tighter than thin bands at the same nominal size. Go +0.5.</li>
+  <li>If proposing as a surprise: pick HK 12 (Taiwanese bridal average). Size adjustments ±2 are usually free in the first 6 months.</li>
+  <li>Knuckle larger than the base? Use a sizing bead added to the inner band.</li>
+</ul>
+
+<p>Once sized, see <a href="/blog/wedding-bands">wedding bands</a> for the
+matching band style and <a href="/blog/engagement-guide">engagement playbook</a>
+for the full purchase flow.</p>
+'''
+
+
+EN['ring-insurance'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  In Taiwan, jewellery insurance runs ~1-2% of appraised value annually.
+  For a NT$300K ring that's NT$3-6K/year — cheap insurance against loss
+  or theft. Get a fresh appraisal every 3-5 years.
+</aside>
+
+<h2>Coverage options in Taiwan</h2>
+<ul>
+  <li><strong>Home contents rider</strong> (Cathay, Fubon, Shin Kong) — adds jewellery to your home insurance, covers theft &amp; damage at home. Cheapest.</li>
+  <li><strong>Standalone jewellery policy</strong> — covers loss anywhere worldwide including drain, accidental damage. ~1.5-2% of appraised value annually.</li>
+  <li><strong>Travel insurance valuables rider</strong> — for trips only; useful for honeymoon photography sessions.</li>
+</ul>
+
+<h2>What's covered, what's not</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Event</th><th style="padding:6px;border:1px solid #d4c08a">Home rider</th><th style="padding:6px;border:1px solid #d4c08a">Standalone</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Theft from home</td><td style="padding:6px;border:1px solid #d4c08a">✓</td><td style="padding:6px;border:1px solid #d4c08a">✓</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Theft from car/hotel</td><td style="padding:6px;border:1px solid #d4c08a">Often ✗</td><td style="padding:6px;border:1px solid #d4c08a">✓</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Loss (fell off, drain)</td><td style="padding:6px;border:1px solid #d4c08a">✗</td><td style="padding:6px;border:1px solid #d4c08a">✓</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Stone lost from prong</td><td style="padding:6px;border:1px solid #d4c08a">✗</td><td style="padding:6px;border:1px solid #d4c08a">✓ if mysteriously disappeared</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Wear &amp; tear</td><td style="padding:6px;border:1px solid #d4c08a">✗</td><td style="padding:6px;border:1px solid #d4c08a">✗</td></tr>
+  </tbody>
+</table>
+
+<h2>Documentation checklist</h2>
+<ul>
+  <li>Original GIA report.</li>
+  <li>Independent appraisal from licensed gemologist (insurer usually requires).</li>
+  <li>Receipt &amp; certificate of authenticity.</li>
+  <li>High-resolution photos of stone (face-up + side) and any unique inscription.</li>
+  <li>Refresh appraisal every 3-5 years to reflect current replacement cost.</li>
+</ul>
+
+<h2>Daily prevention beats insurance</h2>
+<p>Take it off when: showering (soap film), swimming (chlorine + cold-shrink),
+gym (impact), gardening, kitchen prep. Most claims are preventable. See
+<a href="/blog/diamond-care">diamond care</a> for daily habits.</p>
+'''
+
+
+EN['secondhand-rings'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Pre-owned rings sell at 40-60% of original retail — same diamond, same
+  certification, with a story. The risk is provenance and authenticity. Buy
+  only with verified GIA paper, in-person inspection, and a return window.
+</aside>
+
+<h2>Where to look in Taiwan</h2>
+<ul>
+  <li><strong>Auction houses</strong> — Sotheby's HK, Christie's HK, Ravenel; safest, well-vetted.</li>
+  <li><strong>Estate-jewellery dealers</strong> — small shops in Taipei (e.g., Yongkang St area); negotiable.</li>
+  <li><strong>Carousell / Yahoo</strong> — cheapest but highest risk; insist on viewing in person at a neutral jeweller.</li>
+  <li><strong>Pawn auctions</strong> — typhoon-priced occasionally; verify GIA before bidding.</li>
+</ul>
+
+<h2>The verification protocol</h2>
+<ol>
+  <li><strong>Match laser inscription to GIA cert.</strong> No inscription, no deal — fake risk too high.</li>
+  <li><strong>Check the GIA report at gia.edu.</strong> Confirm the report number is real and current.</li>
+  <li><strong>Take to an independent gemologist</strong> for in-person verification (NT$1-3K, well worth it).</li>
+  <li><strong>Inspect the prongs &amp; setting</strong> — old rings often need re-tipping (NT$2-5K) or new shank (NT$8-15K).</li>
+  <li><strong>Insist on 7-day return</strong> from any reputable seller.</li>
+</ol>
+
+<h2>Pricing benchmarks</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Source</th><th style="padding:6px;border:1px solid #d4c08a">Typical % of original retail</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Auction (vintage, brand-name)</td><td style="padding:6px;border:1px solid #d4c08a">50-80%</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Estate dealer</td><td style="padding:6px;border:1px solid #d4c08a">45-60%</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Private (Carousell)</td><td style="padding:6px;border:1px solid #d4c08a">35-50%</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Pawn shop</td><td style="padding:6px;border:1px solid #d4c08a">30-45%</td></tr>
+  </tbody>
+</table>
+
+<h2>Cultural note</h2>
+<p>Some Taiwanese families consider second-hand engagement rings inauspicious.
+Worth asking before going down this road. If it matters, you can buy a
+secondhand stone and have it reset in a new ring — no one will know.</p>
+
+<p>See <a href="/blog/heirloom-redesign">heirloom redesign</a> for the
+re-mounting workflow.</p>
+'''
+
+
+EN['mens-engagement-rings'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Men's engagement rings are now ~25% of the market. Common styles: plain
+  band, bezel-set diamond, black diamond, salt-and-pepper, signet. Budget
+  NT$30-80K for solid value.
+</aside>
+
+<h2>Five style directions</h2>
+<ul>
+  <li><strong>Plain platinum / 18K white gold band</strong> — minimal, can double as wedding band.</li>
+  <li><strong>Bezel-set diamond (0.3-0.7 ct)</strong> — flush, snag-free, professional.</li>
+  <li><strong>Black diamond solitaire</strong> — strong contrast against finger; opaque so cut grade matters less.</li>
+  <li><strong>Salt-and-pepper diamond</strong> — included natural diamonds with character; affordable.</li>
+  <li><strong>Signet with engraving</strong> — heirloom-style; surface for monogram.</li>
+</ul>
+
+<h2>Metal choices</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Metal</th><th style="padding:6px;border:1px solid #d4c08a">Look</th><th style="padding:6px;border:1px solid #d4c08a">Daily wear</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Platinum</td><td style="padding:6px;border:1px solid #d4c08a">Cool white, weighty</td><td style="padding:6px;border:1px solid #d4c08a">Hardest, most durable</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">18K white gold</td><td style="padding:6px;border:1px solid #d4c08a">Bright white</td><td style="padding:6px;border:1px solid #d4c08a">Re-rhodium every 2-3 yrs</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Titanium</td><td style="padding:6px;border:1px solid #d4c08a">Dark grey, tactical</td><td style="padding:6px;border:1px solid #d4c08a">Cannot be resized</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Tantalum</td><td style="padding:6px;border:1px solid #d4c08a">Inky grey</td><td style="padding:6px;border:1px solid #d4c08a">Hypoallergenic</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Tungsten</td><td style="padding:6px;border:1px solid #d4c08a">Heavy, dark</td><td style="padding:6px;border:1px solid #d4c08a">Brittle; chips on impact</td></tr>
+  </tbody>
+</table>
+
+<h2>Sizing for active hands</h2>
+<p>If he works with hands (surgeon, mechanic, athlete), pick:
+low-profile bezel or flush set, ≤4mm wide, comfort-fit interior, and a
+metal that re-sizes easily (gold/platinum, not titanium/tungsten). See
+<a href="/blog/ring-sizing">ring sizing</a>.</p>
+
+<p>For LGBTQ couples planning matched-style sets, see
+<a href="/blog/lgbtq-rings">LGBTQ rings</a>.</p>
+'''
+
+
+# ─────────────────────────────────────────────────────────────────
+# Round 14 — Bands / ceremony / lifestyle (10)
+# ─────────────────────────────────────────────────────────────────
+
+EN['wedding-bands'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  The wedding band sits next to the engagement ring on the same finger.
+  Match metal, profile, and width. Plain bands age best; pavé and eternity
+  bands are higher-maintenance but more visible.
+</aside>
+
+<h2>The four band families</h2>
+<ul>
+  <li><strong>Plain</strong> — solid metal, no stones. Flat, comfort-fit, or knife-edge profile. Cheapest, longest-lasting.</li>
+  <li><strong>Pavé / micro-pavé</strong> — tiny diamonds (0.005-0.02 ct) covering the top. Sparkly but small stones can pop out.</li>
+  <li><strong>Channel-set</strong> — small diamonds inset between two metal walls. More secure than pavé.</li>
+  <li><strong>Eternity</strong> — diamonds all the way around. Most expensive; cannot be resized.</li>
+</ul>
+
+<h2>Matching to the engagement ring</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Engagement ring</th><th style="padding:6px;border:1px solid #d4c08a">Band that pairs well</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Solitaire 4-prong</td><td style="padding:6px;border:1px solid #d4c08a">Plain or contour band</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Halo</td><td style="padding:6px;border:1px solid #d4c08a">Plain (halo provides the sparkle)</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Pavé shank</td><td style="padding:6px;border:1px solid #d4c08a">Matching pavé band</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Three-stone</td><td style="padding:6px;border:1px solid #d4c08a">Plain narrow band</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Vintage / filigree</td><td style="padding:6px;border:1px solid #d4c08a">Milgrain band, similar era</td></tr>
+  </tbody>
+</table>
+
+<h2>Width and profile</h2>
+<p>Bridal band width 1.5-3 mm; men's 4-6 mm. Comfort-fit (rounded inside)
+slips on easier and feels lighter. Keep widths within 1 mm of each other
+between the two rings to avoid awkward stacking.</p>
+
+<h2>Metal matching</h2>
+<p>Always match the metal of the engagement ring exactly. A platinum solitaire
+with an 18K white-gold band will visibly mismatch over time as gold yellows
+slightly. Read <a href="/blog/wedding-metals">the wedding metals guide</a>.</p>
+
+<p>For the proposal-vs-wedding-vs-eternity ring distinction, see the
+<a href="/blog/proposal-vs-wedding-vs-eternity">three-ring article</a>.</p>
+'''
+
+
+EN['wedding-metals'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Five metals dominate wedding rings: platinum (king), 18K white gold (most
+  popular), 18K yellow gold (warm), 18K rose gold (trendy), and palladium
+  (rare). Match to skin tone and lifestyle.
+</aside>
+
+<h2>The big five</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Metal</th><th style="padding:6px;border:1px solid #d4c08a">Color</th><th style="padding:6px;border:1px solid #d4c08a">Pros</th><th style="padding:6px;border:1px solid #d4c08a">Cons</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Platinum (Pt950)</td><td style="padding:6px;border:1px solid #d4c08a">Cool white</td><td style="padding:6px;border:1px solid #d4c08a">Densest, hypoallergenic, no fade</td><td style="padding:6px;border:1px solid #d4c08a">~30% pricier; develops patina</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">18K white gold</td><td style="padding:6px;border:1px solid #d4c08a">Bright white</td><td style="padding:6px;border:1px solid #d4c08a">Cheapest white option, hard</td><td style="padding:6px;border:1px solid #d4c08a">Re-rhodium every 2-3 yrs (~NT$1-2K)</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">18K yellow gold</td><td style="padding:6px;border:1px solid #d4c08a">Warm yellow</td><td style="padding:6px;border:1px solid #d4c08a">Classic, masks low color stones</td><td style="padding:6px;border:1px solid #d4c08a">Less popular in young Taiwan</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">18K rose gold</td><td style="padding:6px;border:1px solid #d4c08a">Pink-copper</td><td style="padding:6px;border:1px solid #d4c08a">Romantic, distinctive</td><td style="padding:6px;border:1px solid #d4c08a">Color drifts with patina</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Palladium</td><td style="padding:6px;border:1px solid #d4c08a">Cool grey-white</td><td style="padding:6px;border:1px solid #d4c08a">Light, hypoallergenic</td><td style="padding:6px;border:1px solid #d4c08a">Hard to find in Taiwan</td></tr>
+  </tbody>
+</table>
+
+<h2>Skin tone matching</h2>
+<ul>
+  <li><strong>Cool undertones (blue veins)</strong> — platinum, white gold.</li>
+  <li><strong>Warm undertones (green veins)</strong> — yellow gold, rose gold.</li>
+  <li><strong>Neutral</strong> — anything works; default to platinum or white gold.</li>
+</ul>
+
+<h2>Daily wear durability</h2>
+<p>Platinum scratches but doesn't lose mass — patina builds, looks vintage.
+White gold loses its rhodium plating revealing a yellower base color; needs
+re-plating. 18K is harder than 14K (Taiwan default is 18K); avoid 9K which
+tarnishes. See <a href="/blog/diamond-care">care guide</a>.</p>
+
+<p>Buying for an active spouse? See <a href="/blog/mens-engagement-rings">men's
+ring guide</a> for harder alternatives like titanium and tantalum.</p>
+'''
+
+
+EN['prong-settings-guide'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Prong settings hold the diamond. 4-prong shows more stone; 6-prong is more
+  secure. Bezel is safest for active wear; halo amplifies the look. Choose
+  based on the wearer's lifestyle.
+</aside>
+
+<h2>The 6 main settings</h2>
+<ul>
+  <li><strong>4-prong solitaire</strong> — Tiffany classic. Maximum stone exposure, slightly less secure.</li>
+  <li><strong>6-prong solitaire</strong> — More fingers gripping, slightly less stone visible.</li>
+  <li><strong>Bezel</strong> — Metal rim around the entire stone. Safest for active hands, snag-free.</li>
+  <li><strong>Halo</strong> — Small diamonds surround the center, making it look 30-50% larger.</li>
+  <li><strong>Three-stone</strong> — Center + two side stones (past, present, future).</li>
+  <li><strong>Tension</strong> — Stone held by inward metal pressure. Modern look, hardest to resize.</li>
+</ul>
+
+<h2>4 vs 6 prong — the real difference</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Aspect</th><th style="padding:6px;border:1px solid #d4c08a">4-prong</th><th style="padding:6px;border:1px solid #d4c08a">6-prong</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Stone visibility</td><td style="padding:6px;border:1px solid #d4c08a">~92% face-up exposed</td><td style="padding:6px;border:1px solid #d4c08a">~88%</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Snag risk</td><td style="padding:6px;border:1px solid #d4c08a">Slightly higher</td><td style="padding:6px;border:1px solid #d4c08a">Lower</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">If one prong fails</td><td style="padding:6px;border:1px solid #d4c08a">Stone at risk</td><td style="padding:6px;border:1px solid #d4c08a">5 still hold</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Look</td><td style="padding:6px;border:1px solid #d4c08a">Modern, square outline</td><td style="padding:6px;border:1px solid #d4c08a">Round, traditional</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Best for stone shape</td><td style="padding:6px;border:1px solid #d4c08a">Princess, cushion, emerald</td><td style="padding:6px;border:1px solid #d4c08a">Round brilliant</td></tr>
+  </tbody>
+</table>
+
+<h2>Maintenance schedule</h2>
+<ul>
+  <li>Inspect prongs annually — bring it in, ask the jeweller to check tightness with tweezers.</li>
+  <li>Re-tip every 5-10 years (NT$2-5K). Worn prongs are the #1 cause of stone loss.</li>
+  <li>Avoid catching on hair, fabric, gym equipment — see <a href="/blog/diamond-care">care guide</a>.</li>
+</ul>
+
+<p>For unusual stone shapes (princess corners, marquise points), V-prongs
+specifically protect the vulnerable tips. See <a href="/blog/diamond-shapes">
+shape guide</a> for which corners need protection.</p>
+'''
+
+
+EN['engraving-personalization'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Inside-band engraving costs NT$500-2,000 and adds permanent meaning.
+  Keep it short (15-25 characters), use serif or italic for elegance, and
+  laser-engrave (hand-engraved is harder to redo if you resize).
+</aside>
+
+<h2>What to engrave</h2>
+<ul>
+  <li><strong>Wedding date</strong> — "2026.10.10" or "10·10·26".</li>
+  <li><strong>Initials + date</strong> — "A &amp; B / 10.10.26".</li>
+  <li><strong>Short phrase</strong> — "Forever yours", "我的妳", "永遠 ∞".</li>
+  <li><strong>Coordinates</strong> — proposal location lat/long for the romantically inclined.</li>
+  <li><strong>Sound wave</strong> — laser-etched waveform of "I do". Trendy.</li>
+</ul>
+
+<h2>Engraving methods</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Method</th><th style="padding:6px;border:1px solid #d4c08a">Cost</th><th style="padding:6px;border:1px solid #d4c08a">Notes</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Laser</td><td style="padding:6px;border:1px solid #d4c08a">NT$500-1,500</td><td style="padding:6px;border:1px solid #d4c08a">Precise, fits any font, redo-able if resized</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Hand</td><td style="padding:6px;border:1px solid #d4c08a">NT$2,000-5,000</td><td style="padding:6px;border:1px solid #d4c08a">Artisanal, deeper, not redo-able</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Machine</td><td style="padding:6px;border:1px solid #d4c08a">NT$300-800</td><td style="padding:6px;border:1px solid #d4c08a">Mass-jeweller default; limited fonts</td></tr>
+  </tbody>
+</table>
+
+<h2>Practical guidelines</h2>
+<ul>
+  <li><strong>Length</strong> — interior of a 4 mm band fits ~30 characters; 2 mm band only ~15.</li>
+  <li><strong>Font</strong> — serif/italic for romance; sans-serif for modern; avoid script (illegible at small size).</li>
+  <li><strong>Resize impact</strong> — laser engraving can be re-done after resizing; hand-engraving usually cannot.</li>
+  <li><strong>Languages</strong> — Chinese characters work but require deeper engraving; allow more space per character.</li>
+</ul>
+
+<h2>Beyond text — true personalization</h2>
+<ul>
+  <li>Birthstone accents in the band shoulders.</li>
+  <li>Family heirloom diamond reset into a new mounting (see <a href="/blog/heirloom-redesign">heirloom redesign</a>).</li>
+  <li>Custom milgrain pattern matching grandmother's ring.</li>
+  <li>Hidden inset stone visible only when removed.</li>
+</ul>
+
+<p>For full-custom design timelines, see <a href="/blog/engagement-guide">
+the engagement playbook</a>.</p>
+'''
+
+
+EN['heirloom-redesign'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Inheriting Grandma's ring? You can keep the stone and modernize the setting.
+  Cost: NT$15-40K for a new mounting + stone re-grading + setting work. The
+  diamond becomes "yours" without erasing the lineage.
+</aside>
+
+<h2>The redesign workflow</h2>
+<ol>
+  <li><strong>Have the stone certified.</strong> Old family stones often have no GIA paper; spend NT$3-8K to get one. You may discover it's a much better stone than the family thought.</li>
+  <li><strong>Decide what to keep.</strong> The stone? The metal (often re-melted)? The setting style as a reference?</li>
+  <li><strong>Choose new design.</strong> Solitaire to halo, princess to cushion, etc. See <a href="/blog/prong-settings-guide">settings guide</a>.</li>
+  <li><strong>Find a custom jeweller.</strong> Established shops in Taipei (e.g., Just Diamond, BUERHKAU custom department) handle this routinely.</li>
+  <li><strong>Approve CAD render</strong> before metal is cut. Insist on 3 angles + a wax model.</li>
+  <li><strong>Photograph the original ring</strong> before destruction — for sentimental record.</li>
+</ol>
+
+<h2>Cost breakdown</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Service</th><th style="padding:6px;border:1px solid #d4c08a">Cost (NT$)</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">GIA recertification (loose)</td><td style="padding:6px;border:1px solid #d4c08a">3,000-8,000</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Custom CAD design</td><td style="padding:6px;border:1px solid #d4c08a">3,000-10,000</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Mounting (Pt950 solitaire)</td><td style="padding:6px;border:1px solid #d4c08a">15,000-30,000</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Setting + finish</td><td style="padding:6px;border:1px solid #d4c08a">5,000-12,000</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a"><strong>Total</strong></td><td style="padding:6px;border:1px solid #d4c08a"><strong>~25,000-50,000</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>Common modernizations</h2>
+<ul>
+  <li>Old European cut → re-cut to modern brilliant (loses 5-10% weight, gains 30% sparkle). Controversial — many prefer to preserve original cut.</li>
+  <li>Yellow gold → platinum or white gold (suits modern aesthetics).</li>
+  <li>Ornate filigree → minimalist solitaire.</li>
+  <li>Add a halo around small inherited stone for size.</li>
+</ul>
+
+<h2>Cultural & emotional</h2>
+<p>Discuss with the family. Some prefer the original ring be preserved as-is.
+Compromise: have the original ring photographed and cast in resin display,
+keep the stone, redesign the rest. See <a href="/blog/secondhand-rings">
+secondhand rings</a> for related provenance discussion.</p>
+'''
+
+
+EN['proposal-speech'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  A proposal speech doesn't need to be Shakespeare. 60-90 seconds, three beats:
+  (1) why her, (2) why now, (3) the question. Memorize the question; you'll
+  forget everything else.
+</aside>
+
+<h2>The 3-beat structure</h2>
+<ol>
+  <li><strong>Why her</strong> (30s) — one specific moment that captures her essence. Not "you're amazing" (generic) — "the way you stayed up making soup when I had food poisoning at 3am" (specific).</li>
+  <li><strong>Why now</strong> (20s) — what changed in you that made marriage feel right. "I used to think marriage was just paperwork. The last year showed me what it actually is."</li>
+  <li><strong>The question</strong> (10s) — kneel, ring out, breathe, ask. "Will you marry me?" — clear and direct.</li>
+</ol>
+
+<h2>Three drafts to write</h2>
+<ul>
+  <li><strong>Long version (90s)</strong> — practice this one. Shows you took it seriously.</li>
+  <li><strong>Medium version (45s)</strong> — for if you start crying and need to compress.</li>
+  <li><strong>Emergency version (10s)</strong> — just the question. If everything goes sideways, you have a fallback.</li>
+</ul>
+
+<h2>Common mistakes</h2>
+<ul>
+  <li><strong>Reading from your phone.</strong> Memorize. Phone-reading kills the moment.</li>
+  <li><strong>Jokes that bomb.</strong> Save humor for the wedding speech.</li>
+  <li><strong>Listing her flaws cutely.</strong> Don't.</li>
+  <li><strong>Forgetting to actually ask the question.</strong> Surprisingly common.</li>
+  <li><strong>Mentioning exes.</strong> Just don't.</li>
+</ul>
+
+<h2>Setting the scene</h2>
+<p>Choose a location that means something — first date spot, vacation place,
+home. Public proposals can pressure her into yes; consider private. Bring a
+photographer (friend, hidden) so she has the photos. See
+<a href="/blog/engagement-guide">engagement playbook</a> for the rest of the
+purchase flow leading up to this moment.</p>
+'''
+
+
+EN['engagement-timeline'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Average Taiwanese couple: 2-4 years dating before engagement, 6-12 months
+  engagement before wedding. Compress for visa/family/financial reasons,
+  extend if you want spread costs and finalize career plans.
+</aside>
+
+<h2>Common timelines in Taiwan</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Stage</th><th style="padding:6px;border:1px solid #d4c08a">Typical duration</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Dating before living together</td><td style="padding:6px;border:1px solid #d4c08a">1-3 years</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Living together before engagement</td><td style="padding:6px;border:1px solid #d4c08a">0-2 years</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a"><strong>Engagement to wedding</strong></td><td style="padding:6px;border:1px solid #d4c08a"><strong>6-12 months</strong></td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Wedding to first child</td><td style="padding:6px;border:1px solid #d4c08a">1-3 years (declining)</td></tr>
+  </tbody>
+</table>
+
+<h2>What needs to happen in the engagement window</h2>
+<ol>
+  <li><strong>Month 1-2</strong> — both families meet, set wedding budget split.</li>
+  <li><strong>Month 2-3</strong> — book venue, photographer, banquet hall (Taipei prime dates 12+ months out).</li>
+  <li><strong>Month 3-5</strong> — wedding gowns &amp; tuxedos selection, photo prewedding.</li>
+  <li><strong>Month 5-8</strong> — guest list, invitations, registry, accommodation logistics.</li>
+  <li><strong>Month 8-10</strong> — finalize vows, ceremony order, music, transportation.</li>
+  <li><strong>Month 10-12</strong> — dress rehearsal, marriage registration, honeymoon booking.</li>
+</ol>
+
+<h2>When to compress</h2>
+<ul>
+  <li>Pregnancy timing.</li>
+  <li>Visa requirements (foreign spouse).</li>
+  <li>Job relocation.</li>
+  <li>Family member's health window.</li>
+</ul>
+<p>Compressed timelines are normal — 3-month engagements happen often. Just
+expect higher venue costs (less negotiating leverage) and limited photographer
+choice.</p>
+
+<h2>When to extend</h2>
+<ul>
+  <li>Saving up to avoid debt.</li>
+  <li>Awaiting graduation, professional qualification.</li>
+  <li>Wanting a destination wedding (12-18 months prep).</li>
+</ul>
+
+<p>For dating duration norms, see <a href="/blog/dating-duration">dating duration
+article</a>. For overseas weddings, see <a href="/blog/destination-wedding">
+destination wedding</a>.</p>
+'''
+
+
+EN['dating-duration'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Studies show couples who dated 2+ years before engagement have lower divorce
+  rates than those at 1 year or less. But duration matters less than what's
+  in those years — cohabitation, conflict resolution, financial alignment.
+</aside>
+
+<h2>What the data says</h2>
+<p>Emory University's 2014 study (3,000+ US couples) found:</p>
+<ul>
+  <li>Dated &lt;1 year before engagement → 20% higher divorce risk vs 1-2 years.</li>
+  <li>Dated 3+ years → ~50% lower risk vs &lt;1 year.</li>
+  <li>Lived together first → small positive correlation with stability (in modern cohorts).</li>
+</ul>
+<p>Taiwan-specific data is sparser; PTT/Dcard surveys suggest modern Taiwanese
+couples date 2-4 years before engagement on average — slightly longer than
+US.</p>
+
+<h2>The "right" duration depends on what you're testing</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Test</th><th style="padding:6px;border:1px solid #d4c08a">Months needed</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Sexual chemistry beyond honeymoon</td><td style="padding:6px;border:1px solid #d4c08a">6-12</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">First major fight + recovery</td><td style="padding:6px;border:1px solid #d4c08a">6-18</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Meet both extended families</td><td style="padding:6px;border:1px solid #d4c08a">12-18</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Cohabitation conflict patterns surface</td><td style="padding:6px;border:1px solid #d4c08a">12-24 living together</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Financial habits visible</td><td style="padding:6px;border:1px solid #d4c08a">18-24</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Kids/career/city alignment confirmed</td><td style="padding:6px;border:1px solid #d4c08a">18-36</td></tr>
+  </tbody>
+</table>
+
+<h2>Red flags that no duration fixes</h2>
+<ul>
+  <li>Refusing to discuss money openly.</li>
+  <li>Different positions on having children.</li>
+  <li>Refusing to meet the other's family after 12+ months.</li>
+  <li>Repeating same conflict with no learning.</li>
+  <li>Hiding financial debt.</li>
+</ul>
+
+<p>For the engagement-to-wedding flow, see <a href="/blog/engagement-timeline">
+the engagement timeline</a>.</p>
+'''
+
+
+EN['destination-wedding'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Destination weddings (Bali, Okinawa, Hawaii, Maldives) cost NT$300K-1.5M
+  for 20-50 guests. Smaller, more intimate, doubles as honeymoon. Plan
+  12-18 months ahead for visa, accommodation, vendor coordination.
+</aside>
+
+<h2>Top destinations for Taiwanese couples</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Location</th><th style="padding:6px;border:1px solid #d4c08a">Vibe</th><th style="padding:6px;border:1px solid #d4c08a">Cost (50 guests)</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Okinawa</td><td style="padding:6px;border:1px solid #d4c08a">Beach chapel, easy flight</td><td style="padding:6px;border:1px solid #d4c08a">NT$500K-800K</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Bali</td><td style="padding:6px;border:1px solid #d4c08a">Cliff resort, sunset</td><td style="padding:6px;border:1px solid #d4c08a">NT$400K-700K</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Hawaii</td><td style="padding:6px;border:1px solid #d4c08a">Beach + iconic</td><td style="padding:6px;border:1px solid #d4c08a">NT$1.0M-1.8M</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Maldives</td><td style="padding:6px;border:1px solid #d4c08a">Overwater bungalow</td><td style="padding:6px;border:1px solid #d4c08a">NT$1.2M-2.0M</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Kenting / Hualien</td><td style="padding:6px;border:1px solid #d4c08a">Domestic; budget-friendly</td><td style="padding:6px;border:1px solid #d4c08a">NT$200K-400K</td></tr>
+  </tbody>
+</table>
+
+<h2>Logistics checklist</h2>
+<ol>
+  <li><strong>12-18 months before</strong> — pick destination, book chapel/venue, save dates to guests.</li>
+  <li><strong>9 months</strong> — block hotel rooms (group rates), hire local planner.</li>
+  <li><strong>6 months</strong> — invitations with detailed travel info, flight booking deadline.</li>
+  <li><strong>3 months</strong> — confirm vendor list (florist, photographer, makeup, transport).</li>
+  <li><strong>1 month</strong> — final headcount, dietary needs, emergency contacts.</li>
+  <li><strong>Week before</strong> — fly out 3 days early for jet lag + setup.</li>
+</ol>
+
+<h2>Hidden costs</h2>
+<ul>
+  <li>Guest accommodation subsidy (often 30-50% of total).</li>
+  <li>Welcome dinner the night before.</li>
+  <li>Local marriage license requirements (legal recognition usually back home).</li>
+  <li>Translator if vendor doesn't speak Mandarin/English.</li>
+  <li>Shipping wedding attire (separate luggage; chapel may have storage).</li>
+</ul>
+
+<h2>Pros &amp; cons</h2>
+<p><strong>Pros:</strong> intimate (smaller guest list cuts naturally), built-in honeymoon,
+photogenic. <strong>Cons:</strong> guests bear travel cost (some can't attend), weather
+risk, less family-side flexibility. Many couples pair it with a Taiwan-side
+banquet for older relatives 1-2 months later.</p>
+'''
+
+
+EN['lgbtq-rings'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Taiwan legalized same-sex marriage in 2019. LGBTQ engagement and wedding
+  ring shopping has become mainstream. Common patterns: matched-style sets,
+  asymmetric pairs, alternative gemstones (sapphire, emerald), and
+  rainbow-band designs.
+</aside>
+
+<h2>Style approaches</h2>
+<ul>
+  <li><strong>Matched set</strong> — both partners wear identical rings (or mirrored versions, e.g. left-curved and right-curved). Symbol of equality.</li>
+  <li><strong>Coordinated pair</strong> — same metal and theme, different sizes/widths reflecting personal style.</li>
+  <li><strong>Asymmetric</strong> — completely different rings, united by a hidden detail (matching engraving, same stone origin).</li>
+  <li><strong>His &amp; hers / theirs &amp; theirs</strong> — traditional engagement-and-band combinations, mixed and matched.</li>
+</ul>
+
+<h2>Stone choices beyond diamond</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Stone</th><th style="padding:6px;border:1px solid #d4c08a">Hardness (Mohs)</th><th style="padding:6px;border:1px solid #d4c08a">Notes</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Diamond</td><td style="padding:6px;border:1px solid #d4c08a">10</td><td style="padding:6px;border:1px solid #d4c08a">Hardest; safest daily wear</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Sapphire</td><td style="padding:6px;border:1px solid #d4c08a">9</td><td style="padding:6px;border:1px solid #d4c08a">All colors except red; durable</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Ruby</td><td style="padding:6px;border:1px solid #d4c08a">9</td><td style="padding:6px;border:1px solid #d4c08a">Red corundum; passion symbol</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Emerald</td><td style="padding:6px;border:1px solid #d4c08a">7.5-8</td><td style="padding:6px;border:1px solid #d4c08a">Beautiful but inclusion-prone</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Moissanite</td><td style="padding:6px;border:1px solid #d4c08a">9.25</td><td style="padding:6px;border:1px solid #d4c08a">Diamond alternative; high fire</td></tr>
+  </tbody>
+</table>
+
+<h2>Rainbow / pride elements</h2>
+<ul>
+  <li>Rainbow band — channel-set sapphires in spectral order (red ruby + pink + yellow + green tsavorite + blue + purple amethyst).</li>
+  <li>Hidden rainbow — single colored stones inside the band (only the wearer sees).</li>
+  <li>Custom enamel inlay in pride colors.</li>
+  <li>Two metals fused (rose + white gold) representing union.</li>
+</ul>
+
+<h2>Taiwan vendors LGBTQ-friendly</h2>
+<p>Major chains (ALUXE, Mabelle, Just Diamond) all serve LGBTQ couples without
+issue. Independent designers in Taipei (e.g., Sangmun, Ai-Yu) often have
+specific portfolios for same-sex couples. See <a href="/blog/taiwan-brands">
+brand tier guide</a> and <a href="/blog/wedding-bands">wedding bands</a>.</p>
+'''
+
+
+# ─────────────────────────────────────────────────────────────────
+# Round 14 — Care / niche / fancy (9)
+# ─────────────────────────────────────────────────────────────────
+
+EN['diamond-care'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Diamond is hardest mineral but not invincible — it can chip on impact and
+  loose oil dramatically dims sparkle. 7 daily habits keep your ring looking
+  new for 30+ years.
+</aside>
+
+<h2>The 7 habits</h2>
+<ol>
+  <li><strong>Take it off for showers.</strong> Soap film coats the pavilion and dims brilliance immediately.</li>
+  <li><strong>Take it off for swimming.</strong> Chlorine erodes prongs over time; cold water shrinks fingers and ring slips.</li>
+  <li><strong>Take it off at the gym.</strong> Impact + sweat + barbells = chipped stones, bent prongs.</li>
+  <li><strong>Take it off in the kitchen.</strong> Oil, garlic juice, raw meat handling — bacteria love prong crevices.</li>
+  <li><strong>Clean weekly.</strong> Warm water + 1 drop dish soap + soft toothbrush, 2 min. Rinse, pat dry.</li>
+  <li><strong>Inspect prongs monthly.</strong> Run thumbnail along each prong; if it catches, see jeweller.</li>
+  <li><strong>Annual professional check.</strong> Most jewellers offer free inspection + ultrasonic cleaning.</li>
+</ol>
+
+<h2>What NOT to do</h2>
+<ul>
+  <li><strong>Don't use toothpaste</strong> — abrasives scratch metal (not the diamond, but the setting).</li>
+  <li><strong>Don't use bleach</strong> — corrodes alloys in white gold.</li>
+  <li><strong>Don't store loose with other jewellery</strong> — diamond scratches everything else.</li>
+  <li><strong>Don't sleep with it on</strong> — prongs catch on hair and sheets.</li>
+  <li><strong>Don't ultrasonic clean if there's a fracture-filled or heavily included stone</strong> — vibrations expand inclusions.</li>
+</ul>
+
+<h2>Long-term maintenance</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Service</th><th style="padding:6px;border:1px solid #d4c08a">Frequency</th><th style="padding:6px;border:1px solid #d4c08a">Cost</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Professional clean + inspect</td><td style="padding:6px;border:1px solid #d4c08a">Annual</td><td style="padding:6px;border:1px solid #d4c08a">Free at original retailer</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Re-rhodium plating (white gold)</td><td style="padding:6px;border:1px solid #d4c08a">2-3 years</td><td style="padding:6px;border:1px solid #d4c08a">NT$1,000-2,000</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Re-tip prongs</td><td style="padding:6px;border:1px solid #d4c08a">5-10 years</td><td style="padding:6px;border:1px solid #d4c08a">NT$2,000-5,000</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Resize</td><td style="padding:6px;border:1px solid #d4c08a">As needed</td><td style="padding:6px;border:1px solid #d4c08a">NT$1,500-4,000</td></tr>
+  </tbody>
+</table>
+
+<p>Pair with <a href="/blog/ring-insurance">ring insurance</a> for full
+protection.</p>
+'''
+
+
+EN['diamond-fun-facts'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Diamonds are weirder than you think — they can be rendered into graphite,
+  burn at 763°C, transmit X-rays, and form on Saturn from lightning storms.
+  Plus the marketing history is wilder than the geology.
+</aside>
+
+<h2>10 strange-but-true facts</h2>
+<ol>
+  <li><strong>Diamonds burn.</strong> Heat to 763°C in air and they oxidize into CO₂. Watch a candle vs a propane torch.</li>
+  <li><strong>Saturn rains diamonds.</strong> Lightning in Saturn's methane atmosphere converts CH₄ to carbon, falls 1500 km, compresses into diamond rain. Same on Neptune.</li>
+  <li><strong>"Brilliant" is a math invention.</strong> Marcel Tolkowsky (1919) proved the optimal facet angles in his MIT thesis. Every modern round brilliant traces back.</li>
+  <li><strong>"A diamond is forever" was 1947.</strong> N.W. Ayer copywriter Frances Gerety wrote it for De Beers. AdAge ranked it #1 slogan of the 20th century.</li>
+  <li><strong>Diamonds are old.</strong> Most are 1-3 billion years old, formed 150-200 km below the surface.</li>
+  <li><strong>Earth has no monopoly.</strong> Meteorite impacts create "lonsdaleite" diamonds (hexagonal lattice, harder than regular).</li>
+  <li><strong>Diamonds glow.</strong> ~30% fluoresce blue under UV — see <a href="/blog/fluorescence-deep-dive">fluorescence deep-dive</a>.</li>
+  <li><strong>"Conflict diamonds" is &lt;1% of supply.</strong> Kimberley Process (since 2003) has gaps but the &lt;1% figure is industry consensus.</li>
+  <li><strong>The Cullinan was 3,106 ct rough.</strong> Cut into 9 major + 96 minor stones; the largest, "Cullinan I" (530 ct), is in the British Sovereign's Sceptre.</li>
+  <li><strong>Lab-grown is now ~50% of US engagement market by units.</strong> Five years ago: ~5%.</li>
+</ol>
+
+<h2>Cultural curiosities</h2>
+<ul>
+  <li>Romans believed diamonds were splinters of fallen stars.</li>
+  <li>Indian kings wore them to ward off enemies in battle.</li>
+  <li>Victorian Britain popularized the diamond engagement ring after Prince Albert proposed to Queen Victoria with one.</li>
+  <li>The "Hope Diamond" carries a curse story largely invented by jeweller Pierre Cartier as marketing.</li>
+</ul>
+
+<p>For real history of the trade, see <a href="/blog/famous-diamonds">famous
+diamonds</a>. For modern market dynamics, see <a href="/blog/diamond-price-trends">
+price trends</a>.</p>
+'''
+
+
+EN['famous-diamonds'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  The 10 most famous diamonds in history each tell a story of empire, theft,
+  craft, and obsession. Cullinan, Hope, Koh-i-Noor, Tiffany Yellow, Centenary —
+  these are the stones every gemologist memorizes.
+</aside>
+
+<h2>The 10 you should know</h2>
+<ol>
+  <li><strong>Cullinan (3,106 ct rough)</strong> — found 1905, South Africa. Cut into 9 major stones; Cullinan I (530.4 ct) is the largest faceted clear diamond on earth, set in the British Sovereign's Sceptre.</li>
+  <li><strong>Hope Diamond (45.52 ct, blue)</strong> — Smithsonian, Washington DC. Famed "curse" mostly invented by Pierre Cartier as marketing. Worth ~US$250M.</li>
+  <li><strong>Koh-i-Noor (105.6 ct)</strong> — currently in the British Crown Jewels (Queen Mother's crown). India, Pakistan, Iran, and Afghanistan all formally claim it.</li>
+  <li><strong>Tiffany Yellow (128.54 ct, fancy yellow)</strong> — discovered 1877, Kimberley. Cut by Tiffany &amp; Co.; only 4 women have worn it (most recently Beyoncé in 2021).</li>
+  <li><strong>Centenary (273.85 ct, D-Flawless)</strong> — De Beers' 100th anniversary stone (1988). Largest D-Flawless modern brilliant.</li>
+  <li><strong>Pink Star (59.6 ct, vivid pink)</strong> — sold US$71.2M in 2017, second-highest auction price ever for a gem.</li>
+  <li><strong>Oppenheimer Blue (14.62 ct, fancy vivid blue)</strong> — sold US$57.5M in 2016; among rarest natural blues.</li>
+  <li><strong>Sancy (55.23 ct, pale yellow)</strong> — Louvre. Passed through Henry IV, James I, Cardinal Mazarin, Louis XIV — quintessential European royal stone.</li>
+  <li><strong>Regent (140.64 ct)</strong> — Louvre. Once owned by Napoleon (set in his sword pommel). Found 1698 in India.</li>
+  <li><strong>Excelsior (995.2 ct rough)</strong> — found 1893 by an African worker who turned it in for a horse + £150. Cut into 21 stones, several lost to history.</li>
+</ol>
+
+<h2>What we learn from them</h2>
+<p>Every famous diamond's story includes empire, conflict, and someone who got
+the short end. The aesthetic legacy is real, but so is the colonial chain of
+custody. Modern ethical jewellery (Kimberley Process certification, lab-grown,
+verifiable provenance) addresses these issues — though imperfectly.</p>
+
+<p>For the modern trade structure, see <a href="/blog/diamond-price-trends">
+price trends</a> and <a href="/blog/sustainable-diamonds">sustainable
+diamonds</a>.</p>
+'''
+
+
+EN['fancy-cuts-guide'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  "Fancy cut" means any non-round shape: oval, cushion, princess, emerald,
+  pear, marquise, asscher, radiant, heart. They cost 10-25% less per carat
+  than rounds and offer distinctive style.
+</aside>
+
+<h2>The 9 fancy cuts</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Cut</th><th style="padding:6px;border:1px solid #d4c08a">Origin</th><th style="padding:6px;border:1px solid #d4c08a">Best feature</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Oval</td><td style="padding:6px;border:1px solid #d4c08a">1957 (Lazare Kaplan)</td><td style="padding:6px;border:1px solid #d4c08a">Looks ~10% larger than round, elongates fingers</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Cushion</td><td style="padding:6px;border:1px solid #d4c08a">1700s</td><td style="padding:6px;border:1px solid #d4c08a">Vintage glow, softer flashes</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Princess</td><td style="padding:6px;border:1px solid #d4c08a">1960s (Israel)</td><td style="padding:6px;border:1px solid #d4c08a">Modern square; high brilliance</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Emerald</td><td style="padding:6px;border:1px solid #d4c08a">1500s (originally for emerald gems)</td><td style="padding:6px;border:1px solid #d4c08a">Hall-of-mirrors look; art deco</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Pear</td><td style="padding:6px;border:1px solid #d4c08a">1458 (Lodewyk van Bercken)</td><td style="padding:6px;border:1px solid #d4c08a">Unique; slimming finger</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Marquise</td><td style="padding:6px;border:1px solid #d4c08a">1745 (commissioned by Louis XV)</td><td style="padding:6px;border:1px solid #d4c08a">Largest face-up per carat</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Asscher</td><td style="padding:6px;border:1px solid #d4c08a">1902 (Asscher Brothers)</td><td style="padding:6px;border:1px solid #d4c08a">Square step-cut; vintage</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Radiant</td><td style="padding:6px;border:1px solid #d4c08a">1977 (Henry Grossbard)</td><td style="padding:6px;border:1px solid #d4c08a">Brilliant facets in rectangular outline</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Heart</td><td style="padding:6px;border:1px solid #d4c08a">1400s</td><td style="padding:6px;border:1px solid #d4c08a">Romantic symbol; needs 1ct+ to read clearly</td></tr>
+  </tbody>
+</table>
+
+<h2>Why fancy cuts cost less</h2>
+<p>Diamond rough most often crystallizes in shapes more suited to round
+brilliant cutting. Fancy cuts often "use" rough that wasn't ideal for round —
+yielding 10-25% per-carat savings. They also retain more weight from rough
+than round (round wastes ~50%; cushion wastes ~35%).</p>
+
+<h2>Risks per shape</h2>
+<ul>
+  <li><strong>Oval &amp; pear</strong> — bow-tie shadow across center. Demand to see in person.</li>
+  <li><strong>Princess</strong> — sharp corners chip; insist on V-prongs.</li>
+  <li><strong>Emerald &amp; asscher</strong> — open table reveals every flaw; need VS1+ clarity, G+ color.</li>
+  <li><strong>Marquise &amp; pear</strong> — pointed tips most fragile; protect with V-prongs.</li>
+  <li><strong>Heart</strong> — under 1 ct, the "lobes" don't read clearly. Buy 1.0+ ct.</li>
+</ul>
+
+<h2>Fancy color</h2>
+<p>Beyond shape, "fancy color" diamonds (yellow, pink, blue, green) are graded
+on a separate scale (Fancy Light → Fancy → Fancy Intense → Fancy Vivid).
+Vivid pinks and blues set auction records — see
+<a href="/blog/famous-diamonds">famous diamonds</a>.</p>
+
+<p>For round buyers, see <a href="/blog/round-cut-deep-dive">round cut deep
+dive</a>.</p>
+'''
+
+
+EN['round-cut-deep-dive'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Round brilliant accounts for ~70% of engagement diamonds. Tolkowsky's 1919
+  math defined the optimal proportions; modern AGS Ideal extends them.
+  Round = maximum brilliance per facet, the safest first-time choice.
+</aside>
+
+<h2>The 58-facet anatomy</h2>
+<p>A modern round brilliant has 58 facets: 33 above the girdle (1 table + 8 stars
++ 8 bezels + 16 upper halves), 24 below (8 pavilion mains + 16 lower halves),
+and 1 culet (often pointed = no culet in modern stones).</p>
+
+<h2>The Tolkowsky proportions</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Parameter</th><th style="padding:6px;border:1px solid #d4c08a">Tolkowsky 1919</th><th style="padding:6px;border:1px solid #d4c08a">Modern Ideal</th><th style="padding:6px;border:1px solid #d4c08a">GIA Excellent range</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Table %</td><td style="padding:6px;border:1px solid #d4c08a">53.0</td><td style="padding:6px;border:1px solid #d4c08a">55-57</td><td style="padding:6px;border:1px solid #d4c08a">53-58</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Crown angle</td><td style="padding:6px;border:1px solid #d4c08a">34.5°</td><td style="padding:6px;border:1px solid #d4c08a">34-35°</td><td style="padding:6px;border:1px solid #d4c08a">31-37°</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Pavilion angle</td><td style="padding:6px;border:1px solid #d4c08a">40.75°</td><td style="padding:6px;border:1px solid #d4c08a">40.6-41.0°</td><td style="padding:6px;border:1px solid #d4c08a">40.6-41.8°</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Total depth %</td><td style="padding:6px;border:1px solid #d4c08a">59.3</td><td style="padding:6px;border:1px solid #d4c08a">60.5-62.0</td><td style="padding:6px;border:1px solid #d4c08a">60.5-62.5</td></tr>
+  </tbody>
+</table>
+
+<h2>Why the Tolkowsky math wins</h2>
+<p>At pavilion 40.75° + crown 34.5°, all light entering the table reflects off
+the pavilion at angles greater than the critical angle (24.4° from normal),
+total-internal-reflects across the diamond, and exits the crown facets — that's
+brilliance. Steeper or shallower angles "leak" light through the pavilion,
+which is why edge-of-Excellent stones look duller. See <a href="/blog/hearts-arrows-truth">
+the H&amp;A truth article</a>.</p>
+
+<h2>Buying recommendations</h2>
+<ul>
+  <li>Insist on table 55-57%, crown 34-35°, pavilion 40.6-41.0°.</li>
+  <li>Total depth 60.5-62.0%.</li>
+  <li>Polish &amp; symmetry: Excellent.</li>
+  <li>Verify with the <a href="/">BrillianceLab calculator</a> — score 90+ is true ideal.</li>
+</ul>
+
+<p>For other shapes, see <a href="/blog/fancy-cuts-guide">fancy cuts guide</a>
+and <a href="/blog/diamond-shapes">all 10 shapes</a>.</p>
+'''
+
+
+EN['moissanite-vs-cz-vs-lab'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Lab diamond = chemically diamond. Moissanite = silicon carbide, more fire
+  than diamond, very durable. CZ = cubic zirconia, soft and dulls within
+  2-3 years. Lab and moissanite are both legitimate; CZ is for costume.
+</aside>
+
+<h2>Side-by-side</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Property</th><th style="padding:6px;border:1px solid #d4c08a">Diamond (lab or natural)</th><th style="padding:6px;border:1px solid #d4c08a">Moissanite</th><th style="padding:6px;border:1px solid #d4c08a">CZ</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Composition</td><td style="padding:6px;border:1px solid #d4c08a">Pure carbon</td><td style="padding:6px;border:1px solid #d4c08a">Silicon carbide (SiC)</td><td style="padding:6px;border:1px solid #d4c08a">Zirconium dioxide (ZrO₂)</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Mohs hardness</td><td style="padding:6px;border:1px solid #d4c08a">10</td><td style="padding:6px;border:1px solid #d4c08a">9.25</td><td style="padding:6px;border:1px solid #d4c08a">8.5</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Refractive index</td><td style="padding:6px;border:1px solid #d4c08a">2.42</td><td style="padding:6px;border:1px solid #d4c08a">2.65 (more fire)</td><td style="padding:6px;border:1px solid #d4c08a">2.16 (less fire)</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Dispersion (fire)</td><td style="padding:6px;border:1px solid #d4c08a">0.044</td><td style="padding:6px;border:1px solid #d4c08a">0.104 (rainbow flash)</td><td style="padding:6px;border:1px solid #d4c08a">0.060</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Price (1ct equivalent)</td><td style="padding:6px;border:1px solid #d4c08a">NT$35K (lab) / NT$200K (natural)</td><td style="padding:6px;border:1px solid #d4c08a">NT$5-10K</td><td style="padding:6px;border:1px solid #d4c08a">NT$300-1K</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Lifespan looking new</td><td style="padding:6px;border:1px solid #d4c08a">Forever</td><td style="padding:6px;border:1px solid #d4c08a">Forever</td><td style="padding:6px;border:1px solid #d4c08a">2-3 years (clouds, scratches)</td></tr>
+  </tbody>
+</table>
+
+<h2>How to tell them apart</h2>
+<ul>
+  <li><strong>Diamond test pen</strong> (thermal) — diamond passes, moissanite usually passes too (high thermal conductivity), CZ fails.</li>
+  <li><strong>Moissanite tester</strong> (electrical) — distinguishes moissanite from diamond.</li>
+  <li><strong>Loupe</strong> — moissanite shows "doubling" of facet edges (it's birefringent); diamond doesn't.</li>
+  <li><strong>Fire</strong> — moissanite throws more rainbow flash than diamond. Some find this "showy".</li>
+  <li><strong>Weight</strong> — moissanite is ~15% lighter than diamond at same dimensions.</li>
+</ul>
+
+<h2>When to choose each</h2>
+<ul>
+  <li><strong>Lab diamond</strong> — best balance of price, optics, status. The default modern choice.</li>
+  <li><strong>Moissanite</strong> — maximum dollar/sparkle ratio; great for travel rings, second sets.</li>
+  <li><strong>CZ</strong> — costume only; do not use for engagement rings.</li>
+</ul>
+
+<p>For natural vs lab depth, see <a href="/blog/lab-vs-natural">lab vs natural</a>.
+For other gemstones, see <a href="/blog/gemstones-comparison">gemstones
+comparison</a>.</p>
+'''
+
+
+EN['gemstones-comparison'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Diamond, sapphire, ruby, emerald — the "big four" precious gems. Sapphire
+  and ruby (both corundum, Mohs 9) are durable engagement alternatives;
+  emerald is fragile. Each has a different price-per-carat curve.
+</aside>
+
+<h2>The big four</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Stone</th><th style="padding:6px;border:1px solid #d4c08a">Mohs</th><th style="padding:6px;border:1px solid #d4c08a">Engagement-suitable?</th><th style="padding:6px;border:1px solid #d4c08a">1ct fine quality</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Diamond</td><td style="padding:6px;border:1px solid #d4c08a">10</td><td style="padding:6px;border:1px solid #d4c08a">★★★★★</td><td style="padding:6px;border:1px solid #d4c08a">NT$200K (natural)</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Sapphire (blue)</td><td style="padding:6px;border:1px solid #d4c08a">9</td><td style="padding:6px;border:1px solid #d4c08a">★★★★★</td><td style="padding:6px;border:1px solid #d4c08a">NT$30-150K</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Ruby</td><td style="padding:6px;border:1px solid #d4c08a">9</td><td style="padding:6px;border:1px solid #d4c08a">★★★★☆</td><td style="padding:6px;border:1px solid #d4c08a">NT$80-500K (varies)</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Emerald</td><td style="padding:6px;border:1px solid #d4c08a">7.5-8</td><td style="padding:6px;border:1px solid #d4c08a">★★★☆☆ (fragile)</td><td style="padding:6px;border:1px solid #d4c08a">NT$100-400K (Colombian)</td></tr>
+  </tbody>
+</table>
+
+<h2>The "next tier"</h2>
+<ul>
+  <li><strong>Tanzanite</strong> — found only in Tanzania; bluish-violet; Mohs 6.5-7 (avoid daily wear).</li>
+  <li><strong>Spinel</strong> — historic confusion with ruby (the "Black Prince's Ruby" is actually spinel). Mohs 8.</li>
+  <li><strong>Aquamarine</strong> — pale blue beryl; Mohs 7.5-8.</li>
+  <li><strong>Tourmaline</strong> — many colors; Mohs 7-7.5.</li>
+  <li><strong>Garnet</strong> — beyond burgundy: tsavorite (green), spessartine (orange). Mohs 6.5-7.5.</li>
+  <li><strong>Topaz</strong> — imperial topaz (peach) is the prized variety; Mohs 8.</li>
+</ul>
+
+<h2>Treatments to know</h2>
+<ul>
+  <li><strong>Sapphire heat treatment</strong> — universal for blue sapphire; "unheated" commands 2-5× premium.</li>
+  <li><strong>Ruby glass-filling</strong> — common for cheap rubies; durability is poor. Avoid.</li>
+  <li><strong>Emerald oiling</strong> — universal; "no oil" or "minor oil" commands premium.</li>
+  <li><strong>Diamond HPHT/laser</strong> — must be disclosed on GIA report.</li>
+</ul>
+
+<h2>For an alternative engagement stone</h2>
+<p>Best non-diamond pick: <strong>blue sapphire</strong> (Princess Diana / Kate Middleton ring).
+Mohs 9, vivid color, no chip risk, ~70% cheaper than diamond per carat.
+Second choice: <strong>ruby</strong> for the symbolism. Avoid emerald for daily-wear rings —
+oil dries out, fractures grow. See <a href="/blog/lgbtq-rings">LGBTQ rings</a>
+for color stone trends in modern engagement.</p>
+'''
+
+
+EN['sustainable-diamonds'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  "Ethical diamonds" usually means: lab-grown (no mining footprint), Canadian
+  natural (verifiable supply chain), or recycled (re-cut antique stones).
+  Kimberley Process exists but has known gaps. Lab is currently the most
+  defensible choice on environmental + provenance grounds.
+</aside>
+
+<h2>The four sustainability paths</h2>
+<ol>
+  <li><strong>Lab-grown</strong> — zero mining; energy footprint depends on grid. Indian CVD on coal grid is high; US lab on solar/hydro is very low.</li>
+  <li><strong>Canadian natural</strong> — fully traceable from mine to retail (Maple Leaf, CanadaMark certifications). Higher labor + environmental standards than typical mines.</li>
+  <li><strong>Recycled / antique</strong> — re-cut from estate jewellery; no new extraction. Some loss in cutting (~10-30% mass).</li>
+  <li><strong>Fairmined / Fairtrade Gold setting</strong> — paired with any of the above; addresses gold mining's mercury &amp; child-labor issues.</li>
+</ol>
+
+<h2>The Kimberley Process — what it does and doesn't cover</h2>
+<p>Founded 2003, KP certifies that rough diamonds are not from rebel-controlled
+zones funding armed conflict. It does <em>not</em> cover:</p>
+<ul>
+  <li>Government-perpetrated human rights abuses (Zimbabwe Marange).</li>
+  <li>Worker safety, child labor, or fair wages.</li>
+  <li>Environmental damage.</li>
+  <li>Smuggling that bypasses the certification chain.</li>
+</ul>
+<p>Industry consensus: KP catches the worst (financing rebel groups) but is not
+a guarantee of "ethical".</p>
+
+<h2>Carbon footprint — the messy comparison</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Source</th><th style="padding:6px;border:1px solid #d4c08a">kg CO₂ per ct (estimate)</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Natural mining (Botswana avg.)</td><td style="padding:6px;border:1px solid #d4c08a">~160</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Lab CVD (India coal grid)</td><td style="padding:6px;border:1px solid #d4c08a">~510</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Lab CVD (renewable grid)</td><td style="padding:6px;border:1px solid #d4c08a">~50</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Recycled / vintage</td><td style="padding:6px;border:1px solid #d4c08a">~10 (re-cut energy only)</td></tr>
+  </tbody>
+</table>
+<p>Numbers vary widely by source; the takeaway: "lab is greener" is conditional
+on the grid mix.</p>
+
+<h2>What to ask your jeweller</h2>
+<ul>
+  <li>"Where was the rough mined? Can you trace it?"</li>
+  <li>"Is the gold setting Fairmined or recycled?"</li>
+  <li>"For lab — which production facility? What's their energy source?"</li>
+  <li>"Do you offer a verified provenance report?"</li>
+</ul>
+
+<p>For natural-vs-lab depth, see <a href="/blog/lab-vs-natural">lab vs
+natural</a>. For market trends shaping this, see <a href="/blog/diamond-price-trends">
+price trends</a>.</p>
+'''
+
+
+EN['diamond-photography'] = '''
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  Phone-camera diamond photos disappoint because diamond brilliance is dynamic
+  motion-light. Solution: macro lens, point light source, slight tilt during
+  capture, dark background. 5 setup tricks transform results.
+</aside>
+
+<h2>Why phone shots look dead</h2>
+<p>Diamonds throw color (fire), white sparkle (scintillation), and brilliance
+through facet motion. A static photo at 4-meter focus distance compresses all
+of that into one frozen reflection — usually a single white blob. The eye-
+beating dynamic range gets clipped into a JPEG.</p>
+
+<h2>5 setup tricks</h2>
+<ol>
+  <li><strong>Macro lens (clip-on or smartphone macro)</strong> — get the camera 4-8 cm from the diamond. Suddenly individual facets fire.</li>
+  <li><strong>Single point light source</strong> — a desk lamp at 30° angle, or even one phone flashlight, beats overhead fluorescent.</li>
+  <li><strong>Dark background</strong> — black velvet or matte black card. Removes reflections of clutter.</li>
+  <li><strong>Slight tilt motion during burst capture</strong> — record a 1-second video, scrub for the frame with most fire. Diamond brilliance is in the motion.</li>
+  <li><strong>Clean the stone first</strong> — finger oil dims sparkle dramatically. Dish-soap clean + lint-free polish.</li>
+</ol>
+
+<h2>For online sellers / social media</h2>
+<table style="width:100%;border-collapse:collapse;margin:14px 0">
+  <thead><tr style="background:#fbf3df"><th style="padding:6px;border:1px solid #d4c08a">Shot</th><th style="padding:6px;border:1px solid #d4c08a">Setup</th></tr></thead>
+  <tbody>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Face-up sparkle</td><td style="padding:6px;border:1px solid #d4c08a">Macro + single LED + dark bg + 30° camera tilt</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Side profile (proportions)</td><td style="padding:6px;border:1px solid #d4c08a">Diffused even light, white background, perpendicular angle</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">On-finger lifestyle</td><td style="padding:6px;border:1px solid #d4c08a">Soft window light + skin-tone-matched fabric drape</td></tr>
+    <tr><td style="padding:6px;border:1px solid #d4c08a">Hearts &amp; Arrows view</td><td style="padding:6px;border:1px solid #d4c08a">H&amp;A scope (NT$300 on Shopee) + macro phone</td></tr>
+  </tbody>
+</table>
+
+<h2>Editing principles</h2>
+<ul>
+  <li>Don't crush blacks — you'll lose facet structure.</li>
+  <li>Don't oversaturate — fancy color stones look fake when boosted.</li>
+  <li>Sharpen mildly; over-sharpening creates halos around facet edges.</li>
+  <li>Disclose any editing on for-sale listings (legal in some jurisdictions).</li>
+</ul>
+
+<p>For a thoughtful proposal photoshoot, see <a href="/blog/proposal-speech">
+proposal speech</a> for setting context.</p>
 '''
 
 
