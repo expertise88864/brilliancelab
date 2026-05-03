@@ -786,6 +786,185 @@
     }
   };
 
+  /* ---------- Newsletter signup (Buttondown free tier) ----------
+   * Buttondown gives a free email list with no signup ceiling, no email
+   * sending cost, and unsubscribe handled for you. Replace BL.NEWSLETTER
+   * with your buttondown username (or pass via opts.newsletter).
+   * Posts to https://buttondown.com/api/emails/embed-subscribe/<username>
+   * which handles double-opt-in + GDPR consent UI. */
+  BL.NEWSLETTER = ''; // set to e.g. 'brilliancelab' once you create the list
+  BL.injectNewsletter = function (cfg) {
+    cfg = cfg || {};
+    const username = cfg.username || BL.NEWSLETTER || window.BL_NEWSLETTER || '';
+    if (!username || document.getElementById('bl-newsletter')) return;
+    const sec = document.createElement('section');
+    sec.id = 'bl-newsletter';
+    sec.setAttribute('aria-label', '電子報訂閱 / Newsletter');
+    sec.style.cssText = 'max-width:780px;margin:48px auto 24px;padding:24px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border:1px solid rgba(201,164,92,.45);border-radius:18px;text-align:center';
+    sec.innerHTML =
+      '<div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:8px">每月一封 · 不寄垃圾</div>' +
+      '<h2 style="font-family:\"Noto Serif TC\",Georgia,serif;font-size:22px;font-weight:700;color:#1a1d2e;margin-bottom:6px" data-zh="鑽石市場月報" data-en="Diamond Market Monthly">鑽石市場月報</h2>' +
+      '<p style="font-size:13.5px;color:#4a4d5e;line-height:1.7;margin-bottom:16px;max-width:480px;margin-left:auto;margin-right:auto" data-zh="每月一封 — 培育鑽降價速度、新出證書注意事項、市場趨勢與獨家分析。隨時可退訂。" data-en="One email per month — lab-grown price moves, new cert quirks, market trends, exclusive analysis. Unsubscribe anytime.">每月一封 — 培育鑽降價速度、新出證書注意事項、市場趨勢與獨家分析。隨時可退訂。</p>' +
+      '<form id="bl-newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/' + username + '" method="post" target="popupwindow"' +
+      ' style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:480px;margin:0 auto" onsubmit="window.open(\'https://buttondown.com/' + username + '\',\'popupwindow\')">' +
+        '<input required type="email" name="email" placeholder="your@email.com" autocomplete="email"' +
+        ' style="flex:1;min-width:220px;padding:11px 16px;border:1px solid rgba(201,164,92,.4);border-radius:9999px;font-size:14px;background:#fff;outline:none;font-family:Inter,sans-serif" />' +
+        '<button type="submit"' +
+        ' style="padding:11px 22px;border-radius:9999px;background:linear-gradient(180deg,#d4b87a,#8a6e30);color:#fff;font-weight:600;font-size:14px;border:none;cursor:pointer;transition:filter .15s">訂閱 →</button>' +
+      '</form>' +
+      '<div style="font-size:10.5px;color:#7e8194;margin-top:10px">由 <a href="https://buttondown.com" target="_blank" rel="noopener" style="color:#8a6e30">Buttondown</a> 提供 · GDPR 合規</div>';
+    const footer = document.querySelector('footer');
+    const anchor = document.getElementById('bl-related') || document.getElementById('bl-comments') || footer;
+    if (anchor) anchor.parentNode.insertBefore(sec, anchor);
+    else document.body.appendChild(sec);
+
+    // GA4 conversion event
+    const form = sec.querySelector('#bl-newsletter-form');
+    form.addEventListener('submit', () => {
+      const payload = { event_category: 'engagement', event_label: 'newsletter_subscribe', value: 1 };
+      if (typeof window.gtag === 'function') window.gtag('event', 'newsletter_subscribe', payload);
+      (window.dataLayer = window.dataLayer || []).push({ event: 'newsletter_subscribe', ...payload });
+    });
+  };
+
+  /* ---------- Internal-link hover preview ----------
+   * On any /blog/<slug> link, show a tooltip with the title + first ~80 chars
+   * of the linked article. Pre-fetches lazily on first hover and caches the
+   * snippet for the rest of the session. Pure DOM, no network beyond the HEAD
+   * fetch of the target page. */
+  BL._previewCache = new Map();
+  BL.addLinkPreviews = function () {
+    if (BL._linkPreviewArmed) return;
+    BL._linkPreviewArmed = true;
+
+    const tip = document.createElement('div');
+    tip.id = 'bl-linkpreview';
+    tip.style.cssText = 'position:fixed;z-index:80;max-width:340px;padding:14px 16px;background:#fff;border:1px solid rgba(201,164,92,.45);border-radius:12px;box-shadow:0 16px 36px -16px rgba(138,110,48,.45);font-family:Inter,"Microsoft JhengHei",sans-serif;font-size:13px;line-height:1.55;color:#1a1d2e;display:none;pointer-events:none;transition:opacity .15s';
+    tip.setAttribute('role', 'tooltip');
+    document.body.appendChild(tip);
+
+    let hideTimer;
+
+    async function fetchPreview(url) {
+      if (BL._previewCache.has(url)) return BL._previewCache.get(url);
+      try {
+        const r = await fetch(url, { credentials: 'omit' });
+        if (!r.ok) throw new Error(r.status);
+        const html = await r.text();
+        const titleMatch = html.match(/<title>([^|<]+?)(?:\s*[—\-|]\s*[^<]+)?<\/title>/i);
+        const descMatch  = html.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i);
+        const data = {
+          title: titleMatch ? titleMatch[1].trim() : url,
+          desc:  descMatch  ? descMatch[1].trim()  : '',
+        };
+        BL._previewCache.set(url, data);
+        return data;
+      } catch (e) {
+        const data = { title: url, desc: '' };
+        BL._previewCache.set(url, data);
+        return data;
+      }
+    }
+
+    function show(a) {
+      const url = a.getAttribute('href');
+      tip.innerHTML = '<div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:4px">預覽</div><div style="font-weight:700;color:#1a1d2e;margin-bottom:4px">' + a.textContent.trim() + '</div><div style="color:#7e8194;font-size:12px">載入中…</div>';
+      const r = a.getBoundingClientRect();
+      const x = Math.min(window.innerWidth - 360, Math.max(8, r.left));
+      const y = (r.bottom + 280 > window.innerHeight) ? Math.max(8, r.top - 280) : r.bottom + 8;
+      tip.style.left = x + 'px';
+      tip.style.top  = y + 'px';
+      tip.style.display = 'block';
+      tip.style.opacity = '0';
+      requestAnimationFrame(() => { tip.style.opacity = '1'; });
+      fetchPreview(url).then((d) => {
+        if (tip.style.display !== 'block') return;
+        tip.innerHTML =
+          '<div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:4px">預覽 / Preview</div>' +
+          '<div style="font-family:\'Noto Serif TC\',Georgia,serif;font-weight:700;font-size:14px;color:#1a1d2e;margin-bottom:6px;line-height:1.4">' + d.title + '</div>' +
+          (d.desc ? '<div style="color:#4a4d5e;font-size:12.5px">' + d.desc.slice(0, 120) + (d.desc.length > 120 ? '…' : '') + '</div>' : '');
+      });
+    }
+    function hide() { tip.style.display = 'none'; }
+
+    document.addEventListener('mouseover', (e) => {
+      const a = e.target.closest && e.target.closest('a[href^="/blog/"]');
+      if (!a) return;
+      // Skip nav menus / drawer / TOC / related cards (would be noisy)
+      if (a.closest('#blMobileDrawer, #bl-toc, #bl-related, header, footer')) return;
+      clearTimeout(hideTimer);
+      // Small delay so brief hovers don't trigger
+      hideTimer = setTimeout(() => show(a), 350);
+    });
+    document.addEventListener('mouseout', (e) => {
+      const a = e.target.closest && e.target.closest('a[href^="/blog/"]');
+      if (!a) return;
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(hide, 200);
+    });
+    // Hide on scroll/click
+    document.addEventListener('scroll', hide, { passive: true });
+    document.addEventListener('click', hide);
+  };
+
+  /* ---------- Reading list (localStorage bookmark) ---------- */
+  BL.READING_LIST_KEY = 'bl_reading_list';
+  BL._readingList = function () {
+    try { return JSON.parse(localStorage.getItem(BL.READING_LIST_KEY) || '[]'); }
+    catch { return []; }
+  };
+  BL._saveReadingList = function (list) {
+    try { localStorage.setItem(BL.READING_LIST_KEY, JSON.stringify(list)); }
+    catch { /* private mode */ }
+  };
+  BL.addBookmarkButton = function (slug) {
+    if (!slug || document.getElementById('bl-bookmark')) return;
+    const btn = document.createElement('button');
+    btn.id = 'bl-bookmark';
+    btn.type = 'button';
+    btn.setAttribute('aria-pressed', 'false');
+    btn.style.cssText = 'position:fixed;right:18px;bottom:78px;width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid rgba(201,164,92,.45);color:#8a6e30;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:50;box-shadow:0 8px 18px -8px rgba(138,110,48,.4);transition:all .15s';
+    const filled  = '<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6 3a1 1 0 0 0-1 1v17l7-4 7 4V4a1 1 0 0 0-1-1H6Z"/></svg>';
+    const outline = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3a1 1 0 0 0-1 1v17l7-4 7 4V4a1 1 0 0 0-1-1H6Z"/></svg>';
+    function refresh() {
+      const has = BL._readingList().some(item => item.slug === slug);
+      btn.innerHTML = has ? filled : outline;
+      btn.setAttribute('aria-label', has ? '從閱讀清單移除' : '加入閱讀清單');
+      btn.setAttribute('title',       has ? '已加入閱讀清單(再按一次取消)' : '加入閱讀清單');
+      btn.setAttribute('aria-pressed', has ? 'true' : 'false');
+      btn.style.background = has ? 'linear-gradient(180deg,#d4b87a,#8a6e30)' : '#fff';
+      btn.style.color = has ? '#fff' : '#8a6e30';
+    }
+    refresh();
+    btn.addEventListener('click', () => {
+      const list = BL._readingList();
+      const i = list.findIndex(it => it.slug === slug);
+      if (i >= 0) list.splice(i, 1);
+      else        list.push({ slug, title: document.title.split(/[—|·]/)[0].trim(), savedAt: Date.now() });
+      BL._saveReadingList(list);
+      refresh();
+      // GA4 event
+      const action = i >= 0 ? 'bookmark_remove' : 'bookmark_add';
+      const payload = { event_category: 'engagement', event_label: slug };
+      if (typeof window.gtag === 'function') window.gtag('event', action, payload);
+      (window.dataLayer = window.dataLayer || []).push({ event: action, ...payload });
+    });
+    document.body.appendChild(btn);
+  };
+  BL.injectReadingListPanel = function () {
+    if (document.getElementById('bl-readinglist')) return;
+    const list = BL._readingList();
+    if (list.length === 0) return;
+    const sec = document.createElement('section');
+    sec.id = 'bl-readinglist';
+    sec.setAttribute('aria-label', '我的閱讀清單');
+    sec.style.cssText = 'max-width:780px;margin:24px auto 0;padding:0 20px';
+    let cards = list.map((it) => '<a href="/blog/' + it.slug + '" style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#fff;border:1px solid #ebe6dc;border-radius:10px;text-decoration:none;color:#1a1d2e;font-size:13px"><svg viewBox="0 0 24 24" width="13" height="13" fill="#8a6e30" aria-hidden="true"><path d="M6 3a1 1 0 0 0-1 1v17l7-4 7 4V4a1 1 0 0 0-1-1H6Z"/></svg><span>' + it.title + '</span></a>').join('');
+    sec.innerHTML = '<div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:8px">我的閱讀清單(' + list.length + ')</div><div style="display:grid;gap:8px">' + cards + '</div>';
+    const footer = document.querySelector('footer');
+    if (footer) footer.parentNode.insertBefore(sec, footer);
+  };
+
   /* ---------- Sentry browser loader (lazy, ~50 KB) ----------
    * Wires window.onerror + unhandled rejection capture even before the SDK loads;
    * once the SDK is in, captured events are flushed.
@@ -1029,6 +1208,13 @@
     // Engagement analytics
     if (opts.scrollDepth !== false) BL.addScrollDepth();
     if (opts.outbound    !== false) BL.trackOutbound();
+
+    // UX features
+    if (slug && opts.bookmark    !== false) BL.addBookmarkButton(slug);
+    if (opts.linkPreviews        !== false) BL.addLinkPreviews();
+    if (opts.readingListPanel    !== false) BL.injectReadingListPanel();
+    if (opts.newsletter || BL.NEWSLETTER || window.BL_NEWSLETTER)
+      BL.injectNewsletter(typeof opts.newsletter === 'object' ? opts.newsletter : {});
 
     const yr = document.getElementById('yr');
     if (yr) yr.textContent = new Date().getFullYear();

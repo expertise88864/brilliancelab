@@ -16,9 +16,13 @@ src = open(PATH, encoding='utf-8').read()
 
 i, n = 0, len(src)
 depth = 0
-state = 'code'   # code | sq | dq | bq | lc | bc
+state = 'code'   # code | sq | dq | bq | lc | bc | re (regex literal)
 line, col = 1, 0
 errors = []
+last_nonws = ''  # previous non-whitespace char in code mode (for regex disambiguation)
+# A `/` starts a regex literal (vs division) when the previous non-whitespace
+# code char is one of these — covers .match(/.../), arr=[/.../], (/.../), etc.
+REGEX_LEADERS = set('(,;=!&|?{}:[+*~^<>%')
 
 while i < n:
     c = src[i]
@@ -32,6 +36,8 @@ while i < n:
     if state == 'code':
         if c == '/' and nxt == '/': state = 'lc'; i += 2; continue
         if c == '/' and nxt == '*': state = 'bc'; i += 2; continue
+        if c == '/' and (last_nonws == '' or last_nonws in REGEX_LEADERS):
+            state = 're'; i += 1; continue
         if c == "'":  state = 'sq'; i += 1; continue
         if c == '"':  state = 'dq'; i += 1; continue
         if c == '`':  state = 'bq'; i += 1; continue
@@ -43,6 +49,30 @@ while i < n:
             if depth < 0:
                 errors.append(f'extra "}}" at line {line} col {col}')
                 break
+        if not c.isspace():
+            last_nonws = c
+        i += 1; continue
+
+    if state == 're':
+        if c == '\\' and nxt:
+            i += 2; continue
+        if c == '[':
+            state = 're_class'; i += 1; continue
+        if c == '/':
+            state = 'code'; i += 1
+            # consume regex flags
+            while i < n and src[i].isalpha(): i += 1
+            last_nonws = ')'   # treat closed regex as expression value
+            continue
+        if c == '\n':
+            # Unterminated regex — bail out gracefully (rare)
+            state = 'code'
+        i += 1; continue
+    if state == 're_class':
+        if c == '\\' and nxt:
+            i += 2; continue
+        if c == ']':
+            state = 're'; i += 1; continue
         i += 1; continue
 
     if state == 'lc':

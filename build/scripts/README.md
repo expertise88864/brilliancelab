@@ -35,6 +35,9 @@ is the cwd the script chdirs into.
 | Script | When to run | What it does |
 |---|---|---|
 | `inject_author_schema.py` | After updating SAMEAS_* social URLs in the script | Injects centralised Person + Organization JSON-LD (with `sameAs`) into every page. |
+| `inject_faqpage_multi.py` | After adding any `<h3>Q1: ...</h3><p>` blocks | Auto-extracts Q&A pairs and emits FAQPage schema. Idempotent. |
+| `tighten_meta_desc.py`    | When `audit_seo.py` flags `desc-len` issues | Tightens meta descriptions to 100-158 SERP chars (CJK counted 2x). |
+| `sync_datemodified.py`    | Pre-deploy or in CI | Updates every Article schema's `dateModified` to file's last `git log` date — content-freshness signal for Google. |
 
 ## Sitemap / search hygiene
 

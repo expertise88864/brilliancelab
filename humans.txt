@@ -1,23 +1,34 @@
 /* TEAM */
 
-Site: BrillianceLab — 鑽石實驗室
-URL:  https://brilliancelab.vercel.app/
-About: A math-driven diamond evaluation calculator. Free, in-browser, no signup.
-       基於 Tolkowsky 黃金比例與 HCA 4 維光學分解的鑽石評分工具。
+Site:   BrillianceLab — 鑽石實驗室
+URL:    https://brilliancelab.vercel.app/
+About:  A math-driven diamond evaluation calculator. Free, in-browser, no signup.
+        基於 Tolkowsky 黃金比例與 HCA 4 維光學分解的鑽石評分工具,
+        附 43+ 篇 SEO-optimised 鑽石購買指南 (zh-TW + en).
 
 Editor: BrillianceLab Editorial
-Lang:   Traditional Chinese / English
+Lang:   Traditional Chinese / English / 8 more (auto-detect)
 Twitter: (TBD)
+GitHub:  https://github.com/expertise88864/brilliancelab
 
 /* THANKS */
 
 Tolkowsky, Marcel — 1919 PhD thesis "Diamond Design"
-Holloway, Garry  — Holloway Cut Adviser (HCA) framework
-GIA              — 4Cs grading standard
+Holloway, Garry   — Holloway Cut Adviser (HCA) framework
+GIA               — 4Cs grading standard
+AGS               — 0-10 light performance grading
+Octonus           — DiamCalc reference implementation
 
 /* SITE */
 
-Last update: 2026-05-02
-Standards: HTML5, JSON-LD, hreflang
-Components: Tailwind CSS, Tesseract.js (OCR), Service Worker (PWA)
-Hosting: Vercel (Edge + Serverless)
+Last update:  2026-05-03
+Standards:    HTML5, JSON-LD (Article / FAQPage / HowTo / BreadcrumbList /
+              Organization / Person / Product / Review / WebSite / ItemList),
+              hreflang (10 langs), AMP, Web App Manifest, security.txt (RFC 9116)
+Components:   Tailwind CSS (compile-time), Pagefind (static-site search),
+              Service Worker (offline-first SWR), Buttondown (newsletter),
+              Sentry (browser err telemetry, lazy)
+Hosting:      Vercel (Edge + Serverless functions)
+Build:        Python 3 + PIL (OG images) + fontTools (Noto Serif TC subset)
+Telemetry:    GA4 + Microsoft Clarity (heatmaps, session replay)
+Indexing:     IndexNow (Bing/Yandex/Seznam/Naver), Google Search Console

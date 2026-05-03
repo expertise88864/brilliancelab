@@ -1,0 +1,48 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate JSON-LD blocks
+        run: |
+          python - <<'PY'
+          import json, re, sys, pathlib
+          ok, bad = 0, 0
+          errors = []
+          for p in sorted(list(pathlib.Path('blog').glob('*.html')) +
+                          [pathlib.Path('index.html'),
+                           pathlib.Path('search.html'),
+                           pathlib.Path('404.html')]):
+              if not p.exists(): continue
+              src = p.read_text(encoding='utf-8')
+              for m in re.finditer(r'<script[^>]+ld\+json[^>]*>([\s\S]+?)</script>', src):
+                  try:
+                      json.loads(m.group(1))
+                      ok += 1
+                  except Exception as e:
+                      bad += 1
+                      errors.append(f'{p.name}: {e}')
+          print(f'{ok} JSON-LD blocks valid, {bad} errors')
+          for e in errors[:20]: print(' !!', e)
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: Verify canonicals
+        run: python build/scripts/audit_canonicals.py
+
+      - name: Verify blog-shared.js brace balance
+        run: python build/scripts/check_js.py

@@ -10,12 +10,10 @@
   "scripts": {
     "css:build": "tailwindcss -i ./build/tailwind.input.css -o ./assets/tw.css --minify",
     "css:watch": "tailwindcss -i ./build/tailwind.input.css -o ./assets/tw.css --watch",
-    "search:build": "pagefind --site . --output-subdir _pagefind",
-    "lhci": "lhci autorun"
+    "search:build": "pagefind --site . --output-subdir _pagefind"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.13",
-    "pagefind": "^1.1.0",
-    "@lhci/cli": "^0.13.0"
+    "pagefind": "^1.1.0"
   }
 }
