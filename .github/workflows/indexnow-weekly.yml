@@ -1,0 +1,30 @@
+name: IndexNow weekly
+
+# Pings IndexNow every Monday with the full sitemap URL list.
+# Bing/Yandex won't re-crawl pages they think are static; an explicit ping
+# keeps "last seen" times fresh and pulls in any indirect updates (CSS,
+# template changes that affect rendering, etc.).
+#
+# Cheap (one POST), zero cost. Manual trigger also available.
+
+on:
+  schedule:
+    - cron: '0 1 * * 1'      # 01:00 UTC every Monday (09:00 Taipei)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Ping IndexNow with all URLs
+        run: python build/scripts/ping_indexnow.py --all

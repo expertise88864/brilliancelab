@@ -1,0 +1,72 @@
+name: IndexNow on push
+
+# After every push to main, figure out which HTML pages changed and ping
+# IndexNow for just those URLs. This is the targeted variant of the weekly
+# ping — gets fresh content into Bing/Yandex within hours of a deploy.
+#
+# Skip-conditions:
+#   - Commits authored by the github-actions bot (already pinged in
+#     monthly-report workflow)
+#   - Commits whose message starts with `chore:` or `docs:` or `[skip-ping]`
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'blog/*.html'
+      - 'amp/blog/*.html'
+      - 'sitemap*.xml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-push-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ping:
+    if: |
+      github.actor != 'github-actions[bot]'
+      && !startsWith(github.event.head_commit.message, 'chore:')
+      && !startsWith(github.event.head_commit.message, 'docs:')
+      && !contains(github.event.head_commit.message, '[skip-ping]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2     # need previous commit to diff
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: List changed HTML files
+        id: diff
+        run: |
+          # All HTML files changed in this push (any commit in the range)
+          CHANGED=$(git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.event.after }} \
+                    | grep -E '^(blog|amp/blog)/.*\.html$|^index\.html$' || true)
+          if [ -z "$CHANGED" ]; then
+            echo "No relevant HTML changes; skipping IndexNow ping"
+            echo "skip=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          # Strip .html and prefix with /, except index.html → /
+          URLS=$(echo "$CHANGED" | sed 's|\.html$||' | sed 's|^|/|' | sed 's|^/index$|/|')
+          echo "$URLS" > /tmp/changed_urls.txt
+          echo "  → will ping these paths:"
+          cat /tmp/changed_urls.txt | sed 's/^/      /'
+          echo "skip=false" >> $GITHUB_OUTPUT
+
+      - name: Wait 90s for Vercel deploy to settle
+        if: steps.diff.outputs.skip != 'true'
+        run: sleep 90
+
+      - name: Ping IndexNow
+        if: steps.diff.outputs.skip != 'true'
+        run: |
+          # Pass each URL as a separate arg to ping_indexnow.py
+          xargs python build/scripts/ping_indexnow.py < /tmp/changed_urls.txt
