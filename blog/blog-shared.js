@@ -407,7 +407,8 @@
     'dating-duration':         ['engagement-timeline','proposal-speech','engagement-guide','destination-wedding'],
     'destination-wedding':     ['engagement-timeline','proposal-speech','dating-duration','engagement-guide'],
     'diamond-price-trends':    ['diamond-news-2026','diamond-resale','lab-vs-natural','sustainable-diamonds'],
-    'diamond-news-2026':       ['diamond-price-trends','sustainable-diamonds','lab-vs-natural','master-guide']
+    'diamond-news-2026':       ['diamond-price-trends','sustainable-diamonds','lab-vs-natural','master-guide'],
+    'taiwan-brands':           ['cert-comparison','engagement-guide','budget-formula','diamond-scams']
   };
   // Title lookup so we don't hard-code titles in every page; fallback = humanise the slug.
   BL.TITLES = {
@@ -453,7 +454,8 @@
     'dating-duration':        { zh:'交往多久求婚', en:'When to propose' },
     'destination-wedding':    { zh:'異國婚禮採購', en:'Destination wedding' },
     'diamond-price-trends':   { zh:'2026-2030 鑽石價格趨勢', en:'2026-2030 price trends' },
-    'diamond-news-2026':      { zh:'2026 鑽石市場新聞', en:'2026 diamond news' }
+    'diamond-news-2026':      { zh:'2026 鑽石市場新聞', en:'2026 diamond news' },
+    'taiwan-brands':          { zh:'台灣鑽戒品牌完整比較', en:'Taiwan jewelry brands compared' }
   };
 
   BL.injectRelated = function (slug) {
@@ -1245,7 +1247,8 @@
     'lgbtq-rings':'hub-proposal',
     'diamond-care':'hub-care','ring-insurance':'hub-care','diamond-resale':'hub-care',
     'engraving-personalization':'hub-care','heirloom-redesign':'hub-care','prong-settings-guide':'hub-care',
-    'diamond-price-trends':'hub-care'
+    'diamond-price-trends':'hub-care',
+    'taiwan-brands':'hub-purchase'
   };
   BL.HUB_TITLES = {
     'hub-fundamentals': '基礎篇',

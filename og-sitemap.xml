@@ -378,6 +378,14 @@
     </image:image>
   </url>
   <url>
+    <loc>https://brilliancelab.vercel.app/blog/taiwan-brands</loc>
+    <image:image>
+      <image:loc>https://brilliancelab.vercel.app/og/taiwan-brands.421f4b89.png</image:loc>
+      <image:title>Taiwan Brands | BrillianceLab</image:title>
+      <image:caption>BrillianceLab article OG image — taiwan-brands</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://brilliancelab.vercel.app/blog/wedding-bands</loc>
     <image:image>
       <image:loc>https://brilliancelab.vercel.app/og/wedding-bands.dcc89a78.png</image:loc>

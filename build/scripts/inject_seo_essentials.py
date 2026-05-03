@@ -45,7 +45,8 @@ HUBS_REVERSE = {
     'lgbtq-rings':'hub-proposal',
     'diamond-care':'hub-care','ring-insurance':'hub-care','diamond-resale':'hub-care',
     'engraving-personalization':'hub-care','heirloom-redesign':'hub-care','prong-settings-guide':'hub-care',
-    'diamond-price-trends':'hub-care'
+    'diamond-price-trends':'hub-care',
+    'taiwan-brands':'hub-purchase'
 }
 HUB_TITLES = {
     'hub-fundamentals': '基礎篇',
