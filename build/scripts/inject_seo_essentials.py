@@ -46,7 +46,11 @@ HUBS_REVERSE = {
     'diamond-care':'hub-care','ring-insurance':'hub-care','diamond-resale':'hub-care',
     'engraving-personalization':'hub-care','heirloom-redesign':'hub-care','prong-settings-guide':'hub-care',
     'diamond-price-trends':'hub-care',
-    'taiwan-brands':'hub-purchase'
+    'taiwan-brands':'hub-purchase',
+    'diamond-1ct-price-2026':'hub-purchase',
+    'proposal-vs-wedding-vs-eternity':'hub-proposal',
+    'diamond-glossary':'hub-fundamentals',
+    'dcard-ptt-recommendations':'hub-purchase'
 }
 HUB_TITLES = {
     'hub-fundamentals': '基礎篇',

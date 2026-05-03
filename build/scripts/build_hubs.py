@@ -36,6 +36,7 @@ HUBS = [
             ('lab-vs-natural',        '天然 vs 培育鑽石',   '一樣是真鑽,差價 70% 的科學原理。'),
             ('diamond-faq',           '50 問 FAQ',          '新手最常問的 50 題,直接給答案不囉嗦。'),
             ('diamond-fun-facts',     '30 個冷知識',        '建立談資 — 鑽石歷史、奇聞、科學趣事。'),
+            ('diamond-glossary',      '鑽石術語字典 30 詞', 'GIA / Tolkowsky / Pavé / Halo / 八心八箭 完整定義。'),
         ],
     },
     {
@@ -67,6 +68,8 @@ HUBS = [
             ('secondhand-rings',      '二手婚戒指南',       '便宜 30-50% 的祕密,7 個地雷怎麼避。'),
             ('diamond-scams',         '鑽石詐騙 TOP 10',    '銀樓、網購、夜市最常見手法完整避雷。'),
             ('moissanite-vs-cz-vs-lab', '真假鑽辨識',       '莫桑石 / CZ / 培育 / 天然 4 種 6 招辨識。'),
+            ('diamond-1ct-price-2026', '一克拉鑽石價格查表', '從培育鑽 NT$7 萬到 Cartier NT$130 萬完整價位帶。'),
+            ('dcard-ptt-recommendations', 'Dcard / PTT 推薦排行榜', '30 篇真實心得統計,點睛品 / I-PRIMO / 銀座白石誰被推最多。'),
         ],
     },
     {
@@ -82,6 +85,7 @@ HUBS = [
             ('wedding-metals',        '婚戒材質完整指南',   '鉑金、18K、玫瑰金、黃金、鈦的優劣對照。'),
             ('mens-engagement-rings', '男士訂婚戒指南',     '男生也戴訂婚戒嗎?6 種主流款式。'),
             ('lgbtq-rings',           '同志婚戒指南',       'LGBTQ+ 配對戒設計與選擇思路。'),
+            ('proposal-vs-wedding-vs-eternity', '4 種戒指完整差別', '求婚戒 / 結婚戒 / 對戒 / 永恆戒 + 日韓 vs 歐美傳統。'),
         ],
     },
     {

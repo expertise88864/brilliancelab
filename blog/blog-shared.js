@@ -408,7 +408,11 @@
     'destination-wedding':     ['engagement-timeline','proposal-speech','dating-duration','engagement-guide'],
     'diamond-price-trends':    ['diamond-news-2026','diamond-resale','lab-vs-natural','sustainable-diamonds'],
     'diamond-news-2026':       ['diamond-price-trends','sustainable-diamonds','lab-vs-natural','master-guide'],
-    'taiwan-brands':           ['cert-comparison','engagement-guide','budget-formula','diamond-scams']
+    'taiwan-brands':           ['cert-comparison','engagement-guide','budget-formula','diamond-scams'],
+    'diamond-1ct-price-2026':  ['budget-formula','taiwan-brands','lab-vs-natural','diamond-carat-size'],
+    'proposal-vs-wedding-vs-eternity': ['wedding-bands','wedding-metals','engagement-guide','engagement-timeline'],
+    'diamond-glossary':        ['gia-guide','hearts-arrows-truth','round-cut-deep-dive','prong-settings-guide'],
+    'dcard-ptt-recommendations': ['taiwan-brands','engagement-guide','budget-formula','cert-comparison']
   };
   // Title lookup so we don't hard-code titles in every page; fallback = humanise the slug.
   BL.TITLES = {
@@ -455,7 +459,11 @@
     'destination-wedding':    { zh:'異國婚禮採購', en:'Destination wedding' },
     'diamond-price-trends':   { zh:'2026-2030 鑽石價格趨勢', en:'2026-2030 price trends' },
     'diamond-news-2026':      { zh:'2026 鑽石市場新聞', en:'2026 diamond news' },
-    'taiwan-brands':          { zh:'台灣鑽戒品牌完整比較', en:'Taiwan jewelry brands compared' }
+    'taiwan-brands':          { zh:'台灣鑽戒品牌完整比較', en:'Taiwan jewelry brands compared' },
+    'diamond-1ct-price-2026': { zh:'2026 一克拉鑽石價格查表', en:'2026 1ct diamond price table' },
+    'proposal-vs-wedding-vs-eternity': { zh:'4 種戒指完整差別', en:'4 types of rings compared' },
+    'diamond-glossary':       { zh:'鑽石術語字典 30 詞', en:'30-term diamond glossary' },
+    'dcard-ptt-recommendations': { zh:'Dcard / PTT 鑽戒推薦排行榜', en:'Dcard / PTT diamond ring rankings' }
   };
 
   BL.injectRelated = function (slug) {
@@ -1157,6 +1165,230 @@
     });
   };
 
+  /* ---------- Social share widget (TW-tuned: Line / Threads / X / Dcard / Copy) ----------
+   * Floating right-side dock on desktop, bottom-row on mobile. Uses native
+   * Web Share API when available (mobile), falls back to per-network URLs.
+   * Fires gtag('share') with method label so we can see which channel converts. */
+  BL.addShareWidget = function (cfg) {
+    cfg = cfg || {};
+    if (document.getElementById('bl-share')) return;
+    const url   = cfg.url   || location.href.split('#')[0];
+    const title = cfg.title || document.title.split(/[—|·]/)[0].trim();
+    const enc = encodeURIComponent;
+
+    // Channels — order = importance for TW audience
+    const channels = [
+      { id:'line',    label:'Line',    href:'https://social-plugins.line.me/lineit/share?url=' + enc(url) },
+      { id:'threads', label:'Threads', href:'https://www.threads.net/intent/post?text=' + enc(title + ' ' + url) },
+      { id:'x',       label:'X',       href:'https://twitter.com/intent/tweet?url=' + enc(url) + '&text=' + enc(title) },
+      { id:'fb',      label:'FB',      href:'https://www.facebook.com/sharer/sharer.php?u=' + enc(url) },
+      { id:'copy',    label:'Copy',    href:'#' },
+    ];
+
+    const dock = document.createElement('aside');
+    dock.id = 'bl-share';
+    dock.setAttribute('role', 'complementary');
+    dock.setAttribute('aria-label', '分享文章 / Share');
+    // Desktop dock: fixed right side, vertical
+    dock.style.cssText = 'position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:45;display:flex;flex-direction:column;gap:6px;background:rgba(255,253,247,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 6px;border:1px solid rgba(201,164,92,.4);border-radius:14px;box-shadow:0 14px 30px -16px rgba(138,110,48,.4);font-family:Inter,"Microsoft JhengHei",sans-serif';
+
+    channels.forEach((ch) => {
+      const btn = document.createElement('a');
+      btn.href = ch.href;
+      btn.target = ch.id === 'copy' ? '_self' : '_blank';
+      btn.rel = 'noopener nofollow';
+      btn.title = '分享到 ' + ch.label;
+      btn.setAttribute('aria-label', '分享到 ' + ch.label);
+      btn.style.cssText = 'width:36px;height:36px;border-radius:10px;background:#fff;border:1px solid var(--border,#ebe6dc);color:#5e4a1f;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;text-decoration:none;transition:all .15s ease';
+      btn.textContent = ch.label;
+      btn.addEventListener('mouseenter', () => { btn.style.background = '#fbf3df'; btn.style.borderColor = 'rgba(201,164,92,.6)'; btn.style.transform = 'scale(1.06)'; });
+      btn.addEventListener('mouseleave', () => { btn.style.background = '#fff'; btn.style.borderColor = 'var(--border,#ebe6dc)'; btn.style.transform = ''; });
+      btn.addEventListener('click', async (e) => {
+        if (ch.id === 'copy') {
+          e.preventDefault();
+          try {
+            await navigator.clipboard.writeText(url);
+            btn.textContent = '✓';
+            setTimeout(() => { btn.textContent = ch.label; }, 1500);
+          } catch { prompt('複製這個連結:', url); }
+        }
+        const payload = { event_category: 'engagement', event_label: ch.id, method: ch.id, content_type: 'article', item_id: location.pathname };
+        if (typeof window.gtag === 'function') window.gtag('event', 'share', payload);
+        (window.dataLayer = window.dataLayer || []).push({ event: 'share', ...payload });
+      });
+      dock.appendChild(btn);
+    });
+
+    // Native Web Share API on mobile — single button replaces the dock
+    if ('share' in navigator && window.matchMedia('(max-width: 640px)').matches) {
+      dock.innerHTML = '';
+      const native = document.createElement('button');
+      native.type = 'button';
+      native.setAttribute('aria-label', '分享 / Share');
+      native.style.cssText = 'width:42px;height:42px;border-radius:50%;background:linear-gradient(180deg,#d4b87a,#8a6e30);color:#fff;border:none;box-shadow:0 8px 18px -8px rgba(138,110,48,.5);cursor:pointer;display:flex;align-items:center;justify-content:center';
+      native.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>';
+      native.addEventListener('click', async () => {
+        try { await navigator.share({ title, url }); } catch {}
+        const payload = { event_category: 'engagement', event_label: 'native', method: 'native_share' };
+        if (typeof window.gtag === 'function') window.gtag('event', 'share', payload);
+        (window.dataLayer = window.dataLayer || []).push({ event: 'share', ...payload });
+      });
+      // Mobile placement: bottom-right but ABOVE bookmark and totop
+      dock.style.cssText = 'position:fixed;right:18px;bottom:130px;z-index:45';
+      dock.appendChild(native);
+    }
+
+    // Hide dock on small screens that don't have native share (no room)
+    if (!('share' in navigator) && window.matchMedia('(max-width: 640px)').matches) {
+      dock.style.display = 'none';
+    }
+
+    document.body.appendChild(dock);
+  };
+
+  /* ---------- Dark-mode toggle ----------
+   * Respects OS pref by default; explicit user choice persists in localStorage.
+   * Uses CSS class `bl-dark` on <html> + matching CSS rules in the corpus
+   * (most of the existing prefers-color-scheme rules already work via class
+   * remap below). */
+  BL.DARK_KEY = 'bl_dark';
+  BL.applyDarkMode = function (mode) {
+    // mode: 'light' | 'dark' | 'auto'
+    const html = document.documentElement;
+    if (mode === 'dark') html.classList.add('bl-dark');
+    else if (mode === 'light') html.classList.remove('bl-dark');
+    else {
+      // auto: follow OS
+      const wantDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      html.classList.toggle('bl-dark', wantDark);
+    }
+    // Update theme-color meta dynamically
+    let tc = document.querySelector('meta[name="theme-color"]');
+    if (tc) tc.setAttribute('content', html.classList.contains('bl-dark') ? '#15131a' : '#faf8f3');
+  };
+  BL.addDarkModeToggle = function () {
+    if (document.getElementById('bl-darkmode')) return;
+    // Inject the bridge stylesheet — re-applies the corpus's existing
+    // prefers-color-scheme:dark rules whenever .bl-dark is present, even on
+    // light-mode systems where the user explicitly chose dark.
+    if (!document.getElementById('bl-dark-bridge')) {
+      const st = document.createElement('style');
+      st.id = 'bl-dark-bridge';
+      st.textContent = `
+        html.bl-dark{
+          --bg:#15131a; --ink:#f0eadc; --ink-2:#cdc8b8; --muted:#8e8a7d;
+          --gold:#d4b87a; --gold-deep:#e8c876; --gold-soft:#3a2f1f;
+          --border:#3a3530; --line:#2a2620;
+        }
+        html.bl-dark body{ background:var(--bg)!important; color:var(--ink)!important; }
+        html.bl-dark body::before{
+          background: radial-gradient(800px 500px at 12% -8%, rgba(212,184,122,.08), transparent 60%),
+                      linear-gradient(180deg,#15131a 0%, #1a1714 40%, #15131a 100%)!important;
+        }
+        html.bl-dark .card,html.bl-dark .fact,html.bl-dark .step,html.bl-dark .month,
+        html.bl-dark .stone,html.bl-dark .test,html.bl-dark .level,html.bl-dark .inc,
+        html.bl-dark .setting,html.bl-dark .topic,html.bl-dark table,
+        html.bl-dark .tier,html.bl-dark .ring-card,html.bl-dark .term,html.bl-dark .rank{
+          background:#1f1c20!important; border-color:#3a3530!important; color:var(--ink)!important;
+        }
+        html.bl-dark .prose-zh,html.bl-dark .prose-en,
+        html.bl-dark .prose-zh p,html.bl-dark article p{ color:var(--ink-2)!important; }
+        html.bl-dark .prose-zh strong{ color:var(--ink)!important; }
+        html.bl-dark header.sticky{ background:rgba(21,19,26,.85)!important; }
+        html.bl-dark th{ background:#3a2f1f!important; color:#e8c876!important; }
+        html.bl-dark .verdict,html.bl-dark .bl-tldr{ background:linear-gradient(180deg,#3a2f1f,#2a2620)!important; color:#e8c876!important; border-color:#5a4a30!important; }
+      `;
+      document.head.appendChild(st);
+    }
+
+    // Apply current preference
+    const saved = (function () { try { return localStorage.getItem(BL.DARK_KEY); } catch { return null; } })();
+    BL.applyDarkMode(saved || 'auto');
+    // Auto-follow OS changes when user hasn't picked manually
+    if (!saved && window.matchMedia) {
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      const handler = () => BL.applyDarkMode('auto');
+      if (mq.addEventListener) mq.addEventListener('change', handler);
+    }
+
+    // Toggle button — slot into the lang-toggle wrapper if present, else floats
+    const wrap = document.getElementById('blLangWrap');
+    const btn = document.createElement('button');
+    btn.id = 'bl-darkmode';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', '切換暗色模式 / Toggle dark mode');
+    btn.setAttribute('title', '切換暗色 / Toggle dark mode');
+    function refresh() {
+      const isDark = document.documentElement.classList.contains('bl-dark');
+      btn.innerHTML = isDark
+        ? '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>'
+        : '<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';
+    }
+    btn.style.cssText = 'background:#fff;border:1px solid var(--border,#ebe6dc);width:32px;height:32px;border-radius:8px;cursor:pointer;color:#8a6e30;display:inline-flex;align-items:center;justify-content:center;margin-right:6px';
+    btn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('bl-dark');
+      const next = isDark ? 'light' : 'dark';
+      try { localStorage.setItem(BL.DARK_KEY, next); } catch {}
+      BL.applyDarkMode(next);
+      refresh();
+      const payload = { event_category: 'preference', event_label: next };
+      if (typeof window.gtag === 'function') window.gtag('event', 'dark_mode_toggle', payload);
+    });
+    refresh();
+    if (wrap && wrap.parentNode) wrap.parentNode.insertBefore(btn, wrap);
+    else document.body.appendChild(btn);
+  };
+
+  /* ---------- Reading-progress restoration ----------
+   * Saves scroll position per-URL to sessionStorage every 5s; on next load
+   * of the same URL, offers a one-time toast「📍 從上次離開的位置繼續閱讀」.
+   * Click → smooth scroll to saved position. No-op if scroll is < 20%
+   * (probably first visit) or > 90% (already finished). */
+  BL._readScrollKey = function (url) { return 'bl_scroll:' + (url || location.pathname); };
+  BL.addReadingResume = function () {
+    const key = BL._readScrollKey();
+    let saved = 0;
+    try { saved = parseInt(sessionStorage.getItem(key) || '0', 10); } catch {}
+    // Periodic save
+    let lastSave = 0;
+    document.addEventListener('scroll', () => {
+      const now = Date.now();
+      if (now - lastSave < 5000) return;
+      lastSave = now;
+      try { sessionStorage.setItem(key, String(window.scrollY)); } catch {}
+    }, { passive: true });
+
+    if (saved < 200) return;   // 200px ≈ first viewport, not interesting
+    const h = document.documentElement;
+    const docHeight = h.scrollHeight - h.clientHeight;
+    const pct = (saved / Math.max(1, docHeight)) * 100;
+    if (pct < 20 || pct > 90) return;
+
+    const toast = document.createElement('button');
+    toast.type = 'button';
+    toast.id = 'bl-resume';
+    toast.style.cssText = 'position:fixed;top:80px;right:18px;z-index:55;padding:10px 16px;background:#fff;border:1px solid rgba(201,164,92,.5);border-radius:9999px;color:#5e4a1f;font-size:13px;font-weight:600;box-shadow:0 12px 28px -10px rgba(138,110,48,.45);cursor:pointer;display:flex;align-items:center;gap:8px;font-family:Inter,"Microsoft JhengHei",sans-serif;animation:blFadeIn .35s ease';
+    toast.innerHTML = '<span aria-hidden="true">📍</span><span>從 ' + Math.round(pct) + '% 繼續閱讀</span><span aria-hidden="true" style="margin-left:6px;color:#8a6e30">→</span>';
+    toast.setAttribute('aria-label', '從上次離開的位置繼續閱讀');
+    document.body.appendChild(toast);
+    let dismissed = false;
+    function dismiss() { if (dismissed) return; dismissed = true; toast.style.opacity = '0'; setTimeout(() => toast.remove(), 250); }
+    toast.addEventListener('click', () => {
+      window.scrollTo({ top: saved, behavior: 'smooth' });
+      const payload = { event_category: 'engagement', event_label: 'reading_resume', value: Math.round(pct) };
+      if (typeof window.gtag === 'function') window.gtag('event', 'reading_resume_clicked', payload);
+      dismiss();
+    });
+    setTimeout(dismiss, 7000);   // auto-hide after 7s
+    // Inject keyframes (re-uses exit-intent's blFadeIn)
+    if (!document.getElementById('bl-exit-style')) {
+      const st = document.createElement('style');
+      st.id = 'bl-exit-style';
+      st.textContent = '@keyframes blFadeIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}';
+      document.head.appendChild(st);
+    }
+  };
+
   /* ---------- Sticky mobile bottom CTA bar ----------
    * Always-visible "🛠 計算鑽石分數 →" bar on mobile (≤640px) only.
    * Hides when scrolling past 88% (footer area) so related/comments aren't covered. */
@@ -1248,7 +1480,11 @@
     'diamond-care':'hub-care','ring-insurance':'hub-care','diamond-resale':'hub-care',
     'engraving-personalization':'hub-care','heirloom-redesign':'hub-care','prong-settings-guide':'hub-care',
     'diamond-price-trends':'hub-care',
-    'taiwan-brands':'hub-purchase'
+    'taiwan-brands':'hub-purchase',
+    'diamond-1ct-price-2026':'hub-purchase',
+    'proposal-vs-wedding-vs-eternity':'hub-proposal',
+    'diamond-glossary':'hub-fundamentals',
+    'dcard-ptt-recommendations':'hub-purchase'
   };
   BL.HUB_TITLES = {
     'hub-fundamentals': '基礎篇',
@@ -1460,6 +1696,9 @@
     if (opts.readingListPanel    !== false) BL.injectReadingListPanel();
     if (opts.exitIntent          !== false) BL.addExitIntent();
     if (opts.stickyCTA           !== false) BL.addStickyMobileCTA(typeof opts.stickyCTA === 'object' ? opts.stickyCTA : {});
+    if (opts.share               !== false) BL.addShareWidget(typeof opts.share === 'object' ? opts.share : {});
+    if (opts.darkMode            !== false) BL.addDarkModeToggle();
+    if (opts.readingResume       !== false) BL.addReadingResume();
     if (opts.newsletter || BL.NEWSLETTER || window.BL_NEWSLETTER)
       BL.injectNewsletter(typeof opts.newsletter === 'object' ? opts.newsletter : {});
 
