@@ -1433,7 +1433,23 @@
 
     // A/B tests — merge per-page declarations into the global registry
     if (opts.abTests) Object.assign(BL.AB_TESTS, opts.abTests);
-    if (Object.keys(BL.AB_TESTS).length && opts.abTestsApply !== false) BL.applyABTests();
+    // Auto-load /build/ab-tests.json if requested. Filters to enabled tests
+    // only so the global config can stage tests without firing them all.
+    const autoLoadUrl = opts.abAutoload || BL.AB_AUTOLOAD;
+    if (autoLoadUrl) {
+      fetch(autoLoadUrl, { credentials: 'omit' })
+        .then(r => r.ok ? r.json() : null)
+        .then(cfg => {
+          if (!cfg || !cfg.tests) return;
+          Object.entries(cfg.tests).forEach(([name, t]) => {
+            if (t.enabled) BL.AB_TESTS[name] = t;
+          });
+          if (Object.keys(BL.AB_TESTS).length) BL.applyABTests();
+        })
+        .catch(() => {});
+    } else if (Object.keys(BL.AB_TESTS).length && opts.abTestsApply !== false) {
+      BL.applyABTests();
+    }
 
     // UX features
     if (slug && opts.bookmark    !== false) BL.addBookmarkButton(slug);

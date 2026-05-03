@@ -1,0 +1,70 @@
+{
+  "_comment": "5 ready-to-run A/B test presets. Set the corresponding `enabled` to true ONE AT A TIME (running 5 simultaneous tests on a low-traffic site dilutes statistical power). Run for 1-2 weeks per test, pick the winner, mark `enabled=false` and bake the winner into the source.",
+  "_runtime_note": "blog-shared.js auto-loads this file when BL.AB_AUTOLOAD === '/build/ab-tests.json'. See SETUP.md.",
+
+  "tests": {
+
+    "cta_text": {
+      "enabled": true,
+      "selector": "a[data-bl-cta=\"zh\"]",
+      "variants": {
+        "A": "用 BrillianceLab 計算器先算分",
+        "B": "30 秒算出你的鑽石分數",
+        "C": "免費評估,不用註冊"
+      },
+      "_hypothesis": "Variant B emphasises speed (the deciding-factor for impatient mobile readers); C removes friction. Expected winner: B."
+    },
+
+    "exit_popup_headline": {
+      "enabled": false,
+      "selector": "#bl-exit h2",
+      "variants": {
+        "A": "2026 鑽石市場降幅,你可能想知道",
+        "B": "下個月鑽石可能再降 8%,要追蹤嗎?",
+        "C": "別錯過下次降價的內幕信"
+      },
+      "_hypothesis": "Specificity (B) outperforms vagueness (A); fear-of-missing-out (C) outperforms both — IF readers trust the implied data."
+    },
+
+    "sticky_cta_text": {
+      "enabled": false,
+      "selector": "#bl-sticky-cta",
+      "variants": {
+        "A": "🛠 30 秒算出你的鑽石分數",
+        "B": "💎 看你的鑽石值多少",
+        "C": "📊 免費光學評分 →"
+      },
+      "_hypothesis": "B (value-framing) and C (process-framing) test different mental models. Round-1 hypothesis: B wins on mobile (curiosity), C wins on desktop (engineering audience)."
+    },
+
+    "newsletter_headline": {
+      "enabled": false,
+      "selector": "#bl-newsletter h2",
+      "variants": {
+        "A": "鑽石市場月報",
+        "B": "下個月買鑽,該等還是該下手?",
+        "C": "鑽石內行月報 — 不寄垃圾"
+      },
+      "_hypothesis": "B is question-headline (high CTR), C is reassurance + identity. Both should beat A."
+    },
+
+    "hub_card_color": {
+      "enabled": false,
+      "selector": ".bl-rel-card",
+      "attr": "style",
+      "variants": {
+        "A": "",
+        "B": ";border-color:rgba(201,164,92,.7);background:linear-gradient(180deg,#fffdf7,#fbf3df)",
+        "C": ";border-left:4px solid #c9a45c;padding-left:18px"
+      },
+      "_hypothesis": "Visually-distinguished related-cards (B/C) get more clicks than monochrome (A). Test shows whether the visual cost (slightly busier UI) is worth the CTR gain."
+    }
+
+  },
+
+  "_how_to_read_results": {
+    "where": "GA4 → Reports → Engagement → Events → experiment_impression / experiment_conversion",
+    "metric": "Conversion rate per variant = (experiment_conversion count for variant X) ÷ (experiment_impression count for variant X)",
+    "decision_rule": "Winner = highest conversion rate AFTER ≥ 200 impressions per variant. If under 200/variant after 14 days, your traffic isn't enough — stop the test, ship the variant that LOOKS best on intuition."
+  }
+}
