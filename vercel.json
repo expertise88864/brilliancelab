@@ -122,6 +122,6 @@
     { "source": "/blog/cut-grade", "destination": "/blog/hearts-arrows-truth", "permanent": true },
     { "source": "/blog/care-guide", "destination": "/blog/diamond-care", "permanent": true },
     { "source": "/blog/proposal-budget", "destination": "/blog/budget-formula", "permanent": true },
-    { "source": "/blog/index.html", "destination": "/blog/", "permanent": true }
+    { "source": "/blog/index.html", "destination": "/blog",  "permanent": true }
   ]
 }

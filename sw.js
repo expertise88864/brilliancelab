@@ -1,11 +1,14 @@
 /* BrillianceLab service worker — offline-first for static, network-first for HTML */
-const CACHE = 'bl-v16';
+const CACHE = 'bl-v17';
+// All entries MUST be canonical URLs (no trailing slashes on dirs because
+// vercel.json sets trailingSlash:false — caching the slashed form would store
+// the 308 redirect itself and break navigation).
 const PRECACHE = [
   '/',
   '/index.html',
   '/icon.svg',
   '/manifest.json',
-  '/blog/',
+  '/blog',
   '/blog/feed.xml',
   '/blog/blog-shared.js',
   '/blog/master-guide',
@@ -95,19 +98,24 @@ self.addEventListener('fetch', (e) => {
   // STALE-WHILE-REVALIDATE for HTML pages: serve cache immediately, update in background.
   // User gets instant page; next visit gets fresh content. Best of both worlds.
   if (req.mode === 'navigate' || req.headers.get('accept')?.includes('text/html')) {
-    e.respondWith(
-      caches.match(req).then((cached) => {
-        const fetchPromise = fetch(req).then((resp) => {
-          if (resp && resp.status === 200) {
-            const copy = resp.clone();
-            caches.open(CACHE).then((c) => c.put(req, copy));
-          }
-          return resp;
-        }).catch(() => cached || caches.match('/'));
-        // Return cached immediately if present, otherwise wait for network.
-        return cached || fetchPromise;
-      })
-    );
+    e.respondWith((async () => {
+      let cached = await caches.match(req);
+      // Defensive: drop a cached opaque-redirect entry (left over from older SW
+      // versions that stored the 308 produced by trailingSlash:false). Symptom
+      // was ERR_FAILED on /blog/. Force a fresh network fetch instead.
+      if (cached && (cached.type === 'opaqueredirect' || cached.redirected || cached.status === 0)) {
+        try { const c = await caches.open(CACHE); await c.delete(req); } catch (_) {}
+        cached = null;
+      }
+      const fetchPromise = fetch(req).then((resp) => {
+        if (resp && resp.status === 200 && !resp.redirected) {
+          const copy = resp.clone();
+          caches.open(CACHE).then((c) => c.put(req, copy));
+        }
+        return resp;
+      }).catch(() => cached || caches.match('/') || new Response('Offline', { status: 503 }));
+      return cached || fetchPromise;
+    })());
     return;
   }
 
