@@ -84,9 +84,10 @@ def audit_one(p: Path) -> dict:
     h2s = re.findall(r'<h2\b[^>]*>', src, re.I)
     out['h2_count'] = len(h2s)
 
-    # first <p> in proseZh (or any <p> if not found)
+    # first <p> in the article body. Prefer #proseZh, then .prose-zh, then
+    # any <article> element (covers master-guide which uses neither id nor class).
     body = src
-    m_zh = re.search(r'(?:id=["\']proseZh["\']|class=["\'][^"\']*\bprose-zh\b[^"\']*["\'])[^>]*>([\s\S]+?)(?=</article>|</section>|<div\s+class=["\'][^"\']*\bprose-en\b)', src, re.I)
+    m_zh = re.search(r'(?:id=["\']proseZh["\']|class=["\'][^"\']*\bprose-zh\b[^"\']*["\']|<article\b[^>]*data-pagefind-body)[^>]*>([\s\S]+?)(?=</article>|</section>|<div\s+class=["\'][^"\']*\bprose-en\b)', src, re.I)
     if m_zh:
         body = m_zh.group(1)
     p_match = re.search(r'<p\b[^>]*>([\s\S]+?)</p>', body, re.I)
