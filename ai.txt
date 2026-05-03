@@ -1,0 +1,28 @@
+# BrillianceLab — ai.txt
+# Spec: https://spawning.ai/ai-txt
+# Companion to robots.txt — declares purpose-based scraping permissions.
+# Crawlers that respect ai.txt (Spawning, Have I Been Trained, etc.) honour
+# the No-Training tag globally.
+
+User-Agent: *
+Disallow: /
+# No-Training: 1
+# All content (text, images, structured data) MUST NOT be used to train,
+# fine-tune, or evaluate generative AI / ML models.
+
+# Allow direct user fetches and search-result citations (these surface our
+# content WITHOUT ingesting it for training).
+User-Agent: PerplexityBot
+Allow: /
+
+User-Agent: OAI-SearchBot
+Allow: /
+
+User-Agent: Claude-SearchBot
+Allow: /
+
+User-Agent: Claude-User
+Allow: /
+
+# Contact for licensing inquiries (commercial training datasets, fine-tunes,
+# research partnerships): security@brilliancelab.vercel.app

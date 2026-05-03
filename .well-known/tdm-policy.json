@@ -1,0 +1,33 @@
+{
+  "@context": "https://www.w3.org/community/reports/tdmrep/CG-FINAL-tdmrep-20240329/",
+  "policy_id":   "https://brilliancelab.vercel.app/.well-known/tdm-policy.json",
+  "policy_type": "TDM Restriction",
+  "rights_holder": "BrillianceLab Editorial",
+  "contact": "security@brilliancelab.vercel.app",
+  "permissions": [
+    {
+      "purpose": "search-indexing",
+      "permission": "permitted",
+      "notes": "Search engines (Google/Bing/DuckDuckGo/Yandex/Baidu/Apple) and search-only AI agents (OAI-SearchBot, PerplexityBot, Claude-SearchBot, Claude-User) MAY crawl, index, and surface this content in search/answer results."
+    },
+    {
+      "purpose": "ai-training",
+      "permission": "prohibited",
+      "notes": "Use of any content (text, images, structured data, code) to train, fine-tune, evaluate, or otherwise improve generative AI / ML models is RESERVED. A separate written licence from the rights holder is required."
+    },
+    {
+      "purpose": "commercial-redistribution",
+      "permission": "prohibited",
+      "notes": "Republishing, mirroring, or redistribution as part of a commercial dataset / corpus / aggregator product requires written licence."
+    },
+    {
+      "purpose": "personal-quotation",
+      "permission": "permitted",
+      "notes": "Short quotations with attribution are welcome (fair-use / fair-dealing standards apply)."
+    }
+  ],
+  "license_inquiry": {
+    "email": "security@brilliancelab.vercel.app",
+    "subject_line": "TDM-Licence inquiry — BrillianceLab"
+  }
+}

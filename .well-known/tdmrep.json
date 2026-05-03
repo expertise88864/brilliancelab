@@ -1,0 +1,6 @@
+{
+  "$schema": "https://www.w3.org/community/reports/tdmrep/CG-FINAL-tdmrep-20240329/",
+  "tdm-reservation": 1,
+  "tdm-policy": "https://brilliancelab.vercel.app/.well-known/tdm-policy.json",
+  "_comment": "Text and Data Mining Reservation Protocol per W3C CG. tdm-reservation:1 = all TDM (incl. AI training) RESERVED — third parties must obtain a licence. tdm-policy points at the machine-readable policy doc (see tdm-policy.json). Honoured by EU regulators per Directive 2019/790 Art. 4."
+}

@@ -713,7 +713,7 @@
           <a href="/blog/destination-wedding"   class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 異國婚禮採購" data-en="◆ Destination wedding"></a>
           <a href="/blog/diamond-price-trends"  class="block py-1.5 text-[13px] text-ink-700" data-zh="◆ 2026-2030 趨勢" data-en="◆ Price trends"></a>
 
-          <a href="/blog/topics"               class="block py-2 text-[13.5px] text-gold-700 font-bold" data-zh="🗺 主題索引(43 篇地圖)" data-en="🗺 Topic map"></a>
+          <a href="/blog/topics"               class="block py-2 text-[13.5px] text-gold-700 font-bold" data-zh="🗺 主題索引(44+ 篇地圖)" data-en="🗺 Topic map"></a>
           <a href="/search"                    class="block py-2 text-[13.5px] text-gold-700 font-bold" data-zh="🔍 站內搜尋" data-en="🔍 Search"></a>
 
           <a href="/blog/diamond-news-2026"   class="block py-2 text-[13px] text-ink-700 mt-1 pt-2 border-t border-[var(--line)]"
@@ -1079,6 +1079,114 @@
     });
   };
 
+  /* ---------- Exit-intent popup (newsletter capture) ----------
+   * Fires ONCE per visitor (90-day cookie). Triggered by:
+   *   - desktop: cursor leaves through top of viewport
+   *   - mobile:  user has scrolled ≥40% AND been on the page ≥30s, then
+   *              backgrounds the tab. */
+  BL.EXIT_COOKIE = 'bl_exit_seen';
+  BL.addExitIntent = function () {
+    if (BL.cookieGet(BL.EXIT_COOKIE)) return;
+    if (BL._exitArmed) return;
+    BL._exitArmed = true;
+
+    let triggered = false;
+    function fire() {
+      if (triggered) return;
+      triggered = true;
+      BL.cookieSet(BL.EXIT_COOKIE, '1', 90);
+      const overlay = document.createElement('div');
+      overlay.id = 'bl-exit';
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.setAttribute('aria-label', '電子報訂閱邀請');
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(20,18,12,.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);animation:blFadeIn .25s ease';
+      const username = (window.BL_NEWSLETTER || BL.NEWSLETTER || '');
+      const formAttr = username
+        ? ' action="https://buttondown.com/api/emails/embed-subscribe/' + username + '" method="post" target="popupwindow" onsubmit="window.open(\'https://buttondown.com/' + username + '\',\'popupwindow\')"'
+        : ' onsubmit="event.preventDefault();alert(\'電子報設定中,請稍後再回來訂閱\')"';
+      overlay.innerHTML =
+        '<div style="max-width:420px;width:100%;background:#fff;border-radius:18px;padding:28px 24px;box-shadow:0 24px 60px -20px rgba(0,0,0,.4);position:relative;font-family:Inter,&quot;Microsoft JhengHei&quot;,sans-serif">' +
+          '<button type="button" id="bl-exit-close" aria-label="關閉" style="position:absolute;top:10px;right:12px;background:transparent;border:none;font-size:22px;color:#7e8194;cursor:pointer;line-height:1">×</button>' +
+          '<div style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">等等 — 別走</div>' +
+          '<h2 style="font-family:&quot;Noto Serif TC&quot;,Georgia,serif;font-size:22px;font-weight:700;color:#1a1d2e;margin-bottom:8px;line-height:1.35">2026 鑽石市場降幅,你可能想知道</h2>' +
+          '<p style="font-size:13.5px;color:#4a4d5e;line-height:1.7;margin-bottom:16px">每月 1 封 — 培育鑽降價速度、新出證書注意事項、市場趨勢與獨家分析。隨時可退訂。</p>' +
+          '<form id="bl-exit-form"' + formAttr + ' style="display:flex;gap:8px">' +
+            '<input required type="email" name="email" placeholder="your@email.com" autocomplete="email"' +
+            ' style="flex:1;padding:11px 14px;border:1px solid rgba(201,164,92,.4);border-radius:9999px;font-size:14px;outline:none" />' +
+            '<button type="submit" style="padding:11px 18px;border-radius:9999px;background:linear-gradient(180deg,#d4b87a,#8a6e30);color:#fff;font-weight:600;border:none;cursor:pointer;font-size:14px">訂閱</button>' +
+          '</form>' +
+          '<div style="font-size:10.5px;color:#7e8194;margin-top:10px;text-align:center">不然 → <button type="button" id="bl-exit-noop" style="background:transparent;border:none;color:#8a6e30;text-decoration:underline;cursor:pointer;font-size:10.5px">繼續閱讀就好</button></div>' +
+        '</div>';
+      document.body.appendChild(overlay);
+      if (!document.getElementById('bl-exit-style')) {
+        const st = document.createElement('style');
+        st.id = 'bl-exit-style';
+        st.textContent = '@keyframes blFadeIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}';
+        document.head.appendChild(st);
+      }
+      const close = () => overlay.remove();
+      overlay.querySelector('#bl-exit-close').addEventListener('click', close);
+      overlay.querySelector('#bl-exit-noop').addEventListener('click', close);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+      const f = overlay.querySelector('#bl-exit-form');
+      if (f) f.addEventListener('submit', () => {
+        const payload = { event_category: 'engagement', event_label: 'exit_intent_subscribe' };
+        if (typeof window.gtag === 'function') window.gtag('event', 'newsletter_subscribe', payload);
+        (window.dataLayer = window.dataLayer || []).push({ event: 'newsletter_subscribe', source: 'exit_intent', ...payload });
+      });
+      const imp = { event_category: 'engagement', event_label: 'exit_intent_shown' };
+      if (typeof window.gtag === 'function') window.gtag('event', 'exit_intent_impression', imp);
+      (window.dataLayer = window.dataLayer || []).push({ event: 'exit_intent_impression', ...imp });
+    }
+
+    document.addEventListener('mouseout', (e) => {
+      if (e.clientY > 4) return;
+      if (e.relatedTarget) return;
+      fire();
+    });
+    const startedAt = Date.now();
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState !== 'hidden') return;
+      const elapsed = (Date.now() - startedAt) / 1000;
+      const h = document.documentElement;
+      const pct = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100;
+      if (elapsed >= 30 && pct >= 40) fire();
+    });
+  };
+
+  /* ---------- Sticky mobile bottom CTA bar ----------
+   * Always-visible "🛠 計算鑽石分數 →" bar on mobile (≤640px) only.
+   * Hides when scrolling past 88% (footer area) so related/comments aren't covered. */
+  BL.addStickyMobileCTA = function (cfg) {
+    cfg = cfg || {};
+    if (document.getElementById('bl-sticky-cta')) return;
+    const bar = document.createElement('a');
+    bar.id = 'bl-sticky-cta';
+    bar.href = cfg.href || '/';
+    bar.setAttribute('aria-label', '前往計算機 / Go to calculator');
+    bar.textContent = cfg.text || '🛠 30 秒算出你的鑽石分數';
+    bar.style.cssText = 'position:fixed;left:12px;right:12px;bottom:12px;z-index:55;padding:14px 18px;background:linear-gradient(180deg,#d4b87a,#8a6e30);color:#fff;text-decoration:none;border-radius:9999px;font-weight:700;font-size:15px;text-align:center;box-shadow:0 14px 30px -10px rgba(138,110,48,.55);transition:transform .25s ease;display:none;font-family:Inter,"Microsoft JhengHei",sans-serif';
+    const mq = window.matchMedia('(max-width: 640px)');
+    function sync() { bar.style.display = mq.matches ? 'block' : 'none'; }
+    sync();
+    if (mq.addEventListener) mq.addEventListener('change', sync);
+    document.body.appendChild(bar);
+    let lastY = 0;
+    document.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100;
+      if (pct > 88) bar.style.transform = 'translateY(120%)';
+      else if (h.scrollTop < lastY) bar.style.transform = '';
+      lastY = h.scrollTop;
+    }, { passive: true });
+    bar.addEventListener('click', () => {
+      const payload = { event_category: 'engagement', event_label: 'sticky_mobile_cta', link_url: bar.href };
+      if (typeof window.gtag === 'function') window.gtag('event', 'sticky_cta_click', payload);
+      (window.dataLayer = window.dataLayer || []).push({ event: 'sticky_cta_click', ...payload });
+    });
+  };
+
   /* ---------- Sentry browser loader (lazy, ~50 KB) ----------
    * Wires window.onerror + unhandled rejection capture even before the SDK loads;
    * once the SDK is in, captured events are flushed.
@@ -1331,6 +1439,8 @@
     if (slug && opts.bookmark    !== false) BL.addBookmarkButton(slug);
     if (opts.linkPreviews        !== false) BL.addLinkPreviews();
     if (opts.readingListPanel    !== false) BL.injectReadingListPanel();
+    if (opts.exitIntent          !== false) BL.addExitIntent();
+    if (opts.stickyCTA           !== false) BL.addStickyMobileCTA(typeof opts.stickyCTA === 'object' ? opts.stickyCTA : {});
     if (opts.newsletter || BL.NEWSLETTER || window.BL_NEWSLETTER)
       BL.injectNewsletter(typeof opts.newsletter === 'object' ? opts.newsletter : {});
 

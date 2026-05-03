@@ -71,7 +71,7 @@ def main():
         return
 
     p.write_text(out, encoding='utf-8')
-    print(f'✓ index.html now ships GA4 measurement ID: {new_id}')
+    print(f'[ok] index.html now ships GA4 measurement ID: {new_id}')
     print('  - Web Vitals (LCP/INP/CLS/FCP/TTFB) → GA4')
     print('  - scroll_depth_25/50/75/100 → GA4')
     print('  - click_outbound + affiliate_click → GA4')
