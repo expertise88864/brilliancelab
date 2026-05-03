@@ -965,6 +965,120 @@
     if (footer) footer.parentNode.insertBefore(sec, footer);
   };
 
+  /* ---------- A/B test framework ----------
+   * Cookie-based 50/50 (or N-way) bucket assignment, persisted across visits
+   * so a single user always sees the same variant. Tests are declared in
+   * BL.AB_TESTS or via opts.abTests; each test names a CSS selector and the
+   * variants to swap into it. Fires gtag('ab_test_<name>') on first
+   * exposure so GA4 can split conversion metrics by variant.
+   *
+   * Usage example:
+   *   BL.AB_TESTS = {
+   *     cta_text: {
+   *       selector: 'a[data-bl-cta="zh"]',
+   *       variants: {
+   *         A: '用 BrillianceLab 計算器先算分',   // control
+   *         B: '30 秒算出你的鑽石分數',
+   *         C: '免費評估,不用註冊',
+   *       },
+   *     },
+   *     totop_color: {
+   *       selector: '#bl-totop',
+   *       attr: 'style',
+   *       variants: {
+   *         A: undefined,                     // leave default
+   *         B: 'background:#1a1d2e;color:#d4b87a;',
+   *       },
+   *     },
+   *   };
+   *
+   * Public API:
+   *   BL.abVariant('cta_text')   → 'A' | 'B' | 'C' (assigns + persists)
+   *   BL.abTrack('cta_text')     → fires GA4 event for this exposure
+   *   BL.applyABTests()          → walks BL.AB_TESTS, swaps DOM, fires events
+   */
+  BL.AB_TESTS = {};
+  BL.AB_COOKIE = 'bl_ab';
+
+  function _hash(s) { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return Math.abs(h); }
+
+  function _abAssignments() {
+    try { return JSON.parse(BL.cookieGet(BL.AB_COOKIE) || '{}'); } catch { return {}; }
+  }
+  function _saveAbAssignments(map) {
+    BL.cookieSet(BL.AB_COOKIE, JSON.stringify(map), 365);
+  }
+
+  BL.abVariant = function (testName) {
+    const test = BL.AB_TESTS[testName];
+    if (!test) return null;
+    const assignments = _abAssignments();
+    if (assignments[testName]) return assignments[testName];
+    const keys = Object.keys(test.variants);
+    if (!keys.length) return null;
+    // Stable assignment: hash visitor's UA + screen + testName, mod N
+    const seed = (navigator.userAgent || '') + '|' + (screen.width || '') + 'x' + (screen.height || '') + '|' + testName;
+    const idx = _hash(seed) % keys.length;
+    assignments[testName] = keys[idx];
+    _saveAbAssignments(assignments);
+    return keys[idx];
+  };
+
+  BL._abFired = {};
+  BL.abTrack = function (testName, variant) {
+    if (BL._abFired[testName]) return;
+    BL._abFired[testName] = variant;
+    const payload = {
+      event_category: 'experiment',
+      event_label:    testName + ':' + variant,
+      experiment_id:  testName,
+      variant_id:     variant,
+      non_interaction: true,
+    };
+    if (typeof window.gtag === 'function') window.gtag('event', 'experiment_impression', payload);
+    (window.dataLayer = window.dataLayer || []).push({ event: 'experiment_impression', ...payload });
+  };
+
+  BL.applyABTests = function () {
+    Object.entries(BL.AB_TESTS).forEach(([name, test]) => {
+      const variant = BL.abVariant(name);
+      if (!variant) return;
+      const value = test.variants[variant];
+      if (value === undefined) { BL.abTrack(name, variant); return; }
+      const els = document.querySelectorAll(test.selector);
+      if (!els.length) return;
+      els.forEach((el) => {
+        if (test.attr === 'style') {
+          // append/replace style fragment
+          el.setAttribute('style', (el.getAttribute('style') || '') + ';' + value);
+        } else if (test.attr) {
+          el.setAttribute(test.attr, value);
+        } else {
+          // Default: replace text content. innerHTML when value contains tags.
+          if (/<[a-z][\s\S]*>/i.test(value)) el.innerHTML = value;
+          else el.textContent = value;
+        }
+        el.setAttribute('data-bl-ab', name + ':' + variant);
+      });
+      BL.abTrack(name, variant);
+
+      // Wire any conversion link inside swapped element to fire `experiment_conversion`
+      els.forEach((el) => {
+        const link = el.tagName === 'A' ? el : el.querySelector('a');
+        if (!link) return;
+        link.addEventListener('click', () => {
+          const cvPayload = {
+            event_category: 'experiment',
+            event_label: name + ':' + variant + ':click',
+            experiment_id: name, variant_id: variant,
+          };
+          if (typeof window.gtag === 'function') window.gtag('event', 'experiment_conversion', cvPayload);
+          (window.dataLayer = window.dataLayer || []).push({ event: 'experiment_conversion', ...cvPayload });
+        }, { once: true });
+      });
+    });
+  };
+
   /* ---------- Sentry browser loader (lazy, ~50 KB) ----------
    * Wires window.onerror + unhandled rejection capture even before the SDK loads;
    * once the SDK is in, captured events are flushed.
@@ -1208,6 +1322,10 @@
     // Engagement analytics
     if (opts.scrollDepth !== false) BL.addScrollDepth();
     if (opts.outbound    !== false) BL.trackOutbound();
+
+    // A/B tests — merge per-page declarations into the global registry
+    if (opts.abTests) Object.assign(BL.AB_TESTS, opts.abTests);
+    if (Object.keys(BL.AB_TESTS).length && opts.abTestsApply !== false) BL.applyABTests();
 
     // UX features
     if (slug && opts.bookmark    !== false) BL.addBookmarkButton(slug);

@@ -1,0 +1,67 @@
+#!/bin/sh
+# BrillianceLab pre-commit hook — runs the same 3 checks as the CI workflow,
+# plus a punctuation-fullwidth dry-run on staged HTML files. Anything that
+# would block CI is caught locally before the commit lands.
+#
+# Install once with:   sh build/git-hooks/install.sh
+# Bypass once with:    git commit --no-verify
+
+set -e
+
+# Ensure we're at the repo root
+cd "$(git rev-parse --show-toplevel)"
+
+# 0. Quick exit if nothing in the staging area changed any HTML/JS
+STAGED=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(html|js)$' || true)
+if [ -z "$STAGED" ]; then
+  exit 0
+fi
+
+PY="${PYTHON:-python}"
+
+echo "→ pre-commit: validating staged HTML/JS …"
+
+# 1. JSON-LD parses on every HTML page that ships
+$PY - <<'PY'
+import json, re, sys
+from pathlib import Path
+ok, bad = 0, 0
+errors = []
+files = list(Path('blog').glob('*.html')) + [
+    Path('index.html'), Path('search.html'), Path('404.html'),
+]
+for p in files:
+    if not p.exists():
+        continue
+    src = p.read_text(encoding='utf-8')
+    for m in re.finditer(r'<script[^>]+ld\+json[^>]*>([\s\S]+?)</script>', src):
+        try:
+            json.loads(m.group(1))
+            ok += 1
+        except Exception as e:
+            bad += 1
+            errors.append(f'{p.name}: {e}')
+print(f'  JSON-LD: {ok} valid, {bad} errors')
+for e in errors[:10]:
+    print('    !!', e)
+sys.exit(1 if bad else 0)
+PY
+
+# 2. Canonical URLs match files
+$PY build/scripts/audit_canonicals.py >/dev/null
+
+# 3. blog-shared.js still brace-balanced
+$PY build/scripts/check_js.py >/dev/null
+
+# 4. Punctuation fullwidth dry-run on staged HTML — warn but don't block
+STAGED_HTML=$(echo "$STAGED" | grep -E '\.html$' || true)
+if [ -n "$STAGED_HTML" ]; then
+  CHANGES=$($PY build/scripts/punct_fullwidth.py --dry $STAGED_HTML 2>/dev/null \
+            | grep -c 'EDIT' || true)
+  if [ "$CHANGES" -gt 0 ]; then
+    echo "  punct: $CHANGES file(s) have half-width punct in CJK contexts (warning only)"
+    echo "         run:  python build/scripts/punct_fullwidth.py blog"
+  fi
+fi
+
+echo "→ pre-commit: all checks passed"

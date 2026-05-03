@@ -37,7 +37,9 @@ is the cwd the script chdirs into.
 | `inject_author_schema.py` | After updating SAMEAS_* social URLs in the script | Injects centralised Person + Organization JSON-LD (with `sameAs`) into every page. |
 | `inject_faqpage_multi.py` | After adding any `<h3>Q1: ...</h3><p>` blocks | Auto-extracts Q&A pairs and emits FAQPage schema. Idempotent. |
 | `tighten_meta_desc.py`    | When `audit_seo.py` flags `desc-len` issues | Tightens meta descriptions to 100-158 SERP chars (CJK counted 2x). |
+| `tighten_titles.py`       | When `audit_seo.py` flags `title-len` issues | Drops `\| BrillianceLab` brand suffix and em-dash subtitle to bring `<title>` into 55-65 SERP chars. Also updates `og:title` / `twitter:title` / JSON-LD `headline`. |
 | `sync_datemodified.py`    | Pre-deploy or in CI | Updates every Article schema's `dateModified` to file's last `git log` date — content-freshness signal for Google. |
+| `build_monthly_report.py` | Monthly (e.g. cron 1st of month) | Pulls Google News RSS for 4 silos (market / lab-grown / industry / policy), generates `/blog/diamond-news-YYYY-MM.html` with full template + Article schema. Editor fills "TODO commentary" blocks. |
 
 ## Sitemap / search hygiene
 
@@ -61,6 +63,18 @@ is the cwd the script chdirs into.
 | Script | When to run | What it does |
 |---|---|---|
 | `check_js.py` | Anytime | Proper JS state-machine brace balance on `blog/blog-shared.js`. Handles strings, templates, comments, regex literals. Exits non-zero on imbalance. |
+
+## Pre-commit hook
+
+One-time install of the pre-commit hook (runs JSON-LD parse + canonical
+audit + JS brace check on every commit, blocks bad commits):
+
+```bash
+sh build/git-hooks/install.sh         # macOS / Linux / Git Bash
+build\git-hooks\install.bat           # Windows cmd
+```
+
+Bypass once with `git commit --no-verify`.
 
 ## Order of operations for a fresh deploy
 
