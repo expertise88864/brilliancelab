@@ -1,17 +1,71 @@
-import re, sys
+"""
+Verify blog-shared.js syntax balance with a proper JS state machine.
+Tracks single-quote / double-quote / template-literal / line-comment / block-comment
+states correctly so quotes and braces inside strings are not miscounted.
+Exits non-zero on imbalance.
+"""
+import sys, pathlib
 
 # --- Auto-locate the repo root so this script can be run from anywhere ---
-import os as _os, pathlib as _pl
-_os.chdir(_pl.Path(__file__).resolve().parents[2])  # → BrillianceLab/
+import os as _os
+_os.chdir(pathlib.Path(__file__).resolve().parents[2])  # → BrillianceLab/
 # -------------------------------------------------------------------------
 
-src = open('blog/blog-shared.js', encoding='utf-8').read()
-# Strip block comments, line comments, then strings
-clean = re.sub(r'/\*[\s\S]*?\*/', '', src)
-clean = re.sub(r'(?m)//[^\n]*', '', clean)
-clean = re.sub(r"'(?:[^'\\\n]|\\.)*'", "''", clean)
-clean = re.sub(r'"(?:[^"\\\n]|\\.)*"', '""', clean)
-clean = re.sub(r'`(?:[^`\\]|\\.)*`', '``', clean)
-print('{:>6} open {:>6} close'.format(clean.count('{'), clean.count('}')))
-print('{:>6} (    {:>6} )'.format(clean.count('('), clean.count(')')))
-print('{:>6} [    {:>6} ]'.format(clean.count('['), clean.count(']')))
+PATH = 'blog/blog-shared.js'
+src = open(PATH, encoding='utf-8').read()
+
+i, n = 0, len(src)
+depth = 0
+state = 'code'   # code | sq | dq | bq | lc | bc
+line, col = 1, 0
+errors = []
+
+while i < n:
+    c = src[i]
+    nxt = src[i + 1] if i + 1 < n else ''
+
+    if c == '\n':
+        line += 1; col = 0
+    else:
+        col += 1
+
+    if state == 'code':
+        if c == '/' and nxt == '/': state = 'lc'; i += 2; continue
+        if c == '/' and nxt == '*': state = 'bc'; i += 2; continue
+        if c == "'":  state = 'sq'; i += 1; continue
+        if c == '"':  state = 'dq'; i += 1; continue
+        if c == '`':  state = 'bq'; i += 1; continue
+        # We only track '{}' — '()' and '[]' are confused by regex literals like /[abc]/
+        if c == '{':
+            depth += 1
+        elif c == '}':
+            depth -= 1
+            if depth < 0:
+                errors.append(f'extra "}}" at line {line} col {col}')
+                break
+        i += 1; continue
+
+    if state == 'lc':
+        if c == '\n': state = 'code'
+        i += 1; continue
+    if state == 'bc':
+        if c == '*' and nxt == '/': state = 'code'; i += 2; continue
+        i += 1; continue
+    for st, qc in (('sq', "'"), ('dq', '"'), ('bq', '`')):
+        if state == st:
+            if c == '\\' and nxt:
+                i += 2
+            elif c == qc:
+                state = 'code'; i += 1
+            else:
+                i += 1
+            break
+    else:
+        i += 1
+
+print(f'depth left: {depth}')
+if depth != 0 or errors:
+    print('!! FILE UNBALANCED')
+    for e in errors: print('   ' + e)
+    sys.exit(1)
+print('balanced OK')

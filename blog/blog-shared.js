@@ -827,6 +827,154 @@
     else setTimeout(lazy, 3000);
   };
 
+  /* ---------- BreadcrumbList JSON-LD auto-injection ----------
+   * Builds 首頁 → 部落格 → <hub if known> → <article title> from BL.HUBS_REVERSE
+   * (slug → hub slug) so Google's SERP shows our silo path. */
+  BL.HUBS_REVERSE = {
+    'gia-guide':'hub-fundamentals','hearts-arrows-truth':'hub-fundamentals','master-guide':'hub-fundamentals',
+    'cert-comparison':'hub-fundamentals','lab-vs-natural':'hub-fundamentals','diamond-faq':'hub-fundamentals',
+    'diamond-fun-facts':'hub-fundamentals',
+    'diamond-color':'hub-4cs','diamond-clarity':'hub-4cs','diamond-carat-size':'hub-4cs',
+    'diamond-shapes':'hub-4cs','round-cut-deep-dive':'hub-4cs','fancy-cuts-guide':'hub-4cs',
+    'fluorescence-deep-dive':'hub-4cs','inclusions-types-guide':'hub-4cs',
+    'budget-formula':'hub-purchase','engagement-guide':'hub-purchase','diamond-financing':'hub-purchase',
+    'secondhand-rings':'hub-purchase','diamond-scams':'hub-purchase','moissanite-vs-cz-vs-lab':'hub-purchase',
+    'engagement-timeline':'hub-proposal','proposal-speech':'hub-proposal','ring-sizing':'hub-proposal',
+    'wedding-bands':'hub-proposal','wedding-metals':'hub-proposal','mens-engagement-rings':'hub-proposal',
+    'lgbtq-rings':'hub-proposal',
+    'diamond-care':'hub-care','ring-insurance':'hub-care','diamond-resale':'hub-care',
+    'engraving-personalization':'hub-care','heirloom-redesign':'hub-care','prong-settings-guide':'hub-care',
+    'diamond-price-trends':'hub-care'
+  };
+  BL.HUB_TITLES = {
+    'hub-fundamentals': '基礎篇',
+    'hub-4cs':          '4Cs 拆解',
+    'hub-purchase':     '購買實戰',
+    'hub-proposal':     '求婚與婚戒',
+    'hub-care':         '保養與市場'
+  };
+  BL.injectBreadcrumb = function (slug) {
+    if (!slug || document.getElementById('bl-breadcrumb-jsonld')) return;
+    // Skip if the page already has a hand-authored BreadcrumbList
+    const existing = document.querySelectorAll('script[type="application/ld+json"]');
+    for (const s of existing) {
+      try { if ((JSON.parse(s.textContent || '{}'))['@type'] === 'BreadcrumbList') return; }
+      catch (_) { /* skip non-JSON */ }
+    }
+    const origin = location.origin;
+    const items = [
+      { '@type': 'ListItem', position: 1, name: '首頁',     item: origin + '/' },
+      { '@type': 'ListItem', position: 2, name: '部落格',   item: origin + '/blog/' },
+    ];
+    const hubSlug = BL.HUBS_REVERSE[slug];
+    if (hubSlug) {
+      items.push({ '@type': 'ListItem', position: items.length + 1, name: BL.HUB_TITLES[hubSlug], item: origin + '/blog/' + hubSlug });
+    }
+    const titleObj = BL.TITLES[slug];
+    const title = (titleObj && titleObj.zh) || (document.title.split(/[—|·]/)[0].trim()) || slug;
+    items.push({ '@type': 'ListItem', position: items.length + 1, name: title, item: location.href.split('#')[0].split('?')[0] });
+    const ld = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items };
+    const tag = document.createElement('script');
+    tag.id = 'bl-breadcrumb-jsonld';
+    tag.type = 'application/ld+json';
+    tag.textContent = JSON.stringify(ld);
+    document.head.appendChild(tag);
+  };
+
+  /* ---------- Hub backlink — appended to article footer ---------- */
+  BL.injectHubLink = function (slug) {
+    if (!slug || document.getElementById('bl-hublink')) return;
+    const hubSlug = BL.HUBS_REVERSE[slug];
+    if (!hubSlug) return;
+    const hubName = BL.HUB_TITLES[hubSlug];
+    const sec = document.createElement('div');
+    sec.id = 'bl-hublink';
+    sec.style.cssText = 'max-width:780px;margin:30px auto 0;padding:0 20px';
+    sec.innerHTML =
+      '<a href="/blog/' + hubSlug + '" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border:1px solid rgba(201,164,92,.45);border-radius:14px;text-decoration:none;color:#5e4a1f;transition:all .2s ease">' +
+        '<div><div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:4px">所屬主題</div>' +
+        '<div style="font-size:15px;font-weight:700;color:#1a1d2e" data-zh="✦ ' + hubName + ' · 看完整 silo">✦ ' + hubName + ' · 看完整 silo</div></div>' +
+        '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8a6e30" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' +
+      '</a>';
+    const related = document.getElementById('bl-related');
+    const footer = document.querySelector('footer');
+    const anchor = related || footer;
+    if (anchor) anchor.parentNode.insertBefore(sec, anchor);
+    else document.body.appendChild(sec);
+  };
+
+  /* ---------- Skip-to-main-content link (a11y) ---------- */
+  BL.addSkipLink = function () {
+    if (document.getElementById('bl-skip')) return;
+    const a = document.createElement('a');
+    a.id = 'bl-skip';
+    a.href = '#main';
+    a.textContent = '跳至主要內容 / Skip to main content';
+    a.style.cssText = 'position:fixed;left:-9999px;top:8px;z-index:9999;padding:10px 16px;background:#1a1d2e;color:#fff;text-decoration:none;border-radius:8px;font-size:13px;font-weight:600;font-family:Inter,"Microsoft JhengHei",sans-serif';
+    a.addEventListener('focus',  () => { a.style.left = '8px'; });
+    a.addEventListener('blur',   () => { a.style.left = '-9999px'; });
+    document.body.insertBefore(a, document.body.firstChild);
+    // Ensure a #main target exists
+    if (!document.getElementById('main')) {
+      const main = document.querySelector('main') || document.querySelector('article');
+      if (main && !main.id) main.id = 'main';
+    }
+  };
+
+  /* ---------- Scroll-depth tracking → GA4 (25 / 50 / 75 / 100%) ---------- */
+  BL.addScrollDepth = function () {
+    if (BL._scrollDepthArmed) return;
+    BL._scrollDepthArmed = true;
+    const fired = new Set();
+    const send = (pct) => {
+      const payload = {
+        event_category: 'engagement',
+        event_label: location.pathname,
+        value: pct,
+        non_interaction: true
+      };
+      if (typeof window.gtag === 'function') window.gtag('event', 'scroll_depth_' + pct, payload);
+      (window.dataLayer = window.dataLayer || []).push({ event: 'scroll_depth', percent: pct, ...payload });
+    };
+    const check = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      if (max <= 0) return;
+      const pct = (h.scrollTop / max) * 100;
+      [25, 50, 75, 100].forEach((threshold) => {
+        if (pct >= threshold && !fired.has(threshold)) {
+          fired.add(threshold);
+          send(threshold);
+          if (threshold === 100) document.removeEventListener('scroll', check);
+        }
+      });
+    };
+    document.addEventListener('scroll', check, { passive: true });
+  };
+
+  /* ---------- Outbound link tracking ---------- *
+   * Auto-decorates every external <a> with rel="noopener" + GA4 event. Skips
+   * affiliate links (already handled by decorateAffiliates) and same-host links. */
+  BL.trackOutbound = function () {
+    if (BL._outboundArmed) return;
+    BL._outboundArmed = true;
+    const here = location.hostname.replace(/^www\./, '');
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      if (a.dataset.aff) return;            // affiliate path owns it
+      let url; try { url = new URL(a.href, location.href); } catch { return; }
+      if (!/^https?:$/.test(url.protocol)) return;
+      const host = url.hostname.replace(/^www\./, '');
+      if (!host || host === here) return;
+      // Hardening: opener safety + telemetry
+      if (!/(^|\s)noopener(\s|$)/i.test(a.rel)) a.rel = (a.rel ? a.rel + ' ' : '') + 'noopener';
+      const payload = { event_category: 'outbound', event_label: host, link_url: a.href, transport_type: 'beacon' };
+      if (typeof window.gtag === 'function') window.gtag('event', 'click_outbound', payload);
+      (window.dataLayer = window.dataLayer || []).push({ event: 'click_outbound', ...payload });
+    }, { capture: true });
+  };
+
   /* ---------- one-call init for blog pages ---------- */
   BL.initBlog = function (opts) {
     opts = opts || {};
@@ -844,12 +992,21 @@
       if (typeof opts.onChange === 'function') opts.onChange(lang);
     }
 
+    // Skip-link first thing so screen-reader/keyboard users can bypass nav
+    BL.addSkipLink();
+
     BL.injectMobileMenu();      // run BEFORE injectLangDropdown so the lang trigger ends up to the right of hamburger
     BL.injectLangDropdown(apply);
     apply(curLang);
 
     // TOC must run BEFORE related/comments so the article hash anchors don't collide.
     if (opts.toc !== false) BL.injectTOC();
+
+    // Schema first, then DOM widgets — schema can be parsed early.
+    if (slug && opts.breadcrumb !== false) BL.injectBreadcrumb(slug);
+
+    // Hub backlink → injected before related so order is: hub → related → footer.
+    if (slug && opts.hubLink !== false) BL.injectHubLink(slug);
 
     // Related articles + comments injected BEFORE progress/reading-time so they exist in the DOM
     // before the height-based calculations run.
@@ -868,6 +1025,10 @@
 
     // Affiliate-link decoration (auto runs; no-op when no [data-aff] on page).
     if (opts.affiliates !== false) BL.decorateAffiliates();
+
+    // Engagement analytics
+    if (opts.scrollDepth !== false) BL.addScrollDepth();
+    if (opts.outbound    !== false) BL.trackOutbound();
 
     const yr = document.getElementById('yr');
     if (yr) yr.textContent = new Date().getFullYear();

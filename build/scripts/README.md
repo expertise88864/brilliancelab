@@ -30,11 +30,30 @@ is the cwd the script chdirs into.
 | `build_fonts.py` | After dropping Noto OTFs in `build/fonts-source/` | Subsets Noto Serif TC + Noto Sans TC against the 2,445-char charset and emits self-hosted woff2 + fonts.css. |
 | `apply_adsense_slots.py` | After filling slot IDs in `build/adsense-slots.json` | Replaces every `data-ad-slot="auto"` with a per-article slot ID. |
 
+## Schema / E-E-A-T
+
+| Script | When to run | What it does |
+|---|---|---|
+| `inject_author_schema.py` | After updating SAMEAS_* social URLs in the script | Injects centralised Person + Organization JSON-LD (with `sameAs`) into every page. |
+
+## Sitemap / search hygiene
+
+| Script | When to run | What it does |
+|---|---|---|
+| `build_image_sitemap.py` | After `build_og_images.py` | Builds `/og-sitemap.xml` listing every OG PNG for Google Image Search; appends to `robots.txt`. |
+| `audit_canonicals.py` | Before deploy / in CI | Verifies every `<link rel="canonical">` matches the file's URL (handles AMP self-canonical-to-HTML rule). Exits non-zero on failure. |
+
+## PWA
+
+| Script | When to run | What it does |
+|---|---|---|
+| `build_pwa_icons.py` | When the brand logo changes | Renders 192/512/maskable PNGs + apple-touch-icon (180); patches `manifest.json` and `<link rel="apple-touch-icon">`. |
+
 ## Sanity
 
 | Script | When to run | What it does |
 |---|---|---|
-| `check_js.py` | Anytime | Brace/paren/bracket balance check on `blog/blog-shared.js`. Quick smoke test. |
+| `check_js.py` | Anytime | Proper JS state-machine brace balance on `blog/blog-shared.js`. Handles strings, templates, comments, regex literals. Exits non-zero on imbalance. |
 
 ## Order of operations for a fresh deploy
 
