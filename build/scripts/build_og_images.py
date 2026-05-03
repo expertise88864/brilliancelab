@@ -113,8 +113,19 @@ def render_og(slug: str, title: str, subtitle: str = '', tag: str = 'BrillianceL
     d.text((520, 540), 'brilliancelab.vercel.app', fill=GOLD_DEEP, font=f_foot)
 
     OG.mkdir(parents=True, exist_ok=True)
-    out = OG / f'{slug}.png'
-    img.save(out, 'PNG', optimize=True)
+    # Hash the rendered bytes so the filename changes whenever the artwork or
+    # text changes — Facebook / LinkedIn / Slack cache OG images aggressively
+    # by URL, so a stable URL means stale previews forever. Hashing busts that.
+    import io, hashlib
+    buf = io.BytesIO()
+    img.save(buf, 'PNG', optimize=True)
+    digest = hashlib.sha1(buf.getvalue()).hexdigest()[:8]
+    out = OG / f'{slug}.{digest}.png'
+    out.write_bytes(buf.getvalue())
+    # Keep a stable redirect copy so the un-hashed URL still loads
+    # (used by older external links / RSS readers that cached the path).
+    legacy = OG / f'{slug}.png'
+    legacy.write_bytes(buf.getvalue())
     return out
 
 
@@ -159,7 +170,16 @@ def main():
         except Exception as e:
             print(f'  ERROR {slug}: {e}')
 
-    # Re-write og:image / twitter:image to point at the new PNG
+    # Build slug → hashed filename map so we can rewrite meta tags below.
+    hashed_map = {}
+    for p in OG.glob('*.*.png'):
+        # filenames look like 'master-guide.a1b2c3d4.png'
+        parts = p.stem.split('.')
+        if len(parts) >= 2:
+            hashed_map['.'.join(parts[:-1])] = p.name
+
+    # Re-write og:image / twitter:image to point at the HASHED PNG. Stable
+    # legacy /og/<slug>.png stays available too.
     print()
     rewritten = 0
     for p in pages:
@@ -168,7 +188,8 @@ def main():
             continue
         src = p.read_text(encoding='utf-8')
         new = src
-        target = f'{DOMAIN}/og/{slug}.png'
+        fn = hashed_map.get(slug, f'{slug}.png')
+        target = f'{DOMAIN}/og/{fn}'
         new = re.sub(
             r'(property=["\']og:image["\']\s+content=["\'])[^"\']+(["\'])',
             lambda m: m.group(1) + target + m.group(2), new)
@@ -178,7 +199,7 @@ def main():
         if new != src:
             p.write_text(new, encoding='utf-8')
             rewritten += 1
-    print(f'\n{titles_seen} OG PNG files written, {rewritten} pages rewritten to use them')
+    print(f'\n{titles_seen} OG PNG files written (hashed + legacy), {rewritten} pages rewritten')
 
 
 if __name__ == '__main__':

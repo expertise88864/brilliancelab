@@ -28,10 +28,21 @@ def caption_for(slug: str) -> str:
     return slug.replace('-', ' ').title()
 
 def main():
-    pngs = sorted(p for p in OG_DIR.glob('*.png') if p.is_file())
-    if not pngs:
+    all_pngs = sorted(p for p in OG_DIR.glob('*.png') if p.is_file())
+    if not all_pngs:
         print('No OG PNGs found — run build_og_images.py first.')
         return
+    # Prefer hashed PNGs (`<slug>.<hash>.png`) over legacy un-hashed (`<slug>.png`).
+    # `<slug>.png` is kept on disk only as a fallback for old external links;
+    # we don't want it duplicated in the image sitemap.
+    by_slug = {}
+    for p in all_pngs:
+        parts = p.stem.split('.')
+        slug = parts[0] if len(parts) == 1 else '.'.join(parts[:-1])
+        # Keep the hashed one if we ever see one
+        if slug not in by_slug or len(p.stem.split('.')) > 1:
+            by_slug[slug] = p
+    pngs = sorted(by_slug.values(), key=lambda p: p.name)
 
     out = ROOT / 'og-sitemap.xml'
     lines = [
@@ -40,7 +51,9 @@ def main():
         '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
     ]
     for p in pngs:
-        slug = p.stem
+        # Strip hash suffix from filename for slug derivation
+        parts = p.stem.split('.')
+        slug = parts[0] if len(parts) == 1 else '.'.join(parts[:-1])
         page = page_url(slug)
         img_url = f'{DOMAIN}/og/{p.name}'
         lines += [

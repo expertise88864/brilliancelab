@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <!-- BL_PRELOAD -->
+<!-- BL_FONTPRELOAD -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" type="font/woff2"
+      href="https://fonts.gstatic.com/s/notoseriftc/v30/XLYzIZb5bJNDGYxLBibeHZ0BhncESXFtUsM.woff2"
+      crossorigin>
+<link rel="preload" as="font" type="font/woff2"
+      href="https://fonts.gstatic.com/s/notoseriftc/v30/XLYgIZb5bJNDGYxLBibeHZAKgo3xx.woff2"
+      crossorigin>
 <link rel="preload" as="style" href="/assets/tw.css">
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/NotoSerifTC-Regular.subset.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/NotoSerifTC-Bold.subset.woff2" crossorigin>
@@ -35,7 +43,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="如何看懂 GIA 鑑定書 — 5 分鐘完整解析 | BrillianceLab" />
 <meta name="twitter:description" content="GIA 報告書全解析:4Cs、比例圖、Polish/Symmetry/Fluorescence,以及如何用 BrillianceLab 客觀評估鑽石。" />
-<meta name="twitter:image" content="https://brilliancelab.vercel.app/og/gia-guide.png" />
+<meta name="twitter:image" content="https://brilliancelab.vercel.app/og/gia-guide.582ed3bf.png" />
 <meta property="og:description" content="GIA 報告書全解析:4Cs、比例圖、Polish/Symmetry/Fluorescence,以及如何用 BrillianceLab 客觀評估鑽石。" />
 
 <!-- Microsoft Clarity -->
@@ -218,6 +226,26 @@
 <script type="application/ld+json" data-id="BL_AUTHOR_SCHEMA">
 {"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":"Organization","@id":"https://brilliancelab.vercel.app/#organization","name":"BrillianceLab","alternateName":["鑽石實驗室","Diamond Math Calculator"],"url":"https://brilliancelab.vercel.app/","logo":{"@type":"ImageObject","@id":"https://brilliancelab.vercel.app/#logo","url":"https://brilliancelab.vercel.app/icon.svg","contentUrl":"https://brilliancelab.vercel.app/icon.svg","width":512,"height":512,"caption":"BrillianceLab"},"image":{"@id":"https://brilliancelab.vercel.app/#logo"},"description":"基於 Tolkowsky 黃金比例與 HCA 4 維光學分解的免費鑽石評分工具。","foundingDate":"2025","knowsAbout":["GIA grading","HCA optical scoring","Tolkowsky diamond design","Hearts and Arrows","lab-grown diamonds","engagement rings"],"sameAs":[]},{"@context":"https://schema.org","@type":"Person","@id":"https://brilliancelab.vercel.app/#editorial-team","name":"BrillianceLab Editorial","url":"https://brilliancelab.vercel.app/","jobTitle":"Editorial team","worksFor":{"@id":"https://brilliancelab.vercel.app/#organization"},"image":{"@id":"https://brilliancelab.vercel.app/#logo"},"knowsAbout":["diamond grading","GIA report interpretation","optical scoring","Hearts and Arrows symmetry","engagement ring purchase","wedding bands"],"sameAs":[]}]}
 </script>
+<!-- BL_NOSCRIPT -->
+<noscript>
+  <style>
+    /* No-JS readers (incl. cautious crawlers): show BOTH language
+       blocks side-by-side so all content is indexable. */
+    #proseZh, #proseEn { display: block !important; }
+    #proseEn::before {
+      content: "— English —"; display:block; margin:32px 0 12px;
+      padding:6px 12px; background:#fbf3df; color:#8a6e30;
+      font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+      font-weight:700; border-radius:8px;
+    }
+    /* Hide JS-injected widgets that won't function */
+    #bl-toc, #bl-rtime, #bl-totop, #bl-progress { display:none !important; }
+  </style>
+</noscript>
+
+<script type="application/ld+json" data-id="BL_BREADCRUMB_LD">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://brilliancelab.vercel.app/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://brilliancelab.vercel.app/blog/"},{"@type":"ListItem","position":3,"name":"基礎篇","item":"https://brilliancelab.vercel.app/blog/hub-fundamentals"},{"@type":"ListItem","position":4,"name":"如何看懂 GIA 鑑定書","item":"https://brilliancelab.vercel.app/blog/gia-guide"}]}
+</script>
 </head>
 
 <body class="font-sans antialiased text-ink-900">
@@ -305,7 +333,7 @@
   <div id="proseZh" data-pagefind-body data-pagefind-meta="slug:gia-guide" class="prose-zh">
 
     <h2 id="why-gia">01 · 為什麼買鑽石一定要看 GIA?</h2>
-    <p>GIA（Gemological Institute of America，美國寶石學院）是全球最權威的鑽石鑑定機構，以「公正第三方」身份對每顆鑽石的 4Cs（克拉、淨度、顏色、車工）逐一檢驗。市面上其他鑑定機構(IGI、HRD、AGS)各有特色，但 <strong>GIA 仍是國際公認最嚴格、最一致的標準</strong> — 同一顆鑽石送 GIA 比送其他機構，結果常會「等級降一階」。</p>
+    <p>GIA（Gemological Institute of America，美國寶石學院）是全球最權威的鑽石鑑定機構，以「公正第三方」身份對每顆鑽石的 4Cs（克拉、淨度、顏色、車工）逐一檢驗。市面上其他鑑定機構(IGI、HRD、AGS)各有特色，但 <strong>GIA 仍是國際公認最嚴格、最一致的標準</strong> — 同一顆鑽石送 GIA 比送其他機構，結果常會「等級降一階」 <a href="/" data-bl-cta="zh" style="color:#8a6e30;font-weight:600;text-decoration:underline;text-underline-offset:3px" title="BrillianceLab 鑽石光學評分計算機">用 BrillianceLab 計算器先算分</a>。</p>
     <blockquote>
       <p>一個簡單原則：有 GIA 就優先看 GIA;只有 IGI/HRD，要打個小折扣考慮。</p>
     </blockquote>
@@ -612,7 +640,7 @@
   <div id="proseEn" class="prose-en" style="display:none">
 
     <h2 id="why-gia-en">01 · Why GIA matters</h2>
-    <p>GIA (the Gemological Institute of America) is the world's most authoritative diamond grading lab. As a neutral third party, it grades every diamond on the 4Cs (Carat, Clarity, Color, Cut). Other labs exist (IGI, HRD, AGS) — but <strong>GIA remains the gold standard</strong>: send the same stone elsewhere and it often comes back "one grade higher."</p>
+    <p>GIA (the Gemological Institute of America) is the world's most authoritative diamond grading lab. As a neutral third party, it grades every diamond on the 4Cs (Carat, Clarity, Color, Cut). Other labs exist (IGI, HRD, AGS) — but <strong>GIA remains the gold standard</strong>: send the same stone elsewhere and it often comes back "one grade higher." <a href="/" data-bl-cta="en" style="color:#8a6e30;font-weight:600;text-decoration:underline;text-underline-offset:3px" title="BrillianceLab diamond optical scoring calculator">Try the BrillianceLab calculator first</a>。</p>
     <blockquote><p>Rule of thumb: trust GIA first. With IGI/HRD only, mentally discount the grade by one notch.</p></blockquote>
 
     <h2 id="verify-en">02 · Verify the report online</h2>

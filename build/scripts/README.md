@@ -40,8 +40,12 @@ is the cwd the script chdirs into.
 
 | Script | When to run | What it does |
 |---|---|---|
-| `build_image_sitemap.py` | After `build_og_images.py` | Builds `/og-sitemap.xml` listing every OG PNG for Google Image Search; appends to `robots.txt`. |
+| `build_sitemap_split.py` | After adding articles or hubs | Splits monolithic sitemap into `sitemap-pages.xml` / `sitemap-articles.xml` / `sitemap-amp.xml` + `sitemap.xml` (index). Search Console reports per-sitemap so you can see hubs vs articles indexing rates separately. |
+| `build_image_sitemap.py` | After `build_og_images.py` | Builds `/og-sitemap.xml` listing every OG PNG for Google Image Search. Skips legacy `<slug>.png` when a hashed `<slug>.<hash>.png` exists. |
+| `ping_indexnow.py` | After every deploy | POSTs URL list to IndexNow API (Bing/Yandex/Seznam/Naver) — typical indexing within hours. `--all` submits everything in sitemaps; pass paths to submit specific URLs. |
+| `audit_seo.py` | Anytime | CSV audit of title length, meta desc length, h1 keyword overlap, first-paragraph length, h2 count, internal-link count, image alt. Outputs `audit_seo.csv` + flags issues to stdout. |
 | `audit_canonicals.py` | Before deploy / in CI | Verifies every `<link rel="canonical">` matches the file's URL (handles AMP self-canonical-to-HTML rule). Exits non-zero on failure. |
+| `inject_seo_essentials.py` | When adding articles | One-shot injects 4 SEO essentials per article: first-paragraph CTA to calculator, `<noscript>` visibility fallback, `fonts.gstatic.com` crossorigin preload, pre-baked BreadcrumbList JSON-LD. Idempotent. |
 
 ## PWA
 
