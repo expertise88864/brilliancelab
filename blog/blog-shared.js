@@ -414,7 +414,8 @@
     'diamond-glossary':        ['gia-guide','hearts-arrows-truth','round-cut-deep-dive','prong-settings-guide'],
     'dcard-ptt-recommendations': ['taiwan-brands','engagement-guide','budget-formula','cert-comparison'],
     'diamond-4cs-cheatsheet':  ['gia-guide','diamond-color','diamond-clarity','master-guide'],
-    'diamond-50-cents':        ['diamond-carat-size','budget-formula','taiwan-brands','diamond-1ct-price-2026']
+    'diamond-50-cents':        ['diamond-carat-size','budget-formula','taiwan-brands','diamond-1ct-price-2026'],
+    'brand-comparison':        ['taiwan-brands','dcard-ptt-recommendations','diamond-1ct-price-2026','diamond-scams']
   };
   // Title lookup so we don't hard-code titles in every page; fallback = humanise the slug.
   BL.TITLES = {
@@ -467,7 +468,8 @@
     'diamond-glossary':       { zh:'鑽石術語字典 30 詞', en:'30-term diamond glossary' },
     'dcard-ptt-recommendations': { zh:'Dcard / PTT 鑽戒推薦排行榜', en:'Dcard / PTT diamond ring rankings' },
     'diamond-4cs-cheatsheet':  { zh:'鑽石 4C 懶人包', en:'Diamond 4Cs cheatsheet' },
-    'diamond-50-cents':        { zh:'20-50 分鑽戒指南', en:'20-50 cent diamond ring guide' }
+    'diamond-50-cents':        { zh:'20-50 分鑽戒指南', en:'20-50 cent diamond ring guide' },
+    'brand-comparison':        { zh:'台灣 5 大鑽戒品牌實測', en:'Taiwan 5 jewelry brands compared' }
   };
 
   BL.injectRelated = function (slug) {
