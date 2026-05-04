@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<!-- BL_PRELOAD -->
+<!-- BL_FONTPRELOAD -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" type="font/woff2"
+      href="https://fonts.gstatic.com/s/notoseriftc/v30/XLYzIZb5bJNDGYxLBibeHZ0BhncESXFtUsM.woff2"
+      crossorigin>
+<link rel="preload" as="font" type="font/woff2"
+      href="https://fonts.gstatic.com/s/notoseriftc/v30/XLYgIZb5bJNDGYxLBibeHZAKgo3xx.woff2"
+      crossorigin>
+<link rel="preload" as="style" href="/assets/tw.css">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/NotoSerifTC-Regular.subset.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/NotoSerifTC-Bold.subset.woff2" crossorigin>
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="dns-prefetch" href="https://www.clarity.ms">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
+<title>關於 BrillianceLab｜開源鑽石光學評分工具的誠實揭露</title>
+<meta name="description" content="我是皮膚科醫師、業餘光學研究者。買婚戒被話術後自學 GIA、AGS、Whiteflash 標準,把所有計算公式公開。本站不賣鑽石,只用數學告訴你哪顆值得買。" />
+<meta name="theme-color" content="#faf8f3" />
+<meta name="keywords" content="20 分鑽戒,30 分鑽戒,50 分鑽戒,小克拉鑽戒,0.3 克拉鑽戒,0.5 克拉鑽戒,小鑽戒指,Dcard 小鑽戒,新人鑽戒,平價鑽戒" />
+<link rel="canonical" href="https://brilliancelab.vercel.app/about" />
+<link rel="alternate" hreflang="x-default" href="https://brilliancelab.vercel.app/about" />
+<link rel="alternate" hreflang="zh-TW" href="https://brilliancelab.vercel.app/about" />
+<link rel="icon" type="image/svg+xml" href="/icon.svg" />
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brilliancelab.vercel.app/about" />
+<meta property="og:title" content="關於 BrillianceLab｜開源鑽石光學評分工具的誠實揭露" />
+<meta property="og:description" content="我是皮膚科醫師、業餘光學研究者。買婚戒被話術後自學 GIA、AGS、Whiteflash 標準,把所有計算公式公開。本站不賣鑽石,只用數學告訴你哪顆值得買。" />
+<meta property="og:image" content="https://brilliancelab.vercel.app/og/about.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="關於 BrillianceLab｜開源鑽石光學評分工具的誠實揭露" />
+<meta name="twitter:image" content="https://brilliancelab.vercel.app/og/about.png" />
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8223268344248663" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-8223268344248663" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root{--bg:#faf8f3;--ink:#1a1d2e;--ink-2:#4a4d5e;--muted:#7e8194;--gold:#c9a45c;--gold-deep:#8a6e30;--gold-soft:#fbf3df;--border:#ebe6dc;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--bg);color:var(--ink);font-family:Inter,'Noto Serif TC','Microsoft JhengHei',Georgia,serif;line-height:1.85;}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(800px 500px at 12% -8%,rgba(201,164,92,.16),transparent 60%),linear-gradient(180deg,#faf8f3 0%,#fffdf7 40%,#faf8f3 100%);}
+  .gold-text{background:linear-gradient(180deg,#c9a45c,#8a6e30);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  header.sticky{position:sticky;top:0;background:rgba(250,248,243,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:10;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+  main{max-width:820px;margin:0 auto;padding:32px 24px 80px;}
+  h1{font-family:'Noto Serif TC',Georgia,serif;font-size:clamp(28px,4.5vw,42px);font-weight:800;line-height:1.2;margin-bottom:14px;}
+  h2{font-family:'Noto Serif TC',Georgia,serif;font-size:22px;font-weight:700;border-left:3px solid var(--gold);padding-left:12px;margin:36px 0 14px;}
+  h3{font-family:'Noto Serif TC',Georgia,serif;font-size:18px;font-weight:700;margin:24px 0 8px;color:var(--ink);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border-radius:10px;overflow:hidden;margin:14px 0 24px;border:1px solid var(--border);}
+  th{background:#fbf3df;color:#5e4a1f;font-weight:700;padding:10px 12px;text-align:left;border-bottom:2px solid rgba(201,164,92,.45);}
+  td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--ink-2);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  .verdict{background:linear-gradient(180deg,#fffdf7,#fbf3df);border:1px solid rgba(201,164,92,.4);border-radius:10px;padding:14px 16px;margin:18px 0;font-size:14px;color:#5e4a1f;line-height:1.7;}
+  .pkg{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin:14px 0;}
+  .pkg-tag{display:inline-block;padding:2px 10px;border-radius:9999px;font-size:11px;font-weight:600;background:var(--gold-soft);color:#5e4a1f;border:1px solid rgba(201,164,92,.4);margin-bottom:6px;}
+  .pkg h3{margin-top:0;}
+</style>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"關於 BrillianceLab — 一個皮膚科醫師的鑽石光學專案","description":"台灣求婚最主流的 0.2-0.5 克拉鑽戒完整指南 — NT$8-25 萬最聰明的選擇。","datePublished":"2026-05-03","dateModified":"2026-05-03","author":{"@id":"https://brilliancelab.vercel.app/#editorial-team"},"publisher":{"@id":"https://brilliancelab.vercel.app/#organization"},"image":"https://brilliancelab.vercel.app/og/about.png","mainEntityOfPage":"https://brilliancelab.vercel.app/about","inLanguage":"zh-TW","isAccessibleForFree":true}
+</script>
+<!-- BL_NOSCRIPT -->
+<noscript>
+  <style>
+    /* No-JS readers (incl. cautious crawlers): show BOTH language
+       blocks side-by-side so all content is indexable. */
+    #proseZh, #proseEn { display: block !important; }
+    #proseEn::before {
+      content: "— English —"; display:block; margin:32px 0 12px;
+      padding:6px 12px; background:#fbf3df; color:#8a6e30;
+      font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+      font-weight:700; border-radius:8px;
+    }
+    /* Hide JS-injected widgets that won't function */
+    #bl-toc, #bl-rtime, #bl-totop, #bl-progress { display:none !important; }
+  </style>
+</noscript>
+
+<script type="application/ld+json" data-id="BL_BREADCRUMB_LD">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://brilliancelab.vercel.app/"},{"@type":"ListItem","position":2,"name":"關於我們","item":"https://brilliancelab.vercel.app/about"}]}
+</script>
+
+<script type="application/ld+json" data-id="BL_AUTHOR_SCHEMA">
+{"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":"Organization","@id":"https://brilliancelab.vercel.app/#organization","name":"BrillianceLab","alternateName":["鑽石實驗室","Diamond Math Calculator"],"url":"https://brilliancelab.vercel.app/","logo":{"@type":"ImageObject","@id":"https://brilliancelab.vercel.app/#logo","url":"https://brilliancelab.vercel.app/icon.svg","contentUrl":"https://brilliancelab.vercel.app/icon.svg","width":512,"height":512,"caption":"BrillianceLab"},"image":{"@id":"https://brilliancelab.vercel.app/#logo"},"description":"基於 Tolkowsky 黃金比例與 HCA 4 維光學分解的免費鑽石評分工具。","foundingDate":"2025","knowsAbout":["GIA grading","HCA optical scoring","Tolkowsky diamond design","Hearts and Arrows","lab-grown diamonds","engagement rings"],"sameAs":[]},{"@context":"https://schema.org","@type":"Person","@id":"https://brilliancelab.vercel.app/#editorial-team","name":"BrillianceLab Editorial","url":"https://brilliancelab.vercel.app/","jobTitle":"Editorial team","worksFor":{"@id":"https://brilliancelab.vercel.app/#organization"},"image":{"@id":"https://brilliancelab.vercel.app/#logo"},"knowsAbout":["diamond grading","GIA report interpretation","optical scoring","Hearts and Arrows symmetry","engagement ring purchase","wedding bands"],"sameAs":[]}]}
+</script>
+</head>
+<body>
+<header class="sticky">
+  <a href="/" style="text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:8px">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M3.5 9 12 3l8.5 6-8.5 12L3.5 9Z" stroke="url(#g)" stroke-width="1.4" stroke-linejoin="round"/><defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4b87a"/><stop offset="1" stop-color="#8a6e30"/></linearGradient></defs></svg>
+    <span class="gold-text" style="font-weight:700">BrillianceLab</span>
+  </a>
+  <nav style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)">
+    <a href="/blog/" style="color:inherit;text-decoration:none;margin:0 10px">部落格</a>
+    <a href="/blog/topics" style="color:inherit;text-decoration:none;margin:0 10px">主題</a>
+  </nav>
+</header>
+
+<main id="main">
+  <nav style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px" aria-label="Breadcrumb">
+    <a href="/" style="color:inherit;text-decoration:none">首頁</a> · <span style="color:var(--gold-deep)">關於我們</span>
+  </nav>
+
+  <h1>關於 BrillianceLab — 一個皮膚科醫師的鑽石光學專案</h1>
+
+  <aside class="verdict" data-id="BL_TLDR">
+    <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR · 一分鐘掌握</div>
+    我是皮膚科住院醫師,2024 年買婚戒被「八心八箭」「GIA 3EX」這些術語繞暈,結果發現 PriceScope 上有人爆料「80% 的 GIA Excellent 其實沒打到光學最佳區」。我用了 6 個月把 GIA Facetware 公式、HCA 4 維打分、Whiteflash A CUT ABOVE 規格全部讀完,寫成這個免費工具。本站不賣任何鑽石,所有計算源碼公開。
+  </aside>
+
+  <article id="proseZh" data-pagefind-body data-pagefind-meta="slug:about" class="prose-zh">
+
+<p><strong>BrillianceLab 不是一家珠寶店,是一個工程專案。</strong>我是台灣的皮膚科住院醫師,2024 年初準備求婚時發現:</p>
+
+<ul>
+<li>每家珠寶店都說自己「比 GIA 3EX 更嚴」,但沒人公開具體比例。</li>
+<li>「八心八箭」可以是真有光學對稱性、也可以是純行銷詞,差很多。</li>
+<li>1 克拉 G-VS2 的售價從 NT$15 萬到 NT$50 萬都有,差距高達 3 倍。</li>
+</ul>
+
+<p>我花了 6 個月把以下文件全部讀完:</p>
+
+<ol>
+<li><strong>GIA Cut Grade Estimation Tables</strong> (2006) — <a href="https://www.gia.edu/doc/booklet_cut_estimation_tables_lowres.pdf" rel="external nofollow noopener" target="_blank">PDF 連結</a></li>
+<li><strong>GIA Facetware 公式</strong>:Crown Height % = 0.5 × (100 − Table%) × tan(Crown Angle)</li>
+<li><strong>AGS Ideal Report</strong> (光線追蹤,2005 後改為 ray-tracing) — <a href="https://www.gia.edu/ags-ideal-report" rel="external nofollow noopener" target="_blank">官方頁</a></li>
+<li><strong>Tolkowsky 1919 原始論文</strong> «Diamond Design» — 21 歲學生用幾何學算出的最佳比例,100 年後仍被沿用</li>
+<li><strong>Whiteflash A CUT ABOVE® 規格</strong> (Table 53-58、Depth 59.5-62、CA 34-35°、PA 40.5-41°、Star 50-55、LGF 75-80) — <a href="https://www.whiteflash.com/a-cut-above-diamonds/specifications-and-qualifications.htm" rel="external nofollow noopener" target="_blank">公開頁</a></li>
+<li><strong>Holloway HCA 演算法</strong> (US Patent 7,251,619,但分級邏輯為公開資訊) — <a href="https://www.pricescope.com/tools/hca" rel="external nofollow noopener" target="_blank">PriceScope 官方版</a></li>
+<li><strong>Brilliant Earth 色階指南</strong> (官方承認 D-F 色肉眼無法分辨) — <a href="https://www.brilliantearth.com/diamond/buying-guide/color/" rel="external nofollow noopener" target="_blank">官方頁</a></li>
+</ol>
+
+<h2>我不是寶石學家</h2>
+<p>我沒有 GIA Graduate Gemologist (GG) 證照。本站所有結論都基於上述 7 份公開文件的數學推導,不是我的個人鑑定意見。如果你發現任何計算錯誤,<a href="mailto:hello@brilliancelab.dev">直接寫信給我</a> — 我會公開更正並感謝。</p>
+
+<h2>本站的商業模式 (透明揭露)</h2>
+<table>
+<thead><tr><th>項目</th><th>有 / 沒有</th><th>說明</th></tr></thead>
+<tbody>
+<tr><td>賣鑽石</td><td><strong>沒有</strong></td><td>本站完全不販售任何珠寶</td></tr>
+<tr><td>聯盟連結</td><td>有 (規劃中)</td><td>未來可能加入 Whiteflash / James Allen 聯盟,所有連結都會註明 rel="sponsored"</td></tr>
+<tr><td>Google AdSense</td><td>有</td><td>本站運行成本由廣告收入支持。廣告永遠不會擋住計算器互動區</td></tr>
+<tr><td>個人資訊</td><td>不收</td><td>沒有註冊功能,不收 email,計算結果不上傳伺服器</td></tr>
+<tr><td>原始碼</td><td>公開</td><td>計算器原始碼在 GitHub MIT 授權,你可以審計每一行</td></tr>
+</tbody>
+</table>
+
+<h2>三層計算引擎的設計</h2>
+
+<p>本站的計算器分三層,層層加嚴,讓你看到同一顆鑽石在不同標準下的位置:</p>
+
+<h3>第一層:GIA Excellent 範圍檢查 (寬)</h3>
+<p>Table 52-62%、Depth 57.5-63%、Crown Angle 31.5-36.5°、Pavilion Angle 40.6-41.8° — 任一項出界就不是 GIA EX。約 25% 的市售鑽石達標。</p>
+
+<h3>第二層:HCA 風格 0-10 分打分 (中)</h3>
+<p>對 4 個比例設定理想中心 (PA=40.75°、CA=34.5°、Table=56%、Depth=61%),用高斯衰減算偏離程度,Pavilion Angle 加權 90% (Holloway 公開的權重)。0-2 分為 Excellent、2-4 為 Very Good。</p>
+
+<h3>第三層:Whiteflash A CUT ABOVE® 嚴格篩選 (嚴)</h3>
+<p>Table 53-58、Depth 59.5-62、CA 34-35°、PA 40.5-41°、Star 50-55、LGF 75-80,加上 Polish 與 Symmetry 都是 Excellent — 所有項目同時符合。約 1-2% 的市售鑽石達標。</p>
+
+<h2>誠實的限制聲明</h2>
+
+<ul>
+<li><strong>HCA 只看 4 個 facet 平均值</strong> — 但鑽石有 57 個 facet。HCA 不能取代 ASET 或 Idealscope 實體鏡的視覺驗證。</li>
+<li><strong>異形鑽 (橢圓、墊形、公主方等) 至 2026 仍無公認數學分級</strong> — 我們只支援圓形明亮車工。異形鑽要看 ASET 影像。</li>
+<li><strong>本站不是 Tiffany 或 Cartier 的競爭對手</strong> — 我們是「裁判」。所有電商都歡迎被我們引流。</li>
+</ul>
+
+<h2>為什麼皮膚科醫師會做鑽石網站?</h2>
+
+<p>同樣是「寫嚴謹的指南、引用一手研究、避開行銷話術、保護消費者」 — 這是醫療訓練教給我的工作方式。鑽石光學的數學沒有比皮膚癌診斷複雜,我把同樣的方法論搬過來。</p>
+
+<p>皮膚科是我的工作,鑽石光學是我的興趣 — 兩件事完全分離。我的醫療執業 (中國醫藥大學附醫皮膚科) 與本站完全無關。本站不提供任何醫療建議,本人也不在站上提供鑽石購買的個人化諮詢服務。</p>
+
+<h2>聯絡方式</h2>
+
+<p>發現錯誤、建議內容、或單純想討論:<a href="mailto:hello@brilliancelab.dev">hello@brilliancelab.dev</a></p>
+
+<p>本站不收集個人資訊。如果你寄信來,我會看,但不會把你的 email 加入任何名單。</p>
+
+<h2>致謝</h2>
+
+<p>感謝以下公開資源讓本站成為可能:</p>
+<ul>
+<li><strong>Garry Holloway</strong> — HCA 演算法的發明人,在 PriceScope 公開拆解 PA 主導 90% 權重的邏輯</li>
+<li><strong>Marcel Tolkowsky</strong> — 1919 年 21 歲的 MIT 碩士,用幾何學算出鑽石黃金比例</li>
+<li><strong>Whiteflash 團隊</strong> — 公開 A CUT ABOVE 完整規格,讓我們有具體基準</li>
+<li><strong>GIA 教育部門</strong> — 公開 Cut Estimation Tables PDF,讓計算公式透明</li>
+<li><strong>Brilliant Earth, James Allen, Blue Nile</strong> — 公開的 Buying Guide 提供大量交叉驗證資料</li>
+<li><strong>PriceScope 社群</strong> — 12 萬會員的論壇是中文圈完全沒有對等物的公開知識庫</li>
+</ul>
+
+  </article>
+<div id="proseEn" class="prose-en hidden" data-id="BL_PROSE_EN" data-pagefind-body data-pagefind-meta="slug:about_en" lang="en" style="display:none">
+
+<aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
+  <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
+  I'm a Taiwan-based dermatology resident. After getting overwhelmed by jeweller jargon while shopping for an engagement ring in 2024, I spent 6 months reading the primary GIA / AGS / Whiteflash documents and built this open-source tool. <strong>BrillianceLab sells nothing</strong> — all calculation source code is on GitHub under MIT license.
+</aside>
+
+<h2>What this site is</h2>
+<p>BrillianceLab is the first Chinese-language site that runs the public GIA Facetware formulas, the HCA 4-parameter scoring (Holloway 2002), and the Whiteflash A CUT ABOVE® strict filter — all in your browser, with the source code public.</p>
+
+<h2>What this site is NOT</h2>
+<ul>
+  <li>Not a jewellery store. We sell nothing.</li>
+  <li>Not a gemological lab. I am not a GIA Graduate Gemologist.</li>
+  <li>Not a substitute for ASET / Idealscope physical inspection.</li>
+</ul>
+
+<h2>Primary sources cited throughout</h2>
+<ol>
+  <li><a href="https://www.gia.edu/doc/booklet_cut_estimation_tables_lowres.pdf" rel="external nofollow noopener" target="_blank">GIA Cut Grade Estimation Tables (2006 PDF)</a></li>
+  <li><a href="https://www.gia.edu/ags-ideal-report" rel="external nofollow noopener" target="_blank">AGS Ideal Report</a></li>
+  <li><a href="https://www.whiteflash.com/a-cut-above-diamonds/specifications-and-qualifications.htm" rel="external nofollow noopener" target="_blank">Whiteflash A CUT ABOVE® Specifications</a></li>
+  <li><a href="https://www.pricescope.com/tools/hca" rel="external nofollow noopener" target="_blank">PriceScope HCA Tool</a></li>
+  <li><a href="https://www.brilliantearth.com/diamond/buying-guide/color/" rel="external nofollow noopener" target="_blank">Brilliant Earth Color Guide</a> (confirms D-F look identical face-up)</li>
+</ol>
+
+<h2>Honest limitations</h2>
+<ul>
+  <li>HCA averages only 4 facets out of 57. It is a screen, not a verdict.</li>
+  <li>Fancy shapes (oval, cushion, princess) have no consensus mathematical grading as of 2026.</li>
+  <li>Nothing in this site replaces an in-person inspection with ASET or an Idealscope.</li>
+</ul>
+
+<h2>Contact</h2>
+<p>Found a calculation error? Have feedback? <a href="mailto:hello@brilliancelab.dev">hello@brilliancelab.dev</a> — I read every email but won't add you to any list.</p>
+
+</div>
+
+The 0.20-0.50 carat range (20-50 "points") is Taiwan's mainstream engagement
+  ring zone — over 50% of sales fall here. <strong>20¢ (NT$80-120K)</strong> for entry,
+  <strong>30¢ (NT$120-180K)</strong> is the sales-volume leader, <strong>50¢ (NT$180-250K)</strong>
+  is the value sweet spot when budget allows. With small stones, never skimp on cut.
+</aside>
+
+<h2>How big are these actually?</h2>
+<table>
+  <thead><tr><th>Carat</th><th>Grams</th><th>Diameter</th><th>Visual feel</th></tr></thead>
+  <tbody>
+    <tr><td>0.20 ct (20¢)</td><td>0.04 g</td><td>3.8 mm</td><td>Rice-grain, delicate</td></tr>
+    <tr><td>0.30 ct (30¢)</td><td>0.06 g</td><td>4.3 mm</td><td>Rice-to-mungbean, daily-wear sweet spot</td></tr>
+    <tr><td>0.50 ct (50¢)</td><td>0.10 g</td><td>5.2 mm</td><td>Mungbean, present on the hand</td></tr>
+    <tr><td>0.70 ct</td><td>0.14 g</td><td>5.8 mm</td><td>(reference)</td></tr>
+    <tr><td>1.00 ct</td><td>0.20 g</td><td>6.5 mm</td><td>(reference)</td></tr>
+  </tbody>
+</table>
+
+<h2>Four smart packages</h2>
+<h3>① 0.25 ct · G-VS2 · True H&amp;A · NT$80-120K</h3>
+<p>20¢ is where retailers cheat on cut most often — small-stone cut differences
+are harder to spot. But small stones rely on cut even more to sparkle.
+Insist on GIA 3EX + H&amp;A. Color G-H is fine; clarity SI1 acceptable
+(at 20¢, SI1 is 100% eye-clean).</p>
+
+<h3>② 0.32 ct · G-VS2 · True H&amp;A · NT$120-180K</h3>
+<p>Taiwan's #1 engagement ring spec. Visible without screaming. <strong>Don't pay
+the integer premium</strong> — buy 0.32-0.34 ct rather than 0.30 (10-15% cheaper).</p>
+
+<h3>③ 0.52 ct · F-VS2 · True H&amp;A · NT$180-250K</h3>
+<p>Half-carat is "obviously a diamond" territory. At this size you can bump
+color one grade (G→F) because color shows more. Don't bump clarity beyond
+VS2 — zero visual return.</p>
+
+<h3>④ 0.70 ct lab-grown · E-VS1 · True H&amp;A · NT$150-220K</h3>
+<p>Same NT$200K budget gets you a 70¢ lab-grown with better color and clarity.
+Trade-off: weaker resale. Pick this if buying-to-wear, not buying-to-resell.
+See <a href="/blog/lab-vs-natural">lab vs natural</a>.</p>
+
+<h2>Three pitfalls</h2>
+<ol>
+  <li><strong>Cut downgrade trap</strong> — jewellers push "20¢ D-VVS1 with GIA Very Good"
+    to look spec-rich while only delivering 75% fire. Don't compromise on cut.</li>
+  <li><strong>Integer premium</strong> — 0.30 / 0.50 ct cost 10-15% more than 0.28 / 0.48.
+    See <a href="/blog/diamond-carat-size">half-threshold trick</a>.</li>
+  <li><strong>No GIA cert</strong> — under 0.30 ct, jewellers often skip certification.
+    But no cert = no resale + no insurance. IGI / HRD acceptable substitutes.</li>
+</ol>
+
+<h2>Three settings that visually grow small stones</h2>
+<ol>
+  <li><strong>Halo</strong> — small-diamond surround makes a 30¢ look like 50¢.</li>
+  <li><strong>Thin prongs</strong> — 4-prong covers less of the stone than 6-prong.</li>
+  <li><strong>Rose gold + pavé band</strong> — full-band sparkle complements small main.</li>
+</ol>
+
+<h2>Brand pricing for 30¢ G-VS2 H&amp;A (May 2026)</h2>
+<table>
+  <thead><tr><th>Brand</th><th>Price</th><th>Note</th></tr></thead>
+  <tbody>
+    <tr><td>BUERHKAU 不二鑽石</td><td>NT$100-120K</td><td>TW workshop, cheapest</td></tr>
+    <tr><td>Mabelle 點睛品</td><td>NT$120-150K</td><td>Most stores nationwide</td></tr>
+    <tr><td>ALUXE 亞立詩</td><td>NT$130-160K</td><td>Customisation</td></tr>
+    <tr><td>I-PRIMO</td><td>NT$150-180K</td><td>Strict JP cut standards</td></tr>
+    <tr><td>Ginza Shiraishi 銀座白石</td><td>NT$160-200K</td><td>Half-bespoke</td></tr>
+    <tr><td>Cartier / Tiffany</td><td>NT$320-450K</td><td>2.5× premium</td></tr>
+  </tbody>
+</table>
+<p>See <a href="/blog/taiwan-brands">Taiwan diamond brand comparison</a>.</p>
+
+</div>
+The 0.20-0.50 carat range (20-50 "points") is Taiwan's mainstream engagement
+  ring zone — over 50% of sales fall here. <strong>20¢ (NT$80-120K)</strong> for entry,
+  <strong>30¢ (NT$120-180K)</strong> is the sales-volume leader, <strong>50¢ (NT$180-250K)</strong>
+  is the value sweet spot when budget allows. With small stones, never skimp on cut.
+</aside>
+
+<h2>How big are these actually?</h2>
+<table>
+  <thead><tr><th>Carat</th><th>Grams</th><th>Diameter</th><th>Visual feel</th></tr></thead>
+  <tbody>
+    <tr><td>0.20 ct (20¢)</td><td>0.04 g</td><td>3.8 mm</td><td>Rice-grain, delicate</td></tr>
+    <tr><td>0.30 ct (30¢)</td><td>0.06 g</td><td>4.3 mm</td><td>Rice-to-mungbean, daily-wear sweet spot</td></tr>
+    <tr><td>0.50 ct (50¢)</td><td>0.10 g</td><td>5.2 mm</td><td>Mungbean, present on the hand</td></tr>
+    <tr><td>0.70 ct</td><td>0.14 g</td><td>5.8 mm</td><td>(reference)</td></tr>
+    <tr><td>1.00 ct</td><td>0.20 g</td><td>6.5 mm</td><td>(reference)</td></tr>
+  </tbody>
+</table>
+
+<h2>Four smart packages</h2>
+<h3>① 0.25 ct · G-VS2 · True H&amp;A · NT$80-120K</h3>
+<p>20¢ is where retailers cheat on cut most often — small-stone cut differences
+are harder to spot. But small stones rely on cut even more to sparkle.
+Insist on GIA 3EX + H&amp;A. Color G-H is fine; clarity SI1 acceptable
+(at 20¢, SI1 is 100% eye-clean).</p>
+
+<h3>② 0.32 ct · G-VS2 · True H&amp;A · NT$120-180K</h3>
+<p>Taiwan's #1 engagement ring spec. Visible without screaming. <strong>Don't pay
+the integer premium</strong> — buy 0.32-0.34 ct rather than 0.30 (10-15% cheaper).</p>
+
+<h3>③ 0.52 ct · F-VS2 · True H&amp;A · NT$180-250K</h3>
+<p>Half-carat is "obviously a diamond" territory. At this size you can bump
+color one grade (G→F) because color shows more. Don't bump clarity beyond
+VS2 — zero visual return.</p>
+
+<h3>④ 0.70 ct lab-grown · E-VS1 · True H&amp;A · NT$150-220K</h3>
+<p>Same NT$200K budget gets you a 70¢ lab-grown with better color and clarity.
+Trade-off: weaker resale. Pick this if buying-to-wear, not buying-to-resell.
+See <a href="/blog/lab-vs-natural">lab vs natural</a>.</p>
+
+<h2>Three pitfalls</h2>
+<ol>
+  <li><strong>Cut downgrade trap</strong> — jewellers push "20¢ D-VVS1 with GIA Very Good"
+    to look spec-rich while only delivering 75% fire. Don't compromise on cut.</li>
+  <li><strong>Integer premium</strong> — 0.30 / 0.50 ct cost 10-15% more than 0.28 / 0.48.
+    See <a href="/blog/diamond-carat-size">half-threshold trick</a>.</li>
+  <li><strong>No GIA cert</strong> — under 0.30 ct, jewellers often skip certification.
+    But no cert = no resale + no insurance. IGI / HRD acceptable substitutes.</li>
+</ol>
+
+<h2>Three settings that visually grow small stones</h2>
+<ol>
+  <li><strong>Halo</strong> — small-diamond surround makes a 30¢ look like 50¢.</li>
+  <li><strong>Thin prongs</strong> — 4-prong covers less of the stone than 6-prong.</li>
+  <li><strong>Rose gold + pavé band</strong> — full-band sparkle complements small main.</li>
+</ol>
+
+<h2>Brand pricing for 30¢ G-VS2 H&amp;A (May 2026)</h2>
+<table>
+  <thead><tr><th>Brand</th><th>Price</th><th>Note</th></tr></thead>
+  <tbody>
+    <tr><td>BUERHKAU 不二鑽石</td><td>NT$100-120K</td><td>TW workshop, cheapest</td></tr>
+    <tr><td>Mabelle 點睛品</td><td>NT$120-150K</td><td>Most stores nationwide</td></tr>
+    <tr><td>ALUXE 亞立詩</td><td>NT$130-160K</td><td>Customisation</td></tr>
+    <tr><td>I-PRIMO</td><td>NT$150-180K</td><td>Strict JP cut standards</td></tr>
+    <tr><td>Ginza Shiraishi 銀座白石</td><td>NT$160-200K</td><td>Half-bespoke</td></tr>
+    <tr><td>Cartier / Tiffany</td><td>NT$320-450K</td><td>2.5× premium</td></tr>
+  </tbody>
+</table>
+<p>See <a href="/blog/taiwan-brands">Taiwan diamond brand comparison</a>.</p>
+
+</div>
+
+</main>
+
+<script src="/blog/blog-shared.js" defer></script>
+<script defer>document.addEventListener('DOMContentLoaded', () => BL.initBlog({ slug:'diamond-50-cents' }));</script>
+</body>
+</html>

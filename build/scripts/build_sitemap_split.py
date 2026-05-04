@@ -53,6 +53,7 @@ def main():
     # --- pages: top-level ---
     pages_urls = [
         (f'{DOMAIN}/',                  'weekly',  '1.0'),
+        (f'{DOMAIN}/about',             'monthly', '0.85'),
         (f'{DOMAIN}/blog/',             'weekly',  '0.95'),
         (f'{DOMAIN}/search',            'monthly', '0.7'),
         (f'{DOMAIN}/blog/topics',       'weekly',  '0.85'),

@@ -415,7 +415,11 @@
     'dcard-ptt-recommendations': ['taiwan-brands','engagement-guide','budget-formula','cert-comparison'],
     'diamond-4cs-cheatsheet':  ['gia-guide','diamond-color','diamond-clarity','master-guide'],
     'diamond-50-cents':        ['diamond-carat-size','budget-formula','taiwan-brands','diamond-1ct-price-2026'],
-    'brand-comparison':        ['taiwan-brands','dcard-ptt-recommendations','diamond-1ct-price-2026','diamond-scams']
+    'brand-comparison':        ['taiwan-brands','dcard-ptt-recommendations','diamond-1ct-price-2026','diamond-scams'],
+    'hca-score-explained':     ['whiteflash-vs-gia-3ex','tolkowsky-1919-math','hearts-arrows-truth','aset-idealscope-hca-comparison'],
+    'whiteflash-vs-gia-3ex':   ['hca-score-explained','tolkowsky-1919-math','aset-idealscope-hca-comparison','round-cut-deep-dive'],
+    'tolkowsky-1919-math':     ['round-cut-deep-dive','hca-score-explained','whiteflash-vs-gia-3ex','hearts-arrows-truth'],
+    'aset-idealscope-hca-comparison': ['hca-score-explained','hearts-arrows-truth','whiteflash-vs-gia-3ex','round-cut-deep-dive']
   };
   // Title lookup so we don't hard-code titles in every page; fallback = humanise the slug.
   BL.TITLES = {
@@ -469,7 +473,11 @@
     'dcard-ptt-recommendations': { zh:'Dcard / PTT 鑽戒推薦排行榜', en:'Dcard / PTT diamond ring rankings' },
     'diamond-4cs-cheatsheet':  { zh:'鑽石 4C 懶人包', en:'Diamond 4Cs cheatsheet' },
     'diamond-50-cents':        { zh:'20-50 分鑽戒指南', en:'20-50 cent diamond ring guide' },
-    'brand-comparison':        { zh:'台灣 5 大鑽戒品牌實測', en:'Taiwan 5 jewelry brands compared' }
+    'brand-comparison':        { zh:'台灣 5 大鑽戒品牌實測', en:'Taiwan 5 jewelry brands compared' },
+    'hca-score-explained':     { zh:'HCA 分數完整教學', en:'HCA score complete guide' },
+    'whiteflash-vs-gia-3ex':   { zh:'Whiteflash ACA vs GIA 3EX', en:'Whiteflash ACA vs GIA 3EX' },
+    'tolkowsky-1919-math':     { zh:'Tolkowsky 1919 數學', en:'Tolkowsky 1919 math' },
+    'aset-idealscope-hca-comparison': { zh:'ASET / Idealscope / HCA 比較', en:'ASET vs Idealscope vs HCA' }
   };
 
   BL.injectRelated = function (slug) {
