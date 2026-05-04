@@ -17,8 +17,8 @@
 <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 <link rel="dns-prefetch" href="https://www.clarity.ms">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
-<title>關於 BrillianceLab｜開源鑽石光學評分工具的誠實揭露</title>
-<meta name="description" content="我是皮膚科醫師、業餘光學研究者。買婚戒被話術後自學 GIA、AGS、Whiteflash 標準,把所有計算公式公開。本站不賣鑽石,只用數學告訴你哪顆值得買。" />
+<title>關於 BrillianceLab｜開源鑽石光學評分工具的設計理念</title>
+<meta name="description" content="BrillianceLab 是中文圈第一個公開實作 Tolkowsky 1919 數學 + GIA Facetware 公式的免費鑽石評分工具。本站不販售鑽石,所有計算原則公開。資料來源:GIA、AGS、Whiteflash。" />
 <meta name="theme-color" content="#faf8f3" />
 <meta name="keywords" content="20 分鑽戒,30 分鑽戒,50 分鑽戒,小克拉鑽戒,0.3 克拉鑽戒,0.5 克拉鑽戒,小鑽戒指,Dcard 小鑽戒,新人鑽戒,平價鑽戒" />
 <link rel="canonical" href="https://brilliancelab.vercel.app/about" />
@@ -28,11 +28,11 @@
 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brilliancelab.vercel.app/about" />
-<meta property="og:title" content="關於 BrillianceLab｜開源鑽石光學評分工具的誠實揭露" />
-<meta property="og:description" content="我是皮膚科醫師、業餘光學研究者。買婚戒被話術後自學 GIA、AGS、Whiteflash 標準,把所有計算公式公開。本站不賣鑽石,只用數學告訴你哪顆值得買。" />
+<meta property="og:title" content="關於 BrillianceLab｜開源鑽石光學評分工具的設計理念" />
+<meta property="og:description" content="BrillianceLab 是中文圈第一個公開實作 Tolkowsky 1919 數學 + GIA Facetware 公式的免費鑽石評分工具。本站不販售鑽石,所有計算原則公開。資料來源:GIA、AGS、Whiteflash。" />
 <meta property="og:image" content="https://brilliancelab.vercel.app/og/about.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="關於 BrillianceLab｜開源鑽石光學評分工具的誠實揭露" />
+<meta name="twitter:title" content="關於 BrillianceLab｜開源鑽石光學評分工具的設計理念" />
 <meta name="twitter:image" content="https://brilliancelab.vercel.app/og/about.png" />
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8223268344248663" crossorigin="anonymous"></script>
@@ -61,7 +61,7 @@
 </style>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"關於 BrillianceLab — 一個皮膚科醫師的鑽石光學專案","description":"台灣求婚最主流的 0.2-0.5 克拉鑽戒完整指南 — NT$8-25 萬最聰明的選擇。","datePublished":"2026-05-03","dateModified":"2026-05-03","author":{"@id":"https://brilliancelab.vercel.app/#editorial-team"},"publisher":{"@id":"https://brilliancelab.vercel.app/#organization"},"image":"https://brilliancelab.vercel.app/og/about.png","mainEntityOfPage":"https://brilliancelab.vercel.app/about","inLanguage":"zh-TW","isAccessibleForFree":true}
+{"@context":"https://schema.org","@type":"Article","headline":"關於 BrillianceLab — 開源鑽石光學評分工具","description":"台灣求婚最主流的 0.2-0.5 克拉鑽戒完整指南 — NT$8-25 萬最聰明的選擇。","datePublished":"2026-05-03","dateModified":"2026-05-03","author":{"@id":"https://brilliancelab.vercel.app/#editorial-team"},"publisher":{"@id":"https://brilliancelab.vercel.app/#organization"},"image":"https://brilliancelab.vercel.app/og/about.png","mainEntityOfPage":"https://brilliancelab.vercel.app/about","inLanguage":"zh-TW","isAccessibleForFree":true}
 </script>
 <!-- BL_NOSCRIPT -->
 <noscript>
@@ -81,7 +81,7 @@
 </noscript>
 
 <script type="application/ld+json" data-id="BL_BREADCRUMB_LD">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://brilliancelab.vercel.app/"},{"@type":"ListItem","position":2,"name":"關於我們","item":"https://brilliancelab.vercel.app/about"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://brilliancelab.vercel.app/"},{"@type":"ListItem","position":2,"name":"關於本站","item":"https://brilliancelab.vercel.app/about"}]}
 </script>
 
 <script type="application/ld+json" data-id="BL_AUTHOR_SCHEMA">
@@ -102,134 +102,169 @@
 
 <main id="main">
   <nav style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px" aria-label="Breadcrumb">
-    <a href="/" style="color:inherit;text-decoration:none">首頁</a> · <span style="color:var(--gold-deep)">關於我們</span>
+    <a href="/" style="color:inherit;text-decoration:none">首頁</a> · <span style="color:var(--gold-deep)">關於本站</span>
   </nav>
 
-  <h1>關於 BrillianceLab — 一個皮膚科醫師的鑽石光學專案</h1>
+  <h1>關於 BrillianceLab — 開源鑽石光學評分工具</h1>
 
   <aside class="verdict" data-id="BL_TLDR">
     <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR · 一分鐘掌握</div>
-    我是皮膚科住院醫師,2024 年買婚戒被「八心八箭」「GIA 3EX」這些術語繞暈,結果發現 PriceScope 上有人爆料「80% 的 GIA Excellent 其實沒打到光學最佳區」。我用了 6 個月把 GIA Facetware 公式、HCA 4 維打分、Whiteflash A CUT ABOVE 規格全部讀完,寫成這個免費工具。本站不賣任何鑽石,所有計算源碼公開。
+    <strong>BrillianceLab 是一個獨立的免費鑽石光學評分工具,不販售任何珠寶</strong>。本站把 Tolkowsky 1919 的鑽石幾何數學、GIA Facetware 公開公式、AGS Ideal Report 與 Whiteflash A CUT ABOVE® 公開規格實作成瀏覽器端可運行的計算器。所有評分原則完全透明、可被審計、可被質疑。本頁說明本站的設計理念、資料來源與商業模式。
   </aside>
 
   <article id="proseZh" data-pagefind-body data-pagefind-meta="slug:about" class="prose-zh">
 
-<p><strong>BrillianceLab 不是一家珠寶店,是一個工程專案。</strong>我是台灣的皮膚科住院醫師,2024 年初準備求婚時發現:</p>
-
-<ul>
-<li>每家珠寶店都說自己「比 GIA 3EX 更嚴」,但沒人公開具體比例。</li>
-<li>「八心八箭」可以是真有光學對稱性、也可以是純行銷詞,差很多。</li>
-<li>1 克拉 G-VS2 的售價從 NT$15 萬到 NT$50 萬都有,差距高達 3 倍。</li>
-</ul>
-
-<p>我花了 6 個月把以下文件全部讀完:</p>
+<p><strong>BrillianceLab 不是珠寶店,是一個工程與內容專案</strong>。本站把鑽石光學業界長年公開但散落於英文一手文獻中的數學原理與規格,系統化地翻譯、整理、實作為中文使用者可直接操作的工具與深度文章。整個專案的設計遵循三個原則:</p>
 
 <ol>
-<li><strong>GIA Cut Grade Estimation Tables</strong> (2006) — <a href="https://www.gia.edu/doc/booklet_cut_estimation_tables_lowres.pdf" rel="external nofollow noopener" target="_blank">PDF 連結</a></li>
-<li><strong>GIA Facetware 公式</strong>:Crown Height % = 0.5 × (100 − Table%) × tan(Crown Angle)</li>
-<li><strong>AGS Ideal Report</strong> (光線追蹤,2005 後改為 ray-tracing) — <a href="https://www.gia.edu/ags-ideal-report" rel="external nofollow noopener" target="_blank">官方頁</a></li>
-<li><strong>Tolkowsky 1919 原始論文</strong> «Diamond Design» — 21 歲學生用幾何學算出的最佳比例,100 年後仍被沿用</li>
-<li><strong>Whiteflash A CUT ABOVE® 規格</strong> (Table 53-58、Depth 59.5-62、CA 34-35°、PA 40.5-41°、Star 50-55、LGF 75-80) — <a href="https://www.whiteflash.com/a-cut-above-diamonds/specifications-and-qualifications.htm" rel="external nofollow noopener" target="_blank">公開頁</a></li>
-<li><strong>Holloway HCA 演算法</strong> (US Patent 7,251,619,但分級邏輯為公開資訊) — <a href="https://www.pricescope.com/tools/hca" rel="external nofollow noopener" target="_blank">PriceScope 官方版</a></li>
-<li><strong>Brilliant Earth 色階指南</strong> (官方承認 D-F 色肉眼無法分辨) — <a href="https://www.brilliantearth.com/diamond/buying-guide/color/" rel="external nofollow noopener" target="_blank">官方頁</a></li>
+<li><strong>引用一手文獻,不引用銷售話術</strong> — 每個結論都對應 GIA、AGS、Whiteflash 或學術論文的公開出處。</li>
+<li><strong>計算邏輯透明</strong> — 所有評分公式都在文章與程式碼中完整揭露,使用者可以核對每一行。</li>
+<li><strong>商業誘因與內容立場分離</strong> — 本站不販售鑽石,沒有讓使用者「買貴」的動機。</li>
 </ol>
 
-<h2>我不是寶石學家</h2>
-<p>我沒有 GIA Graduate Gemologist (GG) 證照。本站所有結論都基於上述 7 份公開文件的數學推導,不是我的個人鑑定意見。如果你發現任何計算錯誤,<a href="mailto:hello@brilliancelab.dev">直接寫信給我</a> — 我會公開更正並感謝。</p>
+<h2>本站做什麼?</h2>
 
-<h2>本站的商業模式 (透明揭露)</h2>
+<p>核心是<strong>一個瀏覽器端的鑽石光學評分計算器</strong>。輸入鑑定書(GIA / IGI / HRD / AGS)上 4 個數字 — Table %、Depth %、Crown Angle、Pavilion Angle — 計算器會輸出一個 0-100 分的光學分數,判斷這顆鑽石的光學表現位於市場的哪個區間。</p>
+
+<p>圍繞這個工具,本站提供 50 多篇深度文章,涵蓋:</p>
+
+<ul>
+<li>4Cs (Color、Clarity、Cut、Carat) 的數學細節</li>
+<li>GIA / IGI / HRD / AGS 4 大證書的差異與選擇</li>
+<li>八心八箭、HCA 分數、ASET / Idealscope 等切工驗證方法</li>
+<li>台灣鑽戒品牌的價格區間與業務話術破解</li>
+<li>求婚、婚戒、保養、回收的完整流程指南</li>
+</ul>
+
+<h2>計算引擎的設計理念</h2>
+
+<p>本站的評分採用<strong>對稱衰減模型</strong>:對 4 個比例(Table、Depth、Crown Angle、Pavilion Angle)各設定理想中心(對應 Tolkowsky 1919 推導的最佳值),偏離理想越遠扣分越多。其中 <strong>Pavilion Angle 加權最重</strong> — 這對應 Holloway HCA 在 PriceScope 公開的「PA 主導 90% 分數」原則,因為 Pavilion 是鑽石底部反射面,角度偏離 0.5° 就會嚴重漏光。</p>
+
+<p>輸出 4 個子分數:</p>
+<ul>
+<li><strong>Light Return</strong>(光線返回)— 整體亮度</li>
+<li><strong>Fire</strong>(火光)— 彩色閃光</li>
+<li><strong>Scintillation</strong>(閃爍)— 黑白對比動態</li>
+<li><strong>Spread</strong>(視覺尺寸)— 同克拉的面寬</li>
+</ul>
+
+<p>合成後的 0-100 分採五級顯示:Ideal(90+)、Excellent(80-89)、Good(65-79)、Fair(50-64)、Off(<50)。</p>
+
+<h2>資料來源(全為公開一手文獻)</h2>
+
 <table>
-<thead><tr><th>項目</th><th>有 / 沒有</th><th>說明</th></tr></thead>
+<thead><tr><th>來源</th><th>用途</th></tr></thead>
 <tbody>
-<tr><td>賣鑽石</td><td><strong>沒有</strong></td><td>本站完全不販售任何珠寶</td></tr>
-<tr><td>聯盟連結</td><td>有 (規劃中)</td><td>未來可能加入 Whiteflash / James Allen 聯盟,所有連結都會註明 rel="sponsored"</td></tr>
-<tr><td>Google AdSense</td><td>有</td><td>本站運行成本由廣告收入支持。廣告永遠不會擋住計算器互動區</td></tr>
-<tr><td>個人資訊</td><td>不收</td><td>沒有註冊功能,不收 email,計算結果不上傳伺服器</td></tr>
-<tr><td>原始碼</td><td>公開</td><td>計算器原始碼在 GitHub MIT 授權,你可以審計每一行</td></tr>
+<tr><td><a href="https://www.gia.edu/doc/booklet_cut_estimation_tables_lowres.pdf" rel="external nofollow noopener" target="_blank">GIA Cut Grade Estimation Tables (2006 PDF)</a></td><td>Excellent / Very Good / Good 等級的官方比例範圍</td></tr>
+<tr><td>GIA Facetware 公式</td><td>Crown Height % = 0.5 × (100 − Table%) × tan(Crown Angle)<br>Pavilion Depth % = 0.5 × (100 − Culet%) × tan(Pavilion Angle)</td></tr>
+<tr><td><a href="https://www.gia.edu/ags-ideal-report" rel="external nofollow noopener" target="_blank">AGS Ideal Report</a></td><td>2005 年後採 ray-tracing 的 Ideal-0 評定方法論</td></tr>
+<tr><td>Tolkowsky, M. (1919) «Diamond Design»</td><td>圓形明亮車工最佳比例的幾何學原始推導</td></tr>
+<tr><td><a href="https://www.whiteflash.com/a-cut-above-diamonds/specifications-and-qualifications.htm" rel="external nofollow noopener" target="_blank">Whiteflash A CUT ABOVE® Specifications</a></td><td>Super Ideal 等級的具體公開規格(Table 53-58、Depth 59.5-62、CA 34-35°、PA 40.5-41°、Star 50-55、LGF 75-80)</td></tr>
+<tr><td><a href="https://www.pricescope.com/tools/hca" rel="external nofollow noopener" target="_blank">PriceScope HCA Tool</a></td><td>HCA 4 維打分的查表邏輯與分級邊界</td></tr>
+<tr><td><a href="https://www.brilliantearth.com/diamond/buying-guide/color/" rel="external nofollow noopener" target="_blank">Brilliant Earth Color Guide</a></td><td>D-F 色肉眼等同無色的官方說明(交叉驗證 Blue Nile / Tiffany 同論述)</td></tr>
 </tbody>
 </table>
 
-<h2>三層計算引擎的設計</h2>
+<h2>商業模式(完整透明揭露)</h2>
 
-<p>本站的計算器分三層,層層加嚴,讓你看到同一顆鑽石在不同標準下的位置:</p>
-
-<h3>第一層:GIA Excellent 範圍檢查 (寬)</h3>
-<p>Table 52-62%、Depth 57.5-63%、Crown Angle 31.5-36.5°、Pavilion Angle 40.6-41.8° — 任一項出界就不是 GIA EX。約 25% 的市售鑽石達標。</p>
-
-<h3>第二層:HCA 風格 0-10 分打分 (中)</h3>
-<p>對 4 個比例設定理想中心 (PA=40.75°、CA=34.5°、Table=56%、Depth=61%),用高斯衰減算偏離程度,Pavilion Angle 加權 90% (Holloway 公開的權重)。0-2 分為 Excellent、2-4 為 Very Good。</p>
-
-<h3>第三層:Whiteflash A CUT ABOVE® 嚴格篩選 (嚴)</h3>
-<p>Table 53-58、Depth 59.5-62、CA 34-35°、PA 40.5-41°、Star 50-55、LGF 75-80,加上 Polish 與 Symmetry 都是 Excellent — 所有項目同時符合。約 1-2% 的市售鑽石達標。</p>
+<table>
+<thead><tr><th>項目</th><th>有 / 沒有</th><th>說明</th></tr></thead>
+<tbody>
+<tr><td>販售鑽石</td><td><strong>沒有</strong></td><td>本站完全不販售任何珠寶,沒有店面、沒有庫存、沒有銷售業務</td></tr>
+<tr><td>個人化鑑定服務</td><td><strong>沒有</strong></td><td>本站不提供「請幫我看這顆鑽石」的付費諮詢</td></tr>
+<tr><td>Google AdSense</td><td>有</td><td>本站運行成本由廣告收入支持。廣告永遠不會遮擋計算器互動區或文章主體</td></tr>
+<tr><td>聯盟連結</td><td>規劃中</td><td>未來可能加入海外鑽石電商(如 Whiteflash、James Allen)聯盟,所有連結都會以 <code>rel="sponsored"</code> 標示</td></tr>
+<tr><td>使用者資訊</td><td>不收</td><td>沒有註冊功能,計算結果不上傳伺服器,瀏覽資料僅由 Google Analytics / Microsoft Clarity 匿名收集</td></tr>
+<tr><td>email 名單</td><td>不收</td><td>本站沒有電子報,寄信來不會被加入任何名單</td></tr>
+</tbody>
+</table>
 
 <h2>誠實的限制聲明</h2>
 
+<p>本站的工具與內容有以下已知限制,使用者必須了解:</p>
+
 <ul>
-<li><strong>HCA 只看 4 個 facet 平均值</strong> — 但鑽石有 57 個 facet。HCA 不能取代 ASET 或 Idealscope 實體鏡的視覺驗證。</li>
-<li><strong>異形鑽 (橢圓、墊形、公主方等) 至 2026 仍無公認數學分級</strong> — 我們只支援圓形明亮車工。異形鑽要看 ASET 影像。</li>
-<li><strong>本站不是 Tiffany 或 Cartier 的競爭對手</strong> — 我們是「裁判」。所有電商都歡迎被我們引流。</li>
+<li><strong>計算器只看 4 個 facet 平均值</strong> — 鑽石總共有 57 個 facet,計算器無法偵測 painting / digging 等個別 facet 對稱性問題。對最高品質要求的買家,仍需要實體 ASET / Idealscope 鏡的視覺驗證。</li>
+<li><strong>只支援圓形明亮車工(Round Brilliant)</strong> — 異形鑽(橢圓、墊形、公主方、祖母綠等)至 2026 年在學界與業界仍無公認的數學分級方法,本站不對異形鑽輸出評分。</li>
+<li><strong>不評估螢光反應(Fluorescence)</strong> — 螢光對外觀的影響因色階而異,且部分 Strong 螢光鑽會出現「油膩」(milky)效應,需要實體看樣才能判斷。</li>
+<li><strong>不取代專業鑑定書</strong> — 本站的計算器是「事前篩選」工具,不取代 GIA / AGS 的官方鑑定書。</li>
+<li><strong>價格資料為市場觀察</strong> — 本站文章中的「台灣品牌實價」「Dcard / PTT 整理」等內容為公開資訊整理,並非與品牌的合作或代言。</li>
 </ul>
 
-<h2>為什麼皮膚科醫師會做鑽石網站?</h2>
+<h2>本站的定位</h2>
 
-<p>同樣是「寫嚴謹的指南、引用一手研究、避開行銷話術、保護消費者」 — 這是醫療訓練教給我的工作方式。鑽石光學的數學沒有比皮膚癌診斷複雜,我把同樣的方法論搬過來。</p>
+<p>鑽石市場長期存在資訊不對稱:賣方知道專業細節、買方靠直覺與信任做高金額決定。國際上有 PriceScope、Whiteflash、Brian Gavin、Beyond4Cs 等專業教育型站點,但<strong>中文圈完全沒有對應的工具與深度教育資源</strong>。BrillianceLab 的目標就是把這個空白補上。</p>
 
-<p>皮膚科是我的工作,鑽石光學是我的興趣 — 兩件事完全分離。我的醫療執業 (中國醫藥大學附醫皮膚科) 與本站完全無關。本站不提供任何醫療建議,本人也不在站上提供鑽石購買的個人化諮詢服務。</p>
+<p>我們不打算與電商品牌(亞立詩、I-PRIMO、銀座白石、Mabelle、Cartier、Tiffany、James Allen、Blue Nile)競爭 — 本站是<strong>「裁判」而非「球員」</strong>。所有電商都歡迎被本站引流,因為我們提供的是「教使用者如何挑」,而不是「替使用者挑哪一家」。</p>
 
-<h2>聯絡方式</h2>
+<h2>更正與回饋機制</h2>
 
-<p>發現錯誤、建議內容、或單純想討論:<a href="mailto:hello@brilliancelab.dev">hello@brilliancelab.dev</a></p>
+<p>如果你發現本站任何計算錯誤、過時資訊、或論述不準確,<strong>請寫信告訴我們</strong>:<a href="mailto:hello@brilliancelab.dev">hello@brilliancelab.dev</a></p>
 
-<p>本站不收集個人資訊。如果你寄信來,我會看,但不會把你的 email 加入任何名單。</p>
+<p>更正紀錄會在文章底部以時間戳標示。我們相信「會公開更正錯誤」是專業內容站的最高標準。</p>
 
 <h2>致謝</h2>
 
-<p>感謝以下公開資源讓本站成為可能:</p>
+<p>本站的存在仰賴以下公開資源:</p>
 <ul>
-<li><strong>Garry Holloway</strong> — HCA 演算法的發明人,在 PriceScope 公開拆解 PA 主導 90% 權重的邏輯</li>
-<li><strong>Marcel Tolkowsky</strong> — 1919 年 21 歲的 MIT 碩士,用幾何學算出鑽石黃金比例</li>
-<li><strong>Whiteflash 團隊</strong> — 公開 A CUT ABOVE 完整規格,讓我們有具體基準</li>
-<li><strong>GIA 教育部門</strong> — 公開 Cut Estimation Tables PDF,讓計算公式透明</li>
-<li><strong>Brilliant Earth, James Allen, Blue Nile</strong> — 公開的 Buying Guide 提供大量交叉驗證資料</li>
-<li><strong>PriceScope 社群</strong> — 12 萬會員的論壇是中文圈完全沒有對等物的公開知識庫</li>
+<li><strong>Marcel Tolkowsky</strong>(1899-1991)— 1919 年 «Diamond Design» 論文奠定圓形明亮車工的數學基礎</li>
+<li><strong>Garry Holloway</strong> — HCA 演算法的發明人,在 PriceScope 社群公開拆解 Pavilion Angle 主導 90% 權重的邏輯</li>
+<li><strong>Whiteflash 團隊</strong> — 公開 A CUT ABOVE® 完整規格,讓業界有具體可比對的 Super Ideal 基準</li>
+<li><strong>GIA 教育部門</strong> — Cut Grade Estimation Tables 與 Facetware 公式的公開,讓計算邏輯透明</li>
+<li><strong>Brilliant Earth、James Allen、Blue Nile</strong> — 公開的 Buying Guide 提供大量交叉驗證資料</li>
+<li><strong>PriceScope 社群</strong>(12 萬註冊會員、26 萬討論串)— 中文圈目前完全沒有對等物的公開知識庫</li>
 </ul>
+
+<p>這些資源全部公開、免費、無條件 — 本站只是把它們翻譯、整理、組織為中文使用者可直接操作的形式。</p>
 
   </article>
 <div id="proseEn" class="prose-en hidden" data-id="BL_PROSE_EN" data-pagefind-body data-pagefind-meta="slug:about_en" lang="en" style="display:none">
 
 <aside style="margin:0 0 22px;padding:16px 20px;background:linear-gradient(180deg,#fffdf7,#fbf3df);border-left:4px solid #c9a45c;border-radius:8px">
   <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:6px">TL;DR</div>
-  I'm a Taiwan-based dermatology resident. After getting overwhelmed by jeweller jargon while shopping for an engagement ring in 2024, I spent 6 months reading the primary GIA / AGS / Whiteflash documents and built this open-source tool. <strong>BrillianceLab sells nothing</strong> — all calculation source code is on GitHub under MIT license.
+  BrillianceLab is an independent, free diamond optical scoring tool. <strong>We sell nothing.</strong> The site implements public-domain mathematics from Tolkowsky 1919, GIA Facetware formulas, AGS Ideal Report methodology, and the Whiteflash A CUT ABOVE® specification — all in your browser, with logic fully documented in the accompanying articles.
 </aside>
 
 <h2>What this site is</h2>
-<p>BrillianceLab is the first Chinese-language site that runs the public GIA Facetware formulas, the HCA 4-parameter scoring (Holloway 2002), and the Whiteflash A CUT ABOVE® strict filter — all in your browser, with the source code public.</p>
+<p>BrillianceLab is the first Chinese-language site that systematically translates and implements the well-documented but English-only diamond optical research literature. The core is a browser-side calculator: enter four numbers from any GIA / IGI / HRD / AGS report and get a 0-100 optical score with a four-axis breakdown (Light Return, Fire, Scintillation, Spread).</p>
 
 <h2>What this site is NOT</h2>
 <ul>
   <li>Not a jewellery store. We sell nothing.</li>
-  <li>Not a gemological lab. I am not a GIA Graduate Gemologist.</li>
-  <li>Not a substitute for ASET / Idealscope physical inspection.</li>
+  <li>Not a gemological lab. We do not issue grading certificates.</li>
+  <li>Not a substitute for in-person ASET / Idealscope inspection.</li>
+  <li>Not affiliated with any retailer, brand, or laboratory.</li>
 </ul>
 
-<h2>Primary sources cited throughout</h2>
+<h2>Primary sources</h2>
 <ol>
   <li><a href="https://www.gia.edu/doc/booklet_cut_estimation_tables_lowres.pdf" rel="external nofollow noopener" target="_blank">GIA Cut Grade Estimation Tables (2006 PDF)</a></li>
-  <li><a href="https://www.gia.edu/ags-ideal-report" rel="external nofollow noopener" target="_blank">AGS Ideal Report</a></li>
+  <li><a href="https://www.gia.edu/ags-ideal-report" rel="external nofollow noopener" target="_blank">AGS Ideal Report methodology</a></li>
   <li><a href="https://www.whiteflash.com/a-cut-above-diamonds/specifications-and-qualifications.htm" rel="external nofollow noopener" target="_blank">Whiteflash A CUT ABOVE® Specifications</a></li>
   <li><a href="https://www.pricescope.com/tools/hca" rel="external nofollow noopener" target="_blank">PriceScope HCA Tool</a></li>
-  <li><a href="https://www.brilliantearth.com/diamond/buying-guide/color/" rel="external nofollow noopener" target="_blank">Brilliant Earth Color Guide</a> (confirms D-F look identical face-up)</li>
+  <li><a href="https://www.brilliantearth.com/diamond/buying-guide/color/" rel="external nofollow noopener" target="_blank">Brilliant Earth Color Guide</a></li>
+  <li>Tolkowsky, M. (1919). «Diamond Design». E. &amp; F. N. Spon, London.</li>
 </ol>
+
+<h2>Business model (full disclosure)</h2>
+<ul>
+  <li><strong>No jewellery sold.</strong></li>
+  <li><strong>No paid consultation services.</strong></li>
+  <li>Google AdSense supports server costs; ads never block the calculator or article body.</li>
+  <li>Future affiliate links to overseas retailers will be tagged <code>rel="sponsored"</code>.</li>
+  <li>No registration, no email list, no upload of calculation inputs to our servers.</li>
+</ul>
 
 <h2>Honest limitations</h2>
 <ul>
-  <li>HCA averages only 4 facets out of 57. It is a screen, not a verdict.</li>
-  <li>Fancy shapes (oval, cushion, princess) have no consensus mathematical grading as of 2026.</li>
-  <li>Nothing in this site replaces an in-person inspection with ASET or an Idealscope.</li>
+  <li>The calculator averages only 4 of the diamond's 57 facets — it is a screen, not a verdict.</li>
+  <li>Round brilliant only. Fancy shapes (oval, cushion, princess) lack consensus mathematical grading.</li>
+  <li>Fluorescence interaction with body color is not scored — requires in-person assessment.</li>
+  <li>Nothing here replaces an official GIA / AGS grading report.</li>
 </ul>
 
-<h2>Contact</h2>
-<p>Found a calculation error? Have feedback? <a href="mailto:hello@brilliancelab.dev">hello@brilliancelab.dev</a> — I read every email but won't add you to any list.</p>
+<h2>Corrections welcome</h2>
+<p>Found a calculation error or outdated information? <a href="mailto:hello@brilliancelab.dev">hello@brilliancelab.dev</a>. Corrections will be timestamped at article footers. Public, transparent corrections are the highest standard for editorial sites.</p>
 
 </div>
 
