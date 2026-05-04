@@ -560,12 +560,15 @@
       items.push({ id: h.id, text: h.textContent.replace(/¶$/, '').trim(), level: h.tagName === 'H3' ? 3 : 2 });
     });
 
-    // Build the floating TOC (desktop ≥ 1280px) — sits right of the article column.
+    // Build the floating TOC (desktop ≥ 1280px) — sits LEFT of the article column.
+    // Centered article (max-width 820) leaves ~230px gutter at 1280px; TOC takes
+    // 240px including its own padding, leaving a small overlap budget. On wider
+    // viewports it sits cleanly in the gutter.
     const toc = document.createElement('aside');
     toc.id = 'bl-toc';
     toc.setAttribute('role', 'navigation');
     toc.setAttribute('aria-label', '本篇章節目錄 / Table of contents');
-    toc.style.cssText = 'position:fixed;right:24px;top:96px;width:240px;max-height:calc(100vh - 140px);overflow-y:auto;background:rgba(255,253,247,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(201,164,92,.4);border-radius:14px;padding:14px 14px 14px 18px;z-index:30;font-family:Inter,"Microsoft JhengHei",sans-serif;font-size:12.5px;line-height:1.6;box-shadow:0 12px 28px -18px rgba(138,110,48,.4);transition:opacity .25s';
+    toc.style.cssText = 'position:fixed;left:20px;top:96px;width:210px;max-height:calc(100vh - 140px);overflow-y:auto;overscroll-behavior:contain;background:rgba(255,253,247,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(201,164,92,.4);border-radius:14px;padding:14px 12px 14px 16px;z-index:30;font-family:Inter,"Microsoft JhengHei",sans-serif;font-size:12.5px;line-height:1.55;box-shadow:0 12px 28px -18px rgba(138,110,48,.4);transition:opacity .25s;scrollbar-width:thin;scrollbar-color:rgba(201,164,92,.4) transparent';
     let html = '<div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a6e30;font-weight:700;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(201,164,92,.25)">本篇導覽</div><ol style="list-style:none;padding:0;margin:0">';
     items.forEach((it, i) => {
       html += `<li style="margin:${it.level === 3 ? '2px 0 2px 14px' : '4px 0'}"><a data-toc-id="${it.id}" href="#${it.id}" style="display:block;padding:4px 8px;border-radius:6px;color:#4a4d5e;text-decoration:none;border-left:2px solid transparent;${it.level === 3 ? 'font-size:11.5px;color:#7e8194;' : ''}">${it.text}</a></li>`;
@@ -577,7 +580,12 @@
     if (!document.getElementById('bl-toc-style')) {
       const st = document.createElement('style');
       st.id = 'bl-toc-style';
-      st.textContent = '@media (max-width:1279px){#bl-toc{display:none!important}}#bl-toc a:hover{background:rgba(251,243,223,.6);color:#5e4a1f}#bl-toc a[data-active="1"]{background:#fbf3df;color:#5e4a1f;border-left-color:#c9a45c!important;font-weight:600}';
+      // Math: article max-width 820px + 24px main padding both sides + 20px
+      // gutter + 210px TOC + 16px between TOC & article = 1110px minimum.
+      // Use 1280px to keep clear visual breathing room and avoid edge cases
+      // (scrollbar, zoom). Below 1280px the TOC hides completely; the
+      // existing inline H2 anchors still work via the address bar / share menu.
+      st.textContent = '@media (max-width:1279px){#bl-toc{display:none!important}}#bl-toc a:hover{background:rgba(251,243,223,.6);color:#5e4a1f}#bl-toc a[data-active="1"]{background:#fbf3df;color:#5e4a1f;border-left-color:#c9a45c!important;font-weight:600}#bl-toc::-webkit-scrollbar{width:5px}#bl-toc::-webkit-scrollbar-thumb{background:rgba(201,164,92,.4);border-radius:3px}';
       document.head.appendChild(st);
     }
     document.body.appendChild(toc);
@@ -591,7 +599,24 @@
         if (active === id) return;
         if (active && linkMap[active]) linkMap[active].removeAttribute('data-active');
         active = id;
-        if (id && linkMap[id]) linkMap[id].setAttribute('data-active', '1');
+        if (!id || !linkMap[id]) return;
+        const link = linkMap[id];
+        link.setAttribute('data-active', '1');
+        // Auto-scroll the TOC's own scroll container (NOT the page) so the
+        // active item stays visible. We compute the link's position within
+        // the TOC and scroll only when it's outside the visible band.
+        // Avoid scrollIntoView({block:'nearest'}) — some browsers walk up to
+        // the page scroller and bump the user's reading position.
+        const linkTop    = link.offsetTop;
+        const linkBottom = linkTop + link.offsetHeight;
+        const tocScroll  = toc.scrollTop;
+        const tocHeight  = toc.clientHeight;
+        const margin = 24;  // keep 24px breathing room top/bottom
+        if (linkTop < tocScroll + margin) {
+          toc.scrollTo({ top: Math.max(0, linkTop - margin), behavior: 'smooth' });
+        } else if (linkBottom > tocScroll + tocHeight - margin) {
+          toc.scrollTo({ top: linkBottom - tocHeight + margin, behavior: 'smooth' });
+        }
       };
       const io = new IntersectionObserver((entries) => {
         // Pick the topmost intersecting heading
@@ -600,6 +625,23 @@
       }, { rootMargin: '-20% 0px -65% 0px' });
       heads.forEach(h => io.observe(h));
     }
+
+    // Smooth-scroll on TOC click, with offset for the sticky page header
+    // (~64px). Default browser scroll-to-anchor would land the heading
+    // hidden behind the header.
+    toc.addEventListener('click', (ev) => {
+      const a = ev.target.closest('a[data-toc-id]');
+      if (!a) return;
+      const id = a.dataset.tocId;
+      const target = document.getElementById(id);
+      if (!target) return;
+      ev.preventDefault();
+      const headerOffset = 84;  // sticky header height + breathing room
+      const top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      // Update URL hash without triggering re-scroll
+      if (history.pushState) history.pushState(null, '', '#' + id);
+    });
 
     // Insert ItemList JSON-LD for the TOC (helps Google's "Jump to" rich result)
     if (items.length >= 4 && !document.getElementById('bl-toc-jsonld')) {
