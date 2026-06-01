@@ -134,3 +134,4 @@ Disallow: /
 # ──────────────────────────────────────────────
 
 Sitemap: https://brilliancelab.vercel.app/sitemap.xml
+Sitemap: https://brilliancelab.vercel.app/og-sitemap.xml
